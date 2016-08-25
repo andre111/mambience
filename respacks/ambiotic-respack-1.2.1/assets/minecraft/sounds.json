@@ -1,0 +1,250 @@
+{
+    "animals.day_fade_frog_bird_mix": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "animals/day_fade_frog_bird_mix1", 
+                "stream": true
+            }, 
+            {
+                "name": "animals/day_fade_frog_bird_mix2", 
+                "stream": true
+            }, 
+            {
+                "name": "animals/day_fade_frog_bird_mix3", 
+                "stream": true
+            }, 
+            {
+                "name": "animals/day_fade_frog_bird_mix4", 
+                "stream": true
+            }
+        ]
+    }, 
+    "animals.day_inst_bird_chatter": {
+        "category": "ambient", 
+        "sounds": [
+            "animals/day_inst_bird_chatter1", 
+            "animals/day_inst_bird_chatter2", 
+            "animals/day_inst_bird_chatter3", 
+            "animals/day_inst_bird_chatter4", 
+            "animals/day_inst_bird_chatter5", 
+            "animals/day_inst_bird_chatter6"
+        ]
+    }, 
+    "animals.day_inst_bird_squeek": {
+        "category": "ambient", 
+        "sounds": [
+            "animals/day_inst_bird_squeek1", 
+            "animals/day_inst_bird_squeek2", 
+            "animals/day_inst_bird_squeek3"
+        ]
+    }, 
+    "animals.day_inst_crow": {
+        "category": "ambient", 
+        "sounds": [
+            "animals/day_inst_crow1", 
+            "animals/day_inst_crow2"
+        ]
+    }, 
+    "animals.day_inst_seagulls": {
+        "category": "ambient", 
+        "sounds": [
+            "animals/day_inst_seagulls1", 
+            "animals/day_inst_seagulls10", 
+            "animals/day_inst_seagulls11", 
+            "animals/day_inst_seagulls12", 
+            "animals/day_inst_seagulls13", 
+            "animals/day_inst_seagulls2", 
+            "animals/day_inst_seagulls3", 
+            "animals/day_inst_seagulls4", 
+            "animals/day_inst_seagulls5", 
+            "animals/day_inst_seagulls6", 
+            "animals/day_inst_seagulls7", 
+            "animals/day_inst_seagulls8", 
+            "animals/day_inst_seagulls9"
+        ]
+    }, 
+    "animals.night_fade_frog": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "animals/night_fade_frog1", 
+                "stream": true
+            }, 
+            {
+                "name": "animals/night_fade_frog2", 
+                "stream": true
+            }, 
+            {
+                "name": "animals/night_fade_frog3", 
+                "stream": true
+            }, 
+            {
+                "name": "animals/night_fade_frog4", 
+                "stream": true
+            }
+        ]
+    }, 
+    "animals.night_inst_bird_hoot": {
+        "category": "ambient", 
+        "sounds": [
+            "animals/night_inst_bird_hoot1", 
+            "animals/night_inst_bird_hoot2", 
+            "animals/night_inst_bird_hoot3", 
+            "animals/night_inst_bird_hoot4", 
+            "animals/night_inst_bird_hoot5", 
+            "animals/night_inst_bird_hoot7", 
+            "animals/night_inst_bird_hoot8", 
+            "animals/night_inst_bird_hoot9"
+        ]
+    }, 
+    "bkgs.beach_waves_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/beach_waves_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bkgs.bird_song_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/bird_song_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bkgs.cave_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/cave_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bkgs.conifer_wind_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/conifer_wind_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bkgs.day_bugs_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/day_bugs_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bkgs.day_jungle_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/day_jungle_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bkgs.inst_rain_loop": {
+        "category": "ambient", 
+        "sounds": [
+            "bkgs/inst_rain_loop"
+        ]
+    }, 
+    "bkgs.inst_water_underwater_loop": {
+        "category": "ambient", 
+        "sounds": [
+            "bkgs/inst_water_underwater_loop"
+        ]
+    }, 
+    "bkgs.inst_whistle_wind_loop": {
+        "category": "ambient", 
+        "sounds": [
+            "bkgs/inst_whistle_wind_loop"
+        ]
+    }, 
+    "bkgs.lake_river_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/lake_river_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bkgs.night_bugs_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/night_bugs_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bkgs.night_jungle_loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bkgs/night_jungle_loop", 
+                "stream": true
+            }
+        ]
+    }, 
+    "bugs.day_hot_biome_bug": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "bugs/day_hot_biome_bug1", 
+                "stream": true
+            }, 
+            {
+                "name": "bugs/day_hot_biome_bug2", 
+                "stream": true
+            }, 
+            {
+                "name": "bugs/day_hot_biome_bug3", 
+                "stream": true
+            }, 
+            {
+                "name": "bugs/day_hot_biome_bug4", 
+                "stream": true
+            }, 
+            {
+                "name": "bugs/day_hot_biome_bug5", 
+                "stream": true
+            }
+        ]
+    }, 
+    "misc.wind_leaves": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "misc/wind_leaves1", 
+                "stream": true
+            }, 
+            {
+                "name": "misc/wind_leaves2", 
+                "stream": true
+            }, 
+            {
+                "name": "misc/wind_leaves3", 
+                "stream": true
+            }, 
+            {
+                "name": "misc/wind_leaves4", 
+                "stream": true
+            }, 
+            {
+                "name": "misc/wind_leaves5", 
+                "stream": true
+            }
+        ]
+    }
+}

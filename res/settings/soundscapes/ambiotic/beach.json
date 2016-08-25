@@ -1,0 +1,10 @@
+[
+    {
+        "Name": "DaySeagulls",
+        "Sound": "minecraft:animals.day_inst_seagulls",
+        "Conditions": "#Salinity# >= 0.2 && #IsDay#",
+        "Restrictions": "#UnderGround# || Player.Submerged",
+        "Volume": "0.3*#Muffle#",
+        "Cooldown": "10 + Math.random() * 15"
+    }
+]

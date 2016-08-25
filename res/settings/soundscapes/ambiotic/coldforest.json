@@ -1,0 +1,10 @@
+[
+    {
+        "Name": "ConifersWind",
+        "Sound": "minecraft:bkgs.conifer_wind_loop",
+        "Conditions": "#IsConiferous#",
+        "Restrictions": "#UnderGround# || Player.Submerged",
+        "Volume": "0.35*#Muffle#",
+        "Cooldown": "165"
+    }
+]

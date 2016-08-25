@@ -1,0 +1,9 @@
+[
+	{
+        "Name" : "EndLoop",
+        "Sound" : "minecraft:end.loop",
+        "Conditions" : "#IsEnd#",
+        "Volume" : "100",
+        "Cooldown" : "7"
+    }
+]

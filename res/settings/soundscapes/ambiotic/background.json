@@ -1,0 +1,37 @@
+[
+	{
+        "Name": "BkgCaves",
+        "Sound": "minecraft:bkgs.cave_loop",
+        "Conditions": "#UnderGround# && !Player.IsExposed",
+        "Restrictions": "Player.Submerged",
+        "Volume": "100",
+        "Cooldown": "84"
+    },
+    
+    {
+        "Name": "DayBkgGrassBugs",
+        "Sound": "minecraft:bkgs.day_bugs_loop",
+        "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && #IsDay# && #BugPlants#",
+        "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
+        "Volume": "100",
+        "Cooldown": "60 + Math.random()*60"
+    },
+    
+    {
+        "Name": "NightBkgGrassBugs",
+        "Sound": "minecraft:bkgs.night_bugs_loop",
+        "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && #BugPlants#",
+        "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsDay# || #IsJungle# || World.IsRaining",
+        "Volume": "100",
+        "Cooldown": "60 + Math.random()*60"
+    },
+    
+    {
+        "Name": "HighWind",
+        "Sound": "minecraft:bkgs.inst_whistle_wind_loop",
+        "Conditions": "Player.Y >= 100",
+        "Restrictions": "#UnderGround# || Player.Submerged",
+        "Volume": "Math.min(Math.max((Player.Y - 60)/193 - .20, 0.0), 2.0) * #Muffle#;",
+        "Cooldown": "10"
+    }
+]

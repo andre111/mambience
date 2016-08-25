@@ -1,0 +1,10 @@
+[
+    {
+        "Name" : "Cicadas1",
+        "Sound" : "minecraft:bugs.day_hot_biome_bug",
+        "Conditions" : "Scanner.AverageTemperature >= 0.97 && #BugPlants# && #IsDay# && #IsSavanna#",
+        "Restrictions" : "#UnderGround# || Player.Submerged || #Salinity# >= 0.1",
+        "Volume" : "0.15*#Muffle#",
+        "Cooldown" : "15 + Math.random()*15"
+    }
+]

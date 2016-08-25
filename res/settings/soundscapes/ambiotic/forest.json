@@ -1,0 +1,57 @@
+[
+	{
+        "Name": "DenseBirdSong",
+        "Sound": "minecraft:bkgs.bird_song_loop",
+        "Conditions": "#Trees# && Scanner.AverageTemperature >= 0.28 && Scanner.AverageTemperature <= 0.78 && #IsDay#",
+        "Restrictions": "#UnderGround# || Player.Submerged || #IsJungle# || #IsConiferous# || World.IsRaining",
+        "Volume": "100",
+        "Cooldown": "120"
+    },
+    
+    {
+        "Name": "NightBirds",
+        "Sound": "minecraft:animals.night_inst_bird_hoot",
+        "Conditions": "#Trees# && Scanner.AverageTemperature <= 0.78",
+        "Restrictions": "#UnderGround# || Player.Submerged || #IsDay# || #IsJungle# || World.IsRaining",
+        "Volume": "0.2*#Muffle#",
+        "Cooldown": "25 + Math.random()*25"
+    },
+    
+    {
+        "Name": "DayBirds1",
+        "Sound": "minecraft:animals.day_inst_bird_squeek",
+        "Conditions": "#Trees# && Scanner.AverageTemperature <= 0.78 && #IsDay#",
+        "Restrictions": "#UnderGround# || Player.Submerged || #IsJungle# || World.IsRaining",
+        "Volume": "1.0*#Muffle#",
+        "Pitch": "0.80 + Math.random() * 0.30",
+        "Cooldown": "25 + Math.random()*25"
+    },
+    
+    {
+        "Name": "DayBirds2",
+        "Sound": "minecraft:animals.day_inst_bird_chatter",
+        "Conditions": "#Trees# && Scanner.AverageTemperature <= 0.78 && #IsDay#",
+        "Restrictions": "#UnderGround# || Player.Submerged || #IsJungle# || World.IsRaining",
+        "Volume": "1.0*#Muffle#",
+        "Cooldown": "25 + Math.random()*25"
+    },
+    
+    {
+        "Name": "LeaveWind1",
+        "Type": "Instant",
+        "Sound": "minecraft:misc.wind_leaves",
+        "Conditions": "#Trees# && Scanner.AverageTemperature <= 0.78",
+        "Restrictions": "#UnderGround# || Player.Submerged || #IsJungle# || #IsConiferous# || World.IsRaining",
+        "Volume": "0.1*#Muffle#",
+        "Cooldown": "20 + Math.random()"
+    },
+    
+    {
+        "Name": "LeaveWind2",
+        "Sound": "minecraft:misc.wind_leaves",
+        "Conditions": "#Trees# && Scanner.AverageTemperature <= 0.78",
+        "Restrictions": "#UnderGround# || Player.Submerged || #IsJungle# || #IsConiferous# || World.IsRaining",
+        "Volume": "0.2*#Muffle#",
+        "Cooldown": "40 + Math.random()*4"
+    }
+]
