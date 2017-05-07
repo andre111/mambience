@@ -2,31 +2,32 @@ package me.andre111.mambience.sound;
 
 import java.util.ArrayList;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.entity.Player;
-
-import me.andre111.mambience.MAPlayer;
 import me.andre111.mambience.config.EngineConfig;
+import me.andre111.mambience.player.MAPlayer;
 import me.andre111.mambience.script.MAScriptEngine;
 import me.andre111.mambience.script.MAScripting;
 
 public class Soundscape {
 	private ArrayList<SoundInfo> sounds = new ArrayList<SoundInfo>();
+	private boolean initialised = false;
 	
 	public void init(MAPlayer maplayer) {
+		//TODO: Maybe make compiling asnyc?
 		MAScriptEngine se = maplayer.getScriptEngine();
 		
 		for(SoundInfo si : sounds) {
 			si.init(se);
 			startCooldown(maplayer, se, si);
 		}
+		
+		initialised = true;
 	}
 	
 	public void update(MAPlayer maplayer) {
+		//Wait for compile to finish because update is async
+		if(!initialised) return;
+		
 		MAScriptEngine se = maplayer.getScriptEngine();
-		Player player = Bukkit.getPlayer(maplayer.getPlayerUUID());
-		Location location = player.getLocation();
 		//TODO: offset location to make sound "mono", not positioned at a certain spot in the world, e.g. y + 5000
 		
 		for(SoundInfo si : sounds) {
@@ -36,7 +37,7 @@ public class Soundscape {
 					float pitch = ((Number) se.evalJS(si.getPitch())).floatValue();
 					
 					System.out.println("Play sound "+si.getSound());
-					player.playSound(location, si.getSound(), volume, pitch);
+					maplayer.playSound(si.getSound(), volume, pitch);
 					
 					//sadly you cannot fade sounds in and out
 					
@@ -47,7 +48,7 @@ public class Soundscape {
 				//      for now disabled with config option to reenable, sound stopping without fadeout is just to abrupt
 				if(EngineConfig.STOPSOUNDS) {
 					System.out.println("Stop sound "+si.getSound());
-					player.stopSound(si.getSound());
+					maplayer.stopSound(si.getSound());
 					resetCooldown(maplayer, si);
 				}
 			}

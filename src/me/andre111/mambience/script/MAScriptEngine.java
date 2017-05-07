@@ -8,14 +8,14 @@ import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
 
-import me.andre111.mambience.MAmbience;
+import me.andre111.mambience.MALogger;
 
 public class MAScriptEngine {
-	private MAmbience plugin;
+	private MALogger logger;
 	private ScriptEngine scriptEngine;
 	
-	protected MAScriptEngine(MAmbience p, ScriptEngine se) {
-		plugin = p;
+	protected MAScriptEngine(MALogger l, ScriptEngine se) {
+		logger = l;
 		scriptEngine = se;
 	}
 	
@@ -23,7 +23,7 @@ public class MAScriptEngine {
         try {
             return scriptEngine.eval(js);
         } catch (ScriptException ex) {
-            plugin.error("Script failed\n" + js + "\n" + ex.getMessage());
+        	logger.error("Script failed\n" + js + "\n" + ex.getMessage());
         }
         
         return null;
@@ -36,7 +36,7 @@ public class MAScriptEngine {
 			script.eval(scriptEngine.getBindings(ScriptContext.ENGINE_SCOPE));
 			return script;
 		} catch (ScriptException ex) {
-			plugin.error("Script compilation failed\n" + js + "\n" + ex.getMessage());
+			logger.error("Script compilation failed\n" + js + "\n" + ex.getMessage());
 		}
 		
 		return null;
@@ -46,7 +46,7 @@ public class MAScriptEngine {
 		try {
 			return invocable.invokeFunction(name);
 		} catch (NoSuchMethodException | ScriptException ex) {
-			plugin.error("Function invoke failed\n" + name + "\n" + ex.getMessage());
+			logger.error("Function invoke failed\n" + name + "\n" + ex.getMessage());
 		}
 		
 		return null;

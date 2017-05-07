@@ -2,7 +2,7 @@ package me.andre111.mambience.sound;
 
 import java.util.ArrayList;
 
-import me.andre111.mambience.MAPlayer;
+import me.andre111.mambience.player.MAPlayer;
 
 public class Soundscapes {
 	private static ArrayList<Soundscape> scapes = new ArrayList<Soundscape>();

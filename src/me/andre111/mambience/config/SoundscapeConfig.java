@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
-import me.andre111.mambience.MAmbience;
+import me.andre111.mambience.MALogger;
 import me.andre111.mambience.sound.Soundscape;
 import me.andre111.mambience.sound.Soundscape.SoundInfo;
 import me.andre111.mambience.sound.Soundscapes;
@@ -16,7 +16,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
 
 public class SoundscapeConfig {
-	public static void loadSoundscape(MAmbience plugin, File file) {
+	public static void loadSoundscape(MALogger logger, File file) {
 		JsonParser parser = new JsonParser();
 		Soundscape scape = new Soundscape();
 		
@@ -27,7 +27,7 @@ public class SoundscapeConfig {
 				loadSound(scape, soundscapeElement.get(i).getAsJsonObject());
 			}
 		} catch (JsonIOException | JsonSyntaxException | FileNotFoundException e) {
-			plugin.error("Exception reading soundscape config: "+file.getAbsolutePath()+": "+e);
+			logger.error("Exception reading soundscape config: "+file.getAbsolutePath()+": "+e);
 		}
 		
 		Soundscapes.addSoundscape(scape);

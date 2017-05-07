@@ -46,7 +46,7 @@
     {
         "Name": "HellSoulsand",
         "Sound": "minecraft:hell.soulsand",
-        "Conditions": "#IsHell# && (SoulsandBlocks/Scanner.BlockSize >= 0.03)",
+        "Conditions": "#IsHell# && (SoulsandBlocks/Scanner.BlockSize >= 0.0175)",
         "Volume": "100",
         "Cooldown": "7"
     },

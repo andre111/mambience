@@ -42,68 +42,68 @@
 			"Name": "FoliageBlocks",
 			"Type": "BlockCount",
 			"Materials": [
-				"LEAVES",
-				"LEAVES_2",
-				"LOG",
-				"LOG_2"
+				"minecraft:leaves",
+				"minecraft:leaves2",
+				"minecraft:log",
+				"minecraft:log2"
 			]
 		},
 		{
 			"Name": "GrassBlocks",
 			"Type": "BlockCount",
 			"Materials": [
-				"GRASS",
-				"DOUBLE_PLANT",
-				"YELLOW_FLOWER",
-				"RED_ROSE"
+				"minecraft:grass",
+				"minecraft:double_plant",
+				"minecraft:yellow_flower",
+				"minecraft:red_flower"
 			]
 		},
 		{
 			"Name": "ColdBlocks",
 			"Type": "BlockCount",
 			"Materials": [
-				"SNOW",
-				"SNOW_BLOCK",
-				"ICE",
-				"PACKED_ICE"
+				"minecraft:snow_layer",
+				"minecraft:snow",
+				"minecraft:ice",
+				"minecraft:packed_ice"
 			]
 		},
 		{
 			"Name": "AirBlocks",
 			"Type": "BlockCount",
 			"Materials": [
-				"AIR"
+				"minecraft:air"
 			]
 		},
 		{
 			"Name": "WaterBlocks",
 			"Type": "BlockCount",
 			"Materials": [
-				"WATER",
-				"STATIONARY_WATER"
+				"minecraft:flowing_water",
+				"minecraft:water"
 			]
 		},
 		{
 			"Name": "LavaBlocks",
 			"Type": "BlockCount",
 			"Materials": [
-				"LAVA",
-				"STATIONARY_LAVA"
+				"minecraft:flowing_lava",
+				"minecraft:lava"
 			]
 		},
 		{
 			"Name": "IceBlocks",
 			"Type": "BlockCount",
 			"Materials": [
-				"ICE",
-				"PACKED_ICE"
+				"minecraft:ice",
+				"minecraft:packed_ice"
 			]
 		},
 		{
 			"Name": "SoulsandBlocks",
 			"Type": "BlockCount",
 			"Materials": [
-				"SOUL_SAND"
+				"minecraft:soul_sand"
 			]
 		},
 		
@@ -111,92 +111,92 @@
 			"Name": "JungleBiomes",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"JUNGLE",
-				"JUNGLE_EDGE",
-				"JUNGLE_HILLS",
-				"MUTATED_JUNGLE",
-                "MUTATED_JUNGLE_EDGE"
+				"minecraft:jungle",
+				"minecraft:jungle_edge",
+				"minecraft:jungle_hills",
+				"minecraft:mutated_jungle",
+                "minecraft:mutated_jungle_edge"
 			]
 		},
 		{
 			"Name": "ConiferousBiomes",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"TAIGA_COLD",
-				"TAIGA_COLD_HILLS",
-				"MUTATED_TAIGA_COLD",
-				"REDWOOD_TAIGA",
-				"REDWOOD_TAIGA_HILLS",
-				"MUTATED_REDWOOD_TAIGA",
-				"MUTATED_REDWOOD_TAIGA_HILLS",
-				"TAIGA",
-				"TAIGA_HILLS",
-				"MUTATED_TAIGA"
+				"minecraft:taiga_cold",
+				"minecraft:taiga_cold_hills",
+				"minecraft:mutated_taiga_cold",
+				"minecraft:redwood_taiga",
+				"minecraft:redwood_taiga_hills",
+				"minecraft:mutated_redwood_taiga",
+				"minecraft:mutated_redwood_taiga_hills",
+				"minecraft:taiga",
+				"minecraft:taiga_hills",
+				"minecraft:mutated_taiga"
 			]
 		},
 		{
 			"Name": "SavannaBiomes",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"DESERT",
-				"DESERT_HILLS",
-				"MUTATED_DESERT",
-				"SAVANNA",
-				"MUTATED_SAVANNA",
-				"SAVANNA_ROCK",
-				"MUTATED_SAVANNA_ROCK",
-				"MESA",
-				"MESA_CLEAR_ROCK",
-				"MESA_ROCK",
-				"MUTATED_MESA",
-				"MUTATED_MESA_CLEAR_ROCK",
-				"MUTATED_MESA_ROCK"
+				"minecraft:desert",
+				"minecraft:desert_hills",
+				"minecraft:mutated_desert",
+				"minecraft:savanna",
+				"minecraft:mutated_savanna",
+				"minecraft:savanna_rock",
+				"minecraft:mutated_savanna_rock",
+				"minecraft:mesa",
+				"minecraft:mesa_clear_rock",
+				"minecraft:mesa_rock",
+				"minecraft:mutated_mesa",
+				"minecraft:mutated_mesa_clear_rock",
+				"minecraft:mutated_mesa_rock"
 			]
 		},
 		{
 			"Name": "SwampBiomes",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"SWAMPLAND",
-				"MUTATED_SWAMPLAND"
+				"minecraft:swampland",
+				"minecraft:mutated_swampland"
 			]
 		},
 		{
 			"Name": "OceanBiomes",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"OCEAN",
-				"DEEP_OCEAN",
-				"BEACHES",
-				"STONE_BEACH"
+				"minecraft:ocean",
+				"minecraft:deep_ocean",
+				"minecraft:beaches",
+				"minecraft:stone_beach"
 			]
 		},
 		{
 			"Name": "ColdBiomes",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"COLD_BEACH",
-				"TAIGA_COLD",
-				"TAIGA_COLD_HILLS",
-				"MUTATED_TAIGA_COLD",
-				"FROZEN_OCEAN",
-				"ICE_MOUNTAINS",
-				"ICE_FLATS",
-				"MUTATED_ICE_FLATS"
+				"minecraft:cold_beach",
+				"minecraft:taiga_cold",
+				"minecraft:taiga_cold_hills",
+				"minecraft:mutated_taiga_cold",
+				"minecraft:frozen_ocean",
+				"minecraft:ice_mountains",
+				"minecraft:ice_flats",
+				"minecraft:mutated_ice_flats"
 			]
 		},
 		{
 			"Name": "HellBiome",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"HELL"
+				"minecraft:hell"
 			]
 		},
 		{
 			"Name": "EndBiome",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"SKY"
+				"minecraft:sky"
 			]
 		}
 	],
@@ -230,7 +230,7 @@
         
         {
             "Name": "UnderGround",
-            "Code": "(Player.Y < 65 && Scanner.AverageSkyLight <= 0.5 /*&& !Player.IsExposed*/)"
+            "Code": "(Player.Y < 65 && Scanner.AverageSkyLight <= 0.4 /*&& !Player.IsExposed*/)"
         },
         {
             "Name": "Muffle",
