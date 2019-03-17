@@ -4,3 +4,5 @@ version: 0.4.0
 website: http://dvz.bplaced.net/
 author: andre111
 description: Adding ambient sounds to Minecraft
+
+api-version: 1.13

@@ -8,6 +8,7 @@
     "me.andre111.mambience.MAmbienceFabric"
   ],
   "requires": {
+  	"fabric": "*"
   },
   "mixins": {
     "common": "me.andre111.mambience.fabric.mixin.json"

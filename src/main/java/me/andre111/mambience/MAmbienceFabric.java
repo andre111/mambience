@@ -36,7 +36,6 @@ public class MAmbienceFabric implements ModInitializer {
 				if(DISPLAY_LOGS) {
 					LOGGER.info(s);
 				}
-				System.out.println(s);
 			}
 
 			@Override
