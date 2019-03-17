@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "me.andre111.mambience.fabric.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinPlayerManager"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

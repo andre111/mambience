@@ -1,2 +1,28 @@
-lib/BuildTools/
-test/
+# gradle
+
+.gradle/
+build/
+out/
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# fabric
+
+run/
+
+# mod (resource pack can easily be recreated by packaging src/main/resources/assets/ content)
+
+respacks/

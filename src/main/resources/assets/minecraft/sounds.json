@@ -1,0 +1,816 @@
+{
+    "cave.cave": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/cave/cave1", 
+            "ambient/cave/cave2", 
+            "ambient/cave/cave3", 
+            "ambient/cave/cave4", 
+            "ambient/cave/cave5", 
+            "ambient/cave/cave6",
+            "ambient/cave/cave7",
+            "ambient/cave/cave8",
+            "ambient/cave/cave9",
+            "ambient/cave/cavea",
+            "ambient/cave/caveb",
+            "ambient/cave/cavec",
+            "ambient/cave/caved"
+        ]
+    }, 
+	"cave.lava": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/cave/lava1", 
+            "ambient/cave/lava2", 
+            "ambient/cave/lava3"
+        ]
+    }, 
+	"cave.vent": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/cave/vent_canyon1", 
+            "ambient/cave/vent_canyon2", 
+            "ambient/cave/vent_canyon3"
+        ]
+    }, 
+	"cave.wind": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/cave/wind1", 
+            "ambient/cave/wind2"
+        ]
+    }, 
+	"cave.wood": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/cave/wood1", 
+            "ambient/cave/wood2", 
+            "ambient/cave/wood3", 
+            "ambient/cave/wood4", 
+            "ambient/cave/wood5", 
+            "ambient/cave/wood6",
+            "ambient/cave/wood7",
+            "ambient/cave/wood8",
+            "ambient/cave/wood9",
+            "ambient/cave/wooda",
+            "ambient/cave/woodb",
+            "ambient/cave/woodc"
+        ]
+    }, 
+	
+	"desert.cicada": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/desert/cicada2", 
+            "ambient/desert/cicada1", 
+            "ambient/desert/cicada3", 
+            "ambient/desert/cicada4", 
+            "ambient/desert/cicada5"
+        ]
+    }, 
+	"desert.day": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/desert/day1", 
+            "ambient/desert/day2", 
+            "ambient/desert/day3", 
+            "ambient/desert/day4", 
+            "ambient/desert/day5",
+            "ambient/desert/day6"
+        ]
+    }, 
+	"desert.night": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/desert/night1", 
+            "ambient/desert/night2", 
+            "ambient/desert/night3", 
+            "ambient/desert/night4", 
+            "ambient/desert/night5",
+            "ambient/desert/night6",
+            "ambient/desert/night7"
+        ]
+    }, 
+	
+	"end.dragon": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/end/dragon1", 
+            "ambient/end/dragon2", 
+            "ambient/end/dragon3", 
+            "ambient/end/dragon4", 
+            "ambient/end/dragon5",
+            "ambient/end/dragon6",
+            "ambient/end/dragon7",
+            "ambient/end/dragon8",
+            "ambient/end/dragon9"
+        ]
+    },
+	"end.loop": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/end/loop1", 
+            "ambient/end/loop2", 
+            "ambient/end/loop3", 
+            "ambient/end/loop4", 
+            "ambient/end/loop5",
+            "ambient/end/loop6",
+            "ambient/end/loop7",
+            "ambient/end/loop8"
+        ]
+    },
+	
+	"forest.cuckoo": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/forest/cuckoo"
+        ]
+    },
+	"forest.evening": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/forest/evening1",
+            "ambient/forest/evening2",
+            "ambient/forest/evening3",
+            "ambient/forest/evening4",
+            "ambient/forest/evening5",
+            "ambient/forest/evening6"
+        ]
+    },
+	"forest.day": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/forest/day1",
+            "ambient/forest/day2",
+            "ambient/forest/day3",
+            "ambient/forest/day4",
+            "ambient/forest/day5",
+            "ambient/forest/day6",
+            "ambient/forest/day7",
+            "ambient/forest/day8",
+            "ambient/forest/day9",
+            "ambient/forest/daya"
+        ]
+    },
+	"forest.morning": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/forest/morning1",
+            "ambient/forest/morning2",
+            "ambient/forest/morning3",
+            "ambient/forest/morning4",
+            "ambient/forest/morning5",
+            "ambient/forest/morning6",
+            "ambient/forest/morning7",
+            "ambient/forest/morning8"
+        ]
+    },
+	"forest.night": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/forest/night1",
+            "ambient/forest/night2",
+            "ambient/forest/night3",
+            "ambient/forest/night4",
+            "ambient/forest/night5",
+            "ambient/forest/night6"
+        ]
+    },
+	"forest.woodpecker": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/forest/woodpecker"
+        ]
+    },
+	"forest.wind": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/forest/wind1",
+            "ambient/forest/wind2",
+            "ambient/forest/wind3",
+            "ambient/forest/wind4",
+            "ambient/forest/wind5"
+        ]
+    },
+	
+	"hell.explode": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/expl1",
+            "ambient/hell/expl2",
+            "ambient/hell/expl3",
+            "ambient/hell/expl4",
+            "ambient/hell/expl5",
+            "ambient/hell/expl6",
+            "ambient/hell/expl7"
+        ]
+    },
+	"hell.heartbeat": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/heartbeat"
+        ]
+    },
+	"hell.fx1": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/hellp1",
+            "ambient/hell/hellp2",
+            "ambient/hell/hellp3",
+            "ambient/hell/hellp4",
+            "ambient/hell/hellp5",
+            "ambient/hell/hellp6",
+            "ambient/hell/hellp7"
+        ]
+    },
+	"hell.fx2": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/hellx1",
+            "ambient/hell/hellx2",
+            "ambient/hell/hellx3",
+            "ambient/hell/hellx4",
+            "ambient/hell/hellx5",
+            "ambient/hell/hellx6"
+        ]
+    },
+	"hell.soulsand": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/soul1",
+            "ambient/hell/soul2",
+            "ambient/hell/soul3",
+            "ambient/hell/soul4"
+        ]
+    },
+	"hell.laugher": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/laugher"
+        ]
+    },
+	"hell.scream": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/scream1",
+            "ambient/hell/scream2"
+        ]
+    },
+	"hell.wind": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/wind1",
+            "ambient/hell/wind2",
+            "ambient/hell/wind3",
+            "ambient/hell/wind4",
+            "ambient/hell/wind5",
+            "ambient/hell/wind6",
+            "ambient/hell/wind7",
+            "ambient/hell/wind8",
+            "ambient/hell/wind9",
+            "ambient/hell/winda",
+            "ambient/hell/windb",
+            "ambient/hell/windc",
+            "ambient/hell/windd",
+            "ambient/hell/winde"
+        ]
+    },
+	"hell.fx3": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/hellq1",
+            "ambient/hell/hellq2",
+            "ambient/hell/hellq3",
+            "ambient/hell/hellq4",
+            "ambient/hell/hellq5",
+            "ambient/hell/hellq6",
+            "ambient/hell/hellq7",
+            "ambient/hell/hellq8"
+        ]
+    },
+	"hell.wisper": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/hell/wisper1",
+            "ambient/hell/wisper2",
+            "ambient/hell/wisper7",
+            "ambient/hell/wisper8"
+        ]
+    },
+	
+	"jungle.day": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/jungle/day1",
+            "ambient/jungle/day2",
+            "ambient/jungle/day3",
+            "ambient/jungle/day4",
+            "ambient/jungle/day5",
+            "ambient/jungle/day6",
+            "ambient/jungle/day7",
+            "ambient/jungle/day8",
+            "ambient/jungle/day9",
+            "ambient/jungle/daya",
+            "ambient/jungle/dayb",
+            "ambient/jungle/dayc",
+            "ambient/jungle/dayd",
+            "ambient/jungle/daye",
+            "ambient/jungle/dayf"
+        ]
+    },
+	"jungle.fx1": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/jungle/fxa1",
+            "ambient/jungle/fxa2",
+            "ambient/jungle/fxa3",
+            "ambient/jungle/fxa4",
+            "ambient/jungle/fxa5",
+            "ambient/jungle/fxa6",
+            "ambient/jungle/fxa7",
+            "ambient/jungle/fxa8"
+        ]
+    },
+	"jungle.fx2": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/jungle/fxb1",
+            "ambient/jungle/fxb2",
+            "ambient/jungle/fxb3",
+            "ambient/jungle/fxb4",
+            "ambient/jungle/fxb5",
+            "ambient/jungle/fxb6",
+            "ambient/jungle/fxb7",
+            "ambient/jungle/fxb8",
+            "ambient/jungle/fxb9",
+            "ambient/jungle/fxba",
+            "ambient/jungle/fxbb",
+            "ambient/jungle/fxbc"
+        ]
+    },
+	"jungle.night": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/jungle/night1",
+            "ambient/jungle/night2",
+            "ambient/jungle/night3",
+            "ambient/jungle/night4",
+            "ambient/jungle/night5",
+            "ambient/jungle/night6",
+            "ambient/jungle/night7",
+            "ambient/jungle/night8"
+        ]
+    },
+	"jungle.fxnight": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/jungle/nightfx1",
+            "ambient/jungle/nightfx2",
+            "ambient/jungle/nightfx3",
+            "ambient/jungle/nightfx4",
+            "ambient/jungle/nightfx5",
+            "ambient/jungle/nightfx6",
+            "ambient/jungle/nightfx7",
+            "ambient/jungle/nightfx8",
+            "ambient/jungle/nightfx9",
+            "ambient/jungle/nightfxa",
+            "ambient/jungle/nightfxb",
+            "ambient/jungle/nightfxc"
+        ]
+    },
+	
+	"lava.underlava": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/lava/in1",
+            "ambient/lava/in2",
+            "ambient/lava/in3",
+            "ambient/lava/in4",
+            "ambient/lava/in5",
+            "ambient/lava/in6",
+            "ambient/lava/in7",
+            "ambient/lava/in8",
+            "ambient/lava/in9",
+            "ambient/lava/ina",
+            "ambient/lava/inb",
+            "ambient/lava/inc"
+        ]
+    },
+	"lava.plop": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/lava/lavaplop1",
+            "ambient/lava/lavaplop2",
+            "ambient/lava/lavaplop3"
+        ]
+    },
+	"lava.nearlava": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/lava/out1",
+            "ambient/lava/out2",
+            "ambient/lava/out3",
+            "ambient/lava/out4",
+            "ambient/lava/out5",
+            "ambient/lava/out6",
+            "ambient/lava/out7",
+            "ambient/lava/out8"
+        ]
+    },
+	
+	"mountain.highaltitude": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/mountain/highaltitude1",
+            "ambient/mountain/highaltitude2",
+            "ambient/mountain/highaltitude3",
+            "ambient/mountain/highaltitude4",
+            "ambient/mountain/highaltitude5",
+            "ambient/mountain/highaltitude6",
+            "ambient/mountain/highaltitude7",
+            "ambient/mountain/highaltitude8"
+        ]
+    },
+	
+	"plains.evening": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/plains/evening1",
+            "ambient/plains/evening2",
+            "ambient/plains/evening3",
+            "ambient/plains/evening4"
+        ]
+    },
+	"plains.day": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/plains/day1",
+            "ambient/plains/day2",
+            "ambient/plains/day3",
+            "ambient/plains/day4",
+            "ambient/plains/day5",
+            "ambient/plains/day6",
+            "ambient/plains/day7",
+            "ambient/plains/day8"
+        ]
+    },
+	"plains.night": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/plains/night1",
+            "ambient/plains/night2",
+            "ambient/plains/night3",
+            "ambient/plains/night4",
+            "ambient/plains/night5",
+            "ambient/plains/night6",
+            "ambient/plains/night7",
+            "ambient/plains/night8"
+        ]
+    },
+	"plains.windinside": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/plains/windinside1",
+            "ambient/plains/windinside2",
+            "ambient/plains/windinside3"
+        ]
+    },
+	"plains.wind": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/plains/wind1",
+            "ambient/plains/wind1",
+            "ambient/plains/wind1",
+            "ambient/plains/wind1"
+        ]
+    },
+	
+	"rain.inside": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/rain/inside1",
+            "ambient/rain/inside2",
+            "ambient/rain/inside3",
+            "ambient/rain/inside4",
+            "ambient/rain/inside5",
+            "ambient/rain/inside6"
+        ]
+    },
+	"rain.outside": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/rain/outside1",
+            "ambient/rain/outside2",
+            "ambient/rain/outside3",
+            "ambient/rain/outside4",
+            "ambient/rain/outside5",
+            "ambient/rain/outside6",
+            "ambient/rain/outside7"
+        ]
+    },
+	"rain.tree": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/rain/tree1",
+            "ambient/rain/tree2",
+            "ambient/rain/tree3",
+            "ambient/rain/tree4",
+            "ambient/rain/tree5",
+            "ambient/rain/tree6"
+        ]
+    },
+	
+	"seaside.bird": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/seaside/coastbird1",
+            "ambient/seaside/coastbird2",
+            "ambient/seaside/coastbird3",
+            "ambient/seaside/coastbird4",
+            "ambient/seaside/coastbird5",
+            "ambient/seaside/coastbird6",
+            "ambient/seaside/coastbird7"
+        ]
+    },
+	"seaside.oceaninside": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/seaside/seainside1",
+            "ambient/seaside/seainside2",
+            "ambient/seaside/seainside3",
+            "ambient/seaside/seainside4"
+        ]
+    },
+	"seaside.ocean": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/seaside/sea1",
+            "ambient/seaside/sea2",
+            "ambient/seaside/sea3",
+            "ambient/seaside/sea4",
+            "ambient/seaside/sea5",
+            "ambient/seaside/sea6",
+            "ambient/seaside/sea7",
+            "ambient/seaside/sea8",
+            "ambient/seaside/sea9",
+            "ambient/seaside/seaa",
+            "ambient/seaside/seab"
+        ]
+    },
+	"seaside.underwater": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/seaside/water_underwater_loop"
+        ]
+    },
+	"seaside.wood": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/seaside/wood"
+        ]
+    },
+	
+	"snow.cracks": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/cracks1",
+            "ambient/snow/cracks2",
+            "ambient/snow/cracks3",
+            "ambient/snow/cracks4",
+            "ambient/snow/cracks5",
+            "ambient/snow/cracks6",
+            "ambient/snow/cracks7",
+            "ambient/snow/cracks8"
+        ]
+    },
+	"snow.crows": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/crow1",
+            "ambient/snow/crow2",
+            "ambient/snow/crow3",
+            "ambient/snow/crow4"
+        ]
+    },
+	"snow.forest": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/forest1",
+            "ambient/snow/forest2",
+            "ambient/snow/forest3",
+            "ambient/snow/forest4",
+            "ambient/snow/forest5",
+            "ambient/snow/forest6",
+            "ambient/snow/forest7",
+            "ambient/snow/forest8"
+        ]
+    },
+	"snow.howl": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/howl1",
+            "ambient/snow/howl2"
+        ]
+    },
+	"snow.mountain": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/mountain1",
+            "ambient/snow/mountain2",
+            "ambient/snow/mountain3",
+            "ambient/snow/mountain4",
+            "ambient/snow/mountain5",
+            "ambient/snow/mountain6",
+            "ambient/snow/mountain7",
+            "ambient/snow/mountain8"
+        ]
+    },
+	"snow.plains": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/plains1",
+            "ambient/snow/plains2",
+            "ambient/snow/plains3",
+            "ambient/snow/plains4",
+            "ambient/snow/plains5",
+            "ambient/snow/plains6"
+        ]
+    },
+	"snow.wind1": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/winda1",
+            "ambient/snow/winda2",
+            "ambient/snow/winda3",
+            "ambient/snow/winda4",
+            "ambient/snow/winda5",
+            "ambient/snow/winda6",
+            "ambient/snow/winda7",
+            "ambient/snow/winda8",
+            "ambient/snow/winda9"
+        ]
+    },
+	"snow.wind2": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/windb1",
+            "ambient/snow/windb2",
+            "ambient/snow/windb3",
+            "ambient/snow/windb4"
+        ]
+    },
+	"snow.windnight": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/snow/windnight1",
+            "ambient/snow/windnight2",
+            "ambient/snow/windnight3",
+            "ambient/snow/windnight4"
+        ]
+    },
+	
+	"swamp.duck": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/swamp/duck1",
+            "ambient/swamp/duck2"
+        ]
+    },
+	"swamp.frog": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/swamp/frog1",
+            "ambient/swamp/frog2",
+            "ambient/swamp/frog3",
+            "ambient/swamp/frog4",
+            "ambient/swamp/frog5",
+            "ambient/swamp/frog6"
+        ]
+    },
+	"swamp.toad": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/swamp/toad1",
+            "ambient/swamp/toad2",
+            "ambient/swamp/toad3",
+            "ambient/swamp/toad4",
+            "ambient/swamp/toad5",
+            "ambient/swamp/toad6",
+            "ambient/swamp/toad7",
+            "ambient/swamp/toad8",
+            "ambient/swamp/toad9"
+        ]
+    },
+	"swamp.day": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/swamp/day1",
+            "ambient/swamp/day2",
+            "ambient/swamp/day3",
+            "ambient/swamp/day4",
+            "ambient/swamp/day5",
+            "ambient/swamp/day6",
+            "ambient/swamp/day7",
+            "ambient/swamp/day8"
+        ]
+    },
+	"swamp.mosquito": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/swamp/mosquito1",
+            "ambient/swamp/mosquito2",
+            "ambient/swamp/mosquito3"
+        ]
+    },
+	"swamp.night": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/swamp/night1",
+            "ambient/swamp/night2",
+            "ambient/swamp/night3",
+            "ambient/swamp/night4",
+            "ambient/swamp/night5"
+        ]
+    },
+	
+	"shared.bat": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/shared/bat1",
+            "ambient/shared/bat2"
+        ]
+    },
+	"shared.owl": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/shared/owl1",
+            "ambient/shared/owl2",
+            "ambient/shared/owl3",
+            "ambient/shared/owl4"
+        ]
+    },
+	"shared.grasshopper": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/shared/grasshopper1",
+            "ambient/shared/grasshopper2",
+            "ambient/shared/grasshopper3",
+            "ambient/shared/grasshopper4",
+            "ambient/shared/grasshopper5",
+            "ambient/shared/grasshopper6",
+            "ambient/shared/grasshopper7",
+            "ambient/shared/grasshopper8",
+            "ambient/shared/grasshopper9",
+            "ambient/shared/grasshoppera"
+        ]
+    },
+	"shared.critter": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/shared/critter1",
+            "ambient/shared/critter2",
+            "ambient/shared/critter3"
+        ]
+    },
+	"shared.starling": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/shared/starling"
+        ]
+    },
+	"shared.flies": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/shared/flies1",
+            "ambient/shared/flies2",
+            "ambient/shared/flies3",
+            "ambient/shared/flies4",
+            "ambient/shared/flies5",
+            "ambient/shared/flies6",
+            "ambient/shared/flies7",
+            "ambient/shared/flies8",
+            "ambient/shared/flies9",
+            "ambient/shared/fliesa"
+        ]
+    },
+	"shared.sparrow": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/shared/sparrow1",
+            "ambient/shared/sparrow2"
+        ]
+    },
+	"shared.bird": {
+        "category": "ambient", 
+        "sounds": [
+            "ambient/shared/bird1",
+            "ambient/shared/bird2",
+            "ambient/shared/bird3",
+            "ambient/shared/bird4",
+            "ambient/shared/bird5",
+            "ambient/shared/bird6",
+            "ambient/shared/bird7",
+            "ambient/shared/bird8"
+        ]
+    }
+}

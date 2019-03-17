@@ -1,0 +1,15 @@
+{
+  "id": "mambience",
+  "name": "MAmbience",
+  "description": "Adding ambient sounds to Minecraft",
+  "version": "${version}",
+  "side": "universal",
+  "initializers": [
+    "me.andre111.mambience.MAmbienceFabric"
+  ],
+  "requires": {
+  },
+  "mixins": {
+    "common": "me.andre111.mambience.fabric.mixin.json"
+  }
+}
