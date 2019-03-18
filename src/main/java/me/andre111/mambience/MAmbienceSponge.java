@@ -37,7 +37,9 @@ public class MAmbienceSponge {
 		logger = new MALogger() {
 			@Override
 			public void log(String s) {
-				ilogger.info(s);
+				if(EngineConfig.DEBUGLOGGING) {
+					ilogger.info(s);
+				}
 			}
 
 			@Override

@@ -35,6 +35,8 @@ public abstract class Variables {
 						+ "   Player.InBoat = __pboat;"
 						+ "   Player.Submerged = __psubm;"
 						+ "   Player.IsExposed = __pexpo;"
+						+ "   Player.Health = __phealth;"
+						+ "   Player.Food = __pfood;"
 					//WORLD
 						+ "   World.Time = __wt;"
 						+ "   World.IsRaining = __wrain;"

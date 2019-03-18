@@ -77,6 +77,8 @@ public class VariablesSponge extends Variables {
 				bd.put("__pboat", (player.getVehicle().isPresent() && player.getVehicle().get().getType() == EntityTypes.BOAT));
 				bd.put("__psubm", (headBlock.getType()==BlockTypes.WATER || headBlock.getType()==BlockTypes.FLOWING_WATER));
 				bd.put("__pexpo", exposed);
+				bd.put("__phealth", player.health().get());
+				bd.put("__pfood", player.foodLevel().get());
 			}
 			//WORLD
 			{

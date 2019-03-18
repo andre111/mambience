@@ -7,6 +7,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.Waterlogged;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 
@@ -47,8 +48,10 @@ public class VariablesBukkit extends Variables {
 			//bd.put("__pseesky", );
 			//bd.put("__prainon", );
 			bd.put("__pboat", (player.getVehicle() != null && player.getVehicle().getType() == EntityType.BOAT));
-			bd.put("__psubm", (headBlock.getType()==Material.WATER));
+			bd.put("__psubm", hasWater(headBlock));
 			bd.put("__pexpo", exposed);
+			bd.put("__phealth", player.getHealth());
+			bd.put("__pfood", player.getFoodLevel());
 		}
 		//WORLD
 		{
@@ -91,4 +94,11 @@ public class VariablesBukkit extends Variables {
 	//private static boolean slowExposedCheck(Location location) {
 	//	
 	//}
+	
+	private static boolean hasWater(Block block) {
+		return (block.getType()==Material.WATER || block.getType()==Material.BUBBLE_COLUMN 
+				|| block.getType()==Material.KELP || block.getType()==Material.KELP_PLANT 
+				|| block.getType()==Material.SEAGRASS || block.getType()==Material.TALL_SEAGRASS 
+				|| (block.getBlockData() instanceof Waterlogged && ((Waterlogged) block.getBlockData()).isWaterlogged()));
+	}
 }

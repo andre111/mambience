@@ -13,8 +13,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MAmbienceBukkit extends JavaPlugin implements Listener {
-	private static boolean DISPLAY_LOGS = false;
-	
 	private MALogger logger;
 	private MAScheduler scheduler;
 	
@@ -23,7 +21,7 @@ public class MAmbienceBukkit extends JavaPlugin implements Listener {
 		logger = new MALogger() {
 			@Override
 			public void log(String s) {
-				if(DISPLAY_LOGS) {
+				if(EngineConfig.DEBUGLOGGING) {
 					getLogger().log(Level.INFO, s);
 				}
 			}

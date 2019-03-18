@@ -15,6 +15,7 @@ public abstract class MAPlayer {
 	protected UUID playerUUID;
 	protected BlockScanner scanner;
 	protected Variables variables;
+	protected MALogger logger;
 	protected MAScriptEngine scriptEngine;
 	protected HashMap<String, Integer> cooldowns;
 	protected CompiledScript varSetterScript;
@@ -23,8 +24,9 @@ public abstract class MAPlayer {
 		this.playerUUID = playerUUID;
 		this.scanner = scanner;
 		this.variables = variables;
-		scriptEngine = MAScripting.newScriptEngine(logger);
-		cooldowns = new HashMap<String, Integer>();
+		this.logger = logger;
+		this.scriptEngine = MAScripting.newScriptEngine(logger);
+		this.cooldowns = new HashMap<String, Integer>();
 	}
 	
 	public UUID getPlayerUUID() {
@@ -35,6 +37,9 @@ public abstract class MAPlayer {
 	}
 	public Variables getVariables() {
 		return variables;
+	}
+	public MALogger getLogger() {
+		return logger;
 	}
 	public MAScriptEngine getScriptEngine() {
 		return scriptEngine;

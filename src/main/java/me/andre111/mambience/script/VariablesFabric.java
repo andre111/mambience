@@ -51,6 +51,8 @@ public class VariablesFabric extends Variables {
 			bd.put("__pboat", (player.getRiddenEntity() != null && player.getRiddenEntity().getType() == EntityType.BOAT));
 			bd.put("__psubm", (headBlock.getFluidState().getFluid().matchesType(Fluids.WATER)));
 			bd.put("__pexpo", exposed);
+			bd.put("__phealth", player.getHealth());
+			bd.put("__pfood", player.getHungerManager().getFoodLevel());
 		}
 		//WORLD
 		{

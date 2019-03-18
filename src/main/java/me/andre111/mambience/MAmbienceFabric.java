@@ -16,8 +16,7 @@ import net.minecraft.server.MinecraftServer;
 
 public class MAmbienceFabric implements ModInitializer {
 	private static final Logger LOGGER = LogManager.getLogger();
-	private static boolean DISPLAY_LOGS = false;
-
+	
 	public static MinecraftServer server;
 	public static MAmbienceFabric instance;
 	
@@ -33,7 +32,7 @@ public class MAmbienceFabric implements ModInitializer {
 		logger = new MALogger() {
 			@Override
 			public void log(String s) {
-				if(DISPLAY_LOGS) {
+				if(EngineConfig.DEBUGLOGGING) {
 					LOGGER.info(s);
 				}
 			}

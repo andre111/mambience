@@ -22,6 +22,7 @@ public class EngineConfig {
 	public static int SIZEY = 16;
 	public static int SIZEZ = 32;
 	public static boolean STOPSOUNDS = false;
+	public static boolean DEBUGLOGGING = false;
 	
 	public static void initialize(MALogger logger, File configRoot) {
 		exportSettings(configRoot);
@@ -83,6 +84,9 @@ public class EngineConfig {
 		SIZEY = element.get("ScannnerY").getAsInt();
 		SIZEZ = element.get("ScannnerZ").getAsInt();
 		STOPSOUNDS = element.get("StopSounds").getAsBoolean();
+		if(element.has("DebugLogging")) {
+			DEBUGLOGGING = element.get("DebugLogging").getAsBoolean();
+		}
 	}
 	
 	private static void loadSoundscapes(MALogger logger, File configRoot, JsonArray array) {

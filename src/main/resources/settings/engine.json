@@ -3,7 +3,8 @@
 		"ScannnerX": 24,
 		"ScannnerY": 16,
 		"ScannnerZ": 24,
-        "StopSounds": false
+        "StopSounds": false,
+        "DebugLogging": false
 	},
 	
 	"Soundscapes": [
