@@ -56,7 +56,7 @@ public class VariablesFabric extends Variables {
 		}
 		//WORLD
 		{
-			bd.put("__wt", world.getTimeOfDay());
+			bd.put("__wt", world.getTimeOfDay() % 24000);
 			bd.put("__wrain", world.isRaining());
 			bd.put("__wmoon", ((world.getTime()/24000) % 8));
 			bd.put("__wbiome", Registry.BIOME.getId(world.getBiome(location)).toString());

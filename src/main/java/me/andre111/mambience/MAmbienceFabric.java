@@ -11,7 +11,7 @@ import me.andre111.mambience.fabric.event.PlayerLeaveCallback;
 import me.andre111.mambience.player.MAPlayerFabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerStartCallback;
-import net.fabricmc.fabric.api.event.world.WorldTickCallback;
+import net.fabricmc.fabric.api.event.server.ServerTickCallback;
 import net.minecraft.server.MinecraftServer;
 
 public class MAmbienceFabric implements ModInitializer {
@@ -52,11 +52,8 @@ public class MAmbienceFabric implements ModInitializer {
 				return server==null ? 0 : server.getCurrentPlayerCount();
 			}
 		};
-		WorldTickCallback.EVENT.register(world -> {
-			// only run on server
-			if(world.isClient() || server == null) {
-				return;
-			}
+		ServerTickCallback.EVENT.register(server -> {
+			MAmbienceFabric.server = server;
 			
 			// only run when not trying to catch up
 			if(System.currentTimeMillis()-lastTick < 1000 / 20 / 2) {
