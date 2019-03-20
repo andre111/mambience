@@ -1,9 +1,9 @@
 package me.andre111.mambience.player;
 
-
 import java.util.Optional;
 
 import org.spongepowered.api.Sponge;
+import org.spongepowered.api.effect.sound.SoundCategories;
 import org.spongepowered.api.effect.sound.SoundType;
 import org.spongepowered.api.entity.living.player.Player;
 
@@ -21,7 +21,7 @@ public class MAPlayerSponge extends MAPlayer {
 	public void playSound(String sound, float volume, float pitch) {
 		Optional<Player> optPlayer = Sponge.getServer().getPlayer(playerUUID);
 		if(optPlayer.isPresent()) {
-			optPlayer.get().playSound(SoundType.builder().build(sound), optPlayer.get().getLocation().getPosition(), volume, pitch);
+			optPlayer.get().playSound(SoundType.builder().build(sound), SoundCategories.AMBIENT, optPlayer.get().getLocation().getPosition(), volume, pitch);
 		}
 	}
 

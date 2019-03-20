@@ -2,6 +2,7 @@ package me.andre111.mambience.player;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 
 import me.andre111.mambience.MALogger;
@@ -19,7 +20,7 @@ public class MAPlayerBukkit extends MAPlayer {
 		Player player = Bukkit.getPlayer(playerUUID);
 		Location location = player.getLocation();
 		
-		player.playSound(location, sound, volume, pitch);
+		player.playSound(location, sound, SoundCategory.AMBIENT, volume, pitch);
 	}
 
 	@Override
