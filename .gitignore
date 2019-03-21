@@ -26,3 +26,4 @@ run/
 # mod (resource pack can easily be recreated by packaging src/main/resources/assets/ content)
 
 respacks/
+/target/
