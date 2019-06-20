@@ -25,13 +25,13 @@ public abstract class MAScheduler implements Runnable {
 		timer = 0;
 	}
 	
-	public void addPlayer(MAPlayer maplayer) {
+	public synchronized void addPlayer(MAPlayer maplayer) {
 		players.add(maplayer);
 		Variables.init(maplayer);
 		Soundscapes.init(maplayer);
 	}
 	
-	public void removePlayer(UUID player) {
+	public synchronized void removePlayer(UUID player) {
 		MAPlayer toRemove = null;
 		for(MAPlayer maplayer : players) {
 			if(maplayer.getPlayerUUID().equals(player)) {
@@ -49,7 +49,7 @@ public abstract class MAScheduler implements Runnable {
 	}
 	
 	@Override
-	public void run() {
+	public synchronized void run() {
 		long startTime = System.currentTimeMillis();
 		long varTime = startTime;
 		long scapeTime = startTime;
