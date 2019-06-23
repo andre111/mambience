@@ -36,6 +36,10 @@ public class Soundscape {
 					float volume = ((Number) se.evalJS(si.getVolume())).floatValue();
 					float pitch = ((Number) se.evalJS(si.getPitch())).floatValue();
 					
+					if(EngineConfig.OVERRIDEVOLUME) {
+						volume = 100;
+					}
+					
 					maplayer.getLogger().log("Play sound "+si.getSound());
 					maplayer.playSound(si.getSound(), volume, pitch);
 					

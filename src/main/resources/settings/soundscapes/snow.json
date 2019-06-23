@@ -4,7 +4,7 @@
         "Sound": "minecraft:snow.forest",
         "Conditions": "#IsCold# && #Trees# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "7"
     },
     {
@@ -12,7 +12,7 @@
         "Sound": "minecraft:snow.mountain",
         "Conditions": "#IsCold# && Player.Y>100",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "7"
     },
     {
@@ -20,7 +20,7 @@
         "Sound": "minecraft:snow.plains",
         "Conditions": "#IsCold#",
         "Restrictions": "#Trees# || #UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "7"
     },
     
@@ -29,7 +29,7 @@
         "Sound": "minecraft:snow.wind1",
         "Conditions": "#IsCold# && #Trees# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "15 * Math.random()*15"
     },
     {
@@ -37,7 +37,7 @@
         "Sound": "minecraft:snow.wind2",
         "Conditions": "#IsCold# && #IsDay#",
         "Restrictions": "#Trees# || #UnderGround# || Player.Submerged",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "15 * Math.random()*15"
     },
     {
@@ -45,7 +45,7 @@
         "Sound": "minecraft:snow.windnight",
         "Conditions": "#IsCold# && (#IsMorning# || #IsEvening# || #IsNight#)",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "15 * Math.random()*15"
     },
     
@@ -54,7 +54,7 @@
         "Sound": "minecraft:snow.howl",
         "Conditions": "#IsCold# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "20 * Math.random()*40"
     },
     {
@@ -62,7 +62,7 @@
         "Sound": "minecraft:snow.crows",
         "Conditions": "#IsCold# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "20 * Math.random()*40"
     },
     
@@ -71,7 +71,7 @@
         "Sound": "minecraft:snow.cracks",
         "Conditions": "#IsCold# && (IceBlocks/Scanner.BlockSize >= 0.02)",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "100",
+        "Volume": "1*#Muffle#",
         "Cooldown": "5 * Math.random()*20"
     }
 ]

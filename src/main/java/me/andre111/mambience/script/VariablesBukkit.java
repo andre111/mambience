@@ -84,7 +84,7 @@ public class VariablesBukkit extends Variables {
                 	Block block = location.getWorld().getBlockAt(cx, cy, cz);
                     if (block.getType()!=Material.AIR)
                         continue;
-                    if (block.getLightFromSky() > 0)
+                    if (block.getLightFromSky() > 4) // increased from 0
                         return true;
                 }
             }

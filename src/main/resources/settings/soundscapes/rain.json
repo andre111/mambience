@@ -4,7 +4,7 @@
         "Sound": "minecraft:rain.outside",
         "Conditions": "World.IsRaining && Player.IsExposed && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "100",
+        "Volume": "1",
         "Cooldown": "4"
     },
     {
@@ -12,7 +12,7 @@
         "Sound": "minecraft:rain.inside",
         "Conditions": "World.IsRaining && !Player.IsExposed && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "100",
+        "Volume": "1",
         "Cooldown": "4"
     },
     {
@@ -20,7 +20,7 @@
         "Sound": "minecraft:rain.tree",
         "Conditions": "World.IsRaining && #Trees# && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "100",
+        "Volume": "1",
         "Cooldown": "4"
     }
 ]

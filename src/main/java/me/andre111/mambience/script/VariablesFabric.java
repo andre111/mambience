@@ -84,7 +84,7 @@ public class VariablesFabric extends Variables {
                 	BlockPos offsetLocation = new BlockPos(cx, cy, cz);
                     if (!world.isAir(offsetLocation))
                         continue;
-                    if (world.getLightLevel(LightType.SKY, offsetLocation) > 0)
+                    if (world.getLightLevel(LightType.SKY, offsetLocation) > 4) // increased from 0
                         return true;
                 }
             }

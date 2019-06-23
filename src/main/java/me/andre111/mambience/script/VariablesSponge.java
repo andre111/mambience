@@ -112,7 +112,7 @@ public class VariablesSponge extends Variables {
                     
                     Optional<SkyLuminanceProperty> sl = block.getProperty(SkyLuminanceProperty.class);
 					if(sl.isPresent()) {
-						if(sl.get().getValue()>0.1) 
+						if(sl.get().getValue() > 4) // increased from 0
 							return true;
 					}
                 }

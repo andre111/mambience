@@ -4,7 +4,8 @@
 		"ScannnerY": 16,
 		"ScannnerZ": 24,
         "StopSounds": false,
-        "DebugLogging": false
+        "DebugLogging": false,
+        "OverrideVolume": true
 	},
 	
 	"Soundscapes": [
@@ -265,7 +266,7 @@
         },
         {
             "Name": "Muffle",
-            "Code": "1.0 /*(Player.IsExposed ? 1.0 : .05)*/"
+            "Code": "(Player.IsExposed ? 1.0 : .25)"
         },
         {
             "Name": "Salinity",

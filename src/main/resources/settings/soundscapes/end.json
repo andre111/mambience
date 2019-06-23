@@ -3,7 +3,7 @@
         "Name" : "EndLoop",
         "Sound" : "minecraft:end.loop",
         "Conditions" : "#IsEnd#",
-        "Volume" : "100",
+        "Volume" : "1",
         "Cooldown" : "7"
     }
 ]
