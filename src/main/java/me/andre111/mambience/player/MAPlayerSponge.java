@@ -30,7 +30,7 @@ public class MAPlayerSponge extends MAPlayer {
 		// TODO Auto-generated method stub
 		Optional<Player> optPlayer = Sponge.getServer().getPlayer(playerUUID);
 		if(optPlayer.isPresent()) {
-			//TODO: Sponge cannot stop sounds?
+			optPlayer.get().stopSounds(SoundType.builder().build(sound), SoundCategories.AMBIENT);
 		}
 	}
 }

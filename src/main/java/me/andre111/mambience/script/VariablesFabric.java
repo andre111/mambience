@@ -5,9 +5,7 @@ import javax.script.Bindings;
 import me.andre111.mambience.MAmbienceFabric;
 import me.andre111.mambience.player.MAPlayer;
 import me.andre111.mambience.scan.BlockScanner;
-import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
-import net.minecraft.fluid.Fluids;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -27,7 +25,6 @@ public class VariablesFabric extends Variables {
 		int y = location.getY();
 		int z = location.getZ();
 		//BlockState block = world.getBlockState(location);
-		BlockState headBlock = world.getBlockState(location.add(0, player.getSize(player.getPose()).height * 0.85F, 0)); //TODO: the *0.85f is taken from protected minecraft code
 		
 		boolean exposed = fastExposedCheck(world, location);
 		//TODO: Slower more accurate exposed check
@@ -49,7 +46,7 @@ public class VariablesFabric extends Variables {
 			//bd.put("__prainon", );
 			
 			bd.put("__pboat", (player.getVehicle() != null && player.getVehicle().getType() == EntityType.BOAT));
-			bd.put("__psubm", (headBlock.getFluidState().getFluid().matchesType(Fluids.WATER)));
+			bd.put("__psubm", player.isInWater());
 			bd.put("__pexpo", exposed);
 			bd.put("__phealth", player.getHealth());
 			bd.put("__pfood", player.getHungerManager().getFoodLevel());
