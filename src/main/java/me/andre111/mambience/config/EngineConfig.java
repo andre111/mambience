@@ -23,7 +23,6 @@ public class EngineConfig {
 	public static int SIZEZ = 32;
 	public static boolean STOPSOUNDS = false;
 	public static boolean DEBUGLOGGING = false;
-	public static boolean OVERRIDEVOLUME = true;
 	
 	public static void initialize(MALogger logger, File configRoot) {
 		exportSettings(configRoot);
@@ -87,9 +86,6 @@ public class EngineConfig {
 		STOPSOUNDS = element.get("StopSounds").getAsBoolean();
 		if(element.has("DebugLogging")) {
 			DEBUGLOGGING = element.get("DebugLogging").getAsBoolean();
-		}
-		if(element.has("OverrideVolume")) {
-			OVERRIDEVOLUME = element.get("OverrideVolume").getAsBoolean();
 		}
 	}
 	

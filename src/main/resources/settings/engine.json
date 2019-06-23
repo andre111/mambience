@@ -4,8 +4,7 @@
 		"ScannnerY": 16,
 		"ScannnerZ": 24,
         "StopSounds": false,
-        "DebugLogging": false,
-        "OverrideVolume": true
+        "DebugLogging": false
 	},
 	
 	"Soundscapes": [
