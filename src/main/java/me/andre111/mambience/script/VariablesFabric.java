@@ -22,7 +22,7 @@ public class VariablesFabric extends Variables {
 		
 		ServerPlayerEntity player = MAmbienceFabric.server.getPlayerManager().getPlayer(maplayer.getPlayerUUID());
 		ServerWorld world = player.getServerWorld();
-		BlockPos location = player.getPos();
+		BlockPos location = player.getBlockPos();
 		int x = location.getX();
 		int y = location.getY();
 		int z = location.getZ();
@@ -48,7 +48,7 @@ public class VariablesFabric extends Variables {
 			//bd.put("__pseesky", );
 			//bd.put("__prainon", );
 			
-			bd.put("__pboat", (player.getRiddenEntity() != null && player.getRiddenEntity().getType() == EntityType.BOAT));
+			bd.put("__pboat", (player.getVehicle() != null && player.getVehicle().getType() == EntityType.BOAT));
 			bd.put("__psubm", (headBlock.getFluidState().getFluid().matchesType(Fluids.WATER)));
 			bd.put("__pexpo", exposed);
 			bd.put("__phealth", player.getHealth());

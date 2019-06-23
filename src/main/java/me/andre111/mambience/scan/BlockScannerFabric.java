@@ -25,7 +25,7 @@ public class BlockScannerFabric extends BlockScanner {
 
 	@Override
 	public void performScan() {
-		performScan(player.getServerWorld(), player.getPos());
+		performScan(player.getServerWorld(), player.getBlockPos());
 	}
 	private void performScan(ServerWorld world, BlockPos location) {
 		performScan(world, location.getX(), location.getY(), location.getZ());

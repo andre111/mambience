@@ -19,8 +19,8 @@ public class MixinPlayerManager {
 		PlayerJoinCallback.EVENT.invoker().onPlayerJoin(clientConnection_1, serverPlayerEntity_1);
 	}
 	
-	@Inject(at = @At("RETURN"), method = "method_14611")
-	public void method_14611(ServerPlayerEntity serverPlayerEntity_1, CallbackInfo callbackInfo) {
+	@Inject(at = @At("RETURN"), method = "remove")
+	public void remove(ServerPlayerEntity serverPlayerEntity_1, CallbackInfo callbackInfo) {
 		PlayerLeaveCallback.EVENT.invoker().onPlayerLeave(serverPlayerEntity_1);
 	}
 }
