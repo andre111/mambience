@@ -2,6 +2,7 @@ package me.andre111.mambience;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.UUID;
 
@@ -15,8 +16,11 @@ public abstract class MAScheduler implements Runnable {
 	private int intervall;
 	
 	private long timer;
-	private ArrayList<MAPlayer> players = new ArrayList<MAPlayer>();
-	private Queue<BlockScanner> scannerQueue = new LinkedList<BlockScanner>();
+	private List<MAPlayer> players = new ArrayList<>();
+	private Queue<BlockScanner> scannerQueue = new LinkedList<>();
+
+	private List<MAPlayer> newPlayers = new ArrayList<>();
+	private List<MAPlayer> removedPlayers = new ArrayList<>();
 	
 	public MAScheduler(MALogger l, int i) {
 		logger = l;
@@ -25,13 +29,15 @@ public abstract class MAScheduler implements Runnable {
 		timer = 0;
 	}
 	
-	public synchronized void addPlayer(MAPlayer maplayer) {
-		players.add(maplayer);
-		Variables.init(maplayer);
-		Soundscapes.init(maplayer);
+	public void addPlayer(MAPlayer maplayer) {
+		synchronized(newPlayers) {
+			newPlayers.add(maplayer);
+			Variables.init(maplayer);
+			Soundscapes.init(maplayer);
+		}
 	}
 	
-	public synchronized void removePlayer(UUID player) {
+	public void removePlayer(UUID player) {
 		MAPlayer toRemove = null;
 		for(MAPlayer maplayer : players) {
 			if(maplayer.getPlayerUUID().equals(player)) {
@@ -43,17 +49,29 @@ public abstract class MAScheduler implements Runnable {
 		if(toRemove==null) {
 			logger.log(player+" had no BlockScanner associated with them!");
 		} else {
-			players.remove(toRemove);
-			scannerQueue.remove(toRemove.getScanner());
+			synchronized(removedPlayers) {
+				removedPlayers.add(toRemove);
+				scannerQueue.remove(toRemove.getScanner());
+			}
 		}
 	}
 	
 	@Override
-	public synchronized void run() {
+	public void run() {
 		long startTime = System.currentTimeMillis();
 		long varTime = startTime;
 		long scapeTime = startTime;
 		timer++;
+		
+		// add/remove players
+		synchronized(newPlayers) {
+			players.addAll(newPlayers);
+			newPlayers.clear();
+		}
+		synchronized(removedPlayers) {
+			players.removeAll(removedPlayers);
+			removedPlayers.clear();
+		}
 		
 		//update players
 		for(MAPlayer maplayer : players) {
