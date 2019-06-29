@@ -32,9 +32,9 @@ public abstract class MAScheduler implements Runnable {
 	public void addPlayer(MAPlayer maplayer) {
 		synchronized(newPlayers) {
 			newPlayers.add(maplayer);
-			Variables.init(maplayer);
-			Soundscapes.init(maplayer);
 		}
+		Variables.init(maplayer);
+		Soundscapes.init(maplayer);
 	}
 	
 	public void removePlayer(UUID player) {
