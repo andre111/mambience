@@ -1,16 +1,26 @@
 {
+  "schemaVersion": 1,
   "id": "mambience",
+  "version": "${version}",
+
   "name": "MAmbience",
   "description": "Adding ambient sounds to Minecraft",
-  "version": "${version}",
-  "side": "universal",
-  "initializers": [
-    "me.andre111.mambience.MAmbienceFabric"
+  "authors": [
+    "andre111"
   ],
-  "requires": {
-  	"fabric": "*"
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.andre111.mambience.MAmbienceFabric"
+    ]
   },
-  "mixins": {
-    "common": "me.andre111.mambience.fabric.mixin.json"
+  "mixins": [
+    "me.andre111.mambience.fabric.mixin.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.4.0",
+    "fabric": "*"
   }
 }
