@@ -20,6 +20,7 @@ import java.util.UUID;
 import me.andre111.mambience.MAmbienceFabric;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.LightType;
@@ -67,7 +68,7 @@ public class AccessorFabric extends Accessor {
 
 	@Override
 	public boolean isSubmerged() {
-		return player.isInsideWaterOrBubbleColumn();
+		return player.isSubmergedIn(FluidTags.WATER, true);
 	}
 
 	// World related methods
