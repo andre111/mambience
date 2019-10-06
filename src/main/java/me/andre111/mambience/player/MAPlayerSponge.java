@@ -23,18 +23,15 @@ import org.spongepowered.api.effect.sound.SoundType;
 import org.spongepowered.api.entity.living.player.Player;
 
 import me.andre111.mambience.MALogger;
-import me.andre111.mambience.config.EngineConfig;
-import me.andre111.mambience.scan.BlockScannerSponge;
-import me.andre111.mambience.script.VariablesSponge;
 
 public class MAPlayerSponge extends MAPlayer {
 	public MAPlayerSponge(Player p, MALogger logger) {
-		super(p.getUniqueId(), new BlockScannerSponge(p, EngineConfig.SIZEX, EngineConfig.SIZEY, EngineConfig.SIZEZ), new VariablesSponge(), logger);
+		super(p.getUniqueId(), new AccessorSponge(p.getUniqueId()), logger);
 	}
-
+	
 	@Override
 	public void playSound(String sound, float volume, float pitch) {
-		Optional<Player> optPlayer = Sponge.getServer().getPlayer(playerUUID);
+		Optional<Player> optPlayer = Sponge.getServer().getPlayer(getPlayerUUID());
 		if(optPlayer.isPresent()) {
 			optPlayer.get().playSound(SoundType.builder().build(sound), SoundCategories.AMBIENT, optPlayer.get().getLocation().getPosition(), volume, pitch);
 		}
@@ -42,8 +39,7 @@ public class MAPlayerSponge extends MAPlayer {
 
 	@Override
 	public void stopSound(String sound) {
-		// TODO Auto-generated method stub
-		Optional<Player> optPlayer = Sponge.getServer().getPlayer(playerUUID);
+		Optional<Player> optPlayer = Sponge.getServer().getPlayer(getPlayerUUID());
 		if(optPlayer.isPresent()) {
 			optPlayer.get().stopSounds(SoundType.builder().build(sound), SoundCategories.AMBIENT);
 		}

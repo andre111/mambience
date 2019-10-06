@@ -21,18 +21,15 @@ import org.bukkit.SoundCategory;
 import org.bukkit.entity.Player;
 
 import me.andre111.mambience.MALogger;
-import me.andre111.mambience.config.EngineConfig;
-import me.andre111.mambience.scan.BlockScannerBukkit;
-import me.andre111.mambience.script.VariablesBukkit;
 
 public class MAPlayerBukkit extends MAPlayer {
 	public MAPlayerBukkit(Player p, MALogger logger) {
-		super(p.getUniqueId(), new BlockScannerBukkit(p, EngineConfig.SIZEX, EngineConfig.SIZEY, EngineConfig.SIZEZ), new VariablesBukkit(), logger);
+		super(p.getUniqueId(), new AccessorBukkit(p.getUniqueId()), logger);
 	}
 
 	@Override
 	public void playSound(String sound, float volume, float pitch) {
-		Player player = Bukkit.getPlayer(playerUUID);
+		Player player = Bukkit.getPlayer(getPlayerUUID());
 		Location location = player.getLocation();
 		
 		player.playSound(location, sound, SoundCategory.AMBIENT, volume, pitch);
@@ -40,7 +37,7 @@ public class MAPlayerBukkit extends MAPlayer {
 
 	@Override
 	public void stopSound(String sound) {
-		Player player = Bukkit.getPlayer(playerUUID);
+		Player player = Bukkit.getPlayer(getPlayerUUID());
 		
 		player.stopSound(sound);
 	}

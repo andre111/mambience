@@ -17,20 +17,76 @@ package me.andre111.mambience.scan;
 
 import java.util.HashMap;
 
-public abstract class BlockScanner {
-	protected int xSize;
-	protected int ySize;
-	protected int zSize;
-	protected int currentYSize;
-	protected HashMap<String, Integer> blockCount = new HashMap<String, Integer>();
-	protected HashMap<String, Integer> biomeCount = new HashMap<String, Integer>();
-	protected double averageSkyLight;
-	protected double averageLight;
-	protected double averageTemperature;
-	protected double averageHumidity;
-	protected long lastScan;
+import me.andre111.mambience.player.Accessor;
+
+public class BlockScanner {
+	private Accessor accessor;
+	private int xSize;
+	private int ySize;
+	private int zSize;
+	private int currentYSize;
+	private HashMap<String, Integer> blockCount = new HashMap<String, Integer>();
+	private HashMap<String, Integer> biomeCount = new HashMap<String, Integer>();
+	private double averageSkyLight;
+	private double averageLight;
+	private double averageTemperature;
+	private double averageHumidity;
+	private long lastScan;
 	
-	public abstract void performScan();
+	public BlockScanner(Accessor a, int xs, int ys, int zs) {
+		accessor = a;
+		xSize = xs;
+		ySize = ys;
+		zSize = zs;
+		currentYSize = ySize;
+
+		resetScanData();
+		lastScan = 0;
+	}
+	
+	public void performScan() {
+		int startX = accessor.getX() - xSize/2;
+		int startY = accessor.getY() - ySize/2;
+		int startZ = accessor.getZ() - zSize/2;
+		currentYSize = ySize;
+
+		//TODO - should this move or cut the scanned area?
+		if(startY < 0) {
+			currentYSize -= startY;
+			startY = 0;
+		}
+		if(startY+currentYSize > 256) {
+			currentYSize = 256 - startY;
+		}
+
+		//Reset Scan Data
+		resetScanData();
+
+		//Perform Scan
+		for(int xx=0; xx<xSize; xx++) {
+			for(int zz=0; zz<zSize; zz++) {
+				for(int yy=0; yy<currentYSize; yy++) {
+					String id = accessor.getBlock(startX+xx, startY+yy, startZ+zz);
+					blockCount.put(id, blockCount.containsKey(id) ? blockCount.get(id)+1 : 1);
+
+					averageSkyLight += accessor.getSkyLight(startX+xx, startY+yy, startZ+zz);
+					averageLight += accessor.getLight(startX+xx, startY+yy, startZ+zz);
+				}
+
+				String id = accessor.getBiome(startX+xx, 0, startZ+zz);
+				biomeCount.put(id, biomeCount.containsKey(id) ? biomeCount.get(id)+1 : 1);
+
+				averageTemperature += accessor.getTemperature(startX+xx, 0, startZ+zz);
+				averageHumidity += accessor.getHumidity(startX+xx, 0, startZ+zz);
+			}
+		}
+
+		averageSkyLight /= getScanBlockCount();
+		averageLight /= getScanBlockCount();
+
+		averageTemperature /= getScanBiomeCount();
+		averageHumidity  /= getScanBiomeCount();
+	}
 	
 	public void resetScanData() {
 		blockCount.clear();

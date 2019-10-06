@@ -21,24 +21,24 @@ import java.util.UUID;
 import javax.script.CompiledScript;
 
 import me.andre111.mambience.MALogger;
+import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.scan.BlockScanner;
 import me.andre111.mambience.script.MAScriptEngine;
 import me.andre111.mambience.script.MAScripting;
-import me.andre111.mambience.script.Variables;
 
 public abstract class MAPlayer {
-	protected UUID playerUUID;
-	protected BlockScanner scanner;
-	protected Variables variables;
-	protected MALogger logger;
-	protected MAScriptEngine scriptEngine;
-	protected HashMap<String, Integer> cooldowns;
-	protected CompiledScript varSetterScript;
+	private UUID playerUUID;
+	private Accessor accessor;
+	private BlockScanner scanner;
+	private MALogger logger;
+	private MAScriptEngine scriptEngine;
+	private HashMap<String, Integer> cooldowns;
+	private CompiledScript varSetterScript;
 	
-	public MAPlayer(UUID playerUUID, BlockScanner scanner, Variables variables, MALogger logger) {
+	public MAPlayer(UUID playerUUID, Accessor accessor, MALogger logger) {
 		this.playerUUID = playerUUID;
-		this.scanner = scanner;
-		this.variables = variables;
+		this.accessor = accessor;
+		this.scanner = new BlockScanner(accessor, EngineConfig.SIZEX, EngineConfig.SIZEY, EngineConfig.SIZEZ);
 		this.logger = logger;
 		this.scriptEngine = MAScripting.newScriptEngine(logger);
 		this.cooldowns = new HashMap<String, Integer>();
@@ -47,11 +47,11 @@ public abstract class MAPlayer {
 	public UUID getPlayerUUID() {
 		return playerUUID;
 	}
+	public Accessor getAccessor() {
+		return accessor;
+	}
 	public BlockScanner getScanner() {
 		return scanner;
-	}
-	public Variables getVariables() {
-		return variables;
 	}
 	public MALogger getLogger() {
 		return logger;
@@ -79,6 +79,5 @@ public abstract class MAPlayer {
 	}
 	
 	public abstract void playSound(String sound, float volume, float pitch);
-	
 	public abstract void stopSound(String sound);
 }
