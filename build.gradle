@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.2.4-SNAPSHOT'
+	id 'fabric-loom' version '0.2.5-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -43,12 +43,14 @@ processResources {
 	from(sourceSets.main.resources.srcDirs) {
 		include "fabric.mod.json"
 		include "plugin.yml"
+		include "version.txt"
 		expand "version": project.version
 	}
 
 	from(sourceSets.main.resources.srcDirs) {
 		exclude "fabric.mod.json"
 		exclude "plugin.yml"
+		exclude "version.txt"
 	}
 }
 
@@ -66,6 +68,25 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 	classifier = "sources"
 	from sourceSets.main.allSource
 }
+
+task noAssetsJar(type: Zip, dependsOn: remapJar) {
+	from zipTree(remapJar.outputs.files[0])
+	destinationDir = file("build/libs/")
+	archiveName = "${archivesBaseName}-${version}-noAssets.jar"
+	
+	exclude "assets/**"
+}
+build.dependsOn noAssetsJar
+
+task createResourcePack(type: JavaExec, dependsOn: remapJar) {
+	classpath = remapJar.outputs.files
+	main = "me.andre111.mambience.resources.RPGenerator"
+	
+	workingDir = "${project.projectDir}/build/libs/"
+}
+build.dependsOn createResourcePack
+
+
 
 jar {
 	from "LICENSE"

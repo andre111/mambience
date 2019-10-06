@@ -19,6 +19,7 @@ public class VariablesFabric extends Variables {
 		MAScriptEngine se = maplayer.getScriptEngine();
 		
 		ServerPlayerEntity player = MAmbienceFabric.server.getPlayerManager().getPlayer(maplayer.getPlayerUUID());
+		if(player == null) return; // fixes server crashes, but TODO: this should never even happen
 		ServerWorld world = player.getServerWorld();
 		BlockPos location = player.getBlockPos();
 		int x = location.getX();

@@ -1,7 +1,9 @@
 package me.andre111.mambience.resources;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
 import java.net.URLDecoder;
@@ -26,7 +28,7 @@ public class RPGenerator {
 		try {
 			Map<String, String> env = new HashMap<>();
 			env.put("create", "true");
-			Path path = Paths.get("./mambience_resources.zip");
+			Path path = Paths.get("./Mambience-"+getVersion()+"-resources.zip");
 			Files.deleteIfExists(path);
 			URI uri = URI.create("jar:" + path.toUri());
 
@@ -43,6 +45,12 @@ public class RPGenerator {
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		}
+	}
+	
+	private static String getVersion() throws IOException {
+		try (BufferedReader reader = new BufferedReader(new InputStreamReader(RPGenerator.class.getResourceAsStream("/version.txt"), "UTF-8"))) {
+			return reader.readLine();
 		}
 	}
 
@@ -76,7 +84,9 @@ public class RPGenerator {
 		if(Files.isDirectory(targetPath)) return;
 		
 		try (InputStream is = RPGenerator.class.getResourceAsStream(sourcePath)) {
-			Files.createDirectories(targetPath.getParent());
+			if(!Files.exists(targetPath.getParent())) {
+				Files.createDirectories(targetPath.getParent());
+			}
 			Files.copy(is, targetPath);
 		}
 	}

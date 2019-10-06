@@ -21,6 +21,7 @@ public class VariablesBukkit extends Variables {
 		MAScriptEngine se = maplayer.getScriptEngine();
 		
 		Player player = Bukkit.getPlayer(maplayer.getPlayerUUID());
+		if(player == null) return; // fixes server crashes, but TODO: this should never even happen
 		World world = player.getWorld();
 		Location location = player.getLocation();
 		int x = location.getBlockX();
