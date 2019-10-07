@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.UUID;
 
+import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.player.MAPlayer;
 import me.andre111.mambience.scan.BlockScanner;
 import me.andre111.mambience.script.Variables;
@@ -44,7 +45,8 @@ public abstract class MAScheduler implements Runnable {
 		timer = 0;
 	}
 	
-	public void addPlayer(MAPlayer maplayer) {
+	public void addPlayer(UUID player, Accessor accessor, MALogger logger) {
+		MAPlayer maplayer = new MAPlayer(player, accessor, logger);
 		synchronized(newPlayers) {
 			newPlayers.add(maplayer);
 		}

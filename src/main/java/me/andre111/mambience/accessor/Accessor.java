@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.player;
+package me.andre111.mambience.accessor;
 
 import java.util.UUID;
 
@@ -35,6 +35,9 @@ public abstract class Accessor {
 	public abstract double getHealth();
 	public abstract double getFoodLevel();
 	public abstract boolean isSubmerged();
+	
+	public abstract void playSound(String sound, float volume, float pitch);
+	public abstract void stopSound(String sound);
 	
 	// World related methods
 	public abstract long getDayTime();

@@ -17,7 +17,7 @@ package me.andre111.mambience.scan;
 
 import java.util.HashMap;
 
-import me.andre111.mambience.player.Accessor;
+import me.andre111.mambience.accessor.Accessor;
 
 public class BlockScanner {
 	private Accessor accessor;

@@ -20,10 +20,10 @@ import java.io.File;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import me.andre111.mambience.accessor.AccessorFabric;
 import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.fabric.event.PlayerJoinCallback;
 import me.andre111.mambience.fabric.event.PlayerLeaveCallback;
-import me.andre111.mambience.player.MAPlayerFabric;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.server.ServerStartCallback;
 import net.fabricmc.fabric.api.event.server.ServerTickCallback;
@@ -44,19 +44,7 @@ public class MAmbienceFabric implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		instance = this;
-		logger = new MALogger() {
-			@Override
-			public void log(String s) {
-				if(EngineConfig.DEBUGLOGGING) {
-					LOGGER.info(s);
-				}
-			}
-
-			@Override
-			public void error(String s) {
-				LOGGER.error(s);
-			}
-		};
+		logger = new MALogger(LOGGER::info, LOGGER::error);
 		
 		ServerStartCallback.EVENT.register(server -> MAmbienceFabric.server = server);
 
@@ -84,7 +72,7 @@ public class MAmbienceFabric implements ModInitializer {
 			}
 		});
 		PlayerJoinCallback.EVENT.register((connection, player) -> {
-			scheduler.addPlayer(new MAPlayerFabric(player, logger));
+			scheduler.addPlayer(player.getUuid(), new AccessorFabric(player.getUuid()), logger);
 		});
 		PlayerLeaveCallback.EVENT.register(player -> {
 			scheduler.removePlayer(player.getUuid());

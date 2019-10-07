@@ -30,8 +30,8 @@ import org.spongepowered.api.scheduler.Task;
 
 import com.google.inject.Inject;
 
+import me.andre111.mambience.accessor.AccessorSponge;
 import me.andre111.mambience.config.EngineConfig;
-import me.andre111.mambience.player.MAPlayerSponge;
 
 @Plugin(id = "mambience", name = "MAmbience", version = "0.3")
 public class MAmbienceSponge {
@@ -49,19 +49,7 @@ public class MAmbienceSponge {
 	
 	@Listener
     public void onServerStart(GameStartedServerEvent event) {
-		logger = new MALogger() {
-			@Override
-			public void log(String s) {
-				if(EngineConfig.DEBUGLOGGING) {
-					ilogger.info(s);
-				}
-			}
-
-			@Override
-			public void error(String s) {
-				ilogger.error(s);
-			}
-		};
+		logger = new MALogger(ilogger::info, ilogger::error);
 		
 		EngineConfig.initialize(logger, configDir.toFile());
 		scheduler = new MAScheduler(logger, 1) {
@@ -77,7 +65,7 @@ public class MAmbienceSponge {
 	@Listener
 	public void onPlayerJoin(ClientConnectionEvent.Join event) {
 		Player player = event.getTargetEntity();
-		scheduler.addPlayer(new MAPlayerSponge(player, logger));
+		scheduler.addPlayer(player.getUniqueId(), new AccessorSponge(player.getUniqueId()), logger);
 	}
 	
 	@Listener

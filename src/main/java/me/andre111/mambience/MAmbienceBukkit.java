@@ -15,10 +15,8 @@
  */
 package me.andre111.mambience;
 
-import java.util.logging.Level;
-
+import me.andre111.mambience.accessor.AccessorBukkit;
 import me.andre111.mambience.config.EngineConfig;
-import me.andre111.mambience.player.MAPlayerBukkit;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
@@ -33,20 +31,7 @@ public class MAmbienceBukkit extends JavaPlugin implements Listener {
 	
 	@Override
     public void onEnable() {
-		logger = new MALogger() {
-			@Override
-			public void log(String s) {
-				if(EngineConfig.DEBUGLOGGING) {
-					getLogger().log(Level.INFO, s);
-				}
-			}
-
-			@Override
-			public void error(String s) {
-				getLogger().log(Level.WARNING, s);
-			}
-		};
-		
+		logger = new MALogger(getLogger()::info, getLogger()::warning);
 		
 		EngineConfig.initialize(logger, this.getDataFolder());
 		scheduler = new MAScheduler(logger, 1) {
@@ -66,7 +51,7 @@ public class MAmbienceBukkit extends JavaPlugin implements Listener {
     
     @EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
-		scheduler.addPlayer(new MAPlayerBukkit(event.getPlayer(), logger));
+		scheduler.addPlayer(event.getPlayer().getUniqueId(), new AccessorBukkit(event.getPlayer().getUniqueId()), logger);
 	}
 	
 	@EventHandler

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 import javax.script.Bindings;
 
-import me.andre111.mambience.player.Accessor;
+import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.player.MAPlayer;
 import me.andre111.mambience.scan.BlockScanner;
 

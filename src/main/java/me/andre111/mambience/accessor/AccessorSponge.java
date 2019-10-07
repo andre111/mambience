@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.player;
+package me.andre111.mambience.accessor;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -23,6 +23,8 @@ import org.spongepowered.api.block.BlockState;
 import org.spongepowered.api.block.BlockTypes;
 import org.spongepowered.api.data.property.block.GroundLuminanceProperty;
 import org.spongepowered.api.data.property.block.SkyLuminanceProperty;
+import org.spongepowered.api.effect.sound.SoundCategories;
+import org.spongepowered.api.effect.sound.SoundType;
 import org.spongepowered.api.entity.living.player.Player;
 import org.spongepowered.api.world.Location;
 import org.spongepowered.api.world.World;
@@ -75,6 +77,16 @@ public class AccessorSponge extends Accessor {
 		BlockState headBlock = player.getLocation().add(0, 1.62, 0).getBlock();
 		
 		return headBlock.getType()==BlockTypes.WATER || headBlock.getType()==BlockTypes.FLOWING_WATER;
+	}
+	
+	@Override
+	public void playSound(String sound, float volume, float pitch) {
+		player.playSound(SoundType.builder().build(sound), SoundCategories.AMBIENT, player.getLocation().getPosition(), volume, pitch);
+	}
+
+	@Override
+	public void stopSound(String sound) {
+		player.stopSounds(SoundType.builder().build(sound), SoundCategories.AMBIENT);
 	}
 
 	// World related methods

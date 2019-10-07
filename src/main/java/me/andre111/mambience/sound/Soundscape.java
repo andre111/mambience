@@ -52,7 +52,7 @@ public class Soundscape {
 					float pitch = ((Number) se.evalJS(si.getPitch())).floatValue();
 					
 					maplayer.getLogger().log("Play sound "+si.getSound()+" at "+volume);
-					maplayer.playSound(si.getSound(), volume, pitch);
+					maplayer.getAccessor().playSound(si.getSound(), volume, pitch);
 					
 					//sadly you cannot fade sounds in and out
 					
@@ -63,7 +63,7 @@ public class Soundscape {
 				//      for now disabled with config option to reenable, sound stopping without fadeout is just to abrupt
 				if(EngineConfig.STOPSOUNDS) {
 					maplayer.getLogger().log("Stop sound "+si.getSound());
-					maplayer.stopSound(si.getSound());
+					maplayer.getAccessor().stopSound(si.getSound());
 					resetCooldown(maplayer, si);
 				}
 			}

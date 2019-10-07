@@ -13,14 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.player;
+package me.andre111.mambience.accessor;
 
 import java.util.UUID;
 
 import me.andre111.mambience.MAmbienceFabric;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.network.packet.PlaySoundIdS2CPacket;
+import net.minecraft.client.network.packet.StopSoundS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.tag.FluidTags;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.LightType;
@@ -69,6 +73,20 @@ public class AccessorFabric extends Accessor {
 	@Override
 	public boolean isSubmerged() {
 		return player.isSubmergedIn(FluidTags.WATER, true);
+	}
+
+	@Override
+	public void playSound(String sound, float volume, float pitch) {
+		//SoundEvent event = new SoundEvent(new Identifier(sound));
+		//player.playSound(event, SoundCategory.AMBIENT, volume, pitch); // only works for registered sound events -> only when client has mod installed
+		// also only works for registered sound events -> only when client has mod installed, but will bind sounds to player (no longer positional)
+		//player.networkHandler.sendPacket(new PlaySoundFromEntityS2CPacket(event, SoundCategory.AMBIENT, player, volume, pitch));
+		player.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.AMBIENT, player.getPosVector(), volume, pitch));
+	}
+
+	@Override
+	public void stopSound(String sound) {
+		player.networkHandler.sendPacket(new StopSoundS2CPacket(new Identifier(sound), SoundCategory.AMBIENT));
 	}
 
 	// World related methods

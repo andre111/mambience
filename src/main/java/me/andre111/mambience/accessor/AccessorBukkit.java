@@ -13,12 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.player;
+package me.andre111.mambience.accessor;
 
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.SoundCategory;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Waterlogged;
@@ -72,6 +73,16 @@ public class AccessorBukkit extends Accessor {
 				|| headBlock.getType()==Material.KELP || headBlock.getType()==Material.KELP_PLANT 
 				|| headBlock.getType()==Material.SEAGRASS || headBlock.getType()==Material.TALL_SEAGRASS 
 				|| (headBlock.getBlockData() instanceof Waterlogged && ((Waterlogged) headBlock.getBlockData()).isWaterlogged()));
+	}
+
+	@Override
+	public void playSound(String sound, float volume, float pitch) {
+		player.playSound(player.getLocation(), sound, SoundCategory.AMBIENT, volume, pitch);
+	}
+
+	@Override
+	public void stopSound(String sound) {
+		player.stopSound(sound);
 	}
 
 	// World related methods

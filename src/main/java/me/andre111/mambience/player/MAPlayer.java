@@ -21,12 +21,13 @@ import java.util.UUID;
 import javax.script.CompiledScript;
 
 import me.andre111.mambience.MALogger;
+import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.scan.BlockScanner;
 import me.andre111.mambience.script.MAScriptEngine;
 import me.andre111.mambience.script.MAScripting;
 
-public abstract class MAPlayer {
+public class MAPlayer {
 	private UUID playerUUID;
 	private Accessor accessor;
 	private BlockScanner scanner;
@@ -77,7 +78,4 @@ public abstract class MAPlayer {
 	public void setVarSetterScript(CompiledScript varSetterScript) {
 		this.varSetterScript = varSetterScript;
 	}
-	
-	public abstract void playSound(String sound, float volume, float pitch);
-	public abstract void stopSound(String sound);
 }

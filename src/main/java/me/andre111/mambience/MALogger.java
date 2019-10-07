@@ -15,8 +15,28 @@
  */
 package me.andre111.mambience;
 
-public abstract class MALogger {
-	public abstract void log(String s);
+import me.andre111.mambience.config.EngineConfig;
+
+public class MALogger {
+	private StringReciever logReciever;
+	private StringReciever errorReciever;
 	
-	public abstract void error(String s);
+	public MALogger(StringReciever logReciever, StringReciever errorReciever) {
+		this.logReciever = logReciever;
+		this.errorReciever = errorReciever;
+	}
+	
+	public void log(String s) {
+		if(EngineConfig.DEBUGLOGGING) {
+			logReciever.recieveString(s);
+		}
+	}
+	
+	public void error(String s) {
+		errorReciever.recieveString(s);
+	}
+	
+	public static interface StringReciever {
+		public void recieveString(String s);
+	}
 }
