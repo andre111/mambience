@@ -47,7 +47,7 @@ public class Soundscape {
 		
 		for(SoundInfo si : sounds) {
 			if(conditionsMet(se, si)) {
-				if(updateCooldown(maplayer, si) <= 0) {
+				if(maplayer.updateCooldown(si.getName()) <= 0) {
 					float volume = ((Number) se.evalJS(si.getVolume())).floatValue();
 					float pitch = ((Number) se.evalJS(si.getPitch())).floatValue();
 					
@@ -58,14 +58,12 @@ public class Soundscape {
 					
 					startCooldown(maplayer, se, si);
 				}
-			} else if (getCooldown(maplayer, si) > 0 /*&& isSoundRestricted(so it doesn't get cut of in so many cases?)*/) {
+			} else if (EngineConfig.STOPSOUNDS && maplayer.getCooldown(si.getName()) > 0 /*&& isSoundRestricted(so it doesn't get cut of in so many cases?)*/) {
 				//TODO: needs fading in and out, sadly not possible with current protocol
 				//      for now disabled with config option to reenable, sound stopping without fadeout is just to abrupt
-				if(EngineConfig.STOPSOUNDS) {
-					maplayer.getLogger().log("Stop sound "+si.getSound());
-					maplayer.getAccessor().stopSound(si.getSound());
-					resetCooldown(maplayer, si);
-				}
+				maplayer.getLogger().log("Stop sound "+si.getSound());
+				maplayer.getAccessor().stopSound(si.getSound());
+				maplayer.setCooldown(si.getName(), 0);
 			}
 		}
 	}
@@ -89,23 +87,8 @@ public class Soundscape {
 		return 0;
 	}
 	
-	private int updateCooldown(MAPlayer maplayer, SoundInfo si) {
-		int value = maplayer.getCooldown(si.getName());
-		value = value - 1;
-		maplayer.setCooldown(si.getName(), value);
-		return value;
-	}
-	
 	private void startCooldown(MAPlayer maplayer, MAScriptEngine se, SoundInfo si) {
 		maplayer.setCooldown(si.getName(), getIntFunctionResult(se, "Internal_Cooldown_"+si.getName()));
-	}
-	
-	private int getCooldown(MAPlayer maplayer, SoundInfo si) {
-		return maplayer.getCooldown(si.getName());
-	}
-	
-	private void resetCooldown(MAPlayer maplayer, SoundInfo si) {
-		maplayer.setCooldown(si.getName(), 0);
 	}
 	
 	public void addSound(SoundInfo sound) {

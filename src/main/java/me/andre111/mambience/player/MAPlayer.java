@@ -71,6 +71,13 @@ public class MAPlayer {
 		
 		cooldowns.put(key, value);
 	}
+	public int updateCooldown(String key) {
+		if(!cooldowns.containsKey(key)) return 0;
+		
+		int value = cooldowns.get(key)-1;
+		cooldowns.put(key, value);
+		return value;
+	}
 
 	public CompiledScript getVarSetterScript() {
 		return varSetterScript;
