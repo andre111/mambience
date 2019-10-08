@@ -23,6 +23,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MAmbienceBukkit extends JavaPlugin implements Listener {
@@ -34,14 +35,12 @@ public class MAmbienceBukkit extends JavaPlugin implements Listener {
 		logger = new MALogger(getLogger()::info, getLogger()::warning);
 		
 		EngineConfig.initialize(logger, this.getDataFolder());
-		scheduler = new MAScheduler(logger, 1) {
-			@Override
-			public int getPlayerCount() {
-				return Bukkit.getOnlinePlayers().size();
-			}
-		};
+		scheduler = new MAScheduler(logger, 1);
+		
 		Bukkit.getScheduler().runTaskTimerAsynchronously(this, scheduler, 20, 20);
 		Bukkit.getPluginManager().registerEvents(this, this);
+		
+		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "mambience:server");
     }
 	
     @Override
@@ -57,5 +56,13 @@ public class MAmbienceBukkit extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onPlayerLeave(PlayerQuitEvent event) {
 		scheduler.removePlayer(event.getPlayer().getUniqueId());
+	}
+	
+	@EventHandler
+	public void onPlayerRegisterChannel(PlayerRegisterChannelEvent event) {
+		if(event.getChannel().equals("mambience:server")) {
+			// send notify payload (mambience:server channel with "enabled" message)
+			Bukkit.getScheduler().runTask(this, () -> event.getPlayer().sendPluginMessage(this, "mambience:server", "enabled".getBytes()));
+		}
 	}
 }

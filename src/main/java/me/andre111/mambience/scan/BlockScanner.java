@@ -45,6 +45,8 @@ public class BlockScanner {
 	}
 	
 	public void performScan() {
+		if(!accessor.updatePlayerInstance()) return; // fixes server crashes, TODO: but this should never even happen
+		
 		int startX = accessor.getX() - xSize/2;
 		int startY = accessor.getY() - ySize/2;
 		int startZ = accessor.getZ() - zSize/2;

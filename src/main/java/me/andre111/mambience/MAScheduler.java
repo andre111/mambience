@@ -27,7 +27,7 @@ import me.andre111.mambience.scan.BlockScanner;
 import me.andre111.mambience.script.Variables;
 import me.andre111.mambience.sound.Soundscapes;
 
-public abstract class MAScheduler implements Runnable {
+public class MAScheduler implements Runnable {
 	private MALogger logger;
 	private int intervall;
 	
@@ -73,6 +73,10 @@ public abstract class MAScheduler implements Runnable {
 		}
 	}
 	
+	public void clearPlayers() {
+		players.clear();
+	}
+	
 	@Override
 	public void run() {
 		long startTime = System.currentTimeMillis();
@@ -81,13 +85,13 @@ public abstract class MAScheduler implements Runnable {
 		timer++;
 		
 		// add/remove players
-		synchronized(newPlayers) {
-			players.addAll(newPlayers);
-			newPlayers.clear();
-		}
 		synchronized(removedPlayers) {
 			players.removeAll(removedPlayers);
 			removedPlayers.clear();
+		}
+		synchronized(newPlayers) {
+			players.addAll(newPlayers);
+			newPlayers.clear();
 		}
 		
 		//update players
@@ -111,7 +115,7 @@ public abstract class MAScheduler implements Runnable {
 		
 		//refresh 
 		int refreshed = 0;
-		int perTick = (int) Math.max(1, Math.ceil(getPlayerCount() / ((double) intervall)*20));
+		int perTick = (int) Math.max(1, Math.ceil(players.size() / ((double) intervall)*20));
 		for(int i=0; i<perTick; i++) {
 			BlockScanner scanner = scannerQueue.poll();
 			if(scanner!=null) {
@@ -127,6 +131,4 @@ public abstract class MAScheduler implements Runnable {
 			logger.log("\tVar: "+(varTime-startTime)+"ms     Scape: "+(scapeTime-varTime)+"ms     Scanner: "+(endTime-scapeTime)+"ms!");
 		//}
 	}
-
-	public abstract int getPlayerCount();
 }

@@ -13,6 +13,9 @@
   "entrypoints": {
     "main": [
       "me.andre111.mambience.MAmbienceFabric"
+    ],
+    "client": [
+      "me.andre111.mambience.MAmbienceFabric"
     ]
   },
   "mixins": [

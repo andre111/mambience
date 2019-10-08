@@ -3,6 +3,8 @@
   "package": "me.andre111.mambience.fabric.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "MixinClientPlayNetworkHandler",
+    "MixinMinecraftClientGame",
     "MixinPlayerManager"
   ],
   "injectors": {
