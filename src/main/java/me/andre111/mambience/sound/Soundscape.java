@@ -15,7 +15,8 @@
  */
 package me.andre111.mambience.sound;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.player.MAPlayer;
@@ -23,19 +24,26 @@ import me.andre111.mambience.script.MAScriptEngine;
 import me.andre111.mambience.script.MAScripting;
 
 public class Soundscape {
-	private ArrayList<SoundInfo> sounds = new ArrayList<SoundInfo>();
+	private Set<SoundInfo> sounds = new HashSet<>();
 	private boolean initialised = false;
 	
-	public void init(MAPlayer maplayer) {
+	public void initGlobal() {
 		//TODO: Maybe make compiling asnyc?
 		MAScriptEngine se = MAScriptEngine.getInstance();
 		
 		for(SoundInfo si : sounds) {
 			si.init(se);
-			startCooldown(maplayer, se, si);
 		}
 		
 		initialised = true;
+	}
+	
+	public void init(MAPlayer maplayer) {
+		MAScriptEngine se = MAScriptEngine.getInstance();
+		
+		for(SoundInfo si : sounds) {
+			startCooldown(maplayer, se, si);
+		}
 	}
 	
 	public void update(MAPlayer maplayer) {
@@ -48,9 +56,8 @@ public class Soundscape {
 		for(SoundInfo si : sounds) {
 			if(conditionsMet(se, si)) {
 				if(maplayer.updateCooldown(si.getName()) <= 0) {
-					//TODO: turn this into compiled scripts
-					float volume = ((Number) se.evalJS(si.getVolume())).floatValue();
-					float pitch = ((Number) se.evalJS(si.getPitch())).floatValue();
+					float volume = ((Number) se.invokeFunction("Internal_Volume_"+si.getName())).floatValue();
+					float pitch = ((Number) se.invokeFunction("Internal_Pitch_"+si.getName())).floatValue();
 					
 					maplayer.getLogger().log("Play sound "+si.getSound()+" at "+volume);
 					maplayer.getAccessor().playSound(si.getSound(), volume, pitch);
@@ -107,11 +114,17 @@ public class Soundscape {
 		
 		private void init(MAScriptEngine se) {
 			se.compileScript("function Internal_Function_"+name+"() {"
-							 +"   return ("+getConditions()+") && !("+getRestrictions()+");"
-							 +"}");
-			se.compileScript("function Internal_Cooldown_"+name+"() {"
-							+ "   return "+getCooldown()+";"
-							+ "}");
+							+"   return ("+getConditions()+") && !("+getRestrictions()+");"
+							+"}"
+							+"function Internal_Cooldown_"+name+"() {"
+							+"   return "+getCooldown()+";"
+							+"}"
+							+"function Internal_Volume_"+name+"() {"
+							+"   return "+getVolume()+";"
+							+"}"
+							+"function Internal_Pitch_"+name+"() {"
+							+"   return "+getPitch()+";"
+							+"}");
 		}
 		
 		public String getName() {

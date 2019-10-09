@@ -22,6 +22,7 @@ import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.script.MAScriptEngine;
 import me.andre111.mambience.script.Variables;
+import me.andre111.mambience.sound.Soundscapes;
 
 public class MAmbience {
 	private static MALogger logger;
@@ -33,6 +34,8 @@ public class MAmbience {
 		
 		MAScriptEngine.createScriptEngine(logger);
 		Variables.init();
+		
+		Soundscapes.initGlobal();
 
 		scheduler = new MAScheduler(logger, 1);
 	}

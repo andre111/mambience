@@ -39,7 +39,12 @@ public class EngineConfig {
 	public static boolean STOPSOUNDS = false;
 	public static boolean DEBUGLOGGING = false;
 	
+	private static boolean initialized = false;
+	
 	public static void initialize(MALogger logger, File configRoot) {
+		if(initialized) return;
+		initialized = true;
+		
 		exportSettings(configRoot);
 		JsonParser parser = new JsonParser();
 		

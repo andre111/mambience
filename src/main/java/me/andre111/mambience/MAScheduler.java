@@ -16,10 +16,12 @@
 package me.andre111.mambience;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Set;
 import java.util.UUID;
 
 import me.andre111.mambience.accessor.Accessor;
@@ -33,7 +35,7 @@ public class MAScheduler implements Runnable {
 	private int intervall;
 	
 	private long timer;
-	private List<MAPlayer> players = new ArrayList<>();
+	private Set<MAPlayer> players = new HashSet<>();
 	private Queue<BlockScanner> scannerQueue = new LinkedList<>();
 
 	private List<MAPlayer> newPlayers = new ArrayList<>();

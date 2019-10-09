@@ -15,16 +15,23 @@
  */
 package me.andre111.mambience.sound;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import me.andre111.mambience.player.MAPlayer;
 
 public class Soundscapes {
-	private static ArrayList<Soundscape> scapes = new ArrayList<Soundscape>();
+	private static Set<Soundscape> scapes = new HashSet<>();
 	
 	
 	public static void addSoundscape(Soundscape scape) {
 		scapes.add(scape);
+	}
+	
+	public static void initGlobal() {
+		for(Soundscape scape : scapes) {
+			scape.initGlobal();
+		}
 	}
 	
 	public static void init(MAPlayer player) {
