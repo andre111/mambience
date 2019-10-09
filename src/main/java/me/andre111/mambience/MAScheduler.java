@@ -16,6 +16,7 @@
 package me.andre111.mambience;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -36,7 +37,6 @@ public class MAScheduler implements Runnable {
 	private Queue<BlockScanner> scannerQueue = new LinkedList<>();
 
 	private List<MAPlayer> newPlayers = new ArrayList<>();
-	private List<MAPlayer> removedPlayers = new ArrayList<>();
 	
 	public MAScheduler(MALogger l, int i) {
 		logger = l;
@@ -47,29 +47,9 @@ public class MAScheduler implements Runnable {
 	
 	public void addPlayer(UUID player, Accessor accessor, MALogger logger) {
 		MAPlayer maplayer = new MAPlayer(player, accessor, logger);
+		Soundscapes.init(maplayer);
 		synchronized(newPlayers) {
 			newPlayers.add(maplayer);
-		}
-		Variables.init(maplayer);
-		Soundscapes.init(maplayer);
-	}
-	
-	public void removePlayer(UUID player) {
-		MAPlayer toRemove = null;
-		for(MAPlayer maplayer : players) {
-			if(maplayer.getPlayerUUID().equals(player)) {
-				toRemove = maplayer;
-				break;
-			}
-		}
-		
-		if(toRemove==null) {
-			logger.log(player+" had no BlockScanner associated with them!");
-		} else {
-			synchronized(removedPlayers) {
-				removedPlayers.add(toRemove);
-				scannerQueue.remove(toRemove.getScanner());
-			}
 		}
 	}
 	
@@ -80,38 +60,36 @@ public class MAScheduler implements Runnable {
 	@Override
 	public void run() {
 		long startTime = System.currentTimeMillis();
-		long varTime = startTime;
 		long scapeTime = startTime;
 		timer++;
 		
-		// add/remove players
-		synchronized(removedPlayers) {
-			players.removeAll(removedPlayers);
-			removedPlayers.clear();
-		}
+		// add players
 		synchronized(newPlayers) {
 			players.addAll(newPlayers);
 			newPlayers.clear();
 		}
 		
-		//update players
-		for(MAPlayer maplayer : players) {
+		// update players
+		Iterator<MAPlayer> iterator = players.iterator();
+		while(iterator.hasNext()) {
+			MAPlayer maplayer = iterator.next();
+			
+			// remove players
+			if(!maplayer.getAccessor().updatePlayerInstance()) {
+				iterator.remove();
+				continue;
+			}
+			
 			Variables.update(maplayer);
-		}
-		varTime = System.currentTimeMillis();
-		for(MAPlayer maplayer : players) {
 			Soundscapes.update(maplayer);
-		}
-		scapeTime = System.currentTimeMillis();
-		
-		//search for Scanners needing refreshing
-		for(MAPlayer maplayer : players) {
+			
 			if(maplayer.getScanner().getLastScan()+intervall<=timer) {
 				if(!scannerQueue.contains(maplayer.getScanner())) {
 					scannerQueue.add(maplayer.getScanner());
 				}
 			}
 		}
+		scapeTime = System.currentTimeMillis();
 		
 		//refresh 
 		int refreshed = 0;
@@ -128,7 +106,7 @@ public class MAScheduler implements Runnable {
 		long endTime = System.currentTimeMillis();
 		//if(timer%20==0) {
 			logger.log("Refreshing "+refreshed+" Player(s) took "+(endTime-startTime)+"ms!");
-			logger.log("\tVar: "+(varTime-startTime)+"ms     Scape: "+(scapeTime-varTime)+"ms     Scanner: "+(endTime-scapeTime)+"ms!");
+			logger.log("\tVar+Scape: "+(scapeTime-startTime)+"ms     Scanner: "+(endTime-scapeTime)+"ms!");
 		//}
 	}
 }

@@ -17,17 +17,8 @@ package me.andre111.mambience.script;
 
 import java.util.ArrayList;
 
-import javax.script.ScriptEngineManager;
-
-import me.andre111.mambience.MALogger;
-
 public class MAScripting {
 	private static ArrayList<Macro> macros = new ArrayList<Macro>();
-	
-	public static MAScriptEngine newScriptEngine(MALogger logger) {
-		ScriptEngineManager man = new ScriptEngineManager(null);
-        return new MAScriptEngine(logger, man.getEngineByName("JavaScript"));
-	}
 	
 	public static String expandMacros(String js) {
 		for(Macro macro : macros) {

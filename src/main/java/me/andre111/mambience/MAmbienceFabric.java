@@ -23,9 +23,7 @@ import org.apache.logging.log4j.Logger;
 import io.netty.buffer.Unpooled;
 import me.andre111.mambience.accessor.AccessorFabricClient;
 import me.andre111.mambience.accessor.AccessorFabricServer;
-import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.fabric.event.PlayerJoinCallback;
-import me.andre111.mambience.fabric.event.PlayerLeaveCallback;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.client.ClientTickCallback;
@@ -39,19 +37,15 @@ import net.minecraft.util.PacketByteBuf;
 
 public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	private static final Logger LOGGER = LogManager.getLogger();
-	
+
 	public static MinecraftServer server;
-	public static MinecraftClient client;
 	public static MAmbienceFabric instance;
-	
-	private MALogger logger;
-	private MAScheduler scheduler;
-	
+
 	private int ticker;
 	private long lastTick;
-	
+
 	private boolean runClientSide;
-	
+
 	@Override
 	public void onInitialize() {
 		initCommon();
@@ -63,14 +57,70 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 		initCommon();
 		initClient();
 	}
-	
+
+	// note: call from both initialize methods, because fabric creates two separate instances
+	private void initCommon() {
+		instance = this;
+		MAmbience.init(new MALogger(LOGGER::info, LOGGER::error), new File("./config/mambience"));
+	}
+
+	private void initServer() {
+		ServerTickCallback.EVENT.register(server -> {
+			MAmbienceFabric.server = server;
+			tick();
+		});
+
+		PlayerJoinCallback.EVENT.register((connection, player) -> {
+			// send notify payload (mambience:server channel with "enabled" message)
+			// TODO: this currently ignores the registered state of the channel, but that is not too important
+			PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
+			buf.writeBytes("enabled".getBytes());
+			player.networkHandler.sendPacket(new CustomPayloadS2CPacket(new Identifier("mambience", "server"), buf));
+
+			// register player
+			MAmbience.addPlayer(player.getUuid(), new AccessorFabricServer(player.getUuid()));
+		});
+	}
+
+	private void initClient() {
+		ClientTickCallback.EVENT.register(client -> {
+			// disable client side ambient sounds when not in game
+			if(client.isIntegratedServerRunning() || client.world == null || client.player == null) {
+				if(runClientSide) {
+					MAmbience.getLogger().log("automatically disabled client side ambient sounds");
+					MAmbience.getScheduler().clearPlayers();
+					runClientSide = false;
+				}
+			}
+
+			if(runClientSide) {
+				tick();
+			}
+		});
+	}
+
+	private void tick() {
+		// only run when not trying to catch up
+		if(System.currentTimeMillis()-lastTick < 1000 / 20 / 2) {
+			return;
+		}
+		lastTick = System.currentTimeMillis();
+
+		// update
+		ticker++;
+		if(ticker == 20) {
+			ticker = 0;
+			MAmbience.getScheduler().run();
+		}
+	}
+
 	// enable or disable client side ambient sounds dependent on server support
-	public void onStartGameSession() {
+	public void onStartGameSession(MinecraftClient client) {
 		if(!runClientSide && !client.isIntegratedServerRunning()) {
-			logger.log("enabling client side ambient sounds");
-			scheduler.addPlayer(client.player.getUuid(), new AccessorFabricClient(client.player.getUuid()), logger);
+			MAmbience.getLogger().log("enabling client side ambient sounds");
+			MAmbience.addPlayer(client.player.getUuid(), new AccessorFabricClient(client.player.getUuid()));
 			runClientSide = true;
-			
+
 			// notify server of our presence by registering plugin channel
 			PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
 			buf.writeBytes("mambience:server".getBytes());
@@ -78,76 +128,12 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 			client.player.networkHandler.sendPacket(new CustomPayloadC2SPacket(new Identifier("minecraft", "register"), buf));
 		}
 	}
-	
+
 	public void onServerMAmbiencePresent() {
 		if(runClientSide) {
-			logger.log("server reported MAmbience present: disabled client side ambient sounds");
-			scheduler.clearPlayers();
+			MAmbience.getLogger().log("server reported MAmbience present: disabled client side ambient sounds");
+			MAmbience.getScheduler().clearPlayers();
 			runClientSide = false;
-		}
-	}
-	
-	// note: call from both initialize methods, because fabric creates two separate instances
-	private void initCommon() {
-		instance = this;
-		logger = new MALogger(LOGGER::info, LOGGER::error);
-		
-		EngineConfig.initialize(logger, new File("./config/mambience"));
-		scheduler = new MAScheduler(logger, 1);
-	}
-	
-	private void initServer() {
-		ServerTickCallback.EVENT.register(server -> {
-			MAmbienceFabric.server = server;
-			tick();
-		});
-		
-		PlayerJoinCallback.EVENT.register((connection, player) -> {
-			// send notify payload (mambience:server channel with "enabled" message)
-			// TODO: this currently ignores the registered state of the channel, but that is not too important
-			PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-			buf.writeBytes("enabled".getBytes());
-			player.networkHandler.sendPacket(new CustomPayloadS2CPacket(new Identifier("mambience", "server"), buf));
-			
-			// register player
-			scheduler.addPlayer(player.getUuid(), new AccessorFabricServer(player.getUuid()), logger);
-		});
-		PlayerLeaveCallback.EVENT.register(player -> {
-			scheduler.removePlayer(player.getUuid());
-		});
-	}
-	
-	private void initClient() {
-		ClientTickCallback.EVENT.register(client -> {
-			MAmbienceFabric.client = client;
-
-			// disable client side ambient sounds when not in game
-			if(client.isIntegratedServerRunning() || client.world == null || client.player == null) {
-				if(runClientSide) {
-					logger.log("automatically disabled client side ambient sounds");
-					scheduler.clearPlayers();
-					runClientSide = false;
-				}
-			}
-			
-			if(runClientSide) {
-				tick();
-			}
-		});
-	}
-	
-	private void tick() {
-		// only run when not trying to catch up
-		if(System.currentTimeMillis()-lastTick < 1000 / 20 / 2) {
-			return;
-		}
-		lastTick = System.currentTimeMillis();
-		
-		// update
-		ticker++;
-		if(ticker == 20) {
-			ticker = 0;
-			scheduler.run();
 		}
 	}
 }

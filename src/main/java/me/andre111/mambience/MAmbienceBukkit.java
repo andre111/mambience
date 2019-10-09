@@ -16,28 +16,21 @@
 package me.andre111.mambience;
 
 import me.andre111.mambience.accessor.AccessorBukkit;
-import me.andre111.mambience.config.EngineConfig;
 
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRegisterChannelEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class MAmbienceBukkit extends JavaPlugin implements Listener {
-	private MALogger logger;
-	private MAScheduler scheduler;
-	
+
 	@Override
     public void onEnable() {
-		logger = new MALogger(getLogger()::info, getLogger()::warning);
+		MAmbience.init(new MALogger(getLogger()::info, getLogger()::warning), this.getDataFolder());
 		
-		EngineConfig.initialize(logger, this.getDataFolder());
-		scheduler = new MAScheduler(logger, 1);
-		
-		Bukkit.getScheduler().runTaskTimerAsynchronously(this, scheduler, 20, 20);
+		Bukkit.getScheduler().runTaskTimer(this, MAmbience.getScheduler(), 20, 20);
 		Bukkit.getPluginManager().registerEvents(this, this);
 		
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "mambience:server");
@@ -50,19 +43,14 @@ public class MAmbienceBukkit extends JavaPlugin implements Listener {
     
     @EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
-		scheduler.addPlayer(event.getPlayer().getUniqueId(), new AccessorBukkit(event.getPlayer().getUniqueId()), logger);
-	}
-	
-	@EventHandler
-	public void onPlayerLeave(PlayerQuitEvent event) {
-		scheduler.removePlayer(event.getPlayer().getUniqueId());
+		MAmbience.addPlayer(event.getPlayer().getUniqueId(), new AccessorBukkit(event.getPlayer().getUniqueId()));
 	}
 	
 	@EventHandler
 	public void onPlayerRegisterChannel(PlayerRegisterChannelEvent event) {
 		if(event.getChannel().equals("mambience:server")) {
 			// send notify payload (mambience:server channel with "enabled" message)
-			Bukkit.getScheduler().runTask(this, () -> event.getPlayer().sendPluginMessage(this, "mambience:server", "enabled".getBytes()));
+			event.getPlayer().sendPluginMessage(this, "mambience:server", "enabled".getBytes());
 		}
 	}
 }

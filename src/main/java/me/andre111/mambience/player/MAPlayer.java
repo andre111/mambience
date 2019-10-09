@@ -18,30 +18,23 @@ package me.andre111.mambience.player;
 import java.util.HashMap;
 import java.util.UUID;
 
-import javax.script.CompiledScript;
-
 import me.andre111.mambience.MALogger;
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.scan.BlockScanner;
-import me.andre111.mambience.script.MAScriptEngine;
-import me.andre111.mambience.script.MAScripting;
 
 public class MAPlayer {
 	private UUID playerUUID;
 	private Accessor accessor;
 	private BlockScanner scanner;
 	private MALogger logger;
-	private MAScriptEngine scriptEngine;
 	private HashMap<String, Integer> cooldowns;
-	private CompiledScript varSetterScript;
 	
 	public MAPlayer(UUID playerUUID, Accessor accessor, MALogger logger) {
 		this.playerUUID = playerUUID;
 		this.accessor = accessor;
 		this.scanner = new BlockScanner(accessor, EngineConfig.SIZEX, EngineConfig.SIZEY, EngineConfig.SIZEZ);
 		this.logger = logger;
-		this.scriptEngine = MAScripting.newScriptEngine(logger);
 		this.cooldowns = new HashMap<String, Integer>();
 	}
 	
@@ -56,9 +49,6 @@ public class MAPlayer {
 	}
 	public MALogger getLogger() {
 		return logger;
-	}
-	public MAScriptEngine getScriptEngine() {
-		return scriptEngine;
 	}
 	
 	public int getCooldown(String key) {
@@ -77,12 +67,5 @@ public class MAPlayer {
 		int value = cooldowns.get(key)-1;
 		cooldowns.put(key, value);
 		return value;
-	}
-
-	public CompiledScript getVarSetterScript() {
-		return varSetterScript;
-	}
-	public void setVarSetterScript(CompiledScript varSetterScript) {
-		this.varSetterScript = varSetterScript;
 	}
 }

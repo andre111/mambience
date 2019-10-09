@@ -17,7 +17,7 @@ package me.andre111.mambience.accessor;
 
 import java.util.UUID;
 
-import me.andre111.mambience.MAmbienceFabric;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.sound.SoundCategory;
@@ -31,17 +31,17 @@ public class AccessorFabricClient extends AccessorFabric {
 	// Player related methods
 	@Override
 	public boolean updatePlayerInstance() {
-		player = MAmbienceFabric.client.player;
+		player = MinecraftClient.getInstance().player;
 		return player != null;
 	}
 
 	@Override
 	public void playSound(String sound, float volume, float pitch) {
-		MAmbienceFabric.client.getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, (float)player.getPosVector().x, (float)player.getPosVector().y, (float)player.getPosVector().z, false));
+		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, (float)player.getPosVector().x, (float)player.getPosVector().y, (float)player.getPosVector().z, false));
 	}
 
 	@Override
 	public void stopSound(String sound) {
-		MAmbienceFabric.client.getSoundManager().stopSounds(new Identifier(sound), SoundCategory.AMBIENT);
+		MinecraftClient.getInstance().getSoundManager().stopSounds(new Identifier(sound), SoundCategory.AMBIENT);
 	}
 }

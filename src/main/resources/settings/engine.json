@@ -1,8 +1,8 @@
 {
 	"Settings": {
-		"ScannnerX": 19,
-		"ScannnerY": 13,
-		"ScannnerZ": 19,
+		"ScannnerX": 17,
+		"ScannnerY": 11,
+		"ScannnerZ": 17,
         "StopSounds": false,
         "DebugLogging": false
 	},

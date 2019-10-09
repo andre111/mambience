@@ -28,7 +28,7 @@ public class Soundscape {
 	
 	public void init(MAPlayer maplayer) {
 		//TODO: Maybe make compiling asnyc?
-		MAScriptEngine se = maplayer.getScriptEngine();
+		MAScriptEngine se = MAScriptEngine.getInstance();
 		
 		for(SoundInfo si : sounds) {
 			si.init(se);
@@ -42,12 +42,13 @@ public class Soundscape {
 		//Wait for compile to finish because update is async
 		if(!initialised) return;
 		
-		MAScriptEngine se = maplayer.getScriptEngine();
+		MAScriptEngine se = MAScriptEngine.getInstance();
 		//TODO: offset location to make sound "mono", not positioned at a certain spot in the world, e.g. y + 5000
 		
 		for(SoundInfo si : sounds) {
 			if(conditionsMet(se, si)) {
 				if(maplayer.updateCooldown(si.getName()) <= 0) {
+					//TODO: turn this into compiled scripts
 					float volume = ((Number) se.evalJS(si.getVolume())).floatValue();
 					float pitch = ((Number) se.evalJS(si.getPitch())).floatValue();
 					

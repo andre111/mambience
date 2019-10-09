@@ -26,8 +26,8 @@ import me.andre111.mambience.scan.BlockScanner;
 public class Variables {
 	private static ArrayList<Variable> variables = new ArrayList<Variable>();
 	
-	public static void init(MAPlayer maplayer) {
-		MAScriptEngine se = maplayer.getScriptEngine();
+	public static void init() {
+		MAScriptEngine se = MAScriptEngine.getInstance();
 		
 		se.evalJS("Player = {};");
 		se.evalJS("World = {};");
@@ -36,47 +36,43 @@ public class Variables {
 		se.evalJS("Internal.Cooldown = {};");
 		se.evalJS("Internal.Function = {};");
 		
-		maplayer.setVarSetterScript(
-				se.compileScript("function Internal_Variables() {"
-					//PLAYER
-						+ "   Player.X = __px;"
-						+ "   Player.Y = __py;"
-						+ "   Player.Z = __pz;"
-						//TODO: Player Dimension
-						//+ "   Player.DIM = __pdim;"
-						+ "   Player.SunLight = __psunl;"
-						+ "   Player.BlockLight = __pblockl;"
-						+ "   Player.Light = __pl;"
-						//TODO: CanSeeSky, CanRainOn
-						//+ "   Player.CanSeeSky = __pseesky;"
-						//+ "   Player.CanRainOn = __prainon;"
-						//+ "   Player.InBoat = __pboat;"
-						+ "   Player.Submerged = __psubm;"
-						+ "   Player.IsExposed = __pexpo;"
-						+ "   Player.Health = __phealth;"
-						+ "   Player.Food = __pfood;"
-					//WORLD
-						+ "   World.Time = __wt;"
-						+ "   World.IsRaining = __wrain;"
-						+ "   World.MoonPhase = __wmoon;"
-						+ "   World.Biome = __wbiome;"
-					//SCANNER
-						+ "   Scanner.BlockSize = __sblocks;"
-						+ "   Scanner.BiomeSize = __sbiomes;"
-						+ "   Scanner.AverageSkyLight = __savgskylight;"
-						+ "   Scanner.AverageLight = __savglight;"
-						+ "   Scanner.AverageTemperature = __savgtemp;"
-						+ "   Scanner.AverageHumidity = __savghum;"
-						+ "}")
-		);
+		se.compileScript("function Internal_Variables() {"
+			//PLAYER
+				+ "   Player.X = __px;"
+				+ "   Player.Y = __py;"
+				+ "   Player.Z = __pz;"
+				//TODO: Player Dimension
+				//+ "   Player.DIM = __pdim;"
+				+ "   Player.SunLight = __psunl;"
+				+ "   Player.BlockLight = __pblockl;"
+				+ "   Player.Light = __pl;"
+				//TODO: CanSeeSky, CanRainOn
+				//+ "   Player.CanSeeSky = __pseesky;"
+				//+ "   Player.CanRainOn = __prainon;"
+				//+ "   Player.InBoat = __pboat;"
+				+ "   Player.Submerged = __psubm;"
+				+ "   Player.IsExposed = __pexpo;"
+				+ "   Player.Health = __phealth;"
+				+ "   Player.Food = __pfood;"
+			//WORLD
+				+ "   World.Time = __wt;"
+				+ "   World.IsRaining = __wrain;"
+				+ "   World.MoonPhase = __wmoon;"
+				+ "   World.Biome = __wbiome;"
+			//SCANNER
+				+ "   Scanner.BlockSize = __sblocks;"
+				+ "   Scanner.BiomeSize = __sbiomes;"
+				+ "   Scanner.AverageSkyLight = __savgskylight;"
+				+ "   Scanner.AverageLight = __savglight;"
+				+ "   Scanner.AverageTemperature = __savgtemp;"
+				+ "   Scanner.AverageHumidity = __savghum;"
+				+ "}");
 	}
 	
 	public static void update(MAPlayer maplayer) {
 		Accessor accessor = maplayer.getAccessor();
 		BlockScanner scanner = maplayer.getScanner();
-		MAScriptEngine se = maplayer.getScriptEngine();
-		
-		if(!accessor.updatePlayerInstance()) return; // fixes server crashes, TODO: but this should never even happen
+		MAScriptEngine se = MAScriptEngine.getInstance();
 		
 		int x = accessor.getX();
 		int y = accessor.getY();

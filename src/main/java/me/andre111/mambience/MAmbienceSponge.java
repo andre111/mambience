@@ -33,7 +33,6 @@ import org.spongepowered.api.scheduler.Task;
 import com.google.inject.Inject;
 
 import me.andre111.mambience.accessor.AccessorSponge;
-import me.andre111.mambience.config.EngineConfig;
 
 @Plugin(id = "mambience", name = "MAmbience", version = "0.3")
 public class MAmbienceSponge {
@@ -44,9 +43,6 @@ public class MAmbienceSponge {
 	@Inject
 	private Logger ilogger;
 	
-	private MALogger logger;
-	private MAScheduler scheduler;
-	
 
 	@Inject
 	private Game game;
@@ -54,13 +50,10 @@ public class MAmbienceSponge {
 	
 	@Listener
     public void onServerStart(GameStartedServerEvent event) {
-		logger = new MALogger(ilogger::info, ilogger::error);
-		
-		EngineConfig.initialize(logger, configDir.toFile());
-		scheduler = new MAScheduler(logger, 1);
+		MAmbience.init(new MALogger(ilogger::info, ilogger::error), configDir.toFile());
 		
 		Task.Builder taskBuilder = Task.builder();
-		taskBuilder.execute(scheduler).async().delayTicks(20).intervalTicks(20).submit(this);
+		taskBuilder.execute(MAmbience.getScheduler()).async().delayTicks(20).intervalTicks(20).submit(this);
 		
 		rawDataChannel = game.getChannelRegistrar().createRawChannel(this, "mambience:server");
 	}
@@ -68,13 +61,7 @@ public class MAmbienceSponge {
 	@Listener
 	public void onPlayerJoin(ClientConnectionEvent.Join event) {
 		Player player = event.getTargetEntity();
-		scheduler.addPlayer(player.getUniqueId(), new AccessorSponge(player.getUniqueId()), logger);
-	}
-	
-	@Listener
-	public void onPlayerLeave(ClientConnectionEvent.Disconnect event) {
-		Player player = event.getTargetEntity();
-		scheduler.removePlayer(player.getUniqueId());
+		MAmbience.addPlayer(player.getUniqueId(), new AccessorSponge(player.getUniqueId()));
 	}
 	
 	@Listener

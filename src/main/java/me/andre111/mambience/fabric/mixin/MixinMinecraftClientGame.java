@@ -21,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import me.andre111.mambience.MAmbienceFabric;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.MinecraftClientGame;
 
 @Mixin(MinecraftClientGame.class)
@@ -28,6 +29,6 @@ public class MixinMinecraftClientGame {
 
 	@Inject(at = @At("HEAD"), method = "onStartGameSession")
 	public void onStartGameSession(CallbackInfo callbackInfo) {
-		MAmbienceFabric.instance.onStartGameSession();
+		MAmbienceFabric.instance.onStartGameSession(MinecraftClient.getInstance());
 	}
 }
