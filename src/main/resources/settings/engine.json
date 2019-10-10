@@ -3,6 +3,7 @@
 		"ScannnerX": 17,
 		"ScannnerY": 11,
 		"ScannnerZ": 17,
+		"GlobalVolume": 0.75,
         "StopSounds": false,
         "DebugLogging": false
 	},

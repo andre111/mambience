@@ -36,6 +36,7 @@ public class EngineConfig {
 	public static int SIZEX = 32;
 	public static int SIZEY = 16;
 	public static int SIZEZ = 32;
+	public static float GLOBALVOLUME = 0.75f;
 	public static boolean STOPSOUNDS = false;
 	public static boolean DEBUGLOGGING = false;
 	
@@ -103,6 +104,9 @@ public class EngineConfig {
 		SIZEX = element.get("ScannnerX").getAsInt();
 		SIZEY = element.get("ScannnerY").getAsInt();
 		SIZEZ = element.get("ScannnerZ").getAsInt();
+		if(element.has("GlobalVolume")) {
+			GLOBALVOLUME = element.get("GlobalVolume").getAsFloat();
+		}
 		STOPSOUNDS = element.get("StopSounds").getAsBoolean();
 		if(element.has("DebugLogging")) {
 			DEBUGLOGGING = element.get("DebugLogging").getAsBoolean();

@@ -24,6 +24,7 @@ import me.andre111.mambience.script.MAScriptEngine;
 import me.andre111.mambience.script.Variables;
 import me.andre111.mambience.sound.Soundscapes;
 
+//TODO: adjust sounds, get rid of some reppetetiveness
 public class MAmbience {
 	private static MALogger logger;
 	private static MAScheduler scheduler;

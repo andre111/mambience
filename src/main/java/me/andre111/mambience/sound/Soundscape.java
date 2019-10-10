@@ -56,7 +56,7 @@ public class Soundscape {
 		for(SoundInfo si : sounds) {
 			if(conditionsMet(se, si)) {
 				if(maplayer.updateCooldown(si.getName()) <= 0) {
-					float volume = ((Number) se.invokeFunction("Internal_Volume_"+si.getName())).floatValue();
+					float volume = ((Number) se.invokeFunction("Internal_Volume_"+si.getName())).floatValue() * EngineConfig.GLOBALVOLUME;
 					float pitch = ((Number) se.invokeFunction("Internal_Pitch_"+si.getName())).floatValue();
 					
 					maplayer.getLogger().log("Play sound "+si.getSound()+" at "+volume);

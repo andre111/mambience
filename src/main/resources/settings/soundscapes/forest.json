@@ -54,7 +54,7 @@
         "Sound": "minecraft:forest.wind",
         "Conditions": "#IsForest#",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.5*#Muffle#",
         "Cooldown": "30 + Math.random()*40"
     }
 ]

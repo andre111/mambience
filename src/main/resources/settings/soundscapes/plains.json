@@ -29,7 +29,7 @@
         "Sound": "minecraft:plains.wind",
         "Conditions": "#IsPlains# && Player.IsExposed",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.5",
         "Cooldown": "20 + Math.random()*20"
     },
     {
@@ -37,7 +37,7 @@
         "Sound": "minecraft:plains.windinside",
         "Conditions": "#IsPlains# && !Player.IsExposed",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.5",
         "Cooldown": "20 + Math.random()*20"
     }
 ]

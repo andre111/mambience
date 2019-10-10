@@ -29,7 +29,7 @@
         "Sound": "minecraft:snow.wind1",
         "Conditions": "#IsCold# && #Trees# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.5*#Muffle#",
         "Cooldown": "15 * Math.random()*15"
     },
     {
@@ -37,7 +37,7 @@
         "Sound": "minecraft:snow.wind2",
         "Conditions": "#IsCold# && #IsDay#",
         "Restrictions": "#Trees# || #UnderGround# || Player.Submerged",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.5*#Muffle#",
         "Cooldown": "15 * Math.random()*15"
     },
     {
@@ -45,7 +45,7 @@
         "Sound": "minecraft:snow.windnight",
         "Conditions": "#IsCold# && (#IsMorning# || #IsEvening# || #IsNight#)",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.5*#Muffle#",
         "Cooldown": "15 * Math.random()*15"
     },
     

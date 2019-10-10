@@ -55,7 +55,7 @@
         "Name": "HellWind",
         "Sound": "minecraft:hell.wind",
         "Conditions": "#IsHell#",
-        "Volume": "1",
+        "Volume": "0.5",
         "Cooldown": "30 + Math.random()*40"
     }
 ]
