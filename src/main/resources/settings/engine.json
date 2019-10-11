@@ -21,6 +21,7 @@
 		"soundscapes/mountain.json",
 		"soundscapes/plains.json",
 		"soundscapes/rain.json",
+		"soundscapes/savanna.json",
 		"soundscapes/seaside.json",
 		"soundscapes/snow.json",
 		"soundscapes/swamp.json"
@@ -97,7 +98,11 @@
 			"Type": "BlockCount",
 			"Materials": [
 				"minecraft:water",
-				"minecraft:bubble_column"
+				"minecraft:bubble_column",
+				"minecraft:kelp",
+				"minecraft:kelp_plant",
+				"minecraft:seagrass",
+				"minecraft:tall_seagrass"
 			]
 		},
 		{
@@ -155,6 +160,22 @@
 		},
 		{
 			"Name": "SavannaBiomes",
+			"Type": "BiomeCount",
+			"Biomes": [
+				"minecraft:savanna",
+				"minecraft:savanna_plateau",
+				"minecraft:shattered_savanna",
+				"minecraft:shattered_savanna_plateau",
+				"minecraft:badlands",
+				"minecraft:badlands_plateau",
+				"minecraft:modified_badlands_plateau",
+				"minecraft:wooded_badlands_plateau",
+				"minecraft:modified_wooded_badlands_plateau",
+				"minecraft:eroded_badlands"
+			]
+		},
+		{
+			"Name": "DesertBiomes",
 			"Type": "BiomeCount",
 			"Biomes": [
 				"minecraft:desert",
@@ -288,6 +309,10 @@
 		{
 			"Name": "IsSavanna",
 			"Code": "(SavannaBiomes/Scanner.BiomeSize >= 0.60)"
+		},
+		{
+			"Name": "IsDesert",
+			"Code": "(DesertBiomes/Scanner.BiomeSize >= 0.60)"
 		},
 		{
 			"Name": "IsSwamp",

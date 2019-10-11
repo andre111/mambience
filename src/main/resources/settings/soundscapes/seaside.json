@@ -1,7 +1,7 @@
 [
 	{
         "Name": "SeasideOcean",
-        "Sound": "minecraft:seaside.ocean",
+        "Sound": "mambience:seaside.ocean",
         "Conditions": "#Salinity# >= 0.1 && Player.IsExposed",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "1",
@@ -9,7 +9,7 @@
     },
     {
         "Name": "SeasideOceanInside",
-        "Sound": "minecraft:seaside.oceaninside",
+        "Sound": "mambience:seaside.oceaninside",
         "Conditions": "#Salinity# >= 0.1 && !Player.IsExposed",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "1",
@@ -17,10 +17,18 @@
     },
     {
         "Name": "SeasideBirds",
-        "Sound": "minecraft:seaside.bird",
+        "Sound": "mambience:seaside.bird",
         "Conditions": "#Salinity# >= 0.1",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "1*#Muffle#",
         "Cooldown": "10 + Math.random()*20"
+    },
+    {
+        "Name": "SeasideWhale",
+        "Sound": "mambience:seaside.whale",
+        "Conditions": "#Salinity# >= 0.1 && Player.Submerged && (FoliageBlocks/Scanner.BlockSize) > 0.65",
+        "Restrictions": "",
+        "Volume": "1*#Muffle#",
+        "Cooldown": "60 + Math.random()*120"
     }
 ]

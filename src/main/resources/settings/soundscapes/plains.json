@@ -1,7 +1,7 @@
 [
 	{
         "Name": "PlainsDay",
-        "Sound": "minecraft:plains.day",
+        "Sound": "mambience:plains.day",
         "Conditions": "#IsPlains# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
         "Volume": "1*#Muffle#",
@@ -9,7 +9,7 @@
     },
     {
         "Name": "PlainsNight",
-        "Sound": "minecraft:plains.night",
+        "Sound": "mambience:plains.night",
         "Conditions": "#IsPlains# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
         "Volume": "1*#Muffle#",
@@ -17,7 +17,7 @@
     },
     {
         "Name": "PlainsMorningEvening",
-        "Sound": "minecraft:plains.evening",
+        "Sound": "mambience:plains.evening",
         "Conditions": "#IsPlains# && (#IsMorning# || #IsEvening#)",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
         "Volume": "1*#Muffle#",
@@ -26,7 +26,7 @@
     
     {
         "Name": "PlainsWind",
-        "Sound": "minecraft:plains.wind",
+        "Sound": "mambience:plains.wind",
         "Conditions": "#IsPlains# && Player.IsExposed",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "0.5",
@@ -34,7 +34,7 @@
     },
     {
         "Name": "PlainsWindInside",
-        "Sound": "minecraft:plains.windinside",
+        "Sound": "mambience:plains.windinside",
         "Conditions": "#IsPlains# && !Player.IsExposed",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "0.5",

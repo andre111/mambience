@@ -1,7 +1,7 @@
 [
 	{
         "Name": "SharedOwl",
-        "Sound": "minecraft:shared.owl",
+        "Sound": "mambience:shared.owl",
         "Conditions": "#Trees# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining",
         "Volume": "1*#Muffle#",
@@ -9,7 +9,7 @@
     },
     {
         "Name": "SharedGrasshopperDay",
-        "Sound": "minecraft:shared.grasshopper",
+        "Sound": "mambience:shared.grasshopper",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && #IsDay# && #BugPlants#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
         "Volume": "1*#Muffle#",
@@ -17,7 +17,7 @@
     },
     {
         "Name": "SharedCritterNight",
-        "Sound": "minecraft:shared.critter",
+        "Sound": "mambience:shared.critter",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && #IsNight# && #BugPlants#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
         "Volume": "1*#Muffle#",
@@ -26,7 +26,7 @@
     
     {
         "Name": "SharedStarling",
-        "Sound": "minecraft:shared.starling",
+        "Sound": "mambience:shared.starling",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && (#IsMorning# || #IsDay#) && #Trees#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
         "Volume": "1*#Muffle#",
@@ -34,7 +34,7 @@
     },
     {
         "Name": "SharedSparrow",
-        "Sound": "minecraft:shared.sparrow",
+        "Sound": "mambience:shared.sparrow",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && (#IsMorning# || #IsDay#) && #Trees#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
         "Volume": "1*#Muffle#",
@@ -42,7 +42,7 @@
     },
     {
         "Name": "SharedBirds",
-        "Sound": "minecraft:shared.bird",
+        "Sound": "mambience:shared.bird",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && (#IsMorning# || #IsDay#) && #Trees#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
         "Volume": "1*#Muffle#",
@@ -51,7 +51,7 @@
     
     {
         "Name": "SharedFlies",
-        "Sound": "minecraft:shared.flies",
+        "Sound": "mambience:shared.flies",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && (#IsMorning# || #IsDay# || #IsEvening#) && (#Trees# || #BugPlants#)",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || #IsCold# || World.IsRaining",
         "Volume": "1*#Muffle#",
@@ -60,7 +60,7 @@
     
     {
         "Name": "SharedBat",
-        "Sound": "minecraft:shared.bat",
+        "Sound": "mambience:shared.bat",
         "Conditions": "#UnderGround# && !Player.IsExposed",
         "Restrictions": "Player.Submerged",
         "Volume": "1",

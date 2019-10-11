@@ -1,7 +1,7 @@
 [
 	{
         "Name": "SwampDay",
-        "Sound": "minecraft:swamp.day",
+        "Sound": "mambience:swamp.day",
         "Conditions": "#IsSwamp# && (#IsMorning# || #IsDay#)",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -9,16 +9,16 @@
     },
     {
         "Name": "SwampNight",
-        "Sound": "minecraft:swamp.night",
+        "Sound": "mambience:swamp.night",
         "Conditions": "#IsSwamp# && (#IsEvening# || #IsNight#)",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "7"
     },
     
     {
         "Name": "SwampMosquito",
-        "Sound": "minecraft:swamp.mosquito",
+        "Sound": "mambience:swamp.mosquito",
         "Conditions": "#IsSwamp#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -26,8 +26,16 @@
     },
     
     {
+        "Name": "SwampBird",
+        "Sound": "mambience:swamp.bird",
+        "Conditions": "#IsSwamp# && #IsDay#",
+        "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
+        "Volume": "2*#Muffle#",
+        "Cooldown": "15 + Math.random()*25"
+    },
+    {
         "Name": "SwampDuck",
-        "Sound": "minecraft:swamp.duck",
+        "Sound": "mambience:swamp.duck",
         "Conditions": "#IsSwamp# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -35,7 +43,7 @@
     },
     {
         "Name": "SwampFrog",
-        "Sound": "minecraft:swamp.frog",
+        "Sound": "mambience:swamp.frog",
         "Conditions": "#IsSwamp# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -43,7 +51,7 @@
     },
     {
         "Name": "SwampToad",
-        "Sound": "minecraft:swamp.toad",
+        "Sound": "mambience:swamp.toad",
         "Conditions": "#IsSwamp# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",

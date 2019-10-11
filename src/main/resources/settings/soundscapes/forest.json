@@ -1,7 +1,7 @@
 [
 	{
         "Name": "ForestMorning",
-        "Sound": "minecraft:forest.morning",
+        "Sound": "mambience:forest.morning",
         "Conditions": "#IsForest# && #IsMorning#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -9,7 +9,7 @@
     },
     {
         "Name": "ForestDay",
-        "Sound": "minecraft:forest.day",
+        "Sound": "mambience:forest.day",
         "Conditions": "#IsForest# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -17,7 +17,7 @@
     },
     {
         "Name": "ForestEvening",
-        "Sound": "minecraft:forest.evening",
+        "Sound": "mambience:forest.evening",
         "Conditions": "#IsForest# && #IsEvening#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -25,7 +25,7 @@
     },
     {
         "Name": "ForestNight",
-        "Sound": "minecraft:forest.night",
+        "Sound": "mambience:forest.night",
         "Conditions": "#IsForest# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -33,8 +33,24 @@
     },
     
     {
+        "Name": "ForestBird",
+        "Sound": "mambience:forest.bird",
+        "Conditions": "#IsForest# && #IsDay#",
+        "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
+        "Volume": "1*#Muffle#",
+        "Cooldown": "15 + Math.random()*25"
+    },
+    {
+        "Name": "ForestDeepBird",
+        "Sound": "mambience:forest.deepbird",
+        "Conditions": "#IsForest# && #IsDay# && (FoliageBlocks/Scanner.BlockSize >= 0.30)",
+        "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
+        "Volume": "1*#Muffle#",
+        "Cooldown": "15 + Math.random()*25"
+    },
+    {
         "Name": "ForestCuckoo",
-        "Sound": "minecraft:forest.cuckoo",
+        "Sound": "mambience:forest.cuckoo",
         "Conditions": "#IsForest# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -42,7 +58,7 @@
     },
     {
         "Name": "ForestWoodpecker",
-        "Sound": "minecraft:forest.woodpecker",
+        "Sound": "mambience:forest.woodpecker",
         "Conditions": "#IsForest# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining || #InAir#",
         "Volume": "1*#Muffle#",
@@ -51,7 +67,7 @@
     
     {
         "Name": "ForestWind",
-        "Sound": "minecraft:forest.wind",
+        "Sound": "mambience:forest.wind",
         "Conditions": "#IsForest#",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "0.5*#Muffle#",

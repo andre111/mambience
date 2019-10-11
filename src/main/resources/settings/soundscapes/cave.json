@@ -1,7 +1,7 @@
 [
 	{
         "Name": "CaveCave",
-        "Sound": "minecraft:cave.cave",
+        "Sound": "mambience:cave.cave",
         "Conditions": "#UnderGround# && !Player.IsExposed",
         "Restrictions": "Player.Submerged",
         "Volume": "1",
@@ -9,7 +9,7 @@
     },
     {
         "Name": "CaveLava",
-        "Sound": "minecraft:cave.lava",
+        "Sound": "mambience:cave.lava",
         "Conditions": "#UnderGround# && !Player.IsExposed && (LavaBlocks/Scanner.BlockSize >= 0.03)",
         "Restrictions": "Player.Submerged",
         "Volume": "1",
@@ -18,7 +18,7 @@
     
     {
         "Name": "CaveVent",
-        "Sound": "minecraft:cave.vent",
+        "Sound": "mambience:cave.vent",
         "Conditions": "#UnderGround# && !Player.IsExposed && (AirBlocks/Scanner.BlockSize >= 0.2)",
         "Restrictions": "Player.Submerged",
         "Volume": "1",
@@ -26,7 +26,7 @@
     },
     {
         "Name": "CaveWind",
-        "Sound": "minecraft:cave.wind",
+        "Sound": "mambience:cave.wind",
         "Conditions": "#UnderGround# && !Player.IsExposed",
         "Restrictions": "Player.Submerged",
         "Volume": "1",

@@ -1,7 +1,7 @@
 [
 	{
         "Name": "RainOutside",
-        "Sound": "minecraft:rain.outside",
+        "Sound": "mambience:rain.outside",
         "Conditions": "World.IsRaining && Player.IsExposed && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "1",
@@ -9,7 +9,7 @@
     },
     {
         "Name": "RainInside",
-        "Sound": "minecraft:rain.inside",
+        "Sound": "mambience:rain.inside",
         "Conditions": "World.IsRaining && !Player.IsExposed && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "1",
@@ -17,10 +17,18 @@
     },
     {
         "Name": "RainTrees",
-        "Sound": "minecraft:rain.tree",
+        "Sound": "mambience:rain.tree",
         "Conditions": "World.IsRaining && #Trees# && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "1",
         "Cooldown": "4"
+    },
+    {
+        "Name": "RainDistantThunder",
+        "Sound": "mambience:rain.distantthunder",
+        "Conditions": "World.IsRaining && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
+        "Restrictions": "#UnderGround# || Player.Submerged",
+        "Volume": "1",
+        "Cooldown": "15 + Math.random()*35"
     }
 ]

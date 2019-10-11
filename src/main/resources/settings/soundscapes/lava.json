@@ -1,7 +1,7 @@
 [
 	{
         "Name": "LavaNear",
-        "Sound": "minecraft:lava.nearlava",
+        "Sound": "mambience:lava.nearlava",
         "Conditions": "(LavaBlocks/Scanner.BlockSize >= 0.03)",
         "Restrictions": "Player.Submerged",
         "Volume": "1",
@@ -9,7 +9,7 @@
     },
     {
         "Name": "LavaPlop",
-        "Sound": "minecraft:lava.plop",
+        "Sound": "mambience:lava.plop",
         "Conditions": "(LavaBlocks/Scanner.BlockSize >= 0.03)",
         "Restrictions": "Player.Submerged",
         "Volume": "0.8",

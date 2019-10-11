@@ -1,7 +1,7 @@
 [
 	{
         "Name": "SnowForest",
-        "Sound": "minecraft:snow.forest",
+        "Sound": "mambience:snow.forest",
         "Conditions": "#IsCold# && #Trees# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
         "Volume": "1*#Muffle#",
@@ -9,7 +9,7 @@
     },
     {
         "Name": "SnowMountain",
-        "Sound": "minecraft:snow.mountain",
+        "Sound": "mambience:snow.mountain",
         "Conditions": "#IsCold# && Player.Y>100",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
         "Volume": "1*#Muffle#",
@@ -17,7 +17,7 @@
     },
     {
         "Name": "SnowPlains",
-        "Sound": "minecraft:snow.plains",
+        "Sound": "mambience:snow.plains",
         "Conditions": "#IsCold#",
         "Restrictions": "#Trees# || #UnderGround# || Player.Submerged || #InAir#",
         "Volume": "1*#Muffle#",
@@ -26,7 +26,7 @@
     
     {
         "Name": "SnowWindForest",
-        "Sound": "minecraft:snow.wind1",
+        "Sound": "mambience:snow.wind1",
         "Conditions": "#IsCold# && #Trees# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "0.5*#Muffle#",
@@ -34,7 +34,7 @@
     },
     {
         "Name": "SnowWind",
-        "Sound": "minecraft:snow.wind2",
+        "Sound": "mambience:snow.wind2",
         "Conditions": "#IsCold# && #IsDay#",
         "Restrictions": "#Trees# || #UnderGround# || Player.Submerged",
         "Volume": "0.5*#Muffle#",
@@ -42,7 +42,7 @@
     },
     {
         "Name": "SnowWindNight",
-        "Sound": "minecraft:snow.windnight",
+        "Sound": "mambience:snow.windnight",
         "Conditions": "#IsCold# && (#IsMorning# || #IsEvening# || #IsNight#)",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "0.5*#Muffle#",
@@ -51,7 +51,7 @@
     
     {
         "Name": "SnowHowl",
-        "Sound": "minecraft:snow.howl",
+        "Sound": "mambience:snow.howl",
         "Conditions": "#IsCold# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "1*#Muffle#",
@@ -59,7 +59,7 @@
     },
     {
         "Name": "SnowCrows",
-        "Sound": "minecraft:snow.crows",
+        "Sound": "mambience:snow.crows",
         "Conditions": "#IsCold# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged",
         "Volume": "1*#Muffle#",
@@ -68,7 +68,7 @@
     
     {
         "Name": "SnowCracks",
-        "Sound": "minecraft:snow.cracks",
+        "Sound": "mambience:snow.cracks",
         "Conditions": "#IsCold# && (IceBlocks/Scanner.BlockSize >= 0.02)",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
         "Volume": "1*#Muffle#",

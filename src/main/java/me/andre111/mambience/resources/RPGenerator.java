@@ -50,6 +50,7 @@ public class RPGenerator {
 			try (FileSystem fs = FileSystems.newFileSystem(uri, env)) {
 				// create pack.mcmeta
 				transferFile("/pack_template.mcmeta", fs.getPath("/pack.mcmeta"));
+				transferFile("/pack.png", fs.getPath("/pack.png"));
 
 				// iterate all asset directories and transfer files
 				Set<String> filePaths = getResourceFiles("assets/");

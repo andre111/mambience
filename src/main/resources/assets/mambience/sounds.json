@@ -1,0 +1,2658 @@
+{
+    "cave.cave": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/cave/cave1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cave2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cave3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cave4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cave5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cave6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cave7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cave8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cave9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cavea",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/caveb",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/cavec",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/cave/crumble1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/crumble2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/crumble3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/crumble4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/droplet1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/droplet2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/droplet3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/droplet4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/droplet5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/droplet6",
+                "attenuation_distance": 100
+            }
+        ]
+    }, 
+	"cave.lava": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/cave/lava1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/lava2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/lava3",
+                "attenuation_distance": 100
+            }
+        ]
+    }, 
+	"cave.vent": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/cave/vent_canyon1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/vent_canyon2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/vent_canyon3",
+                "attenuation_distance": 100
+            }
+        ]
+    }, 
+	"cave.wind": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/cave/wind1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wind2",
+                "attenuation_distance": 100
+            }
+        ]
+    }, 
+	"cave.wood": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/cave/wood1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wood2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wood3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wood4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wood5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wood6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wood7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wood8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wood9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/wooda",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/cave/woodb",
+                "attenuation_distance": 100
+            }
+        ]
+    }, 
+	
+	"desert.cicada": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/desert/cicada1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/cicada2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/cicada3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/cicada4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/cicada5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/cicada6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/cicada7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/cicada8",
+                "attenuation_distance": 100
+            }
+        ]
+    }, 
+	"desert.day": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/desert/day1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/day2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/day3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/day4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/day5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/day6",
+                "attenuation_distance": 100
+            }
+        ]
+    }, 
+	"desert.night": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/desert/night1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/night2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/night3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/night4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/night5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/night6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/desert/night7",
+                "attenuation_distance": 100
+            }
+        ]
+    }, 
+	
+	"end.dragon": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/end/dragon1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/dragon2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/dragon3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/dragon4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/dragon5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/dragon6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/dragon7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/dragon8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/dragon9",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"end.loop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/end/loop1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/loop2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/loop3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/loop4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/loop5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/loop6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/loop7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/end/loop8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+
+    "forest.bird": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/bird/bird1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/bird2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/bird3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/bird4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/bird5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/bird6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/bird7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/bird8",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/forest/bird/blue_bird1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/blue_bird2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/blue_bird3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/chickadee1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/chickadee2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/chickadee3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/chickadee4",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/forest/bird/leaf_warbler1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/leaf_warbler2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/shrike1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/shrike2",
+                "attenuation_distance": 100
+            }
+        ]
+    },	
+	"forest.cuckoo": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/bird/cuckoo",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+    "forest.deepbird": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/bird/deep_birds1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/deep_birds2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/deep_birds3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/deep_birds4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/deep_birds5",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/forest/bird/mockingbird1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/mockingbird2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/mockingbird3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/mockingbird4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/mockingbird5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/mockingbird6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/mockingbird7",
+                "attenuation_distance": 100
+            }
+        ]
+    },	
+    "forest.evening": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/evening1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/evening2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/evening3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/evening4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/evening5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/evening6",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"forest.day": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/day1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/day2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/day3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/day4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/day5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/day6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/day7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/day8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/day9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/daya",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"forest.morning": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/morning1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/morning2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/morning3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/morning4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/morning5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/morning6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/morning7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/morning8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"forest.night": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/night1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/night2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/night3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/night4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/night5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/night6",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"forest.woodpecker": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/bird/woodpecker1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/woodpecker2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/bird/woodpecker3",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"forest.wind": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/forest/wind1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/wind2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/wind3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/wind4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/forest/wind5",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+	"hell.explode": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/expl1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/expl2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/expl3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/expl4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/expl5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/expl6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/expl7",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.heartbeat": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/heartbeat",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.fx1": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/hellp1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellp2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellp3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellp4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellp5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellp6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellp7",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.fx2": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/hellx1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellx2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellx3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellx4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellx5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellx6",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.soulsand": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/soul1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/soul2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/soul3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/soul4",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.laugher": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/laugher",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.scream": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/scream1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/scream2",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.wind": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/wind1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wind2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wind3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wind4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wind5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wind6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wind7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wind8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wind9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/winda",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/windb",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/windc",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/windd",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/winde",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.fx3": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/hellq1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellq2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellq3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellq4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellq5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellq6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellq7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/hellq8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"hell.wisper": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/hell/wisper1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wisper2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wisper7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/hell/wisper8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+	"jungle.day": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/jungle/day1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/day2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/day3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/day4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/day5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/day6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/day7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/day8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/day9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/daya",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/dayb",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/dayc",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/dayd",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/daye",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/dayf",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"jungle.fx1": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/jungle/fxa1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxa2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxa3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxa4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxa5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxa6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxa7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxa8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"jungle.fx2": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/jungle/fxb1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxb2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxb3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxb4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxb5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxb6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxb7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxb8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxb9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxba",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxbb",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/fxbc",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"jungle.gibbon": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/jungle/gibbon1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/gibbon2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/gibbon3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/gibbon4",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+    "jungle.bird": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_bird9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/jungle_birda",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/jungle/bird/greater_racket_tailed_drongo1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/greater_racket_tailed_drongo2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/grey_cheeked_bulbul1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/grey_cheeked_bulbul2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/hill_myna1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/hill_myna2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/bird/wonga_pigeon",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+    "jungle.night": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/jungle/night1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/night2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/night3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/night4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/night5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/night6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/night7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/night8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"jungle.fxnight": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/jungle/nightfx1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfx2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfx3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfx4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfx5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfx6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfx7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfx8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfx9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfxa",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfxb",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/jungle/nightfxc",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+	"lava.underlava": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/lava/in1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/in2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/in3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/in4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/in5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/in6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/in7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/in8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/in9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/ina",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/inb",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/inc",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"lava.plop": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/lava/lavaplop1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/lavaplop2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/lavaplop3",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"lava.nearlava": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/lava/out1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/out2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/out3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/out4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/out5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/out6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/out7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/lava/out8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+	"mountain.eagle": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/mountain/eagle_screech",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+    "mountain.highaltitude": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/mountain/highaltitude1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/mountain/highaltitude2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/mountain/highaltitude3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/mountain/highaltitude4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/mountain/highaltitude5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/mountain/highaltitude6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/mountain/highaltitude7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/mountain/highaltitude8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+	"plains.evening": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/plains/evening1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/evening2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/evening3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/evening4",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"plains.day": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/plains/day1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/day2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/day3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/day4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/day5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/day6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/day7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/day8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"plains.night": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/plains/night1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/night2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/night3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/night4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/night5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/night6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/night7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/night8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"plains.windinside": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/plains/windinside1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/windinside2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/windinside3",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"plains.wind": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/plains/wind1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/wind1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/wind1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/plains/wind1",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+	"rain.inside": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/rain/inside1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/inside2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/inside3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/inside4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/inside5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/inside6",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"rain.outside": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/rain/outside1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/outside2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/outside3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/outside4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/outside5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/outside6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/outside7",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"rain.tree": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/rain/tree1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/tree2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/tree3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/tree4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/tree5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/tree6",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+    "rain.distantthunder": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/rain/distant_thunder1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/distant_thunder2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/distant_thunder3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/distant_thunder4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/rain/distant_thunder5",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+    "savanna.bird": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/savanna/savanna_bird1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/savanna_bird2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/brush_wattlebird1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/brush_wattlebird2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/brush_wattlebird3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/plumb_headed_finch1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/plumb_headed_finch2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/plumb_headed_finch3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/plumb_headed_finch4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/savanna/plumb_headed_finch5",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+    
+	"seaside.bird": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/seaside/coastbird1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/coastbird2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/coastbird3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/coastbird4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/coastbird5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/coastbird6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/coastbird7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/gull1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/gull2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/gull3",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"seaside.oceaninside": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/seaside/seainside1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/seainside2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/seainside3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/seainside4",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"seaside.ocean": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/seaside/sea1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/sea2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/sea3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/sea4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/sea5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/sea6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/sea7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/sea8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/sea9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/seaa",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/seab",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"seaside.underwater": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/seaside/water_underwater_loop",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+    "seaside.whale": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/seaside/whale1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/seaside/whale2",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+    "seaside.wood": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/seaside/wood",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+	"snow.cracks": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/cracks1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/cracks2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/cracks3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/cracks4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/cracks5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/cracks6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/cracks7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/cracks8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"snow.crows": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/crow1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/crow2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/crow3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/crow4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/crow5",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"snow.forest": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/forest1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/forest2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/forest3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/forest4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/forest5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/forest6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/forest7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/forest8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"snow.howl": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/howl1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/howl2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/howl3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/howl4",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"snow.mountain": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/mountain1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/mountain2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/mountain3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/mountain4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/mountain5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/mountain6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/mountain7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/mountain8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"snow.plains": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/plains1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/plains2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/plains3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/plains4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/plains5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/plains6",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"snow.wind1": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/winda1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/winda2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/winda3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/winda4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/winda5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/winda6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/winda7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/winda8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/winda9",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"snow.wind2": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/windb1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/windb2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/windb3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/windb4",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"snow.windnight": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/snow/windnight1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/windnight2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/windnight3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/snow/windnight4",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+    "swamp.bird": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/swamp/bird/blackbird",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/bird/killdeer",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/bird/whippoorwill",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/bird/wren",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"swamp.duck": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/swamp/duck1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/duck2",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"swamp.frog": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/swamp/frog1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/frog2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/frog3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/frog4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/frog5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/frog6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/frog7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/frog8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"swamp.toad": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/swamp/toad1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/toad2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/toad3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/toad4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/toad5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/toad6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/toad7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/toad8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/toad9",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"swamp.day": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/swamp/day1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/day2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/day3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/day4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/day5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/day6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/day7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/day8",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/swamp/peepers1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/peepers2",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"swamp.mosquito": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/swamp/mosquito1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/mosquito2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/mosquito3",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"swamp.night": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/swamp/night1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/night2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/night3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/night4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/night5",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/swamp/peepers1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/swamp/peepers2",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	
+	"shared.bat": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/shared/bat1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bat2",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"shared.owl": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/shared/owl1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/owl2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/owl3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/owl4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/owl5",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/shared/tawny_owl1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/tawny_owl2",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"shared.grasshopper": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/shared/grasshopper1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopper2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopper3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopper4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopper5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopper6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopper7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopper8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopper9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshoppera",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopperb",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/grasshopperc",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"shared.critter": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/shared/critter1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/critter2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/critter3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/critter4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/critter5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/critter6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/critter7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/critter8",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"shared.starling": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/shared/bird/starling",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"shared.flies": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/shared/flies1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/flies2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/flies3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/flies4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/flies5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/flies6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/flies7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/flies8",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/flies9",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/fliesa",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"shared.sparrow": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/shared/bird/sparrow1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/sparrow2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/sparrow3",
+                "attenuation_distance": 100
+            }
+        ]
+    },
+	"shared.bird": {
+        "category": "ambient", 
+        "sounds": [
+            {
+                "name": "mambience:ambient/shared/bird/bird1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/bird2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/bird3",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/bird4",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/bird5",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/bird6",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/bird7",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/bird8",
+                "attenuation_distance": 100
+            },
+            
+            {
+                "name": "mambience:ambient/shared/bird/finch1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/finch2",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/goldcrest",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/robin",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/willow_tit1",
+                "attenuation_distance": 100
+            },
+            {
+                "name": "mambience:ambient/shared/bird/willow_tit2",
+                "attenuation_distance": 100
+            }
+        ]
+    }
+}

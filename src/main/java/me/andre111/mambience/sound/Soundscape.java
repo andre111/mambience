@@ -114,7 +114,7 @@ public class Soundscape {
 		
 		private void init(MAScriptEngine se) {
 			se.compileScript("function Internal_Function_"+name+"() {"
-							+"   return ("+getConditions()+") && !("+getRestrictions()+");"
+							+"   return ("+getConditions()+")" + (getRestrictions().equals("") ? ";" : " && !("+getRestrictions()+");")
 							+"}"
 							+"function Internal_Cooldown_"+name+"() {"
 							+"   return "+getCooldown()+";"

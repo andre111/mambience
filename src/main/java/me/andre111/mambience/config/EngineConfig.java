@@ -80,6 +80,7 @@ public class EngineConfig {
 		exportSingleFile(folder, "/settings/soundscapes/mountain.json");
 		exportSingleFile(folder, "/settings/soundscapes/plains.json");
 		exportSingleFile(folder, "/settings/soundscapes/rain.json");
+		exportSingleFile(folder, "/settings/soundscapes/savanna.json");
 		exportSingleFile(folder, "/settings/soundscapes/seaside.json");
 		exportSingleFile(folder, "/settings/soundscapes/snow.json");
 		exportSingleFile(folder, "/settings/soundscapes/swamp.json");
