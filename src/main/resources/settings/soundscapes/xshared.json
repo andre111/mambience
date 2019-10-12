@@ -4,7 +4,7 @@
         "Sound": "mambience:shared.owl",
         "Conditions": "#Trees# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged || World.IsRaining",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "15 + Math.random()*30"
     },
     {
@@ -12,7 +12,7 @@
         "Sound": "mambience:shared.grasshopper",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && #IsDay# && #BugPlants#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "30 + Math.random()*60"
     },
     {
@@ -20,7 +20,7 @@
         "Sound": "mambience:shared.critter",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && #IsNight# && #BugPlants#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "30 + Math.random()*60"
     },
     
@@ -29,7 +29,7 @@
         "Sound": "mambience:shared.starling",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && (#IsMorning# || #IsDay#) && #Trees#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "30 + Math.random()*40"
     },
     {
@@ -37,7 +37,7 @@
         "Sound": "mambience:shared.sparrow",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && (#IsMorning# || #IsDay#) && #Trees#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "30 + Math.random()*40"
     },
     {
@@ -45,7 +45,7 @@
         "Sound": "mambience:shared.bird",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && Scanner.AverageTemperature < 1.80 && (#IsMorning# || #IsDay#) && #Trees#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || World.IsRaining",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "10 + Math.random()*20"
     },
     
@@ -54,7 +54,7 @@
         "Sound": "mambience:shared.flies",
         "Conditions": "Scanner.AverageTemperature >= 0.5 && (#IsMorning# || #IsDay# || #IsEvening#) && (#Trees# || #BugPlants#)",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #IsJungle# || #IsCold# || World.IsRaining",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "30 + Math.random()*60"
     },
     
@@ -63,7 +63,7 @@
         "Sound": "mambience:shared.bat",
         "Conditions": "#UnderGround# && !Player.IsExposed",
         "Restrictions": "Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "20 + Math.random()*20"
     }
 ]

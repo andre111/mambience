@@ -4,7 +4,7 @@
         "Sound": "mambience:plains.day",
         "Conditions": "#IsPlains# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "7"
     },
     {
@@ -12,7 +12,7 @@
         "Sound": "mambience:plains.night",
         "Conditions": "#IsPlains# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "7"
     },
     {
@@ -20,7 +20,7 @@
         "Sound": "mambience:plains.evening",
         "Conditions": "#IsPlains# && (#IsMorning# || #IsEvening#)",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "7"
     },
     

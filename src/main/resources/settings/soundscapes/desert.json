@@ -4,7 +4,7 @@
         "Sound": "mambience:desert.cicada",
         "Conditions": "Scanner.AverageTemperature >= 0.97 && #BugPlants# && #IsDay# && #IsDesert#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "8 + Math.random()*15"
     },
     {
@@ -20,7 +20,7 @@
         "Sound": "mambience:desert.night",
         "Conditions": "Scanner.AverageTemperature >= 0.97 && (#IsEvening# || #IsNight#) && #IsDesert#",
         "Restrictions": "#UnderGround# || Player.Submerged || #Salinity# >= 0.1 || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "7"
     }
 ]

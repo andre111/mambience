@@ -4,7 +4,7 @@
         "Sound": "mambience:snow.forest",
         "Conditions": "#IsCold# && #Trees# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "7"
     },
     {
@@ -12,7 +12,7 @@
         "Sound": "mambience:snow.mountain",
         "Conditions": "#IsCold# && Player.Y>100",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "7"
     },
     {
@@ -20,7 +20,7 @@
         "Sound": "mambience:snow.plains",
         "Conditions": "#IsCold#",
         "Restrictions": "#Trees# || #UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "7"
     },
     
@@ -54,7 +54,7 @@
         "Sound": "mambience:snow.howl",
         "Conditions": "#IsCold# && #IsNight#",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "20 * Math.random()*40"
     },
     {
@@ -62,7 +62,7 @@
         "Sound": "mambience:snow.crows",
         "Conditions": "#IsCold# && #IsDay#",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "20 * Math.random()*40"
     },
     
@@ -71,7 +71,7 @@
         "Sound": "mambience:snow.cracks",
         "Conditions": "#IsCold# && (IceBlocks/Scanner.BlockSize >= 0.02)",
         "Restrictions": "#UnderGround# || Player.Submerged || #InAir#",
-        "Volume": "1*#Muffle#",
+        "Volume": "0.8*#Muffle#",
         "Cooldown": "5 * Math.random()*20"
     }
 ]

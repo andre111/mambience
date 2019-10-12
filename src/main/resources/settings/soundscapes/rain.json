@@ -4,7 +4,7 @@
         "Sound": "mambience:rain.outside",
         "Conditions": "World.IsRaining && Player.IsExposed && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "4"
     },
     {
@@ -12,7 +12,7 @@
         "Sound": "mambience:rain.inside",
         "Conditions": "World.IsRaining && !Player.IsExposed && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "4"
     },
     {
@@ -20,7 +20,7 @@
         "Sound": "mambience:rain.tree",
         "Conditions": "World.IsRaining && #Trees# && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "4"
     },
     {
@@ -28,7 +28,7 @@
         "Sound": "mambience:rain.distantthunder",
         "Conditions": "World.IsRaining && Scanner.AverageTemperature >= 0.2 && Scanner.AverageTemperature <= 0.97",
         "Restrictions": "#UnderGround# || Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "15 + Math.random()*35"
     }
 ]

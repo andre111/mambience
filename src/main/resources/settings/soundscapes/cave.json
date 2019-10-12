@@ -4,7 +4,7 @@
         "Sound": "mambience:cave.cave",
         "Conditions": "#UnderGround# && !Player.IsExposed",
         "Restrictions": "Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "10 + Math.random()*20"
     },
     {
@@ -12,7 +12,7 @@
         "Sound": "mambience:cave.lava",
         "Conditions": "#UnderGround# && !Player.IsExposed && (LavaBlocks/Scanner.BlockSize >= 0.03)",
         "Restrictions": "Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "10 + Math.random()*20"
     },
     
@@ -21,7 +21,7 @@
         "Sound": "mambience:cave.vent",
         "Conditions": "#UnderGround# && !Player.IsExposed && (AirBlocks/Scanner.BlockSize >= 0.2)",
         "Restrictions": "Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "20 + Math.random()*20"
     },
     {
@@ -29,7 +29,7 @@
         "Sound": "mambience:cave.wind",
         "Conditions": "#UnderGround# && !Player.IsExposed",
         "Restrictions": "Player.Submerged",
-        "Volume": "1",
+        "Volume": "0.8",
         "Cooldown": "10 + Math.random()*20"
     }
 ]
