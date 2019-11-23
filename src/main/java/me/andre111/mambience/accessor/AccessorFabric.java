@@ -1,12 +1,12 @@
 /*
  * Copyright (c) 2019 André Schweiger
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *     http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -89,7 +89,7 @@ public abstract class AccessorFabric extends Accessor {
 
 	@Override
 	public String getBiome(int x, int y, int z) {
-		Biome biome = player.getEntityWorld().getBiome(new BlockPos(x, y, z));
+		Biome biome = player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z));
 		
 		return Registry.BIOME.getId(biome).toString();
 	}
@@ -111,11 +111,11 @@ public abstract class AccessorFabric extends Accessor {
 
 	@Override
 	public double getTemperature(int x, int y, int z) {
-		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getTemperature();
+		return player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z)).getTemperature();
 	}
 
 	@Override
 	public double getHumidity(int x, int y, int z) {
-		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getRainfall();
+		return player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z)).getRainfall();
 	}
 }

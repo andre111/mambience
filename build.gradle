@@ -1,6 +1,7 @@
 plugins {
 	id 'fabric-loom' version '0.2.5-SNAPSHOT'
 	id 'maven-publish'
+	id 'net.minecrell.licenser' version '0.4.1'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -52,6 +53,12 @@ processResources {
 		exclude "plugin.yml"
 		exclude "version.txt"
 	}
+}
+
+license {
+	header project.file('HEADER')
+	include '**/*.java'
+	newLine false
 }
 
 // ensure that the encoding is set to UTF-8, no matter what the system default is
