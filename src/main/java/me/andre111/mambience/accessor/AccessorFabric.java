@@ -36,17 +36,17 @@ public abstract class AccessorFabric extends Accessor {
 	// Player related methods
 	@Override
 	public int getX() {
-		return player.getBlockPos().getX();
+		return (int) player.getX();
 	}
 
 	@Override
 	public int getY() {
-		return player.getBlockPos().getY();
+		return (int) player.getY();
 	}
 
 	@Override
 	public int getZ() {
-		return player.getBlockPos().getZ();
+		return (int) player.getZ();
 	}
 
 	@Override

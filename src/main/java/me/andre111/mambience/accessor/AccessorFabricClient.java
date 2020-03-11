@@ -37,7 +37,7 @@ public class AccessorFabricClient extends AccessorFabric {
 
 	@Override
 	public void playSound(String sound, float volume, float pitch) {
-		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, (float)player.getPosVector().x, (float)player.getPosVector().y, (float)player.getPosVector().z, false));
+		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, (float)player.getX(), (float)player.getY(), (float)player.getZ(), false));
 	}
 
 	@Override

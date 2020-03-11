@@ -18,8 +18,8 @@ package me.andre111.mambience.accessor;
 import java.util.UUID;
 
 import me.andre111.mambience.MAmbienceFabric;
-import net.minecraft.client.network.packet.PlaySoundIdS2CPacket;
-import net.minecraft.client.network.packet.StopSoundS2CPacket;
+import net.minecraft.network.packet.s2c.play.PlaySoundIdS2CPacket;
+import net.minecraft.network.packet.s2c.play.StopSoundS2CPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
@@ -45,7 +45,7 @@ public class AccessorFabricServer extends AccessorFabric {
 		//player.playSound(event, SoundCategory.AMBIENT, volume, pitch); // only works for registered sound events -> only when client has mod installed
 		// also only works for registered sound events -> only when client has mod installed, but will bind sounds to player (no longer positional)
 		//player.networkHandler.sendPacket(new PlaySoundFromEntityS2CPacket(event, SoundCategory.AMBIENT, player, volume, pitch));
-		serverPlayer.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.AMBIENT, player.getPosVector(), volume, pitch));
+		serverPlayer.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.AMBIENT, player.getPos(), volume, pitch));
 	}
 
 	@Override
