@@ -38,6 +38,7 @@ public class MAScheduler implements Runnable {
 	private Set<MAPlayer> players = new HashSet<>();
 	private Queue<BlockScanner> scannerQueue = new LinkedList<>();
 
+	private boolean clearPlayers = false;
 	private List<MAPlayer> newPlayers = new ArrayList<>();
 	
 	public MAScheduler(MALogger l, int i) {
@@ -56,7 +57,7 @@ public class MAScheduler implements Runnable {
 	}
 	
 	public void clearPlayers() {
-		players.clear();
+		clearPlayers = true;
 	}
 	
 	@Override
@@ -65,7 +66,11 @@ public class MAScheduler implements Runnable {
 		long scapeTime = startTime;
 		timer++;
 		
-		// add players
+		// clear or add players
+		if(clearPlayers) {
+			players.clear();
+			clearPlayers = false;
+		}
 		synchronized(newPlayers) {
 			players.addAll(newPlayers);
 			newPlayers.clear();
