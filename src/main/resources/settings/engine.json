@@ -238,7 +238,10 @@
 			"Name": "HellBiome",
 			"Type": "BiomeCount",
 			"Biomes": [
-				"minecraft:nether"
+				"minecraft:nether_wastes",
+                "minecraft:crimson_forest",
+                "minecraft:warped_forest",
+                "minecraft:soul_sand_valley"
 			]
 		},
 		{
