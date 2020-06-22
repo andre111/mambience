@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,7 @@ public abstract class Accessor {
 	public abstract long getFullTime();
 	
 	public abstract boolean isRaining();
+	public abstract boolean isThundering();
 	
 	public abstract String getBlock(int x, int y, int z);
 	public abstract String getBiome(int x, int y, int z);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -27,12 +27,11 @@ import java.util.UUID;
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.player.MAPlayer;
 import me.andre111.mambience.scan.BlockScanner;
-import me.andre111.mambience.script.Variables;
-import me.andre111.mambience.sound.Soundscapes;
+import me.andre111.mambience.sound.Sounds;
 
-public class MAScheduler implements Runnable {
+public class MAScheduler {
 	private MALogger logger;
-	private int intervall;
+	private int interval;
 	
 	private long timer;
 	private Set<MAPlayer> players = new HashSet<>();
@@ -43,14 +42,13 @@ public class MAScheduler implements Runnable {
 	
 	public MAScheduler(MALogger l, int i) {
 		logger = l;
-		intervall = i;
+		interval = i;
 		
 		timer = 0;
 	}
 	
 	public void addPlayer(UUID player, Accessor accessor, MALogger logger) {
 		MAPlayer maplayer = new MAPlayer(player, accessor, logger);
-		Soundscapes.init(maplayer);
 		synchronized(newPlayers) {
 			newPlayers.add(maplayer);
 		}
@@ -60,18 +58,18 @@ public class MAScheduler implements Runnable {
 		clearPlayers = true;
 	}
 	
-	@Override
-	public void run() {
+	public void runSyncUpdate() {
 		long startTime = System.currentTimeMillis();
-		long scapeTime = startTime;
+		long variableTime = startTime;
 		timer++;
 		
 		// clear or add players
-		if(clearPlayers) {
-			players.clear();
-			clearPlayers = false;
-		}
 		synchronized(newPlayers) {
+			if(clearPlayers) {
+				players.clear();
+				clearPlayers = false;
+			}
+			
 			players.addAll(newPlayers);
 			newPlayers.clear();
 		}
@@ -87,20 +85,21 @@ public class MAScheduler implements Runnable {
 				continue;
 			}
 			
-			Variables.update(maplayer);
-			Soundscapes.update(maplayer);
+			// update variables
+			maplayer.getVariables().update();
 			
-			if(maplayer.getScanner().getLastScan()+intervall<=timer) {
+			// enqueue scanners requiring update
+			if(maplayer.getScanner().getLastScan()+interval<=timer) {
 				if(!scannerQueue.contains(maplayer.getScanner())) {
 					scannerQueue.add(maplayer.getScanner());
 				}
 			}
 		}
-		scapeTime = System.currentTimeMillis();
+		variableTime = System.currentTimeMillis();
 		
-		//refresh 
+		// update scanners 
 		int refreshed = 0;
-		int perTick = (int) Math.max(1, Math.ceil(players.size() / ((double) intervall)*20));
+		int perTick = (int) Math.max(1, Math.ceil(players.size() / ((double) interval) * 1.5));
 		for(int i=0; i<perTick; i++) {
 			BlockScanner scanner = scannerQueue.poll();
 			if(scanner!=null) {
@@ -111,9 +110,27 @@ public class MAScheduler implements Runnable {
 		}
 		
 		long endTime = System.currentTimeMillis();
-		//if(timer%20==0) {
-			logger.log("Refreshing "+refreshed+" Player(s) took "+(endTime-startTime)+"ms!");
-			logger.log("\tVar+Scape: "+(scapeTime-startTime)+"ms     Scanner: "+(endTime-scapeTime)+"ms!");
-		//}
+		if(timer % 20 == 0) {
+			logger.log("Refreshing "+refreshed+"/"+players.size()+" Player(s) last tick took "+(endTime-startTime)+"ms!");
+			logger.log("\tVariables: "+(variableTime-startTime)+"ms      Scanner: "+(endTime-variableTime)+"ms!");
+		}
+	}
+	
+	public void runAsyncUpdate() {
+		long startTime = System.currentTimeMillis();
+		
+		// create "unmodified" list of players
+		List<MAPlayer> toUpdate;
+		synchronized(newPlayers) {
+			toUpdate = new ArrayList<>(players);
+		}
+
+		// update soundscapes
+		for(MAPlayer maplayer : toUpdate) {
+			Sounds.update(maplayer);
+		}
+		
+		long endTime = System.currentTimeMillis();
+		logger.log("Soundscape update took "+(endTime-startTime)+"ms!");
 	}
 }

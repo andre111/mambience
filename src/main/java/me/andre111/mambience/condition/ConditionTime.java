@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,36 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.sound;
-
-import java.util.HashSet;
-import java.util.Set;
+package me.andre111.mambience.condition;
 
 import me.andre111.mambience.player.MAPlayer;
 
-public class Soundscapes {
-	private static Set<Soundscape> scapes = new HashSet<>();
+public final class ConditionTime extends Condition {
+	private final int minTime;
+	private final int maxTime;
 	
-	
-	public static void addSoundscape(Soundscape scape) {
-		scapes.add(scape);
+	public ConditionTime(int minTime, int maxTime) {
+		this.minTime = minTime;
+		this.maxTime = maxTime;
 	}
-	
-	public static void initGlobal() {
-		for(Soundscape scape : scapes) {
-			scape.initGlobal();
-		}
-	}
-	
-	public static void init(MAPlayer player) {
-		for(Soundscape scape : scapes) {
-			scape.init(player);
-		}
-	}
-	
-	public static void update(MAPlayer player) {
-		for(Soundscape scape : scapes) {
-			scape.update(player);
-		}
+
+	@Override
+	public boolean matches(MAPlayer player) {
+		long time = player.getVariables().getTime();
+		return minTime <= time && time <= maxTime;
 	}
 }

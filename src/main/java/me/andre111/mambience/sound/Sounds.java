@@ -13,30 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience;
+package me.andre111.mambience.sound;
 
-import me.andre111.mambience.config.EngineConfig;
+import java.util.HashSet;
+import java.util.Set;
 
-public class MALogger {
-	private StringReciever logReciever;
-	private StringReciever errorReciever;
+import me.andre111.mambience.player.MAPlayer;
+
+public final class Sounds {
+	private static Set<Sound> sounds = new HashSet<>();
 	
-	public MALogger(StringReciever logReciever, StringReciever errorReciever) {
-		this.logReciever = logReciever;
-		this.errorReciever = errorReciever;
+	public static void reset() {
+		sounds.clear();
+	}
+	public static void addSound(Sound sound) {
+		sounds.add(sound);
 	}
 	
-	public void log(String s) {
-		if(EngineConfig.DEBUGLOGGING) {
-			logReciever.recieveString(s);
+	public static void update(MAPlayer player) {
+		for(Sound sound : sounds) {
+			sound.update(player);
 		}
-	}
-	
-	public void error(String s) {
-		errorReciever.recieveString(s);
-	}
-	
-	public static interface StringReciever {
-		public void recieveString(String s);
 	}
 }

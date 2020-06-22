@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,11 +22,13 @@ import me.andre111.mambience.MALogger;
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.scan.BlockScanner;
+import me.andre111.mambience.scan.Variables;
 
-public class MAPlayer {
+public final class MAPlayer {
 	private UUID playerUUID;
 	private Accessor accessor;
 	private BlockScanner scanner;
+	private Variables variables;
 	private MALogger logger;
 	private HashMap<String, Integer> cooldowns;
 	
@@ -34,6 +36,7 @@ public class MAPlayer {
 		this.playerUUID = playerUUID;
 		this.accessor = accessor;
 		this.scanner = new BlockScanner(accessor, EngineConfig.SIZEX, EngineConfig.SIZEY, EngineConfig.SIZEZ);
+		this.variables = new Variables(accessor);
 		this.logger = logger;
 		this.cooldowns = new HashMap<String, Integer>();
 	}
@@ -46,6 +49,9 @@ public class MAPlayer {
 	}
 	public BlockScanner getScanner() {
 		return scanner;
+	}
+	public Variables getVariables() {
+		return variables;
 	}
 	public MALogger getLogger() {
 		return logger;

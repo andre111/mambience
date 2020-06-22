@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,11 +20,8 @@ import java.util.UUID;
 
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.EngineConfig;
-import me.andre111.mambience.script.MAScriptEngine;
-import me.andre111.mambience.script.Variables;
-import me.andre111.mambience.sound.Soundscapes;
 
-//TODO: adjust sounds, get rid of some reppetetiveness
+//TODO: adjust sounds, get rid of some repetitiveness
 public class MAmbience {
 	private static MALogger logger;
 	private static MAScheduler scheduler;
@@ -32,13 +29,8 @@ public class MAmbience {
 	public static void init(MALogger malogger, File configPath) {
 		MAmbience.logger = malogger;
 		EngineConfig.initialize(logger, configPath);
-		
-		MAScriptEngine.createScriptEngine(logger);
-		Variables.init();
-		
-		Soundscapes.initGlobal();
 
-		scheduler = new MAScheduler(logger, 1);
+		scheduler = new MAScheduler(logger, EngineConfig.INTERVAL);
 	}
 	
 	public static MALogger getLogger() {

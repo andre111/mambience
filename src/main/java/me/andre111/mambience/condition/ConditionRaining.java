@@ -13,30 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience;
+package me.andre111.mambience.condition;
 
-import me.andre111.mambience.config.EngineConfig;
+import me.andre111.mambience.player.MAPlayer;
 
-public class MALogger {
-	private StringReciever logReciever;
-	private StringReciever errorReciever;
-	
-	public MALogger(StringReciever logReciever, StringReciever errorReciever) {
-		this.logReciever = logReciever;
-		this.errorReciever = errorReciever;
-	}
-	
-	public void log(String s) {
-		if(EngineConfig.DEBUGLOGGING) {
-			logReciever.recieveString(s);
-		}
-	}
-	
-	public void error(String s) {
-		errorReciever.recieveString(s);
-	}
-	
-	public static interface StringReciever {
-		public void recieveString(String s);
+public final class ConditionRaining extends Condition {
+	@Override
+	public boolean matches(MAPlayer player) {
+		return player.getVariables().isRaining();
 	}
 }

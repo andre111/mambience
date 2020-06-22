@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -61,7 +61,7 @@ public abstract class AccessorFabric extends Accessor {
 
 	@Override
 	public boolean isSubmerged() {
-		return player.isSubmergedIn(FluidTags.WATER, true);
+		return player.isSubmergedIn(FluidTags.WATER);
 	}
 
 	// World related methods
@@ -78,6 +78,11 @@ public abstract class AccessorFabric extends Accessor {
 	@Override
 	public boolean isRaining() {
 		return player.getEntityWorld().isRaining();
+	}
+
+	@Override
+	public boolean isThundering() {
+		return player.getEntityWorld().isThundering();
 	}
 
 	@Override

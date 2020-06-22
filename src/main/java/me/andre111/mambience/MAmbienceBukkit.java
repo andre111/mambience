@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,7 +30,8 @@ public class MAmbienceBukkit extends JavaPlugin implements Listener {
     public void onEnable() {
 		MAmbience.init(new MALogger(getLogger()::info, getLogger()::warning), this.getDataFolder());
 		
-		Bukkit.getScheduler().runTaskTimer(this, MAmbience.getScheduler(), 20, 20);
+		Bukkit.getScheduler().runTaskTimer(this, MAmbience.getScheduler()::runSyncUpdate, 1, 1);
+		Bukkit.getScheduler().runTaskTimerAsynchronously(this, MAmbience.getScheduler()::runAsyncUpdate, 20, 20);
 		Bukkit.getPluginManager().registerEvents(this, this);
 		
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "mambience:server");

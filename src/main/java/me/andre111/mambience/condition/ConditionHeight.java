@@ -13,30 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience;
+package me.andre111.mambience.condition;
 
-import me.andre111.mambience.config.EngineConfig;
+import me.andre111.mambience.player.MAPlayer;
 
-public class MALogger {
-	private StringReciever logReciever;
-	private StringReciever errorReciever;
-	
-	public MALogger(StringReciever logReciever, StringReciever errorReciever) {
-		this.logReciever = logReciever;
-		this.errorReciever = errorReciever;
+public final class ConditionHeight extends Condition {
+	private final float minHeight;
+	private final float maxHeight;
+
+	public ConditionHeight(float minHeight, float maxHeight) {
+		this.minHeight = minHeight;
+		this.maxHeight = maxHeight;
 	}
-	
-	public void log(String s) {
-		if(EngineConfig.DEBUGLOGGING) {
-			logReciever.recieveString(s);
-		}
-	}
-	
-	public void error(String s) {
-		errorReciever.recieveString(s);
-	}
-	
-	public static interface StringReciever {
-		public void recieveString(String s);
+
+	@Override
+	public boolean matches(MAPlayer player) {
+		float height = player.getVariables().getHeight();
+		return minHeight <= height && height <= maxHeight;
 	}
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -53,7 +53,8 @@ public class MAmbienceSponge {
 		MAmbience.init(new MALogger(ilogger::info, ilogger::error), configDir.toFile());
 		
 		Task.Builder taskBuilder = Task.builder();
-		taskBuilder.execute(MAmbience.getScheduler()).async().delayTicks(20).intervalTicks(20).submit(this);
+		taskBuilder.execute(MAmbience.getScheduler()::runSyncUpdate).delayTicks(1).intervalTicks(1).submit(this);
+		taskBuilder.execute(MAmbience.getScheduler()::runAsyncUpdate).async().delayTicks(20).intervalTicks(20).submit(this);
 		
 		rawDataChannel = game.getChannelRegistrar().createRawChannel(this, "mambience:server");
 	}

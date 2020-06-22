@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 André Schweiger
+ * Copyright (c) 2020 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,7 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-public class RPGenerator {
+public final class RPGenerator {
 	// run with
 	// java -cp Mambience-[version].jar me.andre111.mambience.resources.RPGenerator
 	// to generate/extract the resourcepack
