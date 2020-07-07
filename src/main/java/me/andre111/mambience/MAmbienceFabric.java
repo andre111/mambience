@@ -26,8 +26,8 @@ import me.andre111.mambience.accessor.AccessorFabricServer;
 import me.andre111.mambience.fabric.event.PlayerJoinCallback;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.client.ClientTickCallback;
-import net.fabricmc.fabric.api.event.server.ServerTickCallback;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
@@ -65,7 +65,7 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	}
 
 	private void initServer() {
-		ServerTickCallback.EVENT.register(server -> {
+		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			MAmbienceFabric.server = server;
 			tick();
 		});
@@ -83,7 +83,7 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	}
 
 	private void initClient() {
-		ClientTickCallback.EVENT.register(client -> {
+		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			// disable client side ambient sounds when not in game
 			if(client.isIntegratedServerRunning() || client.world == null || client.player == null) {
 				if(runClientSide) {

@@ -36,7 +36,7 @@ public final class ConditionBlocks extends Condition {
 		
 		int count = 0;
 		for(String block : blocks) {
-			count += scanData != null && scanData.containsKey(block) ? scanData.get(block) : 0;
+			count += scanData != null && block != null && scanData.containsKey(block) ? scanData.get(block) : 0;
 		}
 		
 		float percentage = count / (float) player.getScanner().getScanBlockCount();

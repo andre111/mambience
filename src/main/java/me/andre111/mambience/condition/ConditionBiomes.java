@@ -36,7 +36,7 @@ public final class ConditionBiomes extends Condition {
 		
 		int count = 0;
 		for(String biome : biomes) {
-			count += scanData != null && scanData.containsKey(biome) ? scanData.get(biome) : 0;
+			count += scanData != null && biome != null && scanData.containsKey(biome) ? scanData.get(biome) : 0;
 		}
 		
 		float percentage = count / (float) player.getScanner().getScanBiomeCount();

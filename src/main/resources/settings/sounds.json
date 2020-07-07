@@ -13,6 +13,16 @@
         "restrictions": [
             {
                 "condition": "SUBMERGED"
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             }
         ],
         "cooldownMin": 10,
@@ -34,6 +44,16 @@
         "restrictions": [
             {
                 "condition": "SUBMERGED"
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             }
         ],
         "cooldownMin": 10,
@@ -55,6 +75,16 @@
         "restrictions": [
             {
                 "condition": "SUBMERGED"
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             }
         ],
         "cooldownMin": 20,
@@ -71,6 +101,16 @@
         "restrictions": [
             {
                 "condition": "SUBMERGED"
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             },
             {
                 "condition": "TOGGLE",
@@ -98,6 +138,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -129,6 +174,11 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "desert",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -166,6 +216,11 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "desert",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -229,6 +284,11 @@
             },
             {
                 "condition": "TIME_MORNING"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -289,6 +349,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -349,6 +414,11 @@
             },
             {
                 "condition": "TIME_EVENING"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -409,6 +479,11 @@
             },
             {
                 "condition": "TIME_NIGHT"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -473,6 +548,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -533,6 +613,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -593,6 +678,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -653,6 +743,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -713,6 +808,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -905,6 +1005,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -942,6 +1047,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -979,6 +1089,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1016,6 +1131,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1053,6 +1173,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1090,6 +1215,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1124,6 +1254,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1257,6 +1392,16 @@
                 "condition": "SUBMERGED"
             },
             {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
+            },
+            {
                 "condition": "TOGGLE",
                 "stringValue": "wind_disable"
             }
@@ -1274,6 +1419,11 @@
         "conditions": [
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1332,6 +1482,11 @@
         "conditions": [
             {
                 "condition": "TIME_NIGHT"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1390,6 +1545,11 @@
         "sound": "mambience:plains.evening",
         "volume": 0.8,
         "conditions": [
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
+            }
         ],
         "restrictions": [
             {
@@ -1449,6 +1609,11 @@
         "conditions": [
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1500,6 +1665,11 @@
         "sound": "mambience:plains.windinside",
         "volume": 0.5f,
         "conditions": [
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
+            }
         ],
         "restrictions": [
             {
@@ -1568,6 +1738,16 @@
             },
             {
                 "condition": "SUBMERGED"
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             }
         ],
         "cooldownMin": 15,
@@ -1585,6 +1765,11 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "savanna",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1629,6 +1814,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1655,6 +1845,11 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "ocean",
                 "floatValue": 0.1f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1684,6 +1879,11 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "ocean",
                 "floatValue": 0.1f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1740,6 +1940,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1809,6 +2014,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1851,6 +2061,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1882,6 +2097,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1915,6 +2135,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1946,6 +2171,11 @@
             },
             {
                 "condition": "TIME_NIGHT"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -1970,6 +2200,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2026,6 +2261,11 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "swamp",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2064,6 +2304,11 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "swamp",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2110,6 +2355,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2145,6 +2395,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2180,6 +2435,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2215,6 +2475,11 @@
             },
             {
                 "condition": "TIME_DAY"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2250,6 +2515,11 @@
             },
             {
                 "condition": "TIME_NIGHT"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2289,6 +2559,11 @@
             },
             {
                 "condition": "TIME_NIGHT"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2303,6 +2578,16 @@
             },
             {
                 "condition": "THUNDERING"
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             },
             {
                 "condition": "BLOCK",
@@ -2327,6 +2612,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2355,6 +2645,16 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "savanna",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             },
             {
                 "condition": "RAINING"
@@ -2385,6 +2685,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2413,6 +2718,16 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "savanna",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             },
             {
                 "condition": "RAINING"
@@ -2437,6 +2752,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2471,6 +2791,16 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "savanna",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             },
             {
                 "condition": "RAINING"
@@ -2490,6 +2820,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2524,6 +2859,16 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "savanna",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             },
             {
                 "condition": "RAINING"
@@ -2543,6 +2888,11 @@
                 "condition": "BLOCK",
                 "stringValue": "#andre111:mambience/trees",
                 "floatValue": 0.03f
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2577,6 +2927,16 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "savanna",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             },
             {
                 "condition": "RAINING"
@@ -2599,6 +2959,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2633,6 +2998,16 @@
                 "condition": "BIOME_GROUP",
                 "stringValue": "savanna",
                 "floatValue": 0.6f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             },
             {
                 "condition": "RAINING"
@@ -2655,6 +3030,11 @@
             },
             {
                 "condition": "EXPOSED"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.25f
             }
         ],
         "restrictions": [
@@ -2691,6 +3071,16 @@
                 "floatValue": 0.6f
             },
             {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
+            },
+            {
                 "condition": "RAINING"
             },
             {
@@ -2711,6 +3101,16 @@
         "restrictions": [
             {
                 "condition": "SUBMERGED"
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "nether",
+                "floatValue": 0.4f
+            },
+            {
+                "condition": "BIOME_GROUP",
+                "stringValue": "end",
+                "floatValue": 0.4f
             }
         ],
         "cooldownMin": 20,
