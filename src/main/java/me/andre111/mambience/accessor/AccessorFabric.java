@@ -96,7 +96,8 @@ public abstract class AccessorFabric extends Accessor {
 	public String getBiome(int x, int y, int z) {
 		Biome biome = player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z));
 		
-		return Registry.BIOME.getId(biome).toString();
+		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(Registry.BIOME_KEY);
+		return registry.getId(biome).toString();
 	}
 
 	@Override
@@ -121,6 +122,6 @@ public abstract class AccessorFabric extends Accessor {
 
 	@Override
 	public double getHumidity(int x, int y, int z) {
-		return player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z)).getRainfall();
+		return player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z)).getDownfall();
 	}
 }

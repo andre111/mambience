@@ -857,7 +857,7 @@
     },
     
     //#######################################################################
-    // Hell
+    // Nether
     //#######################################################################
     {
         "sound": "mambience:hell.fx1",
@@ -1805,7 +1805,7 @@
     //#######################################################################
     {
         "sound": "mambience:seaside.ocean",
-        "volume": 0.8,
+        "volume": 0.7,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1839,7 +1839,7 @@
     },
     {
         "sound": "mambience:seaside.oceaninside",
-        "volume": 0.8,
+        "volume": 0.7,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2298,7 +2298,7 @@
     },
     {
         "sound": "mambience:swamp.night",
-        "volume": 0.6,
+        "volume": 0.2,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2337,7 +2337,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 28
     },
     {
         "sound": "mambience:swamp.bird",
