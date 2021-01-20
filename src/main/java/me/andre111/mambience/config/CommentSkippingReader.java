@@ -27,8 +27,7 @@ public final class CommentSkippingReader implements AutoCloseable {
 	
 	public String readLine() throws IOException {
 		String line = null;
-		while(isComment(line = reader.readLine())) {
-		};
+		while(isComment(line = reader.readLine())) {}
 		return line;
 	}
 	

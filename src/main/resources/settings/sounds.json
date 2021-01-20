@@ -2255,7 +2255,7 @@
     //#######################################################################
     {
         "sound": "mambience:swamp.day",
-        "volume": 0.8,
+        "volume": 0.5,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2341,7 +2341,7 @@
     },
     {
         "sound": "mambience:swamp.bird",
-        "volume": 1,
+        "volume": 0.8,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2386,7 +2386,7 @@
     },
     {
         "sound": "mambience:swamp.mosquito",
-        "volume": 0.8,
+        "volume": 0.6,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2426,7 +2426,7 @@
     },
     {
         "sound": "mambience:swamp.duck",
-        "volume": 0.8,
+        "volume": 0.7,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2462,11 +2462,11 @@
             }
         ],
         "cooldownMin": 20,
-        "cooldownMax": 50
+        "cooldownMax": 80
     },
     {
         "sound": "mambience:swamp.frog",
-        "volume": 0.8,
+        "volume": 0.6,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2502,11 +2502,11 @@
             }
         ],
         "cooldownMin": 20,
-        "cooldownMax": 50
+        "cooldownMax": 80
     },
     {
         "sound": "mambience:swamp.toad",
-        "volume": 0.8,
+        "volume": 0.7,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",

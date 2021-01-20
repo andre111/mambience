@@ -39,19 +39,31 @@ public final class Sound {
 			List<Condition> restrictions, int cooldownMin, int cooldownMax) {
 		this.id = id;
 		this.sound = sound;
-		this.volume = volume;
+		this.volume = volume * EngineConfig.GLOBALVOLUME;
 		this.pitch = pitch;
 		this.conditions = new ArrayList<>(conditions);
 		this.restrictions = new ArrayList<>(restrictions);
 		this.cooldownMin = cooldownMin;
 		this.cooldownMax = cooldownMax;
+		
+		// perform some validation checks
+		//TODO: extend
+		if(cooldownMin < 0) {
+			throw new IllegalArgumentException("Cooldown Minimum cannot be negative");
+		}
+		if(cooldownMax < 0) {
+			throw new IllegalArgumentException("Cooldown Maximum cannot be negative");
+		}
+		if(cooldownMax < cooldownMin) {
+			throw new IllegalArgumentException("Cooldown Minimum cannot be larger than Cooldown Maximum");
+		}
 	}
 
 	public void update(MAPlayer maplayer) {
 		if(conditionsMet(maplayer)) {
 			if(maplayer.updateCooldown(id) <= 0) {
-				maplayer.getLogger().log("Play sound "+sound+" at "+volume * EngineConfig.GLOBALVOLUME);
-				maplayer.getAccessor().playSound(sound, volume * EngineConfig.GLOBALVOLUME, pitch);
+				maplayer.getLogger().log("Play sound "+sound+" at "+volume);
+				maplayer.getAccessor().playSound(sound, volume, pitch);
 				maplayer.setCooldown(id, cooldownMin + RANDOM.nextInt(cooldownMax - cooldownMin + 1));
 			}
 		} else if (EngineConfig.STOPSOUNDS && maplayer.getCooldown(id) > 0 /*&& isRestricted(maplayer)(so it doesn't get cut of in so many cases?)*/) {

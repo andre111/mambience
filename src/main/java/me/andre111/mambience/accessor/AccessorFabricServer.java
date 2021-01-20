@@ -35,7 +35,7 @@ public class AccessorFabricServer extends AccessorFabric {
 	// Player related methods
 	@Override
 	public boolean updatePlayerInstance() {
-		player = serverPlayer = MAmbienceFabric.server.getPlayerManager().getPlayer(playerUUID);
+		player = serverPlayer = MAmbienceFabric.server != null ? MAmbienceFabric.server.getPlayerManager().getPlayer(playerUUID) : null;
 		return player != null;
 	}
 	

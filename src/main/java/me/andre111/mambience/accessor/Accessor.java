@@ -22,7 +22,6 @@ public abstract class Accessor {
 	
 	public Accessor(UUID playerUUID) {
 		this.playerUUID = playerUUID;
-		updatePlayerInstance();
 	}
 	
 	// Player related methods

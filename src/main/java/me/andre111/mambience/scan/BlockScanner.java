@@ -16,6 +16,7 @@
 package me.andre111.mambience.scan;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import me.andre111.mambience.accessor.Accessor;
 
@@ -25,8 +26,8 @@ public final class BlockScanner {
 	private int ySize;
 	private int zSize;
 	private int currentYSize;
-	private HashMap<String, Integer> blockCount = new HashMap<String, Integer>();
-	private HashMap<String, Integer> biomeCount = new HashMap<String, Integer>();
+	private Map<String, Integer> blockCount = new HashMap<>();
+	private Map<String, Integer> biomeCount = new HashMap<>();
 	private double averageSkyLight;
 	private double averageLight;
 	private double averageTemperature;
@@ -121,13 +122,13 @@ public final class BlockScanner {
 	public int getScanBlockCount() {
 		return xSize * currentYSize * zSize;
 	}
-	public HashMap<String, Integer> getScanBlockData() {
+	public Map<String, Integer> getScanBlockData() {
 		return blockCount;
 	}
 	public int getScanBiomeCount() {
 		return xSize * zSize;
 	}
-	public HashMap<String, Integer> getScanBiomeData() {
+	public Map<String, Integer> getScanBiomeData() {
 		return biomeCount;
 	}
 	public double getAverageSkyLight() {

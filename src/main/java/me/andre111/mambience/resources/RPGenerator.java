@@ -21,7 +21,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -78,7 +77,7 @@ public final class RPGenerator {
 		if (dirURL.getProtocol().equals("jar")) {
 			// strip out only the JAR file
 			String jarPath = dirURL.getPath().substring(5, dirURL.getPath().indexOf("!"));
-			try (JarFile jar = new JarFile(URLDecoder.decode(jarPath, "UTF-8"))) {
+			try (JarFile jar = new JarFile(jarPath)) {
 
 				// gives ALL entries in jar
 				Enumeration<JarEntry> entries = jar.entries();

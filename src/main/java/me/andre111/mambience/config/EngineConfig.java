@@ -32,7 +32,7 @@ public final class EngineConfig {
 	public static int SIZEY = 9;
 	public static int SIZEZ = 11;
 	public static int INTERVAL = 20;
-	public static float GLOBALVOLUME = 0.75f;
+	public static float GLOBALVOLUME = 0.5f;
 	public static boolean STOPSOUNDS = false;
 	public static boolean DEBUGLOGGING = false;
 	
