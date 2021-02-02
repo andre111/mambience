@@ -18,7 +18,9 @@ package me.andre111.mambience.accessor;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.SoundCategory;
 import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
@@ -75,9 +77,36 @@ public class AccessorBukkit extends Accessor {
 				|| (headBlock.getBlockData() instanceof Waterlogged && ((Waterlogged) headBlock.getBlockData()).isWaterlogged()));
 	}
 
+	// Sound related methods
 	@Override
 	public void playSound(String sound, float volume, float pitch) {
 		player.playSound(player.getLocation(), sound, SoundCategory.AMBIENT, volume, pitch);
+	}
+
+	@Override
+	public void playSound(String sound, double x, double y, double z, float volume, float pitch) {
+		player.playSound(new Location(player.getWorld(), x, y, z), sound, SoundCategory.AMBIENT, volume, pitch);
+	}
+	
+	// Particle related methods
+	@Override
+	public void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
+		switch(type) {
+		case "minecraft:block":
+			player.spawnParticle(Particle.BLOCK_CRACK, x, y, z, 0, velocityX, velocityY, velocityZ, 1, Bukkit.createBlockData(parameters));
+			break;
+		case "minecraft:flame":
+			player.spawnParticle(Particle.FLAME, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
+			break;
+		case "minecraft:smoke":
+			player.spawnParticle(Particle.SMOKE_NORMAL, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
+			break;
+		case "minecraft:end_rod":
+			player.spawnParticle(Particle.END_ROD, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
+			break;
+		default:
+			throw new RuntimeException("Particle Type not implemented: "+type);
+		}
 	}
 
 	@Override
@@ -116,7 +145,7 @@ public class AccessorBukkit extends Accessor {
 
 	@Override
 	public String getBiome(int x, int y, int z) {
-		Biome biome = player.getWorld().getBiome(x, z);
+		Biome biome = player.getWorld().getBiome(x, y, z);
 		
 		//TODO: bukkit biome names just seem to be the internal minecraft one uppercased
 		return "minecraft:"+biome.name().toLowerCase();
@@ -145,11 +174,11 @@ public class AccessorBukkit extends Accessor {
 
 	@Override
 	public double getTemperature(int x, int y, int z) {
-		return player.getWorld().getTemperature(x, z);
+		return player.getWorld().getTemperature(x, y, z);
 	}
 
 	@Override
 	public double getHumidity(int x, int y, int z) {
-		return player.getWorld().getHumidity(x, z);
+		return player.getWorld().getHumidity(x, y, z);
 	}
 }

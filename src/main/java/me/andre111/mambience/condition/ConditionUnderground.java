@@ -15,7 +15,7 @@
  */
 package me.andre111.mambience.condition;
 
-import me.andre111.mambience.player.MAPlayer;
+import me.andre111.mambience.MAPlayer;
 
 public final class ConditionUnderground extends Condition {
 	@Override

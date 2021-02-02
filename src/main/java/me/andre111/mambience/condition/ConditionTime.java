@@ -15,7 +15,7 @@
  */
 package me.andre111.mambience.condition;
 
-import me.andre111.mambience.player.MAPlayer;
+import me.andre111.mambience.MAPlayer;
 
 public final class ConditionTime extends Condition {
 	private final int minTime;

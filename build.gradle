@@ -12,14 +12,10 @@ version = project.mod_version
 group = project.maven_group
 
 minecraft {
-    refmapName = "mambience-remap.json"
+    refmapName = "mambience-refmap.json"
 }
 
 repositories {
-    maven {
-        name "sponge-repo"
-        url "https://repo.spongepowered.org/maven"
-    }
     maven {
         name "spigot-repo"
         url "https://hub.spigotmc.org/nexus/content/groups/public"
@@ -35,7 +31,6 @@ dependencies {
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     
-    implementation "org.spongepowered:spongeapi:${project.sponge_version}"
     implementation "org.spigotmc:spigot-api:${project.spigot_version}"
 }
 

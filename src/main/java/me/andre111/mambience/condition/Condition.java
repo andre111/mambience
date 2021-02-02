@@ -15,7 +15,7 @@
  */
 package me.andre111.mambience.condition;
 
-import me.andre111.mambience.player.MAPlayer;
+import me.andre111.mambience.MAPlayer;
 
 public abstract class Condition {
 	public abstract boolean matches(MAPlayer player);

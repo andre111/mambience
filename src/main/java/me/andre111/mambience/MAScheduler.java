@@ -25,7 +25,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import me.andre111.mambience.accessor.Accessor;
-import me.andre111.mambience.player.MAPlayer;
+import me.andre111.mambience.effect.Effects;
 import me.andre111.mambience.scan.BlockScanner;
 import me.andre111.mambience.sound.Sounds;
 
@@ -108,11 +108,15 @@ public class MAScheduler {
 				refreshed++;
 			}
 		}
+		long scannerTime = System.currentTimeMillis();
+		
+		// update effects
+		Effects.tick();
 		
 		long endTime = System.currentTimeMillis();
 		if(timer % 20 == 0) {
 			logger.log("Refreshing "+refreshed+"/"+players.size()+" Player(s) last tick took "+(endTime-startTime)+"ms!");
-			logger.log("\tVariables: "+(variableTime-startTime)+"ms      Scanner: "+(endTime-variableTime)+"ms!");
+			logger.log("\tVariables: "+(variableTime-startTime)+"ms      Scanner: "+(scannerTime-variableTime)+"ms      Effects: "+(scannerTime-endTime)+"ms!");
 		}
 	}
 	
@@ -129,8 +133,15 @@ public class MAScheduler {
 		for(MAPlayer maplayer : toUpdate) {
 			Sounds.update(maplayer);
 		}
+		long soundTime = System.currentTimeMillis();
+		
+		// update effects
+		for(MAPlayer maplayer : toUpdate) {
+			Effects.update(maplayer);
+		}
+		
 		
 		long endTime = System.currentTimeMillis();
-		logger.log("Soundscape update took "+(endTime-startTime)+"ms!");
+		logger.log("Soundscape update took "+(soundTime-startTime)+"ms - Effect update took "+(endTime-soundTime)+"ms!");
 	}
 }

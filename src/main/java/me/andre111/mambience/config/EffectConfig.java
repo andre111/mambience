@@ -26,36 +26,38 @@ import com.google.gson.JsonParser;
 
 import me.andre111.mambience.MALogger;
 import me.andre111.mambience.condition.Condition;
-import me.andre111.mambience.sound.Sound;
-import me.andre111.mambience.sound.Sounds;
+import me.andre111.mambience.effect.Effect;
+import me.andre111.mambience.effect.Effects;
 
-public final class SoundConfig {
-	public static void loadSounds(MALogger logger, File file) {
+public final class EffectConfig {
+	public static void loadEffects(MALogger logger, File file) {
 		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
 			JsonParser parser = new JsonParser();
-			JsonArray soundElement = parser.parse(reader.readAllLines("\n")).getAsJsonArray();
+			JsonArray effectElement = parser.parse(reader.readAllLines("\n")).getAsJsonArray();
 			
-			Sounds.reset();
-			for(int i=0; i<soundElement.size(); i++) {
-				Sound sound = loadSound(logger, i, soundElement.get(i).getAsJsonObject());
-				Sounds.addSound(sound);
+			Effects.reset();
+			for(int i=0; i<effectElement.size(); i++) {
+				Effect effect = loadEffect(logger, i, effectElement.get(i).getAsJsonObject());
+				Effects.addEffect(effect);
 			}
 		} catch (Exception e) {
-			logger.error("Exception reading sound config: "+file.getAbsolutePath()+": "+e);
+			logger.error("Exception reading effect config: "+file.getAbsolutePath()+": "+e);
 			e.printStackTrace();
 		}
 	}
 	
-	private static Sound loadSound(MALogger logger, int index, JsonObject obj) {
-		String id = Integer.toString(index);
-		String sound = ConfigUtil.getString(obj, "sound", "");
-		float volume = ConfigUtil.getFloat(obj, "volume", 1);
-		float pitch = ConfigUtil.getFloat(obj, "pitch", 1);
+	private static Effect loadEffect(MALogger logger, int index, JsonObject obj) {
+		String type = ConfigUtil.getString(obj, "type", "");
+		String[] parameters = ConfigUtil.getStringArray(obj, "parameters", new String[] {});
+		
+		String block = ConfigUtil.getString(obj, "block", "");
+		String blockAbove = ConfigUtil.getString(obj, "blockAbove", "");
+		String blockBelow = ConfigUtil.getString(obj, "blockBelow", "");
+		double chance = ConfigUtil.getDouble(obj, "chance", 1);
+		
 		List<Condition> conditions = ConfigUtil.loadConditions(logger, obj.get("conditions").getAsJsonArray());
 		List<Condition> restrictions = ConfigUtil.loadConditions(logger, obj.get("restrictions").getAsJsonArray());
-		int cooldownMin = ConfigUtil.getInt(obj, "cooldownMin", 1);
-		int cooldownMax = ConfigUtil.getInt(obj, "cooldownMax", 1);
 		
-		return new Sound(id, sound, volume, pitch, conditions, restrictions, cooldownMin, cooldownMax);
+		return new Effect(type, parameters, block, blockAbove, blockBelow, chance, conditions, restrictions);
 	}
 }

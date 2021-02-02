@@ -35,8 +35,13 @@ public abstract class Accessor {
 	public abstract double getFoodLevel();
 	public abstract boolean isSubmerged();
 	
+	// Sound related methods
 	public abstract void playSound(String sound, float volume, float pitch);
+	public abstract void playSound(String sound, double x, double y, double z, float volume, float pitch);
 	public abstract void stopSound(String sound);
+	
+	// Particle related methods
+	public abstract void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ);
 	
 	// World related methods
 	public abstract long getDayTime();

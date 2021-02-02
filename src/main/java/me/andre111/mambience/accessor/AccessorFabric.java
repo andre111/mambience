@@ -17,8 +17,13 @@ package me.andre111.mambience.accessor;
 
 import java.util.UUID;
 
+import com.mojang.brigadier.StringReader;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleType;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
@@ -123,5 +128,16 @@ public abstract class AccessorFabric extends Accessor {
 	@Override
 	public double getHumidity(int x, int y, int z) {
 		return player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z)).getDownfall();
+	}
+	
+	// helper method
+	protected <T extends ParticleEffect> T getParticleEffect(ParticleType<T> type, String parameters) {
+		try {
+			return type.getParametersFactory().read(type, new StringReader(parameters));
+		} catch (CommandSyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 }

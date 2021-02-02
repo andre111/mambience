@@ -26,7 +26,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 30
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:cave.lava",
@@ -57,7 +57,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 30
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:cave.vent",
@@ -69,7 +69,7 @@
             {
                 "condition": "BLOCK",
                 "stringValue": "air",
-                "floatValue": 0.2f
+                "floatValue": 0.3f
             }
         ],
         "restrictions": [
@@ -88,7 +88,7 @@
             }
         ],
         "cooldownMin": 20,
-        "cooldownMax": 40
+        "cooldownMax": 120
     },
     {
         "sound": "mambience:cave.wind",
@@ -96,6 +96,11 @@
         "conditions": [
             {
                 "condition": "UNDERGROUND"
+            },
+            {
+                "condition": "BLOCK",
+                "stringValue": "air",
+                "floatValue": 0.3f
             }
         ],
         "restrictions": [
@@ -118,7 +123,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 30
+        "cooldownMax": 90
     },
     
     //#######################################################################
@@ -206,7 +211,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 20
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:desert.night",
@@ -248,7 +253,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 60
     },
     
     //#######################################################################
@@ -336,7 +341,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 30
     },
     {
         "sound": "mambience:forest.day",
@@ -401,7 +406,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 30
     },
     {
         "sound": "mambience:forest.evening",
@@ -466,7 +471,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 30
     },
     {
         "sound": "mambience:forest.night",
@@ -535,7 +540,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 14
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:forest.bird",
@@ -600,7 +605,7 @@
             }
         ],
         "cooldownMin": 15,
-        "cooldownMax": 40
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:forest.deepbird",
@@ -665,7 +670,7 @@
             }
         ],
         "cooldownMin": 15,
-        "cooldownMax": 40
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:forest.cuckoo",
@@ -730,7 +735,7 @@
             }
         ],
         "cooldownMin": 20,
-        "cooldownMax": 40
+        "cooldownMax": 80
     },
     {
         "sound": "mambience:forest.woodpecker",
@@ -795,11 +800,11 @@
             }
         ],
         "cooldownMin": 30,
-        "cooldownMax": 60
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:forest.wind",
-        "volume": 0.4f,
+        "volume": 0.3f,
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -853,7 +858,7 @@
             }
         ],
         "cooldownMin": 30,
-        "cooldownMax": 70
+        "cooldownMax": 180
     },
     
     //#######################################################################
@@ -872,7 +877,7 @@
         "restrictions": [
         ],
         "cooldownMin": 30,
-        "cooldownMax": 60
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:hell.fx2",
@@ -887,7 +892,7 @@
         "restrictions": [
         ],
         "cooldownMin": 30,
-        "cooldownMax": 60
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:hell.fx3",
@@ -902,7 +907,7 @@
         "restrictions": [
         ],
         "cooldownMin": 30,
-        "cooldownMax": 60
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:hell.wisper",
@@ -932,7 +937,7 @@
         "restrictions": [
         ],
         "cooldownMin": 60,
-        "cooldownMax": 100
+        "cooldownMax": 180
     },
     {
         "sound": "mambience:hell.heartbeat",
@@ -947,7 +952,7 @@
         "restrictions": [
         ],
         "cooldownMin": 60,
-        "cooldownMax": 100
+        "cooldownMax": 120
     },
     {
         "sound": "mambience:hell.wind",
@@ -966,7 +971,7 @@
             }
         ],
         "cooldownMin": 60,
-        "cooldownMax": 100
+        "cooldownMax": 120
     },
     {
         "sound": "mambience:hell.soulsand",
@@ -994,7 +999,7 @@
     //#######################################################################
     {
         "sound": "mambience:jungle.day",
-        "volume": 0.8,
+        "volume": 0.6,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1031,12 +1036,12 @@
                 "floatValue": 0.6f
             }
         ],
-        "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMin": 6,
+        "cooldownMax": 6
     },
     {
         "sound": "mambience:jungle.night",
-        "volume": 0.8,
+        "volume": 0.4,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1073,8 +1078,8 @@
                 "floatValue": 0.6f
             }
         ],
-        "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMin": 6,
+        "cooldownMax": 6
     },
     {
         "sound": "mambience:jungle.fx1",
@@ -1116,7 +1121,7 @@
             }
         ],
         "cooldownMin": 30,
-        "cooldownMax": 50
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:jungle.fx2",
@@ -1158,7 +1163,7 @@
             }
         ],
         "cooldownMin": 15,
-        "cooldownMax": 45
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:jungle.gibbon",
@@ -1239,7 +1244,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 30
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:jungle.fxnight",
@@ -1281,7 +1286,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 40
+        "cooldownMax": 60
     },
     
     //#######################################################################
@@ -1321,7 +1326,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 20
+        "cooldownMax": 40
     },
     
     //#######################################################################
@@ -1368,11 +1373,11 @@
     },
     {
         "sound": "mambience:mountain.highaltitude",
-        "volume": 0.25f,
+        "volume": 0.2f,
         "conditions": [
             {
                 "condition": "HEIGHT",
-                "stringValue": "100",
+                "stringValue": "110",
                 "floatValue": 300f
             },
             {
@@ -1474,7 +1479,7 @@
             }
         ],
         "cooldownMin": 8,
-        "cooldownMax": 30
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:plains.night",
@@ -1539,7 +1544,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:plains.evening",
@@ -1601,11 +1606,11 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:plains.wind",
-        "volume": 0.4f,
+        "volume": 0.3f,
         "conditions": [
             {
                 "condition": "EXPOSED"
@@ -1659,11 +1664,11 @@
             }
         ],
         "cooldownMin": 20,
-        "cooldownMax": 40
+        "cooldownMax": 120
     },
     {
         "sound": "mambience:plains.windinside",
-        "volume": 0.5f,
+        "volume": 0.3f,
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -1717,7 +1722,7 @@
             }
         ],
         "cooldownMin": 20,
-        "cooldownMax": 40
+        "cooldownMax": 120
     },
     
     //#######################################################################
@@ -1797,7 +1802,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 30
+        "cooldownMax": 90
     },
     
     //#######################################################################
@@ -1805,7 +1810,7 @@
     //#######################################################################
     {
         "sound": "mambience:seaside.ocean",
-        "volume": 0.7,
+        "volume": 0.5,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1835,11 +1840,11 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 30
     },
     {
         "sound": "mambience:seaside.oceaninside",
-        "volume": 0.7,
+        "volume": 0.4,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1869,7 +1874,7 @@
             }
         ],
         "cooldownMin": 9,
-        "cooldownMax": 9
+        "cooldownMax": 30
     },
     {
         "sound": "mambience:seaside.bird",
@@ -1895,7 +1900,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 30
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:seaside.whale",
@@ -1961,7 +1966,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 30
     },
     {
         "sound": "mambience:snow.mountain",
@@ -2001,7 +2006,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 30
     },
     {
         "sound": "mambience:snow.plains",
@@ -2040,11 +2045,11 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 7
+        "cooldownMax": 30
     },
     {
         "sound": "mambience:snow.wind1",
-        "volume": 0.5f,
+        "volume": 0.4f,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2081,11 +2086,11 @@
             }
         ],
         "cooldownMin": 15,
-        "cooldownMax": 30
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:snow.wind2",
-        "volume": 0.5f,
+        "volume": 0.4f,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2122,11 +2127,11 @@
             }
         ],
         "cooldownMin": 15,
-        "cooldownMax": 30
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:snow.windnight",
-        "volume": 0.5f,
+        "volume": 0.4f,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2158,7 +2163,7 @@
             }
         ],
         "cooldownMin": 15,
-        "cooldownMax": 30
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:snow.howl",
@@ -2187,7 +2192,7 @@
             }
         ],
         "cooldownMin": 20,
-        "cooldownMax": 60
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:snow.crows",
@@ -2216,7 +2221,7 @@
             }
         ],
         "cooldownMin": 20,
-        "cooldownMax": 60
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:snow.cracks",
@@ -2255,7 +2260,7 @@
     //#######################################################################
     {
         "sound": "mambience:swamp.day",
-        "volume": 0.5,
+        "volume": 0.4,
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2337,7 +2342,7 @@
             }
         ],
         "cooldownMin": 7,
-        "cooldownMax": 28
+        "cooldownMax": 7
     },
     {
         "sound": "mambience:swamp.bird",
@@ -2382,7 +2387,7 @@
             }
         ],
         "cooldownMin": 15,
-        "cooldownMax": 40
+        "cooldownMax": 80
     },
     {
         "sound": "mambience:swamp.mosquito",
@@ -2422,7 +2427,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 40
+        "cooldownMax": 80
     },
     {
         "sound": "mambience:swamp.duck",
@@ -2542,7 +2547,7 @@
             }
         ],
         "cooldownMin": 30,
-        "cooldownMax": 60
+        "cooldownMax": 90
     },
     
     //#######################################################################
@@ -2596,7 +2601,7 @@
             }
         ],
         "cooldownMin": 15,
-        "cooldownMax": 45
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:shared.grasshopper",
@@ -2810,7 +2815,7 @@
             }
         ],
         "cooldownMin": 30,
-        "cooldownMax": 70
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:shared.sparrow",
@@ -2878,7 +2883,7 @@
             }
         ],
         "cooldownMin": 30,
-        "cooldownMax": 70
+        "cooldownMax": 90
     },
     {
         "sound": "mambience:shared.bird",
@@ -2946,7 +2951,7 @@
             }
         ],
         "cooldownMin": 10,
-        "cooldownMax": 30
+        "cooldownMax": 60
     },
     {
         "sound": "mambience:shared.flies",

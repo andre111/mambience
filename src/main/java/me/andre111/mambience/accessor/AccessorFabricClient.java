@@ -20,8 +20,11 @@ import java.util.UUID;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleType;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class AccessorFabricClient extends AccessorFabric {
 	public AccessorFabricClient(UUID playerUUID) {
@@ -36,13 +39,30 @@ public class AccessorFabricClient extends AccessorFabric {
 		return player != null;
 	}
 
+	// Sound related methods
 	@Override
 	public void playSound(String sound, float volume, float pitch) {
 		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, (float)player.getX(), (float)player.getY(), (float)player.getZ(), false));
+	}
+	
+	@Override
+	public void playSound(String sound, double x, double y, double z, float volume, float pitch) {
+		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false));
 	}
 
 	@Override
 	public void stopSound(String sound) {
 		MinecraftClient.getInstance().getSoundManager().stopSounds(new Identifier(sound), SoundCategory.AMBIENT);
+	}
+
+	// Particle related methods
+	@SuppressWarnings("resource")
+	@Override
+	public void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
+		ParticleType<?> ptype = Registry.PARTICLE_TYPE.get(new Identifier(type));
+		ParticleEffect particle = getParticleEffect(ptype, " "+parameters);
+		if(particle != null) {
+			MinecraftClient.getInstance().world.addParticle(particle, x, y, z, velocityX, velocityY, velocityZ);
+		}
 	}
 }

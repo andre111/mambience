@@ -19,9 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import me.andre111.mambience.MAPlayer;
 import me.andre111.mambience.condition.Condition;
 import me.andre111.mambience.config.EngineConfig;
-import me.andre111.mambience.player.MAPlayer;
 
 public final class Sound {
 	private static final Random RANDOM = new Random();

@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.player;
+package me.andre111.mambience;
 
 import java.util.HashMap;
 import java.util.UUID;
 
-import me.andre111.mambience.MALogger;
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.EngineConfig;
 import me.andre111.mambience.scan.BlockScanner;

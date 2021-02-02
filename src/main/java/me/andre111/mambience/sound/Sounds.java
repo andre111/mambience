@@ -18,7 +18,7 @@ package me.andre111.mambience.sound;
 import java.util.HashSet;
 import java.util.Set;
 
-import me.andre111.mambience.player.MAPlayer;
+import me.andre111.mambience.MAPlayer;
 
 public final class Sounds {
 	private static Set<Sound> sounds = new HashSet<>();

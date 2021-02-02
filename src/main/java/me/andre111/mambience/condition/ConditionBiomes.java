@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import me.andre111.mambience.player.MAPlayer;
+import me.andre111.mambience.MAPlayer;
 
 public final class ConditionBiomes extends Condition {
 	private final List<String> biomes;
