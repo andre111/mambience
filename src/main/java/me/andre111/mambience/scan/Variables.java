@@ -36,9 +36,9 @@ public final class Variables {
 	}
 	
 	public void update() {
-		x = accessor.getX();
-		y = accessor.getY();
-		z = accessor.getZ();
+		x = (int) accessor.getX();
+		y = (int) accessor.getY();
+		z = (int) accessor.getZ();
 		
 		exposed = fastExposedCheck(accessor, x, y, z);
 		//TODO: Slower more accurate exposed check

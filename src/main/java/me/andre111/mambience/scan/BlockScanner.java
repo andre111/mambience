@@ -48,9 +48,9 @@ public final class BlockScanner {
 	public void performScan() {
 		if(!accessor.updatePlayerInstance()) return; // fixes server crashes, TODO: but this should never even happen
 		
-		int startX = accessor.getX() - xSize/2;
-		int startY = accessor.getY() - ySize/2;
-		int startZ = accessor.getZ() - zSize/2;
+		int startX = (int) accessor.getX() - xSize/2;
+		int startY = (int) accessor.getY() - ySize/2;
+		int startZ = (int) accessor.getZ() - zSize/2;
 		currentYSize = ySize;
 
 		//TODO - should this move or cut the scanned area?

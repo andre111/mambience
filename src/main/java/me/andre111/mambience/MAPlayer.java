@@ -20,6 +20,7 @@ import java.util.UUID;
 
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.EngineConfig;
+import me.andre111.mambience.footstep.Footsteps;
 import me.andre111.mambience.scan.BlockScanner;
 import me.andre111.mambience.scan.Variables;
 
@@ -28,6 +29,7 @@ public final class MAPlayer {
 	private Accessor accessor;
 	private BlockScanner scanner;
 	private Variables variables;
+	private Footsteps footsteps;
 	private MALogger logger;
 	private HashMap<String, Integer> cooldowns;
 	
@@ -36,6 +38,7 @@ public final class MAPlayer {
 		this.accessor = accessor;
 		this.scanner = new BlockScanner(accessor, EngineConfig.SIZEX, EngineConfig.SIZEY, EngineConfig.SIZEZ);
 		this.variables = new Variables(accessor);
+		this.footsteps = new Footsteps(accessor);
 		this.logger = logger;
 		this.cooldowns = new HashMap<String, Integer>();
 	}
@@ -51,6 +54,9 @@ public final class MAPlayer {
 	}
 	public Variables getVariables() {
 		return variables;
+	}
+	public Footsteps getFootsteps() {
+		return footsteps;
 	}
 	public MALogger getLogger() {
 		return logger;

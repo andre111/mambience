@@ -41,9 +41,9 @@ public class Effects {
 		Accessor accessor = player.getAccessor();
 		
 		// DO ACTUAL BLOCK TESTING
-		int bx = accessor.getX();
-		int by = accessor.getY();
-		int bz = accessor.getZ();
+		int bx = (int) accessor.getX();
+		int by = (int) accessor.getY();
+		int bz = (int) accessor.getZ();
 		for(int i=0; i<256; i++) {
 			int ox = random.nextInt(26 + 1) - 13;
 			int oy = random.nextInt(20 + 1) - 10;

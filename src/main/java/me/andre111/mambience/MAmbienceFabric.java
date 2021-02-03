@@ -65,6 +65,8 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	}
 
 	private void initServer() {
+		//BlockSoundMapGenerator.generateBlockSoundMap();
+		
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			MAmbienceFabric.server = server;
 			tick();

@@ -188,12 +188,6 @@
         ],
         "restrictions": [
             {
-                "condition": "TIME_EVENING"
-            },
-            {
-                "condition": "TIME_NIGHT"
-            },
-            {
                 "condition": "UNDERGROUND"
             },
             {
@@ -210,8 +204,8 @@
                 "floatValue": 0.6f
             }
         ],
-        "cooldownMin": 7,
-        "cooldownMax": 60
+        "cooldownMin": 6,
+        "cooldownMax": 11
     },
     {
         "sound": "mambience:desert.night",

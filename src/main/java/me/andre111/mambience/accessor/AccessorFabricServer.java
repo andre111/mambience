@@ -47,22 +47,40 @@ public class AccessorFabricServer extends AccessorFabric {
 	// Sound related methods
 	@Override
 	public void playSound(String sound, float volume, float pitch) {
+		if(serverPlayer == null) return;
+		
 		serverPlayer.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.AMBIENT, player.getPos(), volume, pitch));
 	}
 
 	@Override
 	public void playSound(String sound, double x, double y, double z, float volume, float pitch) {
+		if(serverPlayer == null) return;
+		
 		serverPlayer.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.AMBIENT, new Vec3d(x, y, z), volume, pitch));
+	}
+	
+
+	@Override
+	public void playGlobalFootstepSound(String sound, double x, double y, double z, float volume, float pitch) {
+		if(serverPlayer == null) return;
+		
+		for(ServerPlayerEntity other : serverPlayer.getServerWorld().getPlayers()) {
+			other.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.PLAYERS, new Vec3d(x, y, z), volume, pitch));
+		}
 	}
 
 	@Override
 	public void stopSound(String sound) {
+		if(serverPlayer == null) return;
+		
 		serverPlayer.networkHandler.sendPacket(new StopSoundS2CPacket(new Identifier(sound), SoundCategory.AMBIENT));
 	}
 
 	// Particle related methods
 	@Override
 	public void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
+		if(serverPlayer == null || serverPlayer.getServerWorld() == null) return;
+		
 		ParticleType<?> ptype = Registry.PARTICLE_TYPE.get(new Identifier(type));
 		ParticleEffect particle = getParticleEffect(ptype, " "+parameters);
 		if(particle != null) {

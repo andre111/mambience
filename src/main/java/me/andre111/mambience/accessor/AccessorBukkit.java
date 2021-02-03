@@ -26,6 +26,7 @@ import org.bukkit.block.Biome;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Waterlogged;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class AccessorBukkit extends Accessor {
 	//TODO: this shouldn't keep a reference to the player, at most its UUID
@@ -43,18 +44,23 @@ public class AccessorBukkit extends Accessor {
 	}
 
 	@Override
-	public int getX() {
-		return player.getLocation().getBlockX();
+	public double getX() {
+		return player.getLocation().getX();
 	}
 
 	@Override
-	public int getY() {
-		return player.getLocation().getBlockY();
+	public double getY() {
+		return player.getLocation().getY();
 	}
 
 	@Override
-	public int getZ() {
-		return player.getLocation().getBlockZ();
+	public double getZ() {
+		return player.getLocation().getZ();
+	}
+	
+	@Override
+	public double getRotation() {
+		return Math.toRadians(player.getLocation().getYaw());
 	}
 
 	@Override
@@ -76,6 +82,31 @@ public class AccessorBukkit extends Accessor {
 				|| headBlock.getType()==Material.SEAGRASS || headBlock.getType()==Material.TALL_SEAGRASS 
 				|| (headBlock.getBlockData() instanceof Waterlogged && ((Waterlogged) headBlock.getBlockData()).isWaterlogged()));
 	}
+	
+	@Override
+	public boolean isSneaking() {
+		return player.isSneaking();
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isJumping() {
+		return !player.isOnGround() && !player.isInsideVehicle() && !player.isFlying() && !player.isGliding();
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public boolean isOnGround() {
+		return player.isOnGround();
+	}
+	
+	@Override
+	public String getArmor(int index) {
+		ItemStack itemstack = player.getInventory().getArmorContents()[index];
+		
+		//TODO: bukkit item names just seem to be the internal minecraft one uppercased
+		return itemstack != null ? "minecraft:"+itemstack.getType().name().toLowerCase() : "";
+	}
 
 	// Sound related methods
 	@Override
@@ -87,6 +118,11 @@ public class AccessorBukkit extends Accessor {
 	public void playSound(String sound, double x, double y, double z, float volume, float pitch) {
 		player.playSound(new Location(player.getWorld(), x, y, z), sound, SoundCategory.AMBIENT, volume, pitch);
 	}
+
+	@Override
+	public void playGlobalFootstepSound(String sound, double x, double y, double z, float volume, float pitch) {
+		player.getWorld().playSound(new Location(player.getWorld(), x, y, z), sound, SoundCategory.PLAYERS, volume, pitch);
+	}
 	
 	// Particle related methods
 	@Override
@@ -94,6 +130,9 @@ public class AccessorBukkit extends Accessor {
 		switch(type) {
 		case "minecraft:block":
 			player.spawnParticle(Particle.BLOCK_CRACK, x, y, z, 0, velocityX, velocityY, velocityZ, 1, Bukkit.createBlockData(parameters));
+			break;
+		case "minecraft:item":
+			player.spawnParticle(Particle.ITEM_CRACK, x, y, z, 0, velocityX, velocityY, velocityZ, 1, new ItemStack(Bukkit.createBlockData(parameters).getMaterial()));
 			break;
 		case "minecraft:flame":
 			player.spawnParticle(Particle.FLAME, x, y, z, 0, velocityX, velocityY, velocityZ, 1);

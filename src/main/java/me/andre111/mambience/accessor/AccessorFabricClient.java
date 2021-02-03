@@ -51,6 +51,11 @@ public class AccessorFabricClient extends AccessorFabric {
 	}
 
 	@Override
+	public void playGlobalFootstepSound(String sound, double x, double y, double z, float volume, float pitch) {
+		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.PLAYERS, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false));
+	}
+
+	@Override
 	public void stopSound(String sound) {
 		MinecraftClient.getInstance().getSoundManager().stopSounds(new Identifier(sound), SoundCategory.AMBIENT);
 	}

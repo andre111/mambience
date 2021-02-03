@@ -20,24 +20,59 @@ import java.util.UUID;
 public abstract class Accessor {
 	protected UUID playerUUID;
 	
+	private boolean lastValuesInitialised = false;
+	private double lastX;
+	private double lastY;
+	private double lastZ;
+	
 	public Accessor(UUID playerUUID) {
 		this.playerUUID = playerUUID;
+	}
+	
+	public final void updateLastPosition() {
+		this.lastValuesInitialised = true;
+		this.lastX = getX();
+		this.lastY = getY();
+		this.lastZ = getZ();
+	}
+	
+	public final double getDeltaX() {
+		if(!this.lastValuesInitialised) return 0;
+		return this.getX() - this.lastX;
+	}
+	
+	public final double getDeltaY() {
+		if(!this.lastValuesInitialised) return 0;
+		return this.getY() - this.lastY;
+	}
+	
+	public final double getDeltaZ() {
+		if(!this.lastValuesInitialised) return 0;
+		return this.getZ() - this.lastZ;
 	}
 	
 	// Player related methods
 	public abstract boolean updatePlayerInstance();
 	
-	public abstract int getX();
-	public abstract int getY();
-	public abstract int getZ();
+	public abstract double getX();
+	public abstract double getY();
+	public abstract double getZ();
+	
+	public abstract double getRotation();
 
 	public abstract double getHealth();
 	public abstract double getFoodLevel();
 	public abstract boolean isSubmerged();
+	public abstract boolean isSneaking();
+	public abstract boolean isJumping();
+	public abstract boolean isOnGround();
+	
+	public abstract String getArmor(int index);
 	
 	// Sound related methods
 	public abstract void playSound(String sound, float volume, float pitch);
 	public abstract void playSound(String sound, double x, double y, double z, float volume, float pitch);
+	public abstract void playGlobalFootstepSound(String sound, double x, double y, double z, float volume, float pitch);
 	public abstract void stopSound(String sound);
 	
 	// Particle related methods

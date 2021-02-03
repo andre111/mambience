@@ -4,6 +4,7 @@ import java.util.List;
 
 import me.andre111.mambience.MAPlayer;
 import me.andre111.mambience.condition.Condition;
+import me.andre111.mambience.effect.instance.DustWind;
 import me.andre111.mambience.effect.instance.FallingLeaves;
 import me.andre111.mambience.effect.instance.Fireflies;
 import me.andre111.mambience.effect.instance.FlameJet;
@@ -51,6 +52,9 @@ public class Effect {
 			case "fireflies":
 				Effects.addInstance(new Fireflies(maplayer, x, y, z, 5));
 				break;
+			case "dust_wind":
+				Effects.addInstance(new DustWind(maplayer, parameters[0], DustWind.WIND_X, DustWind.WIND_Z, x, y, z));
+				break;
 			case "falling_leaves":
 				Effects.addInstance(new FallingLeaves(maplayer, parameters[0], x, y, z));
 				break;
@@ -59,7 +63,7 @@ public class Effect {
 	}
 
 	private boolean conditionsMet(MAPlayer maplayer, String block, int x, int y, int z) {
-		if(Math.random() > chance) return false;
+		if(chance < 1 && Math.random() > chance) return false;
 		if(!block.equals(this.block)) return false;
 		if(!blockAbove.isEmpty() && !maplayer.getAccessor().getBlock(x, y+1, z).equals(blockAbove)) return false;
 		if(!blockBelow.isEmpty() && !maplayer.getAccessor().getBlock(x, y-1, z).equals(blockBelow)) return false;

@@ -54,6 +54,7 @@ public final class EngineConfig {
 			DataConfig.loadData(logger, new File(configRoot, "/settings/data.json"));
 			SoundConfig.loadSounds(logger, new File(configRoot, "/settings/sounds.json"));
 			EffectConfig.loadEffects(logger, new File(configRoot, "/settings/effects.json"));
+			FootstepConfig.loadFootsteps(logger, new File(configRoot, "/settings/footsteps.json"));
 		} catch (Exception e) {
 			logger.error("Exception reading engine config: "+e);
 			e.printStackTrace();
@@ -69,6 +70,7 @@ public final class EngineConfig {
 		exportSingleFile(folder, "/settings/data.json");
 		exportSingleFile(folder, "/settings/sounds.json");
 		exportSingleFile(folder, "/settings/effects.json");
+		exportSingleFile(folder, "/settings/footsteps.json");
 	}
 	private static void exportSingleFile(File folder, String path) {
 		File file = new File(folder, path);

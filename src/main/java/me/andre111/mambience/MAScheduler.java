@@ -88,12 +88,18 @@ public class MAScheduler {
 			// update variables
 			maplayer.getVariables().update();
 			
+			// update footsteps
+			maplayer.getFootsteps().update();
+			
 			// enqueue scanners requiring update
 			if(maplayer.getScanner().getLastScan()+interval<=timer) {
 				if(!scannerQueue.contains(maplayer.getScanner())) {
 					scannerQueue.add(maplayer.getScanner());
 				}
 			}
+			
+			// update "last tick" values
+			maplayer.getAccessor().updateLastPosition();
 		}
 		variableTime = System.currentTimeMillis();
 		
@@ -116,7 +122,7 @@ public class MAScheduler {
 		long endTime = System.currentTimeMillis();
 		if(timer % 20 == 0) {
 			logger.log("Refreshing "+refreshed+"/"+players.size()+" Player(s) last tick took "+(endTime-startTime)+"ms!");
-			logger.log("\tVariables: "+(variableTime-startTime)+"ms      Scanner: "+(scannerTime-variableTime)+"ms      Effects: "+(scannerTime-endTime)+"ms!");
+			logger.log("\tPlayers: "+(variableTime-startTime)+"ms      Scanners: "+(scannerTime-variableTime)+"ms      Effects: "+(scannerTime-endTime)+"ms!");
 		}
 	}
 	

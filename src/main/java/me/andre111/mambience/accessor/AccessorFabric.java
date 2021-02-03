@@ -15,6 +15,7 @@
  */
 package me.andre111.mambience.accessor;
 
+import java.util.Iterator;
 import java.util.UUID;
 
 import com.mojang.brigadier.StringReader;
@@ -22,6 +23,8 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.tag.FluidTags;
@@ -40,18 +43,23 @@ public abstract class AccessorFabric extends Accessor {
 
 	// Player related methods
 	@Override
-	public int getX() {
-		return (int) player.getX();
+	public double getX() {
+		return player.getX();
 	}
 
 	@Override
-	public int getY() {
-		return (int) player.getY();
+	public double getY() {
+		return player.getY();
 	}
 
 	@Override
-	public int getZ() {
-		return (int) player.getZ();
+	public double getZ() {
+		return player.getZ();
+	}
+	
+	@Override
+	public double getRotation() {
+		return Math.toRadians(player.yaw);
 	}
 
 	@Override
@@ -67,6 +75,33 @@ public abstract class AccessorFabric extends Accessor {
 	@Override
 	public boolean isSubmerged() {
 		return player.isSubmergedIn(FluidTags.WATER);
+	}
+	
+	@Override
+	public boolean isSneaking() {
+		return player.isSneaking();
+	}
+
+	@Override
+	public boolean isJumping() {
+		return !player.isOnGround() && player.getVehicle() == null && !player.isFallFlying() && !player.isClimbing();
+	}
+
+	@Override
+	public boolean isOnGround() {
+		return player.isOnGround();
+	}
+	
+	@Override
+	public String getArmor(int index) {
+		// find correct stack
+		Iterator<ItemStack> armorItems = player.getArmorItems().iterator();
+		ItemStack itemstack = armorItems.next();
+		for(int i=0; i<index; i++) itemstack = armorItems.next();
+		
+		// get item identifier
+		Item item = itemstack.getItem();
+		return item != null ? Registry.ITEM.getId(item).toString() : "";
 	}
 
 	// World related methods
