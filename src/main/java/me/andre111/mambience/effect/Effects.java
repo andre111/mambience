@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2021 André Schweiger
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package me.andre111.mambience.effect;
 
 import java.util.ArrayList;
@@ -9,6 +24,7 @@ import java.util.Set;
 
 import me.andre111.mambience.MAPlayer;
 import me.andre111.mambience.accessor.Accessor;
+import me.andre111.mambience.config.Config;
 
 public class Effects {
 	private static Random random = new Random();
@@ -44,10 +60,10 @@ public class Effects {
 		int bx = (int) accessor.getX();
 		int by = (int) accessor.getY();
 		int bz = (int) accessor.getZ();
-		for(int i=0; i<256; i++) {
-			int ox = random.nextInt(26 + 1) - 13;
-			int oy = random.nextInt(20 + 1) - 10;
-			int oz = random.nextInt(26 + 1) - 13;
+		for(int i=0; i<Config.effects().getRandomTicks(); i++) {
+			int ox = random.nextInt(Config.effects().getSizeX() + 1) - Config.effects().getSizeX()/2;
+			int oy = random.nextInt(Config.effects().getSizeY() + 1) - Config.effects().getSizeY()/2;
+			int oz = random.nextInt(Config.effects().getSizeZ() + 1) - Config.effects().getSizeZ()/2;
 			
 			String block = player.getAccessor().getBlock(bx+ox, by+oy, bz+oz);
 			

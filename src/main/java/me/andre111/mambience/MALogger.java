@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 package me.andre111.mambience;
 
-import me.andre111.mambience.config.EngineConfig;
+import me.andre111.mambience.config.Config;
 
 public class MALogger {
 	private StringReciever logReciever;
@@ -27,7 +27,7 @@ public class MALogger {
 	}
 	
 	public void log(String s) {
-		if(EngineConfig.DEBUGLOGGING) {
+		if(Config.debugLogging()) {
 			logReciever.recieveString(s);
 		}
 	}

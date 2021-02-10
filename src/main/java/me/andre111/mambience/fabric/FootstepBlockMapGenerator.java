@@ -1,12 +1,29 @@
+/*
+ * Copyright (c) 2021 André Schweiger
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package me.andre111.mambience.fabric;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import me.andre111.mambience.MAmbience;
+import me.andre111.mambience.config.FootstepLoader;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.registry.Registry;
 
-public class BlockSoundMapGenerator {
+public class FootstepBlockMapGenerator {
 	private static final Map<BlockSoundGroup, String> DEFAULT_SOUND_MAP = new HashMap<>();
 	static {
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.WOOD, "planks");
@@ -58,11 +75,13 @@ public class BlockSoundMapGenerator {
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.GILDED_BLACKSTONE, "stone");
 	}
 	
-	public static void generateBlockSoundMap() {
+	public static void scanForMissingBlockMapEntries() {
 		Registry.BLOCK.forEach(block -> {
 			String id = Registry.BLOCK.getId(block).toString();
-			String type = DEFAULT_SOUND_MAP.get(block.getSoundGroup(block.getDefaultState()));
-			System.out.println("\""+id+"\": \""+type+"\",");
+			if(!FootstepLoader.BLOCK_MAP.containsKey(id)) {
+				String type = DEFAULT_SOUND_MAP.get(block.getSoundGroup(block.getDefaultState()));
+				MAmbience.getLogger().error("\""+id+"\" is missing a footstep type entry - suggested: \""+type+"\"");
+			}
 		});
 	}
 }

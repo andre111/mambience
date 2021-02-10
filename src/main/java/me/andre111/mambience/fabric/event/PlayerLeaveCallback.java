@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ public interface PlayerLeaveCallback {
 			(listeners) -> {
 				if (EventFactory.isProfilingEnabled()) {
 					return (serverPlayerEntity) -> {
-						serverPlayerEntity.world.getProfiler().push("fabricPlayerLeave");
+						serverPlayerEntity.world.getProfiler().push("mambiencePlayerLeave");
 						for (PlayerLeaveCallback event : listeners) {
 							serverPlayerEntity.world.getProfiler().push(EventFactory.getHandlerName(event));
 							event.onPlayerLeave(serverPlayerEntity);

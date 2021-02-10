@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,6 +23,7 @@ import org.apache.logging.log4j.Logger;
 import io.netty.buffer.Unpooled;
 import me.andre111.mambience.accessor.AccessorFabricClient;
 import me.andre111.mambience.accessor.AccessorFabricServer;
+import me.andre111.mambience.fabric.FootstepBlockMapGenerator;
 import me.andre111.mambience.fabric.event.PlayerJoinCallback;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
@@ -65,7 +66,7 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	}
 
 	private void initServer() {
-		//BlockSoundMapGenerator.generateBlockSoundMap();
+		FootstepBlockMapGenerator.scanForMissingBlockMapEntries();
 		
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			MAmbienceFabric.server = server;

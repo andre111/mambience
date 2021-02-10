@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,7 +29,7 @@ import com.google.gson.JsonParser;
 
 import me.andre111.mambience.MALogger;
 
-public final class DataConfig {
+public final class DataLoader {
 	private static Map<String, List<String>> BIOME_GROUPS;
 	private static Map<String, List<String>> BLOCK_TAGS;
 	
@@ -41,7 +41,7 @@ public final class DataConfig {
 			loadBiomeGroups(logger, dataElement.get("biomeGroups").getAsJsonArray());
 			loadBlockTags(logger, dataElement.get("tags").getAsJsonArray());
 		} catch (Exception e) {
-			logger.error("Exception reading data config: "+file.getAbsolutePath()+": "+e);
+			logger.error("Exception loading data: "+file.getAbsolutePath()+": "+e);
 			e.printStackTrace();
 		}
 	}

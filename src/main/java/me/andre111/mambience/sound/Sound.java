@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,81 +15,45 @@
  */
 package me.andre111.mambience.sound;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import me.andre111.mambience.MAPlayer;
-import me.andre111.mambience.condition.Condition;
-import me.andre111.mambience.config.EngineConfig;
-
-public final class Sound {
-	private static final Random RANDOM = new Random();
+public class Sound {
+	private final String name;
+	private final float volumeMin;
+	private final float volumeMax;
+	private final float pitchMin;
+	private final float pitchMax;
 	
-	private final String id;
-	private final String sound;
-	private final float volume;
-	private final float pitch;
-	private final List<Condition> conditions;
-	private final List<Condition> restrictions;
-	private final int cooldownMin;
-	private final int cooldownMax;
+	private final int delay;
+	private final double probability;
 	
-	public Sound(String id, String sound, float volume, float pitch, List<Condition> conditions,
-			List<Condition> restrictions, int cooldownMin, int cooldownMax) {
-		this.id = id;
-		this.sound = sound;
-		this.volume = volume * EngineConfig.GLOBALVOLUME;
-		this.pitch = pitch;
-		this.conditions = new ArrayList<>(conditions);
-		this.restrictions = new ArrayList<>(restrictions);
-		this.cooldownMin = cooldownMin;
-		this.cooldownMax = cooldownMax;
+	public Sound(String name, float volumeMin, float volumeMax, float pitchMin,float pitchMax, int delay, double probability) {
+		this.name = name;
+		this.volumeMin = volumeMin;
+		this.volumeMax = volumeMax;
+		this.pitchMin = pitchMin;
+		this.pitchMax = pitchMax;
+		this.delay = delay;
+		this.probability = probability;
 		
-		// perform some validation checks
-		//TODO: extend
-		if(cooldownMin < 0) {
-			throw new IllegalArgumentException("Cooldown Minimum cannot be negative");
-		}
-		if(cooldownMax < 0) {
-			throw new IllegalArgumentException("Cooldown Maximum cannot be negative");
-		}
-		if(cooldownMax < cooldownMin) {
-			throw new IllegalArgumentException("Cooldown Minimum cannot be larger than Cooldown Maximum");
-		}
+		// TODO> perform some validation checks
 	}
 
-	public void update(MAPlayer maplayer) {
-		if(conditionsMet(maplayer)) {
-			if(maplayer.updateCooldown(id) <= 0) {
-				maplayer.getLogger().log("Play sound "+sound+" at "+volume);
-				maplayer.getAccessor().playSound(sound, volume, pitch);
-				maplayer.setCooldown(id, cooldownMin + RANDOM.nextInt(cooldownMax - cooldownMin + 1));
-			}
-		} else if (EngineConfig.STOPSOUNDS && maplayer.getCooldown(id) > 0 /*&& isRestricted(maplayer)(so it doesn't get cut of in so many cases?)*/) {
-			//TODO: needs fading in and out, sadly not possible with current protocol
-			//      for now disabled with config option to reenable, sound stopping without fadeout is just to abrupt
-			maplayer.getLogger().log("Stop sound "+sound);
-			maplayer.getAccessor().stopSound(sound);
-			maplayer.setCooldown(id, 0);
-		}
+	public String getName() {
+		return name;
 	}
 	
-	private boolean conditionsMet(MAPlayer maplayer) {
-		return isInConditions(maplayer) && !isRestricted(maplayer);
+	public float getVolume() {
+		return volumeMin + (float) (Math.random() * (volumeMax - volumeMin));
 	}
 	
-	private boolean isInConditions(MAPlayer maplayer) {
-		for(Condition condition : conditions) {
-			if(!condition.matches(maplayer)) return false;
-		}
-		return true;
+	public float getPitch() {
+		return pitchMin + (float) (Math.random() * (pitchMax - pitchMin));
 	}
-	
-	private boolean isRestricted(MAPlayer maplayer) {
-		for(Condition restriction : restrictions) {
-			if(restriction.matches(maplayer)) return true;
-		}
-		return false;
+
+	public int getDelay() {
+		return delay;
+	}
+
+	public double getProbability() {
+		return probability;
 	}
 }

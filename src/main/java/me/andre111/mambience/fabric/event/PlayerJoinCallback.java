@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ public interface PlayerJoinCallback {
 			(listeners) -> {
 				if (EventFactory.isProfilingEnabled()) {
 					return (clientConnection, serverPlayerEntity) -> {
-						serverPlayerEntity.world.getProfiler().push("fabricPlayerJoin");
+						serverPlayerEntity.world.getProfiler().push("mambiencePlayerJoin");
 						for (PlayerJoinCallback event : listeners) {
 							serverPlayerEntity.world.getProfiler().push(EventFactory.getHandlerName(event));
 							event.onPlayerJoin(clientConnection, serverPlayerEntity);

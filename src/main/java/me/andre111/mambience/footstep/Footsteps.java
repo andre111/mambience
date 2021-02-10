@@ -1,15 +1,28 @@
+/*
+ * Copyright (c) 2021 André Schweiger
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package me.andre111.mambience.footstep;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
+import me.andre111.mambience.MAPlayer;
 import me.andre111.mambience.accessor.Accessor;
-import me.andre111.mambience.config.FootstepConfig;
+import me.andre111.mambience.config.FootstepLoader;
+import me.andre111.mambience.sound.Sound;
 
 public class Footsteps {	
+	private final MAPlayer player;
 	private final Accessor accessor;
-	private final List<ScheduledSound> scheduledSounds;
 	
 	private double accumulatedDistance;
 	private boolean wasPracticallyStanding;
@@ -18,9 +31,9 @@ public class Footsteps {
 	
 	private boolean rightFoot;
 	
-	public Footsteps(Accessor accessor) {
-		this.accessor = accessor;
-		this.scheduledSounds = new LinkedList<>();
+	public Footsteps(MAPlayer player) {
+		this.player = player;
+		this.accessor = player.getAccessor();
 	}
 	
 	public void update() {
@@ -35,18 +48,6 @@ public class Footsteps {
 		updateSteps(speed, distance);
 		updateJumping(speed, distance);
 		//TODO: walking through stuff (plants, cobwebs, ...)
-		
-		// process scheduled sounds
-		long time = System.currentTimeMillis();
-		Iterator<ScheduledSound> iter = scheduledSounds.iterator();
-		while(iter.hasNext()) {
-			ScheduledSound sound = iter.next();
-			if(time - sound.startTime >= sound.delay) {
-				//System.out.println("Play Delayed "+sound.name);
-				accessor.playGlobalFootstepSound(sound.name, sound.x, sound.y, sound.z, sound.volume, sound.pitch);
-				iter.remove();
-			}
-		}
 	}
 	
 	private void updateSteps(double speed, double distance) {
@@ -54,22 +55,17 @@ public class Footsteps {
 		if(accessor.isSneaking() || accessor.isSubmerged() || !accessor.isOnGround()) return;
 		accumulatedDistance += speed;
 		
-		// play "wander" sound when the player is only tapping the movement keys
+		// play "wander" sound when the player has just stopped moving -> "break sound"
 		boolean isPracticallyStanding = speed < 0.01;
-		if(!isPracticallyStanding && wasPracticallyStanding) {
+		if(isPracticallyStanding && !wasPracticallyStanding) {
 			playEvent(FSEvent.WANDER, false, -1/16.0);
 		}
 		wasPracticallyStanding = isPracticallyStanding;
 		
-		// determine stride distance (TODO: configurable values)
+		// determine stride distance and event (TODO: configurable values)
 		double strideDistance = 1.5;
-		FSEvent event = null;
+		FSEvent event = speed >= 0.22f ? FSEvent.RUN : FSEvent.WALK;
 		//TODO: check for other situations (i.e. on ladder or moving on steps
-		
-		// determine event
-		if(event == null) {
-			event = speed >= 0.22f ? FSEvent.RUN : FSEvent.WALK;
-		}
 		
 		// play sound
 		if(accumulatedDistance >= strideDistance) {
@@ -83,7 +79,6 @@ public class Footsteps {
 	}
 	
 	private void updateJumping(double speed, double distance) {
-		//TODO...
 		if(accessor.isOnGround() == isInAir) {
 			isInAir = !isInAir;
 			
@@ -127,16 +122,16 @@ public class Footsteps {
 		
 		// determine block / materials
 		//TODO: this might need more advanced "area" checking when walking on block edges
-		String materialNames = FootstepConfig.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY, footBlockZ));
-		if(materialNames == null || materialNames.isEmpty()) materialNames = FootstepConfig.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY-1, footBlockZ));
+		String materialNames = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY, footBlockZ));
+		if(materialNames == null || materialNames.isEmpty()) materialNames = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY-1, footBlockZ));
 		if(materialNames == null) return;
 
 		playSounds(event, footX, footY, footZ, materialNames.split(","));
 		
 		// determine armor materials
-		String armorMaterialNames = FootstepConfig.ARMOR_MAP.get(accessor.getArmor(2));
-		if(armorMaterialNames == null) armorMaterialNames = FootstepConfig.ARMOR_MAP.get(accessor.getArmor(1));
-		String feetMaterialNames = FootstepConfig.ARMOR_MAP.get(accessor.getArmor(0));
+		String armorMaterialNames = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(2));
+		if(armorMaterialNames == null) armorMaterialNames = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(1));
+		String feetMaterialNames = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(0));
 		
 		if(armorMaterialNames != null) {
 			playSounds(event, footX, footY, footZ, armorMaterialNames.split(","));
@@ -148,14 +143,14 @@ public class Footsteps {
 
 	private void playSounds(FSEvent event, double x, double y, double z, String[] materialNames) {
 		for(String materialName : materialNames) {
-			FSMaterial material = FootstepConfig.MATERIALS.get(materialName);
+			FSMaterial material = FootstepLoader.MATERIALS.get(materialName);
 			if(material != null) playSounds(event, x, y, z, material);
 		}
 	}
 	
 	private void playSounds(FSEvent event, double x, double y, double z, FSMaterial material) {
 		// determine sounds
-		FSSound[] sounds = null;
+		Sound[] sounds = null;
 		switch(event) {
 		case WANDER:
 			sounds = material.getWanderSounds();
@@ -178,44 +173,8 @@ public class Footsteps {
 		if(sounds == null) return;
 		
 		// play sounds
-		for(FSSound sound : sounds) {
-			// check sound probability
-			if(sound.getProbability() < 1 && Math.random() >= sound.getProbability()) continue;
-			
-			// calculate volume and pitch
-			float volume = (float) (sound.getVolumeMin() + Math.random() * (sound.getVolumeMax() - sound.getVolumeMin()));
-			float pitch = (float) (sound.getPitchMin() + Math.random() * (sound.getPitchMax() - sound.getPitchMin()));
-			
-			// schedule if delay > 0
-			if(sound.getDelay() > 0) {
-				scheduledSounds.add(new ScheduledSound(sound.getName(), x, y, z, volume, pitch, sound.getDelay()));
-			} else {
-				//System.out.println("Play "+sound.getName());
-				accessor.playGlobalFootstepSound(sound.getName(), x, y, z, volume, pitch);
-			}
-		}
-	}
-	
-	private static final class ScheduledSound {
-		private final String name;
-		private final double x;
-		private final double y;
-		private final double z;
-		private final float volume;
-		private final float pitch;
-		
-		private final int delay;
-		private final long startTime;
-		
-		public ScheduledSound(String name, double x, double y, double z, float volume, float pitch, int delay) {
-			this.name = name;
-			this.x = x;
-			this.y = y;
-			this.z = z;
-			this.volume = volume;
-			this.pitch = pitch;
-			this.delay = delay;
-			this.startTime = System.currentTimeMillis();
+		for(Sound sound : sounds) {
+			player.getSoundPlayer().playSound(sound, x, y, z, true);
 		}
 	}
 }

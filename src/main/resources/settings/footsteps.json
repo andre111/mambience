@@ -800,45 +800,45 @@
 		"armor_light": {
 			"walk": {
 				"name": "armor.light_walk",
-				"pitch_min": 80,
-				"pitch_max": 100
+				"pitchMin": 80,
+				"pitchMax": 100
 			},
 			"jump": {
 				"name": "armor.light_walk",
-				"pitch_min": 80,
-				"pitch_max": 100
+				"pitchMin": 80,
+				"pitchMax": 100
 			},
 			"run": {
 				"name": "armor.light_run",
-				"pitch_min": 100,
-				"pitch_max": 105
+				"pitchMin": 100,
+				"pitchMax": 105
 			},
 			"wander": {
 				"name": "armor.light_walk",
-				"pitch_min": 80,
-				"pitch_max": 100
+				"pitchMin": 80,
+				"pitchMax": 100
 			},
 			"land": "armor.light_walk"
 		},
 		"armor_medium": {
 			"walk": {
 				"name": "armor.medium_walk",
-				"pitch_min": 80,
-				"pitch_max": 100
+				"pitchMin": 80,
+				"pitchMax": 100
 			},
 			"jump": "armor.medium_walk",
 			"run": {
 				"name": "armor.medium_run",
-				"pitch_min": 90,
-				"pitch_max": 110
+				"pitchMin": 90,
+				"pitchMax": 110
 			},
 			"wander": "armor.medium_walk",
 			"land": [
 				"armor.medium_walk",
 				{
 					"name": "armor.medium_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -855,8 +855,8 @@
 				"armor.medium_foot",
 				{
 					"name": "armor.medium_foot",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -873,8 +873,8 @@
 				"armor.crystal_walk",
 				{
 					"name": "armor.crystal_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -885,8 +885,8 @@
 		"crystal_foot": {
 			"walk": {
 				"name": "armor.crystal_foot",
-				"pitch_min": 80,
-				"pitch_max": 100
+				"pitchMin": 80,
+				"pitchMax": 100
 			},
 			"jump": "armor.crystal_foot",
 			"run": "armor.crystal_foot",
@@ -895,8 +895,8 @@
 				"armor.crystal_foot",
 				{
 					"name": "armor.crystal_foot",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -913,8 +913,8 @@
 				"armor.heavy_walk",
 				{
 					"name": "armor.heavy_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -931,8 +931,8 @@
 				"armor.heavy_foot",
 				{
 					"name": "armor.heavy_foot",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -949,8 +949,8 @@
 				"armor.slimey_walk",
 				{
 					"name": "armor.slimey_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -967,114 +967,114 @@
 			"walk": [
 				{
 					"name": "leaves.leaves_through",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"name": "brush.brush_through",
-					"vol_min": 30,
-					"vol_max": 30
+					"volumeMin": 30,
+					"volumeMax": 30
 				}
 			],
 			"jump": [
 				{
 					"name": "leaves.leaves_through",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"name": "brush.brush_through",
-					"vol_min": 30,
-					"vol_max": 30
+					"volumeMin": 30,
+					"volumeMax": 30
 				}
 			],
 			"land": [
 				{
 					"name": "leaves.leaves_through",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"name": "brush.brush_through",
-					"vol_min": 30,
-					"vol_max": 30
+					"volumeMin": 30,
+					"volumeMax": 30
 				}
 			]
 		},
 		"brush": {
 			"walk": {
 				"name": "brush.brush_through",
-				"vol_min": 65,
-				"vol_max": 65
+				"volumeMin": 65,
+				"volumeMax": 65
 			},
 			"jump": {
 				"name": "brush.brush_through",
-				"vol_min": 65,
-				"vol_max": 65
+				"volumeMin": 65,
+				"volumeMax": 65
 			},
 			"land": {
 				"name": "brush.brush_through",
-				"vol_min": 65,
-				"vol_max": 65
+				"volumeMin": 65,
+				"volumeMax": 65
 			}
 		},
 		"fire": {
 			"walk": {
 				"name": "brush.brush_through",
-				"pitch_min": 70,
-				"pitch_max": 80
+				"pitchMin": 70,
+				"pitchMax": 80
 			},
 			"jump": {
 				"name": "brush.brush_through",
-				"pitch_min": 70,
-				"pitch_max": 80
+				"pitchMin": 70,
+				"pitchMax": 80
 			},
 			"land": {
 				"name": "brush.brush_through",
-				"pitch_min": 70,
-				"pitch_max": 80
+				"pitchMin": 70,
+				"pitchMax": 80
 			}
 		},
 		"rails": {
 			"walk": {
 				"name": "metalbar.metalbar_run",
-				"vol_min": 20,
-				"vol_max": 20
+				"volumeMin": 20,
+				"volumeMax": 20
 			},
 			"jump": {
 				"name": "metalbar.metalbar_run",
-				"vol_min": 20,
-				"vol_max": 20
+				"volumeMin": 20,
+				"volumeMax": 20
 			},
 			"land": {
 				"name": "metalbar.metalbar_run",
-				"vol_min": 20,
-				"vol_max": 20
+				"volumeMin": 20,
+				"volumeMax": 20
 			}
 		},
 		"grass": {
 			"walk": [
 				{
 					"name": "grass.grass_walk",
-					"vol_min": 60,
-					"vol_max": 60
+					"volumeMin": 60,
+					"volumeMax": 60
 				},
 				{
 					"name": "brush.brush_through",
-					"vol_min": 20,
-					"vol_max": 20
+					"volumeMin": 20,
+					"volumeMax": 20
 				}
 			],
 			"run": [
 				{
 					"name": "grass.grass_run",
-					"vol_min": 60,
-					"vol_max": 60
+					"volumeMin": 60,
+					"volumeMax": 60
 				},
 				{
 					"name": "brush.brush_through",
-					"vol_min": 20,
-					"vol_max": 20
+					"volumeMin": 20,
+					"volumeMax": 20
 				}
 			],
 			"wander": "grass.grass_wander",
@@ -1130,8 +1130,8 @@
 				"dirt.dirt_land",
 				{
 					"name": "dirt.dirt_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1142,21 +1142,21 @@
 		"stone": {
 			"run": {
 				"name": "stone.stone_run",
-				"pitch_min": 65,
-				"pitch_max": 70
+				"pitchMin": 65,
+				"pitchMax": 70
 			},
 			"walk": {
 				"name": "stone.stone_walk",
-				"pitch_min": 65,
-				"pitch_max": 70
+				"pitchMin": 65,
+				"pitchMax": 70
 			},
 			"wander": "stone.stone_wander",
 			"land": [
 				"concrete.concrete_run",
 				{
 					"name": "stone.stone_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1195,8 +1195,8 @@
 		"log": {
 			"walk": {
 				"name": "wood.wood_walk",
-				"pitch_min": 55,
-				"pitch_max": 60
+				"pitchMin": 55,
+				"pitchMax": 60
 			},
 			"wander": "dirt.dirt_wander",
 			"land": [
@@ -1204,29 +1204,29 @@
 				{
 					"delay": 30,
 					"name": "wood.wood_walk",
-					"pitch_min": 55,
-					"pitch_max": 60
+					"pitchMin": 55,
+					"pitchMax": 60
 				}
 			]
 		},
 		"bedrock": {
 			"run": {
 				"name": "stone.stone_run",
-				"pitch_min": 55,
-				"pitch_max": 60
+				"pitchMin": 55,
+				"pitchMax": 60
 			},
 			"walk": {
 				"name": "stone.stone_walk",
-				"pitch_min": 55,
-				"pitch_max": 60
+				"pitchMin": 55,
+				"pitchMax": 60
 			},
 			"wander": "stone.stone_wander",
 			"land": [
 				"concrete.concrete_run",
 				{
 					"name": "stone.stone_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1237,31 +1237,31 @@
 		"sand": {
 			"walk": {
 				"name": "sand.sand_walk",
-				"vol_min": 60,
-				"vol_max": 60
+				"volumeMin": 60,
+				"volumeMax": 60
 			},
 			"run": {
 				"name": "sand.sand_run",
-				"vol_min": 60,
-				"vol_max": 60
+				"volumeMin": 60,
+				"volumeMax": 60
 			},
 			"wander": "dirt.dirt_wander",
 			"land": [
 				{
 					"name": "sand.sand_run",
-					"vol_min": 60,
-					"vol_max": 60
+					"volumeMin": 60,
+					"volumeMax": 60
 				},
 				{
 					"name": "sand.sand_walk",
-					"vol_min": 60,
-					"vol_max": 60
+					"volumeMin": 60,
+					"volumeMax": 60
 				},
 				{
 					"delay": 50,
 					"name": "sand.sand_run",
-					"vol_min": 60,
-					"vol_max": 60
+					"volumeMin": 60,
+					"volumeMax": 60
 				}
 			]
 		},
@@ -1274,8 +1274,8 @@
 				"gravel.gravel_land",
 				{
 					"name": "gravel.gravel_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1291,8 +1291,8 @@
 				"stone.stone_run",
 				{
 					"name": "stone.stone_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1319,8 +1319,8 @@
 				"leaves.leaves_through",
 				{
 					"name": "dirt.dirt_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1344,8 +1344,8 @@
 				"wood.wood_walk",
 				{
 					"name": "glass.glass_hit",
-					"pitch_min": 95,
-					"pitch_max": 105
+					"pitchMin": 95,
+					"pitchMax": 105
 				}
 			],
 			"wander": "dirt.dirt_wander",
@@ -1353,8 +1353,8 @@
 				"wood.wood_walk",
 				{
 					"name": "glass.glass_hard",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 30,
@@ -1371,10 +1371,10 @@
 				"concrete.concrete_walk",
 				{
 					"name": "weakice.weakice_walk",
-					"vol_min": 10,
-					"vol_max": 20,
-					"pitch_min": 130,
-					"pitch_max": 130
+					"volumeMin": 10,
+					"volumeMax": 20,
+					"pitchMin": 130,
+					"pitchMax": 130
 				}
 			],
 			"wander": "dirt.dirt_wander",
@@ -1386,10 +1386,10 @@
 				},
 				{
 					"name": "weakice.weakice_walk",
-					"vol_min": 40,
-					"vol_max": 60,
-					"pitch_min": 130,
-					"pitch_max": 130
+					"volumeMin": 40,
+					"volumeMax": 60,
+					"pitchMin": 130,
+					"pitchMax": 130
 				}
 			]
 		},
@@ -1408,21 +1408,21 @@
 		"stonemachine": {
 			"walk": {
 				"name": "concrete.concrete_walk",
-				"pitch_min": 110,
-				"pitch_max": 120
+				"pitchMin": 110,
+				"pitchMax": 120
 			},
 			"run": {
 				"name": "concrete.concrete_run",
-				"pitch_min": 110,
-				"pitch_max": 120
+				"pitchMin": 110,
+				"pitchMax": 120
 			},
 			"wander": "concrete.concrete_wander",
 			"land": [
 				"concrete.concrete_run",
 				{
 					"name": "concrete.concrete_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1435,16 +1435,16 @@
 				"concrete.concrete_walk",
 				{
 					"name": "sand.sand_walk",
-					"vol_min": 10,
-					"vol_max": 10
+					"volumeMin": 10,
+					"volumeMax": 10
 				}
 			],
 			"run": [
 				"concrete.concrete_run",
 				{
 					"name": "sand.sand_run",
-					"vol_min": 20,
-					"vol_max": 20
+					"volumeMin": 20,
+					"volumeMax": 20
 				}
 			],
 			"wander": "concrete.concrete_wander",
@@ -1452,8 +1452,8 @@
 				"concrete.concrete_run",
 				{
 					"name": "concrete.concrete_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1466,16 +1466,16 @@
 				"bluntwood.bluntwood_walk",
 				{
 					"name": "lino.lino_walk",
-					"pitch_min": 75,
-					"pitch_max": 85
+					"pitchMin": 75,
+					"pitchMax": 85
 				}
 			],
 			"run": [
 				"bluntwood.bluntwood_walk",
 				{
 					"name": "lino.lino_run",
-					"pitch_min": 75,
-					"pitch_max": 85
+					"pitchMin": 75,
+					"pitchMax": 85
 				}
 			],
 			"wander": [
@@ -1493,8 +1493,8 @@
 		"rug": {
 			"walk": {
 				"name": "rug.rug_walk",
-				"vol_min": 70,
-				"vol_max": 70
+				"volumeMin": 70,
+				"volumeMax": 70
 			},
 			"wander": "rug.rug_walk",
 			"land": [
@@ -1510,24 +1510,24 @@
 				"wood.wood_walk",
 				{
 					"name": "mud.mud_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				}
 			],
 			"wander": [
 				"dirt.dirt_wander",
 				{
 					"name": "mud.mud_wander",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				}
 			],
 			"land": [
 				"wood.wood_walk",
 				{
 					"name": "mud.mud_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 30,
@@ -1543,16 +1543,16 @@
 				{
 					"name": "metalbox.metalbox_wander",
 					"probability": 0.25,
-					"vol_min": 10,
-					"vol_max": 50
+					"volumeMin": 10,
+					"volumeMax": 50
 				}
 			],
 			"land": [
 				"metalbox.metalbox_run",
 				{
 					"name": "metalbox.metalbox_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1569,8 +1569,8 @@
 				"concrete.concrete_run",
 				{
 					"name": "concrete.concrete_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1594,25 +1594,25 @@
 			"walk": [
 				{
 					"name": "dirt.dirt_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"name": "lino.lino_walk",
-					"pitch_min": 75,
-					"pitch_max": 85
+					"pitchMin": 75,
+					"pitchMax": 85
 				}
 			],
 			"run": [
 				{
 					"name": "dirt.dirt_run",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"name": "lino.lino_run",
-					"pitch_min": 75,
-					"pitch_max": 85
+					"pitchMin": 75,
+					"pitchMax": 85
 				}
 			],
 			"wander": [
@@ -1623,8 +1623,8 @@
 				"dirt.dirt_land",
 				{
 					"name": "dirt.dirt_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1636,29 +1636,29 @@
 			"walk": [
 				{
 					"name": "stone.stone_walk",
-					"vol_min": 80,
-					"vol_max": 80,
-					"pitch_min": 65,
-					"pitch_max": 70
+					"volumeMin": 80,
+					"volumeMax": 80,
+					"pitchMin": 65,
+					"pitchMax": 70
 				},
 				{
 					"name": "lino.lino_walk",
-					"pitch_min": 75,
-					"pitch_max": 85
+					"pitchMin": 75,
+					"pitchMax": 85
 				}
 			],
 			"run": [
 				{
 					"name": "stone.stone_run",
-					"vol_min": 80,
-					"vol_max": 80,
-					"pitch_min": 65,
-					"pitch_max": 70
+					"volumeMin": 80,
+					"volumeMax": 80,
+					"pitchMin": 65,
+					"pitchMax": 70
 				},
 				{
 					"name": "lino.lino_run",
-					"pitch_min": 75,
-					"pitch_max": 85
+					"pitchMin": 75,
+					"pitchMax": 85
 				}
 			],
 			"wander": [
@@ -1669,8 +1669,8 @@
 				"concrete.concrete_run",
 				{
 					"name": "stone.stone_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1685,8 +1685,8 @@
 				{
 					"name": "metalbar.metalbar_wander",
 					"probability": 0.25,
-					"vol_min": 10,
-					"vol_max": 50
+					"volumeMin": 10,
+					"volumeMax": 50
 				}
 			],
 			"run": "metalbar.metalbar_run",
@@ -1724,23 +1724,23 @@
 		"ladder": {
 			"walk": {
 				"name": "bluntwood.bluntwood_walk",
-				"pitch_min": 130,
-				"pitch_max": 140,
-				"vol_min": 50,
-				"vol_max": 50
+				"pitchMin": 130,
+				"pitchMax": 140,
+				"volumeMin": 50,
+				"volumeMax": 50
 			},
 			"wander": "bluntwood.bluntwood_wander",
 			"land": [
 				{
 					"name": "bluntwood.bluntwood_walk",
-					"pitch_min": 170,
-					"pitch_max": 180
+					"pitchMin": 170,
+					"pitchMax": 180
 				},
 				{
 					"delay": 50,
 					"name": "bluntwood.bluntwood_walk",
-					"pitch_min": 170,
-					"pitch_max": 180
+					"pitchMin": 170,
+					"pitchMax": 180
 				}
 			]
 		},
@@ -1753,8 +1753,8 @@
 				"snow.snow_run",
 				{
 					"name": "snow.snow_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1766,35 +1766,35 @@
 			"walk": [
 				{
 					"name": "stone.stone_walk",
-					"pitch_min": 65,
-					"pitch_max": 70
+					"pitchMin": 65,
+					"pitchMax": 70
 				},
 				{
 					"name": "muffledice.muffledice_walk",
-					"vol_min": 40,
-					"vol_max": 50
+					"volumeMin": 40,
+					"volumeMax": 50
 				},
 				{
 					"name": "weakice.weakice_walk",
-					"vol_min": 0,
-					"vol_max": 10
+					"volumeMin": 0,
+					"volumeMax": 10
 				}
 			],
 			"run": [
 				{
 					"name": "stone.stone_run",
-					"pitch_min": 65,
-					"pitch_max": 70
+					"pitchMin": 65,
+					"pitchMax": 70
 				},
 				{
 					"name": "muffledice.muffledice_walk",
-					"vol_min": 60,
-					"vol_max": 70
+					"volumeMin": 60,
+					"volumeMax": 70
 				},
 				{
 					"name": "weakice.weakice_walk",
-					"vol_min": 0,
-					"vol_max": 20
+					"volumeMin": 0,
+					"volumeMax": 20
 				}
 			],
 			"wander": "stone.stone_wander",
@@ -1803,8 +1803,8 @@
 				"concrete.concrete_run",
 				{
 					"name": "stone.stone_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1812,13 +1812,13 @@
 				},
 				{
 					"name": "muffledice.muffledice_walk",
-					"vol_min": 80,
-					"vol_max": 100
+					"volumeMin": 80,
+					"volumeMax": 100
 				},
 				{
 					"name": "weakice.weakice_walk",
-					"vol_min": 50,
-					"vol_max": 70
+					"volumeMin": 50,
+					"volumeMax": 70
 				}
 			]
 		},
@@ -1852,8 +1852,8 @@
 				"sand.sand_run",
 				{
 					"name": "quicksand.quicksand_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1879,25 +1879,25 @@
 			"walk": [
 				{
 					"name": "concrete.concrete_walk",
-					"pitch_min": 110,
-					"pitch_max": 120
+					"pitchMin": 110,
+					"pitchMax": 120
 				},
 				{
 					"name": "lino.lino_walk",
-					"pitch_min": 75,
-					"pitch_max": 85
+					"pitchMin": 75,
+					"pitchMax": 85
 				}
 			],
 			"run": [
 				{
 					"name": "concrete.concrete_run",
-					"pitch_min": 110,
-					"pitch_max": 120
+					"pitchMin": 110,
+					"pitchMax": 120
 				},
 				{
 					"name": "lino.lino_run",
-					"pitch_min": 75,
-					"pitch_max": 85
+					"pitchMin": 75,
+					"pitchMax": 85
 				}
 			],
 			"wander": [
@@ -1908,8 +1908,8 @@
 				"concrete.concrete_run",
 				{
 					"name": "concrete.concrete_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"delay": 50,
@@ -1920,25 +1920,25 @@
 		"metalcompressed": {
 			"walk": {
 				"name": "metalbar.metalbar_walk",
-				"pitch_min": 80,
-				"pitch_max": 85
+				"pitchMin": 80,
+				"pitchMax": 85
 			},
 			"wander": {
 				"name": "metalbar.metalbar_wander",
-				"pitch_min": 80,
-				"pitch_max": 85
+				"pitchMin": 80,
+				"pitchMax": 85
 			},
 			"land": [
 				{
 					"name": "metalbar.metalbar_walk",
-					"pitch_min": 80,
-					"pitch_max": 85
+					"pitchMin": 80,
+					"pitchMax": 85
 				},
 				{
 					"delay": 30,
 					"name": "metalbar.metalbar_walk",
-					"pitch_min": 80,
-					"pitch_max": 85
+					"pitchMin": 80,
+					"pitchMax": 85
 				}
 			]
 		},
@@ -1946,13 +1946,13 @@
 			"walk": [
 				{
 					"name": "metalbar.metalbar_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				},
 				{
 					"name": "metalbox.metalbox_walk",
-					"vol_min": 50,
-					"vol_max": 50
+					"volumeMin": 50,
+					"volumeMax": 50
 				}
 			],
 			"wander": "marble.marble_wander",
@@ -1972,105 +1972,105 @@
 		"soulsoil": {
 			"walk": {
 				"name": "minecraft:block.soul_soil.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"run": {
 				"name": "minecraft:block.soul_soil.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"wander": "dirt.dirt_wander",
 			"land": [
 				{
 					"name": "minecraft:block.soul_soil.step",
-					"vol_min": 28,
-					"vol_max": 32
+					"volumeMin": 28,
+					"volumeMax": 32
 				},
 				{
 					"name": "sand.sand_run",
 					"delay": 1,
-					"vol_min": 60,
-					"vol_max": 60
+					"volumeMin": 60,
+					"volumeMax": 60
 				}
 			]
 		},
 		"soulsand": {
 			"walk": {
 				"name": "minecraft:block.soul_sand.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"run": {
 				"name": "minecraft:block.soul_sand.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"wander": "dirt.dirt_wander",
 			"land": [
 				{
 					"name": "minecraft:block.soul_sand.step",
-					"vol_min": 28,
-					"vol_max": 32
+					"volumeMin": 28,
+					"volumeMax": 32
 				},
 				{
 					"name": "sand.sand_run",
 					"delay": 1,
-					"vol_min": 60,
-					"vol_max": 60
+					"volumeMin": 60,
+					"volumeMax": 60
 				}
 			]
 		},
 		"netherrack": {
 			"walk": {
 				"name": "minecraft:block.netherrack.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"run": {
 				"name": "minecraft:block.netherrack.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"wander": "dirt.dirt_wander",
 			"land": [
 				{
 					"name": "minecraft:block.netherrack.step",
-					"vol_min": 28,
-					"vol_max": 32
+					"volumeMin": 28,
+					"volumeMax": 32
 				},
 				{
 					"name": "sand.sand_run",
 					"delay": 1,
-					"vol_min": 60,
-					"vol_max": 60
+					"volumeMin": 60,
+					"volumeMax": 60
 				}
 			]
 		},
 		"bone": {
 			"run": {
 				"name": "minecraft:block.bone_block.step",
-				"vol_min": 28,
-				"vol_max": 32,
-				"pitch_min": 90,
-				"pitch_max": 110
+				"volumeMin": 28,
+				"volumeMax": 32,
+				"pitchMin": 90,
+				"pitchMax": 110
 			},
 			"walk": {
 				"name": "minecraft:block.bone_block.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"wander": {
 				"name": "stone.stone_wander",
-				"vol_min": 40,
-				"vol_max": 50
+				"volumeMin": 40,
+				"volumeMax": 50
 			},
 			"land": [
 				"concrete.concrete_run",
 				{
 					"name": "minecraft:block.bone_block.step",
-					"vol_min": 28,
-					"vol_max": 32
+					"volumeMin": 28,
+					"volumeMax": 32
 				},
 				{
 					"name": "stone.stone_run",
@@ -2081,27 +2081,27 @@
 		"shroomlight": {
 			"run": {
 				"name": "minecraft:block.shroomlight.step",
-				"vol_min": 28,
-				"vol_max": 32,
-				"pitch_min": 90,
-				"pitch_max": 110
+				"volumeMin": 28,
+				"volumeMax": 32,
+				"pitchMin": 90,
+				"pitchMax": 110
 			},
 			"walk": {
 				"name": "minecraft:block.shroomlight.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"wander": {
 				"name": "dirt.dirt_wander",
-				"vol_min": 40,
-				"vol_max": 50
+				"volumeMin": 40,
+				"volumeMax": 50
 			},
 			"land": [
 				"concrete.concrete_run",
 				{
 					"name": "minecraft:block.shroomlight.step",
-					"vol_min": 28,
-					"vol_max": 32
+					"volumeMin": 28,
+					"volumeMax": 32
 				},
 				{
 					"name": "stone.stone_run",
@@ -2112,27 +2112,27 @@
 		"basalt": {
 			"run": {
 				"name": "minecraft:block.basalt.step",
-				"vol_min": 28,
-				"vol_max": 32,
-				"pitch_min": 90,
-				"pitch_max": 110
+				"volumeMin": 28,
+				"volumeMax": 32,
+				"pitchMin": 90,
+				"pitchMax": 110
 			},
 			"walk": {
 				"name": "minecraft:block.basalt.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"wander": {
 				"name": "stone.stone_wander",
-				"vol_min": 40,
-				"vol_max": 50
+				"volumeMin": 40,
+				"volumeMax": 50
 			},
 			"land": [
 				"concrete.concrete_run",
 				{
 					"name": "minecraft:block.basalt.step",
-					"vol_min": 28,
-					"vol_max": 32
+					"volumeMin": 28,
+					"volumeMax": 32
 				},
 				{
 					"name": "stone.stone_run",
@@ -2143,23 +2143,23 @@
 		"netherbrick": {
 			"run": {
 				"name": "minecraft:block.nether_bricks.step",
-				"vol_min": 28,
-				"vol_max": 32,
-				"pitch_min": 90,
-				"pitch_max": 110
+				"volumeMin": 28,
+				"volumeMax": 32,
+				"pitchMin": 90,
+				"pitchMax": 110
 			},
 			"walk": {
 				"name": "minecraft:block.nether_bricks.step",
-				"vol_min": 28,
-				"vol_max": 32
+				"volumeMin": 28,
+				"volumeMax": 32
 			},
 			"wander": "stone.stone_wander",
 			"land": [
 				"concrete.concrete_run",
 				{
 					"name": "minecraft:block.nether_bricks.step",
-					"vol_min": 28,
-					"vol_max": 32
+					"volumeMin": 28,
+					"volumeMax": 32
 				},
 				{
 					"name": "stone.stone_run",

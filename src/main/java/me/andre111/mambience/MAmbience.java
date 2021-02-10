@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,8 +19,9 @@ import java.io.File;
 import java.util.UUID;
 
 import me.andre111.mambience.accessor.Accessor;
-import me.andre111.mambience.config.EngineConfig;
+import me.andre111.mambience.config.Config;
 
+//TODO: unify Sound and FSSound
 //TODO: adjust sounds, get rid of some repetitiveness
 public class MAmbience {
 	private static MALogger logger;
@@ -28,9 +29,9 @@ public class MAmbience {
 	
 	public static void init(MALogger malogger, File configPath) {
 		MAmbience.logger = malogger;
-		EngineConfig.initialize(logger, configPath);
+		Config.initialize(logger, configPath);
 
-		scheduler = new MAScheduler(logger, EngineConfig.INTERVAL);
+		scheduler = new MAScheduler(logger);
 	}
 	
 	public static MALogger getLogger() {

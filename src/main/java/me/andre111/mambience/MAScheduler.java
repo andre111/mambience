@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,13 +25,14 @@ import java.util.Set;
 import java.util.UUID;
 
 import me.andre111.mambience.accessor.Accessor;
+import me.andre111.mambience.ambient.AmbientEvent;
+import me.andre111.mambience.config.Config;
+import me.andre111.mambience.config.EventLoader;
 import me.andre111.mambience.effect.Effects;
 import me.andre111.mambience.scan.BlockScanner;
-import me.andre111.mambience.sound.Sounds;
 
 public class MAScheduler {
 	private MALogger logger;
-	private int interval;
 	
 	private long timer;
 	private Set<MAPlayer> players = new HashSet<>();
@@ -40,11 +41,10 @@ public class MAScheduler {
 	private boolean clearPlayers = false;
 	private List<MAPlayer> newPlayers = new ArrayList<>();
 	
-	public MAScheduler(MALogger l, int i) {
-		logger = l;
-		interval = i;
+	public MAScheduler(MALogger logger) {
+		this.logger = logger;
 		
-		timer = 0;
+		this.timer = 0;
 	}
 	
 	public void addPlayer(UUID player, Accessor accessor, MALogger logger) {
@@ -89,10 +89,15 @@ public class MAScheduler {
 			maplayer.getVariables().update();
 			
 			// update footsteps
-			maplayer.getFootsteps().update();
+			if(Config.footsteps().isEnabled()) {
+				maplayer.getFootsteps().update();
+			}
+			
+			// update sound player
+			maplayer.getSoundPlayer().update();
 			
 			// enqueue scanners requiring update
-			if(maplayer.getScanner().getLastScan()+interval<=timer) {
+			if(maplayer.getScanner().getLastScan()+Config.scanner().getInterval()<=timer) {
 				if(!scannerQueue.contains(maplayer.getScanner())) {
 					scannerQueue.add(maplayer.getScanner());
 				}
@@ -105,7 +110,7 @@ public class MAScheduler {
 		
 		// update scanners 
 		int refreshed = 0;
-		int perTick = (int) Math.max(1, Math.ceil(players.size() / ((double) interval) * 1.5));
+		int perTick = (int) Math.max(1, Math.ceil(players.size() / ((double) Config.scanner().getInterval()) * 1.5));
 		for(int i=0; i<perTick; i++) {
 			BlockScanner scanner = scannerQueue.poll();
 			if(scanner!=null) {
@@ -122,7 +127,7 @@ public class MAScheduler {
 		long endTime = System.currentTimeMillis();
 		if(timer % 20 == 0) {
 			logger.log("Refreshing "+refreshed+"/"+players.size()+" Player(s) last tick took "+(endTime-startTime)+"ms!");
-			logger.log("\tPlayers: "+(variableTime-startTime)+"ms      Scanners: "+(scannerTime-variableTime)+"ms      Effects: "+(scannerTime-endTime)+"ms!");
+			logger.log("\tPlayers: "+(variableTime-startTime)+"ms      Scanners: "+(scannerTime-variableTime)+"ms      Effects: "+(endTime-scannerTime)+"ms!");
 		}
 	}
 	
@@ -136,18 +141,23 @@ public class MAScheduler {
 		}
 
 		// update soundscapes
-		for(MAPlayer maplayer : toUpdate) {
-			Sounds.update(maplayer);
+		if(Config.ambientEvents().isEnabled()) {
+			for(MAPlayer maplayer : toUpdate) {
+				for(AmbientEvent event : EventLoader.EVENTS) {
+					event.update(maplayer);
+				}
+			}
 		}
 		long soundTime = System.currentTimeMillis();
 		
 		// update effects
-		for(MAPlayer maplayer : toUpdate) {
-			Effects.update(maplayer);
+		if(Config.effects().isEnabled()) {
+			for(MAPlayer maplayer : toUpdate) {
+				Effects.update(maplayer);
+			}
 		}
-		
-		
 		long endTime = System.currentTimeMillis();
+		
 		logger.log("Soundscape update took "+(soundTime-startTime)+"ms - Effect update took "+(endTime-soundTime)+"ms!");
 	}
 }

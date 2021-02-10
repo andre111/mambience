@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,26 +19,29 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import me.andre111.mambience.accessor.Accessor;
-import me.andre111.mambience.config.EngineConfig;
+import me.andre111.mambience.config.Config;
 import me.andre111.mambience.footstep.Footsteps;
 import me.andre111.mambience.scan.BlockScanner;
 import me.andre111.mambience.scan.Variables;
+import me.andre111.mambience.sound.SoundPlayer;
 
 public final class MAPlayer {
-	private UUID playerUUID;
-	private Accessor accessor;
-	private BlockScanner scanner;
-	private Variables variables;
-	private Footsteps footsteps;
-	private MALogger logger;
-	private HashMap<String, Integer> cooldowns;
+	private final UUID playerUUID;
+	private final Accessor accessor;
+	private final BlockScanner scanner;
+	private final Variables variables;
+	private final Footsteps footsteps;
+	private final SoundPlayer soundPlayer;
+	private final MALogger logger;
+	private final HashMap<String, Integer> cooldowns;
 	
 	public MAPlayer(UUID playerUUID, Accessor accessor, MALogger logger) {
 		this.playerUUID = playerUUID;
 		this.accessor = accessor;
-		this.scanner = new BlockScanner(accessor, EngineConfig.SIZEX, EngineConfig.SIZEY, EngineConfig.SIZEZ);
+		this.scanner = new BlockScanner(accessor, Config.scanner().getSizeX(), Config.scanner().getSizeY(), Config.scanner().getSizeZ());
 		this.variables = new Variables(accessor);
-		this.footsteps = new Footsteps(accessor);
+		this.footsteps = new Footsteps(this);
+		this.soundPlayer = new SoundPlayer(accessor);
 		this.logger = logger;
 		this.cooldowns = new HashMap<String, Integer>();
 	}
@@ -57,6 +60,9 @@ public final class MAPlayer {
 	}
 	public Footsteps getFootsteps() {
 		return footsteps;
+	}
+	public SoundPlayer getSoundPlayer() {
+		return soundPlayer;
 	}
 	public MALogger getLogger() {
 		return logger;

@@ -3,8 +3,12 @@
     // Cave
     //#######################################################################
     {
-        "sound": "mambience:cave.cave",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:cave.cave",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "UNDERGROUND"
@@ -29,8 +33,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:cave.lava",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:cave.lava",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "UNDERGROUND"
@@ -60,8 +66,12 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:cave.vent",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:cave.vent",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "UNDERGROUND"
@@ -91,8 +101,12 @@
         "cooldownMax": 120
     },
     {
-        "sound": "mambience:cave.wind",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:cave.wind",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "UNDERGROUND"
@@ -130,8 +144,10 @@
     // Desert
     //#######################################################################
     {
-        "sound": "mambience:desert.cicada",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:desert.cicada",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "TIME_DAY"
@@ -172,8 +188,12 @@
         "cooldownMax": 120
     },
     {
-        "sound": "mambience:desert.day",
-        "volume": 0.5,
+        "sound": {
+        	"name": "mambience:desert.day",
+        	"volume": 50,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -208,8 +228,12 @@
         "cooldownMax": 11
     },
     {
-        "sound": "mambience:desert.night",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:desert.night",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -254,8 +278,10 @@
     // End
     //#######################################################################
     {
-        "sound": "mambience:end.loop",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:end.loop",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -273,8 +299,10 @@
     // Forest
     //#######################################################################
     {
-        "sound": "mambience:forest.morning",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:forest.morning",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -338,8 +366,10 @@
         "cooldownMax": 30
     },
     {
-        "sound": "mambience:forest.day",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:forest.day",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -403,8 +433,10 @@
         "cooldownMax": 30
     },
     {
-        "sound": "mambience:forest.evening",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:forest.evening",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -468,8 +500,10 @@
         "cooldownMax": 30
     },
     {
-        "sound": "mambience:forest.night",
-        "volume": 0.4,
+        "sound": {
+        	"name": "mambience:forest.night",
+        	"volume": 40
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -537,8 +571,12 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:forest.bird",
-        "volume": 1,
+        "sound": {
+        	"name": "mambience:forest.bird",
+        	"volume": 100,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -602,8 +640,12 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:forest.deepbird",
-        "volume": 1,
+        "sound": {
+        	"name": "mambience:forest.deepbird",
+        	"volume": 100,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -667,8 +709,10 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:forest.cuckoo",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:forest.cuckoo",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -732,8 +776,10 @@
         "cooldownMax": 80
     },
     {
-        "sound": "mambience:forest.woodpecker",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:forest.woodpecker",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -797,8 +843,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:forest.wind",
-        "volume": 0.3f,
+        "sound": {
+        	"name": "mambience:forest.wind",
+        	"volume": 30,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -859,8 +909,12 @@
     // Nether
     //#######################################################################
     {
-        "sound": "mambience:hell.fx1",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:hell.fx1",
+        	"volume": 80,
+			"pitchMin": 80,
+			"pitchMax": 120
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -874,8 +928,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:hell.fx2",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:hell.fx2",
+        	"volume": 80,
+			"pitchMin": 80,
+			"pitchMax": 120
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -889,8 +947,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:hell.fx3",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:hell.fx3",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -904,8 +964,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:hell.wisper",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:hell.wisper",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -919,8 +981,10 @@
         "cooldownMax": 140
     },
     {
-        "sound": "mambience:hell.explode",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:hell.explode",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -934,8 +998,10 @@
         "cooldownMax": 180
     },
     {
-        "sound": "mambience:hell.heartbeat",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:hell.heartbeat",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -949,8 +1015,12 @@
         "cooldownMax": 120
     },
     {
-        "sound": "mambience:hell.wind",
-        "volume": 0.5f,
+        "sound": {
+        	"name": "mambience:hell.wind",
+        	"volume": 50,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -968,8 +1038,10 @@
         "cooldownMax": 120
     },
     {
-        "sound": "mambience:hell.soulsand",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:hell.soulsand",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -992,8 +1064,10 @@
     // Jungle
     //#######################################################################
     {
-        "sound": "mambience:jungle.day",
-        "volume": 0.6,
+        "sound": {
+        	"name": "mambience:jungle.day",
+        	"volume": 60
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1034,8 +1108,10 @@
         "cooldownMax": 6
     },
     {
-        "sound": "mambience:jungle.night",
-        "volume": 0.4,
+        "sound": {
+        	"name": "mambience:jungle.night",
+        	"volume": 40
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1076,8 +1152,10 @@
         "cooldownMax": 6
     },
     {
-        "sound": "mambience:jungle.fx1",
-        "volume": 0.75,
+        "sound": {
+        	"name": "mambience:jungle.fx1",
+        	"volume": 75
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1118,8 +1196,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:jungle.fx2",
-        "volume": 0.75,
+        "sound": {
+        	"name": "mambience:jungle.fx2",
+        	"volume": 75
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1160,8 +1240,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:jungle.gibbon",
-        "volume": 1,
+        "sound": {
+        	"name": "mambience:jungle.gibbon",
+        	"volume": 100
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1202,8 +1284,12 @@
         "cooldownMax": 120
     },
     {
-        "sound": "mambience:jungle.bird",
-        "volume": 1,
+        "sound": {
+        	"name": "mambience:jungle.bird",
+        	"volume": 100,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1241,8 +1327,10 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:jungle.fxnight",
-        "volume": 0.75,
+        "sound": {
+        	"name": "mambience:jungle.fxnight",
+        	"volume": 75
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1287,8 +1375,10 @@
     // Lava
     //#######################################################################
     {
-        "sound": "mambience:lava.nearlava",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:lava.nearlava",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -1305,8 +1395,10 @@
         "cooldownMax": 3
     },
     {
-        "sound": "mambience:lava.plop",
-        "volume": 0.6,
+        "sound": {
+        	"name": "mambience:lava.plop",
+        	"volume": 60
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -1327,8 +1419,10 @@
     // Mountains
     //#######################################################################
     {
-        "sound": "mambience:mountain.eagle",
-        "volume": 1,
+        "sound": {
+        	"name": "mambience:mountain.eagle",
+        	"volume": 100
+        },
         "conditions": [
             {
                 "condition": "HEIGHT",
@@ -1366,8 +1460,12 @@
         "cooldownMax": 180
     },
     {
-        "sound": "mambience:mountain.highaltitude",
-        "volume": 0.2f,
+        "sound": {
+        	"name": "mambience:mountain.highaltitude",
+        	"volume": 20,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "HEIGHT",
@@ -1413,8 +1511,10 @@
     // Plains
     //#######################################################################
     {
-        "sound": "mambience:plains.day",
-        "volume": 0.4,
+        "sound": {
+        	"name": "mambience:plains.day",
+        	"volume": 40
+        },
         "conditions": [
             {
                 "condition": "TIME_DAY"
@@ -1476,8 +1576,10 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:plains.night",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:plains.night",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "TIME_NIGHT"
@@ -1541,8 +1643,10 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:plains.evening",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:plains.evening",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -1603,8 +1707,12 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:plains.wind",
-        "volume": 0.3f,
+        "sound": {
+        	"name": "mambience:plains.wind",
+        	"volume": 30,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "EXPOSED"
@@ -1661,8 +1769,12 @@
         "cooldownMax": 120
     },
     {
-        "sound": "mambience:plains.windinside",
-        "volume": 0.3f,
+        "sound": {
+        	"name": "mambience:plains.windinside",
+        	"volume": 30,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -1724,8 +1836,10 @@
     //#######################################################################
     //TODO: would need can rain check (to not play sounds in the desert)
     {
-        "sound": "mambience:rain.distantthunder",
-        "volume": 1,
+        "sound": {
+        	"name": "mambience:rain.distantthunder",
+        	"volume": 100
+        },
         "conditions": [
             {
                 "condition": "THUNDERING"
@@ -1757,8 +1871,12 @@
     // Savanna
     //#######################################################################
     {
-        "sound": "mambience:savanna.bird",
-        "volume": 1,
+        "sound": {
+        	"name": "mambience:savanna.bird",
+        	"volume": 100,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1803,8 +1921,10 @@
     // Seaside
     //#######################################################################
     {
-        "sound": "mambience:seaside.ocean",
-        "volume": 0.5,
+        "sound": {
+        	"name": "mambience:seaside.ocean",
+        	"volume": 50
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1837,8 +1957,10 @@
         "cooldownMax": 30
     },
     {
-        "sound": "mambience:seaside.oceaninside",
-        "volume": 0.4,
+        "sound": {
+        	"name": "mambience:seaside.oceaninside",
+        	"volume": 40
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1871,8 +1993,12 @@
         "cooldownMax": 30
     },
     {
-        "sound": "mambience:seaside.bird",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:seaside.bird",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1897,8 +2023,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:seaside.whale",
-        "volume": 1,
+        "sound": {
+        	"name": "mambience:seaside.whale",
+        	"volume": 100,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1924,8 +2054,10 @@
     // Snow
     //#######################################################################
     {
-        "sound": "mambience:snow.forest",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:snow.forest",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -1963,8 +2095,10 @@
         "cooldownMax": 30
     },
     {
-        "sound": "mambience:snow.mountain",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:snow.mountain",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2003,8 +2137,10 @@
         "cooldownMax": 30
     },
     {
-        "sound": "mambience:snow.plains",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:snow.plains",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2042,8 +2178,12 @@
         "cooldownMax": 30
     },
     {
-        "sound": "mambience:snow.wind1",
-        "volume": 0.4f,
+        "sound": {
+        	"name": "mambience:snow.wind1",
+        	"volume": 40,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2083,8 +2223,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:snow.wind2",
-        "volume": 0.4f,
+        "sound": {
+        	"name": "mambience:snow.wind2",
+        	"volume": 40,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2124,8 +2268,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:snow.windnight",
-        "volume": 0.4f,
+        "sound": {
+        	"name": "mambience:snow.windnight",
+        	"volume": 40,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2160,8 +2308,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:snow.howl",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:snow.howl",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2189,8 +2341,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:snow.crows",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:snow.crows",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2218,8 +2372,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:snow.cracks",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:snow.cracks",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2253,8 +2409,10 @@
     // Swamp
     //#######################################################################
     {
-        "sound": "mambience:swamp.day",
-        "volume": 0.4,
+        "sound": {
+        	"name": "mambience:swamp.day",
+        	"volume": 40
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2296,8 +2454,10 @@
         "cooldownMax": 7
     },
     {
-        "sound": "mambience:swamp.night",
-        "volume": 0.2,
+        "sound": {
+        	"name": "mambience:swamp.night",
+        	"volume": 20
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2339,8 +2499,12 @@
         "cooldownMax": 7
     },
     {
-        "sound": "mambience:swamp.bird",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:swamp.bird",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2384,8 +2548,10 @@
         "cooldownMax": 80
     },
     {
-        "sound": "mambience:swamp.mosquito",
-        "volume": 0.6,
+        "sound": {
+        	"name": "mambience:swamp.mosquito",
+        	"volume": 60
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2424,8 +2590,10 @@
         "cooldownMax": 80
     },
     {
-        "sound": "mambience:swamp.duck",
-        "volume": 0.7,
+        "sound": {
+        	"name": "mambience:swamp.duck",
+        	"volume": 70
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2464,8 +2632,10 @@
         "cooldownMax": 80
     },
     {
-        "sound": "mambience:swamp.frog",
-        "volume": 0.6,
+        "sound": {
+        	"name": "mambience:swamp.frog",
+        	"volume": 60
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2504,8 +2674,10 @@
         "cooldownMax": 80
     },
     {
-        "sound": "mambience:swamp.toad",
-        "volume": 0.7,
+        "sound": {
+        	"name": "mambience:swamp.toad",
+        	"volume": 70
+        },
         "conditions": [
             {
                 "condition": "BIOME_GROUP",
@@ -2548,8 +2720,12 @@
     // x Shared
     //#######################################################################
     {
-        "sound": "mambience:shared.owl",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.owl",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -2598,8 +2774,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:shared.grasshopper",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.grasshopper",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -2671,8 +2849,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:shared.critter",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.critter",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -2744,8 +2924,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:shared.starling",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.starling",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -2812,8 +2996,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:shared.sparrow",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.sparrow",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -2880,8 +3068,12 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:shared.bird",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.bird",
+        	"volume": 80,
+			"pitchMin": 90,
+			"pitchMax": 110
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -2948,8 +3140,10 @@
         "cooldownMax": 60
     },
     {
-        "sound": "mambience:shared.flies",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.flies",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -3019,8 +3213,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:shared.flies",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.flies",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "BLOCK",
@@ -3090,8 +3286,10 @@
         "cooldownMax": 90
     },
     {
-        "sound": "mambience:shared.bat",
-        "volume": 0.8,
+        "sound": {
+        	"name": "mambience:shared.bat",
+        	"volume": 80
+        },
         "conditions": [
             {
                 "condition": "UNDERGROUND"

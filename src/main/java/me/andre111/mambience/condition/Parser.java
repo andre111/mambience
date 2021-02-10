@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 André Schweiger
+ * Copyright (c) 2021 André Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@ package me.andre111.mambience.condition;
 import java.util.Collections;
 import java.util.List;
 
-import me.andre111.mambience.config.DataConfig;
+import me.andre111.mambience.config.DataLoader;
 
 //TODO: Implement: TOGGLE
 //TODO: Parser: TOGGLE
@@ -52,12 +52,12 @@ public final class Parser {
 			return TIME_NIGHT;
 			
 		case "BIOME":
-			return new ConditionBiomes(Collections.singletonList(DataConfig.namespaced(stringValue)), floatValue);
+			return new ConditionBiomes(Collections.singletonList(DataLoader.namespaced(stringValue)), floatValue);
 		case "BIOME_GROUP":
-			return new ConditionBiomes(DataConfig.getBiomeGroup(stringValue), floatValue);
+			return new ConditionBiomes(DataLoader.getBiomeGroup(stringValue), floatValue);
 			
 		case "BLOCK":
-			List<String> blocks = stringValue.startsWith("#") ? DataConfig.getBlockTag(stringValue) : Collections.singletonList(DataConfig.namespaced(stringValue));
+			List<String> blocks = stringValue.startsWith("#") ? DataLoader.getBlockTag(stringValue) : Collections.singletonList(DataLoader.namespaced(stringValue));
 			return new ConditionBlocks(blocks, floatValue);
 			
 		case "HEIGHT":
