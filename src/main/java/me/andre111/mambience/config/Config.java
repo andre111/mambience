@@ -192,7 +192,7 @@ public final class Config {
 	}
 	public static class FootstepConfig {
 		private boolean enabled = true;
-		private float volume = 0.7f;
+		private float volume = 0.5f;
 		
 		public boolean isEnabled() {
 			return enabled;
