@@ -57,7 +57,7 @@ public class ConfigUtil {
 		if(element.isJsonPrimitive()) {
 			String name = element.getAsString();
 			if(!name.contains(":")) name = "mambience:" + name;
-			return new Sound[] { new Sound(name, 1, 1, 1, 1, 0, 1) };
+			return new Sound[] { new Sound(name, volumeMultiplier, volumeMultiplier, 1, 1, 0, 1) };
 		}
 		// object: single sound object
 		if(element.isJsonObject()) {
@@ -65,8 +65,8 @@ public class ConfigUtil {
 			
 			String name = object.get("name").getAsString();
 			if(!name.contains(":")) name = "mambience:" + name;
-			float volumeMin = object.has("volumeMin") ? object.get("volumeMin").getAsFloat() / 100 : (object.has("vol") ? object.get("vol").getAsFloat() / 100 : 1);
-			float volumeMax = object.has("volumeMax") ? object.get("volumeMax").getAsFloat() / 100 : (object.has("vol") ? object.get("vol").getAsFloat() / 100 : 1);
+			float volumeMin = object.has("volumeMin") ? object.get("volumeMin").getAsFloat() / 100 : (object.has("volume") ? object.get("volume").getAsFloat() / 100 : 1);
+			float volumeMax = object.has("volumeMax") ? object.get("volumeMax").getAsFloat() / 100 : (object.has("volume") ? object.get("volume").getAsFloat() / 100 : 1);
 			float pitchMin = object.has("pitchMin") ? object.get("pitchMin").getAsFloat() / 100 : (object.has("pitch") ? object.get("pitch").getAsFloat() / 100 : 1);
 			float pitchMax = object.has("pitchMax") ? object.get("pitchMax").getAsFloat() / 100 : (object.has("pitch") ? object.get("pitch").getAsFloat() / 100 : 1);
 			int delay = object.has("delay") ? object.get("delay").getAsInt() : 0;
