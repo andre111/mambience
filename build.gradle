@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '0.4-SNAPSHOT'
+	id 'fabric-loom' version '0.5-SNAPSHOT'
 	id 'maven-publish'
 	id 'net.minecrell.licenser' version '0.4.1'
 }
@@ -28,9 +28,20 @@ dependencies {
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
 
-	// Fabric API. This is technically optional, but you probably want it anyway.
+	// Fabric stuff:
 	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     
+    modImplementation("io.github.prospector:modmenu:${project.modmenu_version}"){
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+	modApi("me.shedaniel.cloth:config-2:${project.cloth_version}"){
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+	include("me.shedaniel.cloth:config-2:${project.cloth_version}"){
+        exclude(group: "net.fabricmc.fabric-api")
+    }
+    
+    // Spigot stuff:
     implementation "org.spigotmc:spigot-api:${project.spigot_version}"
 }
 
