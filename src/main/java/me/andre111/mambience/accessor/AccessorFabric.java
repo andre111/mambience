@@ -28,6 +28,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.tag.FluidTags;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.LightType;
@@ -129,7 +130,7 @@ public abstract class AccessorFabric extends Accessor {
 	public String getBlock(int x, int y, int z) {
 		BlockState block = player.getEntityWorld().getBlockState(new BlockPos(x, y, z));
 		
-		return Registry.BLOCK.getId(block.getBlock()).toString();
+		return block != null ? Registry.BLOCK.getId(block.getBlock()).toString() : "";
 	}
 
 	@Override
@@ -137,7 +138,9 @@ public abstract class AccessorFabric extends Accessor {
 		Biome biome = player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z));
 		
 		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(Registry.BIOME_KEY);
-		return registry.getId(biome).toString();
+		Identifier biomeId = registry.getId(biome);
+		
+		return (biomeId != null) ? biomeId.toString() : "";
 	}
 
 	@Override
