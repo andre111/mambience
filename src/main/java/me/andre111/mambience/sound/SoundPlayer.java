@@ -19,14 +19,17 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import me.andre111.mambience.MALogger;
 import me.andre111.mambience.accessor.Accessor;
 
 public class SoundPlayer {
 	private final Accessor accessor;
+	private final MALogger logger;
 	private final List<ScheduledSound> scheduledSounds = new LinkedList<>();
 	
-	public SoundPlayer(Accessor accessor) {
+	public SoundPlayer(Accessor accessor, MALogger logger) {
 		this.accessor = accessor;
+		this.logger = logger;
 	}
 	
 	public void update() {
@@ -36,7 +39,7 @@ public class SoundPlayer {
 		while(iter.hasNext()) {
 			ScheduledSound sound = iter.next();
 			if(time - sound.startTime >= sound.delay) {
-				//System.out.println("Play Delayed "+sound.name);
+				logger.log("Play Delayed "+sound.name);
 				if(sound.global) accessor.playGlobalFootstepSound(sound.name, sound.x, sound.y, sound.z, sound.volume, sound.pitch);
 				else accessor.playSound(sound.name, sound.x, sound.y, sound.z, sound.volume, sound.pitch);
 				iter.remove();
@@ -56,7 +59,7 @@ public class SoundPlayer {
 		if(sound.getDelay() > 0) {
 			scheduledSounds.add(new ScheduledSound(sound.getName(), x, y, z, volume, pitch, global, sound.getDelay()));
 		} else {
-			//System.out.println("Play "+sound.getName());
+			logger.log("Play "+sound.getName());
 			if(global) accessor.playGlobalFootstepSound(sound.getName(), x, y, z, volume, pitch);
 			else accessor.playSound(sound.getName(), x, y, z, volume, pitch);
 		}

@@ -21,7 +21,6 @@ import java.util.UUID;
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.Config;
 
-//TODO: unify Sound and FSSound
 //TODO: adjust sounds, get rid of some repetitiveness
 public class MAmbience {
 	private static MALogger logger;

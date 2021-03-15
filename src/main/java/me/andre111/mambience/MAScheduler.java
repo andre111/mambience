@@ -49,6 +49,12 @@ public class MAScheduler {
 	
 	public void addPlayer(UUID player, Accessor accessor, MALogger logger) {
 		MAPlayer maplayer = new MAPlayer(player, accessor, logger);
+
+		// initialize all events(-> cooldowns), so the sounds do not play all at once the first time
+		for(AmbientEvent event : EventLoader.EVENTS) {
+			event.init(maplayer);
+		}
+		
 		synchronized(newPlayers) {
 			newPlayers.add(maplayer);
 		}

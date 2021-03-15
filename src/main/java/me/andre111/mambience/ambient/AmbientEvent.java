@@ -54,6 +54,10 @@ public final class AmbientEvent {
 			throw new IllegalArgumentException("Cooldown Minimum cannot be larger than Cooldown Maximum");
 		}
 	}
+	
+	public void init(MAPlayer maplayer) {
+		setCooldown(maplayer);
+	}
 
 	public void update(MAPlayer maplayer) {
 		if(conditionsMet(maplayer)) {
@@ -61,7 +65,7 @@ public final class AmbientEvent {
 				for(Sound sound : sounds) {
 					maplayer.getSoundPlayer().playSound(sound, maplayer.getAccessor().getX(), maplayer.getAccessor().getY(), maplayer.getAccessor().getZ(), false);
 				}
-				maplayer.setCooldown(id, cooldownMin + RANDOM.nextInt(cooldownMax - cooldownMin + 1));
+				setCooldown(maplayer);
 			}
 		} else if (Config.ambientEvents().isStopSounds() && maplayer.getCooldown(id) > 0 /*&& isRestricted(maplayer)(so it doesn't get cut of in so many cases?)*/) {
 			//TODO: needs fading in and out, sadly not possible with current protocol
@@ -90,5 +94,9 @@ public final class AmbientEvent {
 			if(restriction.matches(maplayer)) return true;
 		}
 		return false;
+	}
+	
+	private void setCooldown(MAPlayer maplayer) {
+		maplayer.setCooldown(id, cooldownMin + RANDOM.nextInt(cooldownMax - cooldownMin + 1));
 	}
 }

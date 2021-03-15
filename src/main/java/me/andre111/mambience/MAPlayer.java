@@ -41,7 +41,7 @@ public final class MAPlayer {
 		this.scanner = new BlockScanner(accessor, Config.scanner().getSizeX(), Config.scanner().getSizeY(), Config.scanner().getSizeZ());
 		this.variables = new Variables(accessor);
 		this.footsteps = new Footsteps(this);
-		this.soundPlayer = new SoundPlayer(accessor);
+		this.soundPlayer = new SoundPlayer(accessor, logger);
 		this.logger = logger;
 		this.cooldowns = new HashMap<String, Integer>();
 	}
