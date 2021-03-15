@@ -189,6 +189,11 @@ public class AccessorBukkit extends Accessor {
 		//TODO: bukkit biome names just seem to be the internal minecraft one uppercased
 		return "minecraft:"+biome.name().toLowerCase();
 	}
+	
+	@Override
+	public String getDimension() {
+		return player.getWorld().getName();
+	}
 
 	@Override
 	public int getLight(int x, int y, int z) {

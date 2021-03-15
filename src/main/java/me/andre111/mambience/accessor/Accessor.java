@@ -21,6 +21,7 @@ public abstract class Accessor {
 	protected UUID playerUUID;
 	
 	private boolean lastValuesInitialised = false;
+	private String lastDimension;
 	private double lastX;
 	private double lastY;
 	private double lastZ;
@@ -31,6 +32,7 @@ public abstract class Accessor {
 	
 	public final void updateLastPosition() {
 		this.lastValuesInitialised = true;
+		this.lastDimension = getDimension();
 		this.lastX = getX();
 		this.lastY = getY();
 		this.lastZ = getZ();
@@ -38,16 +40,19 @@ public abstract class Accessor {
 	
 	public final double getDeltaX() {
 		if(!this.lastValuesInitialised) return 0;
+		if(!this.lastDimension.equals(this.getDimension())) return 0;
 		return this.getX() - this.lastX;
 	}
 	
 	public final double getDeltaY() {
 		if(!this.lastValuesInitialised) return 0;
+		if(!this.lastDimension.equals(this.getDimension())) return 0;
 		return this.getY() - this.lastY;
 	}
 	
 	public final double getDeltaZ() {
 		if(!this.lastValuesInitialised) return 0;
+		if(!this.lastDimension.equals(this.getDimension())) return 0;
 		return this.getZ() - this.lastZ;
 	}
 	
@@ -87,7 +92,8 @@ public abstract class Accessor {
 	
 	public abstract String getBlock(int x, int y, int z);
 	public abstract String getBiome(int x, int y, int z);
-
+	public abstract String getDimension();
+	
 	public abstract int getLight(int x, int y, int z);
 	public abstract int getBlockLight(int x, int y, int z);
 	public abstract int getSkyLight(int x, int y, int z);

@@ -33,6 +33,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.LightType;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.dimension.DimensionType;
 
 public abstract class AccessorFabric extends Accessor {
 	//TODO: this shouldn't keep a reference to the player, at most its UUID
@@ -141,6 +142,14 @@ public abstract class AccessorFabric extends Accessor {
 		Identifier biomeId = registry.getId(biome);
 		
 		return (biomeId != null) ? biomeId.toString() : "";
+	}
+	
+	@Override
+	public String getDimension() {
+		Registry<DimensionType> registry = player.getEntityWorld().getRegistryManager().get(Registry.DIMENSION_TYPE_KEY);
+		Identifier dimensionId = registry.getId(player.getEntityWorld().getDimension());
+		
+		return (dimensionId != null) ? dimensionId.toString() : "";
 	}
 
 	@Override
