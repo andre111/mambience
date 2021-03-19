@@ -125,6 +125,7 @@ public class AccessorBukkit extends Accessor {
 	}
 	
 	// Particle related methods
+	//TODO: look for a better method for creating particles that would not require hardcoding
 	@Override
 	public void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
 		switch(type) {
@@ -136,6 +137,9 @@ public class AccessorBukkit extends Accessor {
 			break;
 		case "minecraft:flame":
 			player.spawnParticle(Particle.FLAME, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
+			break;
+		case "minecraft:lava":
+			player.spawnParticle(Particle.LAVA, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
 			break;
 		case "minecraft:smoke":
 			player.spawnParticle(Particle.SMOKE_NORMAL, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
