@@ -1,11 +1,11 @@
 plugins {
-	id 'fabric-loom' version '0.5-SNAPSHOT'
+	id 'fabric-loom' version '0.8-SNAPSHOT'
 	id 'maven-publish'
-	id 'net.minecrell.licenser' version '0.4.1'
+	id 'org.cadixdev.licenser' version '0.6.0'
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_16
+targetCompatibility = JavaVersion.VERSION_16
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
@@ -20,24 +20,30 @@ repositories {
         name "spigot-repo"
         url "https://hub.spigotmc.org/nexus/content/groups/public"
     }
+    maven { 
+    	url "https://maven.shedaniel.me/" 
+    }
+    maven {
+    	url "https://maven.terraformersmc.com/releases"
+    }
 }
 
 dependencies {
 	//to change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-	modCompile "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric stuff:
-	modCompile "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     
-    modImplementation("io.github.prospector:modmenu:${project.modmenu_version}"){
+    modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}"){
         exclude(group: "net.fabricmc.fabric-api")
     }
-	modApi("me.shedaniel.cloth:config-2:${project.cloth_version}"){
+	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}"){
         exclude(group: "net.fabricmc.fabric-api")
     }
-	include("me.shedaniel.cloth:config-2:${project.cloth_version}"){
+	include("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}"){
         exclude(group: "net.fabricmc.fabric-api")
     }
     
@@ -47,25 +53,23 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.version
-
-	from(sourceSets.main.resources.srcDirs) {
-		include "fabric.mod.json"
-		include "plugin.yml"
-		include "version.txt"
+	
+	filesMatching("fabric.mod.json") {
 		expand "version": project.version
 	}
-
-	from(sourceSets.main.resources.srcDirs) {
-		exclude "fabric.mod.json"
-		exclude "plugin.yml"
-		exclude "version.txt"
+	filesMatching("plugin.yml") {
+		expand "version": project.version
+	}
+	filesMatching("version.txt") {
+		expand "version": project.version
 	}
 }
 
 license {
-	header project.file('HEADER')
+	header project.file('HEADER.txt')
 	include '**/*.java'
 	newLine false
+	charset "UTF-8"
 }
 
 // ensure that the encoding is set to UTF-8, no matter what the system default is

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 André Schweiger
+ * Copyright (c) 2021 Andre Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -128,6 +128,9 @@ public class AccessorBukkit extends Accessor {
 	//TODO: look for a better method for creating particles that would not require hardcoding
 	@Override
 	public void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
+		Player player = this.player;
+		if(player == null) return;
+		
 		switch(type) {
 		case "minecraft:block":
 			player.spawnParticle(Particle.BLOCK_CRACK, x, y, z, 0, velocityX, velocityY, velocityZ, 1, Bukkit.createBlockData(parameters));

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 André Schweiger
+ * Copyright (c) 2021 Andre Schweiger
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -64,6 +64,8 @@ public class AccessorFabricClient extends AccessorFabric {
 	@SuppressWarnings("resource")
 	@Override
 	public void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
+		if(MinecraftClient.getInstance().world == null) return;
+		
 		ParticleType<?> ptype = Registry.PARTICLE_TYPE.get(new Identifier(type));
 		ParticleEffect particle = getParticleEffect(ptype, " "+parameters);
 		if(particle != null) {
