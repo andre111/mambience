@@ -30,7 +30,7 @@ import com.google.gson.stream.JsonWriter;
 import me.andre111.mambience.MALogger;
 
 public final class Config {
-	private static final int VERSION = 1;
+	private static final int VERSION = 2;
 	private static Config instance = null;
 	private static File configRoot = null;
 	

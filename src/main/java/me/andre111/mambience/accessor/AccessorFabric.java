@@ -61,7 +61,7 @@ public abstract class AccessorFabric extends Accessor {
 	
 	@Override
 	public double getRotation() {
-		return Math.toRadians(player.yaw);
+		return Math.toRadians(player.getYaw());
 	}
 
 	@Override

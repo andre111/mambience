@@ -27,9 +27,6 @@
       "me.andre111.mambience.fabric.config.ConfigScreen"
     ]
   },
-  "mixins": [
-    "me.andre111.mambience.fabric.mixin.json"
-  ],
 
   "depends": {
     "fabricloader": ">=0.11.3",

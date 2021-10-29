@@ -48,6 +48,8 @@ public final class BlockScanner {
 	public void performScan() {
 		if(!accessor.updatePlayerInstance()) return; // fixes server crashes, TODO: but this should never even happen
 		
+		int playerY = (int) accessor.getY();
+		
 		int startX = (int) accessor.getX() - xSize/2;
 		int startY = (int) accessor.getY() - ySize/2;
 		int startZ = (int) accessor.getZ() - zSize/2;
@@ -76,11 +78,11 @@ public final class BlockScanner {
 					averageLight += accessor.getLight(startX+xx, startY+yy, startZ+zz);
 				}
 
-				String id = accessor.getBiome(startX+xx, 0, startZ+zz);
+				String id = accessor.getBiome(startX+xx, playerY, startZ+zz);
 				biomeCount.put(id, biomeCount.containsKey(id) ? biomeCount.get(id)+1 : 1);
 
-				averageTemperature += accessor.getTemperature(startX+xx, 0, startZ+zz);
-				averageHumidity += accessor.getHumidity(startX+xx, 0, startZ+zz);
+				averageTemperature += accessor.getTemperature(startX+xx, playerY, startZ+zz);
+				averageHumidity += accessor.getHumidity(startX+xx, playerY, startZ+zz);
 			}
 		}
 

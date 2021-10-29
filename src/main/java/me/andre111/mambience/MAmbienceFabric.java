@@ -24,20 +24,23 @@ import io.netty.buffer.Unpooled;
 import me.andre111.mambience.accessor.AccessorFabricClient;
 import me.andre111.mambience.accessor.AccessorFabricServer;
 import me.andre111.mambience.fabric.FootstepBlockMapGenerator;
-import me.andre111.mambience.fabric.event.PlayerJoinCallback;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.minecraft.client.MinecraftClient;
+import net.fabricmc.fabric.api.networking.v1.S2CPlayChannelEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.network.packet.c2s.play.CustomPayloadC2SPacket;
-import net.minecraft.network.packet.s2c.play.CustomPayloadS2CPacket;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
 public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	private static final Logger LOGGER = LogManager.getLogger();
+	private static final Identifier CHANNEL = new Identifier("mambience", "server");
 
 	public static MinecraftServer server;
 	public static MAmbienceFabric instance;
@@ -46,6 +49,7 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	private long lastTick;
 
 	private boolean runClientSide;
+	private boolean serverPresent;
 
 	@Override
 	public void onInitialize() {
@@ -68,29 +72,37 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	private void initServer() {
 		FootstepBlockMapGenerator.scanForMissingBlockMapEntries();
 		
+		// run server side processing
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
 			MAmbienceFabric.server = server;
 			tick();
 		});
 
-		PlayerJoinCallback.EVENT.register((connection, player) -> {
-			// send notify payload (mambience:server channel with "enabled" message)
-			// TODO: this currently ignores the registered state of the channel, but that is not too important
-			PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-			buf.writeBytes("enabled".getBytes());
-			player.networkHandler.sendPacket(new CustomPayloadS2CPacket(new Identifier("mambience", "server"), buf));
+		// Client Connect event
+		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+			ServerPlayerEntity player = handler.getPlayer();
 
 			// register player
 			MAmbience.addPlayer(player.getUuid(), new AccessorFabricServer(player.getUuid()));
 		});
+		
+		// client registered channel -> mod is present on client side
+		S2CPlayChannelEvents.REGISTER.register((handler, sender, server, channels) -> {
+			// -> send notify payload of server side presence (mambience:server channel with "enabled" message)
+			if(channels.contains(CHANNEL)) {
+				PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
+				buf.writeBytes("enabled".getBytes());
+				ServerPlayNetworking.send(handler.getPlayer(), CHANNEL, buf);
+			}
+		});
 	}
 
 	private void initClient() {
+		// run client side processing
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			// disable client side ambient sounds when not in game
-			if(client.isIntegratedServerRunning() || client.world == null || client.player == null) {
+			if(client.world == null || client.player == null) {
 				if(runClientSide) {
-					MAmbience.getLogger().log("automatically disabled client side ambient sounds");
 					MAmbience.getScheduler().clearPlayers();
 					runClientSide = false;
 				}
@@ -98,6 +110,30 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 
 			if(runClientSide) {
 				tick();
+			}
+		});
+		
+		// World Start / Server Connect and Mod Presence events
+		ClientPlayConnectionEvents.INIT.register((handler, client) -> {
+			// reset server mod presence state
+			serverPresent = false;
+		});
+		ClientPlayConnectionEvents.JOIN.register((handlder, sender, client) -> {
+			// enable client side processing (only when not on the integrated server and the server did not report mod presence)
+			if(!runClientSide && !client.isIntegratedServerRunning() && !serverPresent) {
+				MAmbience.getLogger().log("enabling client side processing");
+				MAmbience.addPlayer(client.player.getUuid(), new AccessorFabricClient(client.player.getUuid()));
+				runClientSide = true;
+			}
+		});
+		// this also automatically causes the fabric API to register the channel at the server thus notifying it of client side mod presence
+		ClientPlayNetworking.registerGlobalReceiver(CHANNEL, (client, handler, buf, responseSender) -> {
+			// server has mod presence -> disable client side processing
+			MAmbience.getLogger().log("server reported MAmbience present: disabled client side processing");
+			serverPresent = true;
+			if(runClientSide) {
+				MAmbience.getScheduler().clearPlayers();
+				runClientSide = false;
 			}
 		});
 	}
@@ -115,29 +151,6 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 		if(ticker == 20) {
 			ticker = 0;
 			MAmbience.getScheduler().runAsyncUpdate(); //TODO: make this async
-		}
-	}
-
-	// enable or disable client side ambient sounds dependent on server support
-	public void onStartGameSession(MinecraftClient client) {
-		if(!runClientSide && !client.isIntegratedServerRunning()) {
-			MAmbience.getLogger().log("enabling client side ambient sounds");
-			MAmbience.addPlayer(client.player.getUuid(), new AccessorFabricClient(client.player.getUuid()));
-			runClientSide = true;
-
-			// notify server of our presence by registering plugin channel
-			PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
-			buf.writeBytes("mambience:server".getBytes());
-			buf.writeByte(0);
-			client.player.networkHandler.sendPacket(new CustomPayloadC2SPacket(new Identifier("minecraft", "register"), buf));
-		}
-	}
-
-	public void onServerMAmbiencePresent() {
-		if(runClientSide) {
-			MAmbience.getLogger().log("server reported MAmbience present: disabled client side ambient sounds");
-			MAmbience.getScheduler().clearPlayers();
-			runClientSide = false;
 		}
 	}
 }
