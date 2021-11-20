@@ -1,6 +1,5 @@
 plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
-	id 'maven-publish'
 	id 'org.cadixdev.licenser' version '0.6.1'
 }
 
@@ -10,10 +9,6 @@ targetCompatibility = JavaVersion.VERSION_16
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
-
-minecraft {
-    refmapName = "mambience-refmap.json"
-}
 
 repositories {
     maven {
@@ -77,14 +72,7 @@ license {
 // see http://yodaconditions.net/blog/fix-for-java-file-encoding-problems-with-gradle.html
 tasks.withType(JavaCompile) {
 	options.encoding = "UTF-8"
-}
-
-// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-// if it is present.
-// If you remove this task, sources will not be generated.
-task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = "sources"
-	from sourceSets.main.allSource
+    options.release = 16
 }
 
 task noAssetsJar(type: Zip, dependsOn: remapJar) {
@@ -105,28 +93,13 @@ task createResourcePack(type: JavaExec, dependsOn: remapJar) {
 build.dependsOn createResourcePack
 
 
+java {
+	// Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+	// if it is present.
+	// If you remove this line, sources will not be generated.
+	withSourcesJar()
+}
 
 jar {
 	from "LICENSE"
-}
-
-// configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			// add all the jars that should be included when publishing to maven
-			artifact(jar) {
-				builtBy remapJar
-			}
-			artifact(sourcesJar) {
-				builtBy remapSourcesJar
-			}
-		}
-	}
-
-	// select the repositories you want to publish to
-	repositories {
-		// uncomment to publish to the local maven
-		// mavenLocal()
-	}
 }
