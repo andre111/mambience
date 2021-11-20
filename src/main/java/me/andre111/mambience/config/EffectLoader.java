@@ -32,8 +32,7 @@ import me.andre111.mambience.effect.Effects;
 public final class EffectLoader {
 	public static void loadEffects(MALogger logger, File file) {
 		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
-			JsonParser parser = new JsonParser();
-			JsonArray effectElement = parser.parse(reader.readAllLines("\n")).getAsJsonArray();
+			JsonArray effectElement = JsonParser.parseString(reader.readAllLines("\n")).getAsJsonArray();
 			
 			Effects.reset();
 			for(int i=0; i<effectElement.size(); i++) {

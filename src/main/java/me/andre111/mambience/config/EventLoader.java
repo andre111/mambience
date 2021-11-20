@@ -36,8 +36,7 @@ public final class EventLoader {
 	
 	public static void loadEvents(MALogger logger, File file) {
 		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
-			JsonParser parser = new JsonParser();
-			JsonArray soundElement = parser.parse(reader.readAllLines("\n")).getAsJsonArray();
+			JsonArray soundElement = JsonParser.parseString(reader.readAllLines("\n")).getAsJsonArray();
 			
 			EVENTS.clear();
 			for(int i=0; i<soundElement.size(); i++) {

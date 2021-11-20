@@ -36,8 +36,7 @@ public final class FootstepLoader {
 	
 	public static void loadFootsteps(MALogger logger, File file) {
 		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
-			JsonParser parser = new JsonParser();
-			JsonObject footstepElement = parser.parse(reader.readAllLines("\n")).getAsJsonObject();
+			JsonObject footstepElement = JsonParser.parseString(reader.readAllLines("\n")).getAsJsonObject();
 			
 			BLOCK_MAP.clear();
 			ARMOR_MAP.clear();

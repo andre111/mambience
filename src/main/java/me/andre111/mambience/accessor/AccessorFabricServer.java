@@ -64,7 +64,7 @@ public class AccessorFabricServer extends AccessorFabric {
 	public void playGlobalFootstepSound(String sound, double x, double y, double z, float volume, float pitch) {
 		if(serverPlayer == null) return;
 		
-		for(ServerPlayerEntity other : serverPlayer.getServerWorld().getPlayers()) {
+		for(ServerPlayerEntity other : serverPlayer.getWorld().getPlayers()) {
 			other.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.PLAYERS, new Vec3d(x, y, z), volume, pitch));
 		}
 	}
@@ -79,12 +79,12 @@ public class AccessorFabricServer extends AccessorFabric {
 	// Particle related methods
 	@Override
 	public void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
-		if(serverPlayer == null || serverPlayer.getServerWorld() == null) return;
+		if(serverPlayer == null || serverPlayer.getWorld() == null) return;
 		
 		ParticleType<?> ptype = Registry.PARTICLE_TYPE.get(new Identifier(type));
 		ParticleEffect particle = getParticleEffect(ptype, " "+parameters);
 		if(particle != null) {
-			serverPlayer.getServerWorld().spawnParticles(serverPlayer, particle, false, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
+			serverPlayer.getWorld().spawnParticles(serverPlayer, particle, false, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
 		}
 	}
 }

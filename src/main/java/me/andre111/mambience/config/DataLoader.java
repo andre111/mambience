@@ -35,8 +35,7 @@ public final class DataLoader {
 	
 	public static void loadData(MALogger logger, File file) {
 		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
-			JsonParser parser = new JsonParser();
-			JsonObject dataElement = parser.parse(reader.readAllLines("\n")).getAsJsonObject();
+			JsonObject dataElement = JsonParser.parseString(reader.readAllLines("\n")).getAsJsonObject();
 			
 			loadBiomeGroups(logger, dataElement.get("biomeGroups").getAsJsonArray());
 			loadBlockTags(logger, dataElement.get("tags").getAsJsonArray());
