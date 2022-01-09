@@ -8,13 +8,13 @@
     "conditions": [
         {
             "condition": "HEIGHT",
-            "stringValue": "110",
-            "floatValue": 300f
+            "stringValue": "180",
+            "floatValue": 400f
         },
         {
             "condition": "BLOCK",
             "stringValue": "air",
-            "floatValue": 0.3f
+            "floatValue": 0.4f
         },
         {
             "condition": "EXPOSED"
