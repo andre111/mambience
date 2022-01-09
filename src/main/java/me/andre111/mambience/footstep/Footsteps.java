@@ -46,6 +46,10 @@ public class Footsteps {
 		double speed = Math.sqrt(dx*dx + dz*dz);
 		double distance = Math.sqrt(dx*dx + dy*dy + dz*dz);
 		
+		// limit values into a reasonable range
+		if(speed > 5) speed = 5;
+		if(distance > 5) distance = 5;
+		
 		// process "events"
 		updateSteps(speed, distance);
 		updateJumping(speed, distance);
