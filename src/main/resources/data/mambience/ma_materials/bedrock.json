@@ -1,0 +1,25 @@
+{
+    "run": {
+        "name": "stone.stone_run",
+        "pitchMin": 55,
+        "pitchMax": 60
+    },
+    "walk": {
+        "name": "stone.stone_walk",
+        "pitchMin": 55,
+        "pitchMax": 60
+    },
+    "wander": "stone.stone_wander",
+    "land": [
+        "concrete.concrete_run",
+        {
+            "name": "stone.stone_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "stone.stone_run"
+        }
+    ]
+}

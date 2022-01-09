@@ -15,18 +15,14 @@
  */
 package me.andre111.mambience.config;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import me.andre111.mambience.MALogger;
+import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.ambient.AmbientEvent;
 import me.andre111.mambience.condition.Condition;
 import me.andre111.mambience.sound.Sound;
@@ -34,23 +30,15 @@ import me.andre111.mambience.sound.Sound;
 public final class EventLoader {
 	public static final Set<AmbientEvent> EVENTS = new HashSet<>();
 	
-	public static void loadEvents(MALogger logger, File file) {
-		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
-			JsonArray soundElement = JsonParser.parseString(reader.readAllLines("\n")).getAsJsonArray();
-			
-			EVENTS.clear();
-			for(int i=0; i<soundElement.size(); i++) {
-				AmbientEvent sound = loadEvent(logger, i, soundElement.get(i).getAsJsonObject());
-				EVENTS.add(sound);
-			}
-		} catch (Exception e) {
-			logger.error("Exception loading sounds: "+file.getAbsolutePath()+": "+e);
-			e.printStackTrace();
-		}
+	public static void reset() {
+		EVENTS.clear();
 	}
 	
-	private static AmbientEvent loadEvent(MALogger logger, int index, JsonObject obj) {
-		String id = Integer.toString(index);
+	public static void loadEvent(String id, JsonObject obj) {
+		EVENTS.add(loadEvent(MAmbience.getLogger(), id, obj));
+	}
+	
+	private static AmbientEvent loadEvent(MALogger logger, String id, JsonObject obj) {
 		Sound[] sounds = ConfigUtil.loadSounds(obj.get("sound"), Config.ambientEvents().getVolume());
 		List<Condition> conditions = ConfigUtil.loadConditions(logger, obj.get("conditions").getAsJsonArray());
 		List<Condition> restrictions = ConfigUtil.loadConditions(logger, obj.get("restrictions").getAsJsonArray());

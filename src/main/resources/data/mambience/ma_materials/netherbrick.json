@@ -1,0 +1,27 @@
+{
+    "run": {
+        "name": "minecraft:block.nether_bricks.step",
+        "volumeMin": 28,
+        "volumeMax": 32,
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "walk": {
+        "name": "minecraft:block.nether_bricks.step",
+        "volumeMin": 28,
+        "volumeMax": 32
+    },
+    "wander": "stone.stone_wander",
+    "land": [
+        "concrete.concrete_run",
+        {
+            "name": "minecraft:block.nether_bricks.step",
+            "volumeMin": 28,
+            "volumeMax": 32
+        },
+        {
+            "name": "stone.stone_run",
+            "delay": 1
+        }
+    ]
+}

@@ -1,0 +1,45 @@
+{
+    "sound": {
+        "name": "mambience:swamp.day",
+        "volume": 40
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "swamp",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "TIME_EVENING"
+        },
+        {
+            "condition": "TIME_NIGHT"
+        },
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "RAINING"
+        },
+        {
+            "condition": "THUNDERING"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.6f
+        }
+    ],
+    "cooldownMin": 7,
+    "cooldownMax": 7
+}

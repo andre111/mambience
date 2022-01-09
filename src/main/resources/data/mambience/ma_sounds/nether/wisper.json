@@ -1,0 +1,17 @@
+{
+    "sound": {
+        "name": "mambience:hell.wisper",
+        "volume": 80
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.6f
+        }
+    ],
+    "restrictions": [
+    ],
+    "cooldownMin": 80,
+    "cooldownMax": 140
+}

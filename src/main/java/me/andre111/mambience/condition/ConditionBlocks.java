@@ -15,18 +15,16 @@
  */
 package me.andre111.mambience.condition;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import me.andre111.mambience.MAPlayer;
 
 public final class ConditionBlocks extends Condition {
-	private final List<String> blocks;
+	private final String blockOrTag;
 	private final float minPercentage;
 	
-	public ConditionBlocks(List<String> blocks, float minPercentage) {
-		this.blocks = new ArrayList<>(blocks);
+	public ConditionBlocks(String blockOrTag, float minPercentage) {
+		this.blockOrTag = blockOrTag;
 		this.minPercentage = minPercentage;
 	}
 
@@ -35,8 +33,14 @@ public final class ConditionBlocks extends Condition {
 		Map<String, Integer> scanData = player.getScanner().getScanBlockData();
 		
 		int count = 0;
-		for(String block : blocks) {
-			count += scanData != null && block != null && scanData.containsKey(block) ? scanData.get(block) : 0;
+		if(scanData != null) {
+			if(blockOrTag != null && blockOrTag.startsWith("#")) {
+				for(String block : player.getAccessor().getBlockTag(blockOrTag.substring(1))) {
+					count += scanData.containsKey(block) ? scanData.get(block) : 0;
+				}
+			} else {
+				count += blockOrTag != null && scanData.containsKey(blockOrTag) ? scanData.get(blockOrTag) : 0;
+			}
 		}
 		
 		float percentage = count / (float) player.getScanner().getScanBlockCount();

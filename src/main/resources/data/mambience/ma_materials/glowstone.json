@@ -1,0 +1,27 @@
+{
+    "walk": [
+        "concrete.concrete_walk",
+        {
+            "name": "weakice.weakice_walk",
+            "volumeMin": 10,
+            "volumeMax": 20,
+            "pitchMin": 130,
+            "pitchMax": 130
+        }
+    ],
+    "wander": "dirt.dirt_wander",
+    "land": [
+        "concrete.concrete_walk",
+        {
+            "delay": 30,
+            "name": "concrete.concrete_walk"
+        },
+        {
+            "name": "weakice.weakice_walk",
+            "volumeMin": 40,
+            "volumeMax": 60,
+            "pitchMin": 130,
+            "pitchMax": 130
+        }
+    ]
+}

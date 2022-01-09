@@ -1,0 +1,27 @@
+{
+    "walk": [
+        {
+            "name": "metalbar.metalbar_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "name": "metalbox.metalbox_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        }
+    ],
+    "wander": "marble.marble_wander",
+    "land": [
+        "metalbox.metalbox_run",
+        "metalbar.metalbar_walk",
+        {
+            "delay": 30,
+            "name": "metalbar.metalbar_walk"
+        },
+        {
+            "delay": 50,
+            "name": "metalbox.metalbox_run"
+        }
+    ]
+}

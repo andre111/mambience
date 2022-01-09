@@ -23,7 +23,7 @@ import org.apache.logging.log4j.Logger;
 import io.netty.buffer.Unpooled;
 import me.andre111.mambience.accessor.AccessorFabricClient;
 import me.andre111.mambience.accessor.AccessorFabricServer;
-import me.andre111.mambience.fabric.FootstepBlockMapGenerator;
+import me.andre111.mambience.fabric.MAmbienceResourceReloadListener;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -33,14 +33,16 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.networking.v1.S2CPlayChannelEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.minecraft.network.PacketByteBuf;
+import net.minecraft.resource.ResourceType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 
 public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
-	private static final Logger LOGGER = LogManager.getLogger();
-	private static final Identifier CHANNEL = new Identifier("mambience", "server");
+	public static final Logger LOGGER = LogManager.getLogger();
+	public static final Identifier CHANNEL = new Identifier("mambience", "server");
 
 	public static MinecraftServer server;
 	public static MAmbienceFabric instance;
@@ -70,7 +72,7 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	}
 
 	private void initServer() {
-		FootstepBlockMapGenerator.scanForMissingBlockMapEntries();
+		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new MAmbienceResourceReloadListener());
 		
 		// run server side processing
 		ServerTickEvents.END_SERVER_TICK.register(server -> {

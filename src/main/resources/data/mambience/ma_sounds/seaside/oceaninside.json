@@ -1,0 +1,36 @@
+{
+    "sound": {
+        "name": "mambience:seaside.oceaninside",
+        "volume": 40
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "ocean",
+            "floatValue": 0.1f
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "EXPOSED"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.6f
+        }
+    ],
+    "cooldownMin": 9,
+    "cooldownMax": 30
+}

@@ -1,0 +1,18 @@
+{
+    "walk": "armor.crystal_walk",
+    "run": "armor.crystal_run",
+    "wander": "armor.crystal_walk",
+    "jump": "armor.crystal_walk",
+    "land": [
+        "armor.crystal_walk",
+        {
+            "name": "armor.crystal_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "armor.crystal_run"
+        }
+    ]
+}

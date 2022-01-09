@@ -1,0 +1,62 @@
+{
+    "sound": {
+        "name": "mambience:plains.windinside",
+        "volume": 30,
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "conditions": [
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "EXPOSED"
+        },
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "#mambience:trees",
+            "floatValue": 0.06f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "jungle",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "conifer",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "swamp",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "end",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "TOGGLE",
+            "stringValue": "wind_disable"
+        }
+    ],
+    "cooldownMin": 20,
+    "cooldownMax": 120
+}

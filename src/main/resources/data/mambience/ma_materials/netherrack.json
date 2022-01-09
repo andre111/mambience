@@ -1,0 +1,26 @@
+{
+    "walk": {
+        "name": "minecraft:block.netherrack.step",
+        "volumeMin": 28,
+        "volumeMax": 32
+    },
+    "run": {
+        "name": "minecraft:block.netherrack.step",
+        "volumeMin": 28,
+        "volumeMax": 32
+    },
+    "wander": "dirt.dirt_wander",
+    "land": [
+        {
+            "name": "minecraft:block.netherrack.step",
+            "volumeMin": 28,
+            "volumeMax": 32
+        },
+        {
+            "name": "sand.sand_run",
+            "delay": 1,
+            "volumeMin": 60,
+            "volumeMax": 60
+        }
+    ]
+}

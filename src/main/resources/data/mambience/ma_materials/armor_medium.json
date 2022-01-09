@@ -1,0 +1,26 @@
+{
+    "walk": {
+        "name": "armor.medium_walk",
+        "pitchMin": 80,
+        "pitchMax": 100
+    },
+    "jump": "armor.medium_walk",
+    "run": {
+        "name": "armor.medium_run",
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "wander": "armor.medium_walk",
+    "land": [
+        "armor.medium_walk",
+        {
+            "name": "armor.medium_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "armor.medium_run"
+        }
+    ]
+}

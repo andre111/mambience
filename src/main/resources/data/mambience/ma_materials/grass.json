@@ -1,0 +1,34 @@
+{
+    "walk": [
+        {
+            "name": "grass.grass_walk",
+            "volumeMin": 60,
+            "volumeMax": 60
+        },
+        {
+            "name": "brush.brush_through",
+            "volumeMin": 20,
+            "volumeMax": 20
+        }
+    ],
+    "run": [
+        {
+            "name": "grass.grass_run",
+            "volumeMin": 60,
+            "volumeMax": 60
+        },
+        {
+            "name": "brush.brush_through",
+            "volumeMin": 20,
+            "volumeMax": 20
+        }
+    ],
+    "wander": "grass.grass_wander",
+    "land": [
+        "grass.grass_run",
+        {
+            "delay": 50,
+            "name": "grass.grass_run"
+        }
+    ]
+}

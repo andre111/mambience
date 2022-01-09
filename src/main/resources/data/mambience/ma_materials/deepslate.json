@@ -1,0 +1,21 @@
+{
+    "run": {
+        "name": "minecraft:block.deepslate.step"
+    },
+    "walk": {
+        "name": "minecraft:block.deepslate.step"
+    },
+    "wander": "stone.stone_wander",
+    "land": [
+        "concrete.concrete_run",
+        {
+            "name": "minecraft:block.deepslate.fall",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "minecraft:block.deepslate.fall"
+        }
+    ]
+}

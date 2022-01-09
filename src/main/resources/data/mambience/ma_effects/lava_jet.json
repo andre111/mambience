@@ -1,0 +1,10 @@
+{
+    "type": "fire_jet",
+    "parameters": [],
+    "block": "minecraft:lava",
+    "blockAbove": "minecraft:air",
+    "blockBelow": "",
+    "chance": 0.05,
+    "conditions": [],
+    "restrictions": []
+}

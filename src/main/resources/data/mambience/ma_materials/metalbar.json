@@ -1,0 +1,21 @@
+{
+    "walk": "metalbar.metalbar_walk",
+    "wander": [
+        "marble.marble_wander",
+        {
+            "name": "metalbar.metalbar_wander",
+            "probability": 0.25,
+            "volumeMin": 10,
+            "volumeMax": 50
+        }
+    ],
+    "run": "metalbar.metalbar_run",
+    "jump": "metalbar.metalbar_wander",
+    "land": [
+        "metalbar.metalbar_walk",
+        {
+            "delay": 30,
+            "name": "metalbar.metalbar_walk"
+        }
+    ]
+}

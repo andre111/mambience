@@ -1,0 +1,17 @@
+{
+    "walk": {
+        "name": "wood.wood_walk",
+        "pitchMin": 55,
+        "pitchMax": 60
+    },
+    "wander": "dirt.dirt_wander",
+    "land": [
+        "wood.wood_walk",
+        {
+            "delay": 30,
+            "name": "wood.wood_walk",
+            "pitchMin": 55,
+            "pitchMax": 60
+        }
+    ]
+}

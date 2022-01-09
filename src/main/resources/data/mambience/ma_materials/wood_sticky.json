@@ -1,0 +1,30 @@
+{
+    "walk": [
+        "wood.wood_walk",
+        {
+            "name": "mud.mud_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        }
+    ],
+    "wander": [
+        "dirt.dirt_wander",
+        {
+            "name": "mud.mud_wander",
+            "volumeMin": 50,
+            "volumeMax": 50
+        }
+    ],
+    "land": [
+        "wood.wood_walk",
+        {
+            "name": "mud.mud_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 30,
+            "name": "wood.wood_walk"
+        }
+    ]
+}

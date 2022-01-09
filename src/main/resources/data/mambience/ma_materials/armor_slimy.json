@@ -1,0 +1,18 @@
+{
+    "walk": "armor.slimey_walk",
+    "jump": "armor.slimey_walk",
+    "run": "armor.slimey_run",
+    "wander": "armor.slimey_walk",
+    "land": [
+        "armor.slimey_walk",
+        {
+            "name": "armor.slimey_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "armor.slimey_run"
+        }
+    ]
+}

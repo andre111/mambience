@@ -1,0 +1,27 @@
+{
+    "walk": [
+        "wood.wood_walk",
+        {
+            "name": "glass.glass_hit",
+            "pitchMin": 95,
+            "pitchMax": 105
+        }
+    ],
+    "wander": "dirt.dirt_wander",
+    "land": [
+        "wood.wood_walk",
+        {
+            "name": "glass.glass_hard",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 30,
+            "name": "wood.wood_walk"
+        },
+        {
+            "delay": 30,
+            "name": "glass.glass_hit"
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "walk": {
+        "name": "concrete.concrete_walk",
+        "pitchMin": 110,
+        "pitchMax": 120
+    },
+    "run": {
+        "name": "concrete.concrete_run",
+        "pitchMin": 110,
+        "pitchMax": 120
+    },
+    "wander": "concrete.concrete_wander",
+    "land": [
+        "concrete.concrete_run",
+        {
+            "name": "concrete.concrete_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "concrete.concrete_run"
+        }
+    ]
+}

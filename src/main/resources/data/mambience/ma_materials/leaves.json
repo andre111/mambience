@@ -1,0 +1,28 @@
+{
+    "walk": [
+        "dirt.dirt_walk",
+        "leaves.leaves_through"
+    ],
+    "run": [
+        "dirt.dirt_run",
+        "leaves.leaves_through"
+    ],
+    "wander": "dirt.dirt_wander",
+    "jump": [
+        "dirt.dirt_wander",
+        "leaves.leaves_through"
+    ],
+    "land": [
+        "dirt.dirt_land",
+        "leaves.leaves_through",
+        {
+            "name": "dirt.dirt_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "dirt.dirt_run"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sound": {
+        "name": "mambience:hell.soulsand",
+        "volume": 80
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "soul_sand",
+            "floatValue": 0.0175f
+        }
+    ],
+    "restrictions": [
+    ],
+    "cooldownMin": 7,
+    "cooldownMax": 7
+}

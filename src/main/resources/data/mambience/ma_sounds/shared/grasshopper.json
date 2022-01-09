@@ -1,0 +1,75 @@
+{
+    "sound": {
+        "name": "mambience:shared.grasshopper",
+        "volume": 80
+    },
+    "conditions": [
+        {
+            "condition": "BLOCK",
+            "stringValue": "#mambience:shrubbery",
+            "floatValue": 0.03f
+        },
+        {
+            "condition": "TIME_DAY"
+        },
+        {
+            "condition": "EXPOSED"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "ocean",
+            "floatValue": 0.1f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "jungle",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "cold",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "savanna",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "end",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "RAINING"
+        },
+        {
+            "condition": "THUNDERING"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.6f
+        }
+    ],
+    "cooldownMin": 30,
+    "cooldownMax": 90
+}

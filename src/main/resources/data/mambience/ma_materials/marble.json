@@ -1,0 +1,12 @@
+{
+    "walk": "marble.marble_walk",
+    "run": "marble.marble_run",
+    "wander": "marble.marble_wander",
+    "land": [
+        "marble.marble_run",
+        {
+            "delay": 50,
+            "name": "marble.marble_run"
+        }
+    ]
+}

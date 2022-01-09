@@ -93,7 +93,7 @@ public final class Config {
 			
 			// export settings
 			exportSettings(configRoot, update);
-			reloadData(logger);
+			Config.reloadData(logger);
 		} catch (Exception e) {
 			logger.error("Exception reading settings: "+e);
 			e.printStackTrace();
@@ -120,16 +120,10 @@ public final class Config {
 	
 	public static void reloadData(MALogger logger) {
 		DataLoader.loadData(logger, new File(configRoot, "/settings/data.json"));
-		EventLoader.loadEvents(logger, new File(configRoot, "/settings/events.json"));
-		EffectLoader.loadEffects(logger, new File(configRoot, "/settings/effects.json"));
-		FootstepLoader.loadFootsteps(logger, new File(configRoot, "/settings/footsteps.json"));
 	}
 	
 	private static void exportSettings(File folder, boolean update) {
 		exportSingleFile(folder, "/settings/data.json", update);
-		exportSingleFile(folder, "/settings/events.json", update);
-		exportSingleFile(folder, "/settings/effects.json", update);
-		exportSingleFile(folder, "/settings/footsteps.json", update);
 	}
 	private static void exportSingleFile(File folder, String path, boolean update) {
 		File file = new File(folder, path);
@@ -191,7 +185,7 @@ public final class Config {
 	}
 	public static class AmbientEventsConfig {
 		public static final boolean DEFAULT_ENABLED = true;
-		public static final float DEFAULT_VOLUME = 0.5f;
+		public static final float DEFAULT_VOLUME = 0.4f;
 		public static final boolean DEFAULT_STOP_SOUNDS = false;
 		
 		private boolean enabled = DEFAULT_ENABLED;
@@ -263,7 +257,7 @@ public final class Config {
 	}
 	public static class FootstepConfig {
 		public static final boolean DEFAULT_ENABLED = true;
-		public static final float DEFAULT_VOLUME = 0.5f;
+		public static final float DEFAULT_VOLUME = 0.3f;
 		
 		private boolean enabled = DEFAULT_ENABLED;
 		private float volume = DEFAULT_VOLUME;

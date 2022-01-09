@@ -1,0 +1,20 @@
+{
+    "sound": {
+        "name": "mambience:lava.plop",
+        "volume": 60
+    },
+    "conditions": [
+        {
+            "condition": "BLOCK",
+            "stringValue": "lava",
+            "floatValue": 0.03f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "SUBMERGED"
+        }
+    ],
+    "cooldownMin": 10,
+    "cooldownMax": 40
+}

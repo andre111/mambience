@@ -1,0 +1,38 @@
+{
+    "walk": [
+        {
+            "name": "leaves.leaves_through",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "name": "brush.brush_through",
+            "volumeMin": 30,
+            "volumeMax": 30
+        }
+    ],
+    "jump": [
+        {
+            "name": "leaves.leaves_through",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "name": "brush.brush_through",
+            "volumeMin": 30,
+            "volumeMax": 30
+        }
+    ],
+    "land": [
+        {
+            "name": "leaves.leaves_through",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "name": "brush.brush_through",
+            "volumeMin": 30,
+            "volumeMax": 30
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+{
+    "sound": {
+        "name": "mambience:snow.crows",
+        "volume": 80
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "cold",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "TIME_DAY"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        }
+    ],
+    "cooldownMin": 20,
+    "cooldownMax": 90
+}

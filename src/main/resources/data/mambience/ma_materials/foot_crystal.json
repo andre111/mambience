@@ -1,0 +1,22 @@
+{
+    "walk": {
+        "name": "armor.crystal_foot",
+        "pitchMin": 80,
+        "pitchMax": 100
+    },
+    "jump": "armor.crystal_foot",
+    "run": "armor.crystal_foot",
+    "wander": "armor.crystal_foot",
+    "land": [
+        "armor.crystal_foot",
+        {
+            "name": "armor.crystal_foot",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "armor.crystal_foot"
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "walk": [
+        "water.water_through",
+        "water_stereofix.water_through"
+    ],
+    "wander": [
+        "water.water_wander",
+        "water_stereofix.water_wander"
+    ],
+    "land": [
+        "water.water_through",
+        "water_stereofix.water_through"
+    ]
+}

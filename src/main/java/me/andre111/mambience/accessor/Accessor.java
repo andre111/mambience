@@ -15,6 +15,7 @@
  */
 package me.andre111.mambience.accessor;
 
+import java.util.List;
 import java.util.UUID;
 
 public abstract class Accessor {
@@ -100,4 +101,7 @@ public abstract class Accessor {
 
 	public abstract double getTemperature(int x, int y, int z);
 	public abstract double getHumidity(int x, int y, int z);
+	
+	// Data related methods
+	public abstract List<String> getBlockTag(String name);
 }

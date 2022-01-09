@@ -1,0 +1,18 @@
+{
+    "walk": "gravel.gravel_walk",
+    "run": "gravel.gravel_run",
+    "wander": "gravel.gravel_wander",
+    "land": [
+        "gravel.gravel_run",
+        "gravel.gravel_land",
+        {
+            "name": "gravel.gravel_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "gravel.gravel_run"
+        }
+    ]
+}

@@ -15,6 +15,8 @@
  */
 package me.andre111.mambience.footstep;
 
+import java.util.List;
+
 import me.andre111.mambience.MAPlayer;
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.config.FootstepLoader;
@@ -122,29 +124,28 @@ public class Footsteps {
 		
 		// determine block / materials
 		//TODO: this might need more advanced "area" checking when walking on block edges
-		String materialNames = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY, footBlockZ));
-		if(materialNames == null || materialNames.isEmpty()) materialNames = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY-1, footBlockZ));
-		if(materialNames == null) return;
+		List<FSMaterial> materials = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY, footBlockZ));
+		if(materials == null || materials.isEmpty()) materials = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY-1, footBlockZ));
+		if(materials == null) return;
 
-		playSounds(event, footX, footY, footZ, materialNames.split(","));
+		playSounds(event, footX, footY, footZ, materials);
 		
 		// determine armor materials
-		String armorMaterialNames = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(2));
-		if(armorMaterialNames == null) armorMaterialNames = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(1));
-		String feetMaterialNames = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(0));
+		List<FSMaterial> armorMaterials = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(2));
+		if(armorMaterials == null || armorMaterials.isEmpty()) armorMaterials = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(1));
+		List<FSMaterial> feetMaterials = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(0));
 		
-		if(armorMaterialNames != null) {
-			playSounds(event, footX, footY, footZ, armorMaterialNames.split(","));
+		if(armorMaterials != null) {
+			playSounds(event, footX, footY, footZ, armorMaterials);
 		}
-		if(feetMaterialNames != null && !feetMaterialNames.equals(armorMaterialNames)) {
-			playSounds(event, footX, footY, footZ, feetMaterialNames.split(","));
+		if(feetMaterials != null && !feetMaterials.equals(armorMaterials)) {
+			playSounds(event, footX, footY, footZ, feetMaterials);
 		}
 	}
 
-	private void playSounds(FSEvent event, double x, double y, double z, String[] materialNames) {
-		for(String materialName : materialNames) {
-			FSMaterial material = FootstepLoader.MATERIALS.get(materialName);
-			if(material != null) playSounds(event, x, y, z, material);
+	private void playSounds(FSEvent event, double x, double y, double z, List<FSMaterial> materials) {
+		for(FSMaterial material : materials) {
+			playSounds(event, x, y, z, material);
 		}
 	}
 	

@@ -1,0 +1,17 @@
+{
+    "walk": {
+        "name": "brush.brush_through",
+        "pitchMin": 70,
+        "pitchMax": 80
+    },
+    "jump": {
+        "name": "brush.brush_through",
+        "pitchMin": 70,
+        "pitchMax": 80
+    },
+    "land": {
+        "name": "brush.brush_through",
+        "pitchMin": 70,
+        "pitchMax": 80
+    }
+}

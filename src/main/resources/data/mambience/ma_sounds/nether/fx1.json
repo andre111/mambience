@@ -1,0 +1,19 @@
+{
+    "sound": {
+        "name": "mambience:hell.fx1",
+        "volume": 80,
+        "pitchMin": 80,
+        "pitchMax": 120
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.6f
+        }
+    ],
+    "restrictions": [
+    ],
+    "cooldownMin": 30,
+    "cooldownMax": 90
+}

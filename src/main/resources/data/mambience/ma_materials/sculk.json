@@ -1,0 +1,26 @@
+{
+    "walk": [
+        "minecraft:block.sculk_sensor.step",
+        "dirt.dirt_walk",
+        "mud.mud_walk"
+    ],
+    "run": [
+        "minecraft:block.sculk_sensor.step",
+        "dirt.dirt_run",
+        "mud.mud_walk"
+    ],
+    "wander": "dirt.dirt_wander",
+    "jump": [
+        "dirt.dirt_wander",
+        "mud.mud_wander"
+    ],
+    "land": [
+        "minecraft:block.sculk_sensor.fall",
+        "dirt.dirt_land",
+        "mud.mud_walk",
+        {
+            "delay": 50,
+            "name": "mud.mud_wander"
+        }
+    ]
+}

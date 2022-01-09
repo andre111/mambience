@@ -1,0 +1,29 @@
+{
+    "walk": [
+        "bluntwood.bluntwood_walk",
+        {
+            "name": "lino.lino_walk",
+            "pitchMin": 75,
+            "pitchMax": 85
+        }
+    ],
+    "run": [
+        "bluntwood.bluntwood_walk",
+        {
+            "name": "lino.lino_run",
+            "pitchMin": 75,
+            "pitchMax": 85
+        }
+    ],
+    "wander": [
+        "bluntwood.bluntwood_wander",
+        "marble.marble_wander"
+    ],
+    "land": [
+        "bluntwood.bluntwood_walk",
+        {
+            "delay": 50,
+            "name": "bluntwood.bluntwood_walk"
+        }
+    ]
+}

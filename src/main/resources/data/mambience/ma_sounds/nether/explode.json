@@ -1,0 +1,17 @@
+{
+    "sound": {
+        "name": "mambience:hell.explode",
+        "volume": 80
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.6f
+        }
+    ],
+    "restrictions": [
+    ],
+    "cooldownMin": 60,
+    "cooldownMax": 180
+}

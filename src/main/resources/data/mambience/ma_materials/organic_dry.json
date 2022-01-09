@@ -1,0 +1,13 @@
+{
+    "walk": "grass.grass_run",
+    "run": "grass.grass_run",
+    "wander": "dirt.dirt_wander",
+    "jump": "grass.grass_run",
+    "land": [
+        "grass.grass_run",
+        {
+            "delay": 50,
+            "name": "grass.grass_run"
+        }
+    ]
+}

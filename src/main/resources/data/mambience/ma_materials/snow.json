@@ -1,0 +1,18 @@
+{
+    "walk": "snow.snow_walk",
+    "run": "snow.snow_run",
+    "wander": "snow.snow_wander",
+    "jump": "snow.snow_wander",
+    "land": [
+        "snow.snow_run",
+        {
+            "name": "snow.snow_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "snow.snow_run"
+        }
+    ]
+}

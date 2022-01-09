@@ -1,0 +1,10 @@
+{
+    "type": "falling_leaves",
+    "parameters": ["minecraft:azalea_leaves"],
+    "block": "minecraft:flowering_azalea_leaves",
+    "blockAbove": "",
+    "blockBelow": "minecraft:air",
+    "chance": 1,
+    "conditions": [],
+    "restrictions": []
+}

@@ -1,0 +1,15 @@
+{
+    "walk": {
+        "name": "rug.rug_walk",
+        "volumeMin": 70,
+        "volumeMax": 70
+    },
+    "wander": "rug.rug_walk",
+    "land": [
+        "rug.rug_walk",
+        {
+            "delay": 50,
+            "name": "rug.rug_walk"
+        }
+    ]
+}

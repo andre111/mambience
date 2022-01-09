@@ -1,0 +1,46 @@
+{
+    "walk": [
+        {
+            "name": "stone.stone_walk",
+            "volumeMin": 80,
+            "volumeMax": 80,
+            "pitchMin": 65,
+            "pitchMax": 70
+        },
+        {
+            "name": "lino.lino_walk",
+            "pitchMin": 75,
+            "pitchMax": 85
+        }
+    ],
+    "run": [
+        {
+            "name": "stone.stone_run",
+            "volumeMin": 80,
+            "volumeMax": 80,
+            "pitchMin": 65,
+            "pitchMax": 70
+        },
+        {
+            "name": "lino.lino_run",
+            "pitchMin": 75,
+            "pitchMax": 85
+        }
+    ],
+    "wander": [
+        "stone.stone_wander",
+        "marble.marble_wander"
+    ],
+    "land": [
+        "concrete.concrete_run",
+        {
+            "name": "stone.stone_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "stone.stone_run"
+        }
+    ]
+}

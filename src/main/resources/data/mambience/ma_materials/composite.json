@@ -1,0 +1,12 @@
+{
+    "walk": "lino.lino_walk",
+    "run": "lino.lino_run",
+    "wander": "marble.marble_wander",
+    "land": [
+        "lino.lino_run",
+        {
+            "delay": 50,
+            "name": "lino.lino_run"
+        }
+    ]
+}

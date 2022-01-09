@@ -1,0 +1,42 @@
+{
+    "walk": [
+        {
+            "name": "dirt.dirt_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "name": "lino.lino_walk",
+            "pitchMin": 75,
+            "pitchMax": 85
+        }
+    ],
+    "run": [
+        {
+            "name": "dirt.dirt_run",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "name": "lino.lino_run",
+            "pitchMin": 75,
+            "pitchMax": 85
+        }
+    ],
+    "wander": [
+        "dirt.dirt_wander",
+        "marble.marble_wander"
+    ],
+    "land": [
+        "dirt.dirt_land",
+        {
+            "name": "dirt.dirt_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "lino.lino_run"
+        }
+    ]
+}

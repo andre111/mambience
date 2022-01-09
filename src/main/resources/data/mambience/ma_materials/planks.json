@@ -1,0 +1,17 @@
+{
+    "walk": [
+        "wood.wood_walk",
+        {
+            "name": "wood.floorsqueak",
+            "probability": 0.1
+        }
+    ],
+    "wander": "dirt.dirt_wander",
+    "land": [
+        "wood.wood_walk",
+        {
+            "delay": 30,
+            "name": "wood.wood_walk"
+        }
+    ]
+}

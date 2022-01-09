@@ -1,0 +1,42 @@
+{
+    "sound": {
+        "name": "mambience:swamp.mosquito",
+        "volume": 60
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "swamp",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "EXPOSED"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "RAINING"
+        },
+        {
+            "condition": "THUNDERING"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.6f
+        }
+    ],
+    "cooldownMin": 10,
+    "cooldownMax": 80
+}

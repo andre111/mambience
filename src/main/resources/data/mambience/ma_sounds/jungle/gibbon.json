@@ -1,0 +1,44 @@
+{
+    "sound": {
+        "name": "mambience:jungle.gibbon",
+        "volume": 100
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "jungle",
+            "floatValue": 0.6f
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "#mambience:trees",
+            "floatValue": 0.03f
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "TIME_EVENING"
+        },
+        {
+            "condition": "TIME_NIGHT"
+        },
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.6f
+        }
+    ],
+    "cooldownMin": 30,
+    "cooldownMax": 120
+}

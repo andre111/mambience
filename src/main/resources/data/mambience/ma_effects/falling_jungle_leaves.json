@@ -1,0 +1,10 @@
+{
+    "type": "falling_leaves",
+    "parameters": ["minecraft:jungle_leaves"],
+    "block": "minecraft:jungle_leaves",
+    "blockAbove": "",
+    "blockBelow": "minecraft:air",
+    "chance": 1,
+    "conditions": [],
+    "restrictions": []
+}

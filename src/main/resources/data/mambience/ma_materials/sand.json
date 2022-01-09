@@ -1,0 +1,31 @@
+{
+    "walk": {
+        "name": "sand.sand_walk",
+        "volumeMin": 60,
+        "volumeMax": 60
+    },
+    "run": {
+        "name": "sand.sand_run",
+        "volumeMin": 60,
+        "volumeMax": 60
+    },
+    "wander": "dirt.dirt_wander",
+    "land": [
+        {
+            "name": "sand.sand_run",
+            "volumeMin": 60,
+            "volumeMax": 60
+        },
+        {
+            "name": "sand.sand_walk",
+            "volumeMin": 60,
+            "volumeMax": 60
+        },
+        {
+            "delay": 50,
+            "name": "sand.sand_run",
+            "volumeMin": 60,
+            "volumeMax": 60
+        }
+    ]
+}

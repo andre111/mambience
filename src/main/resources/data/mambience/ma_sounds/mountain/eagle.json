@@ -1,0 +1,41 @@
+{
+    "sound": {
+        "name": "mambience:mountain.eagle",
+        "volume": 100
+    },
+    "conditions": [
+        {
+            "condition": "HEIGHT",
+            "stringValue": "100",
+            "floatValue": 300f
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.3f
+        },
+        {
+            "condition": "TIME_DAY"
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "end",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        }
+    ],
+    "cooldownMin": 30,
+    "cooldownMax": 180
+}

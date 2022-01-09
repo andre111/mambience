@@ -1,0 +1,11 @@
+{
+    "walk": "mud.mud_walk",
+    "wander": "mud.mud_wander",
+    "land": [
+        "mud.mud_walk",
+        {
+            "delay": 50,
+            "name": "mud.mud_walk"
+        }
+    ]
+}

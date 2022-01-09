@@ -1,0 +1,17 @@
+{
+    "walk": {
+        "name": "brush.brush_through",
+        "volumeMin": 65,
+        "volumeMax": 65
+    },
+    "jump": {
+        "name": "brush.brush_through",
+        "volumeMin": 65,
+        "volumeMax": 65
+    },
+    "land": {
+        "name": "brush.brush_through",
+        "volumeMin": 65,
+        "volumeMax": 65
+    }
+}

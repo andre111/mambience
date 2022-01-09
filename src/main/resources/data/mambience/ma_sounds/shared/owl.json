@@ -1,0 +1,54 @@
+{
+    "sound": {
+        "name": "mambience:shared.owl",
+        "volume": 80,
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "conditions": [
+        {
+            "condition": "BLOCK",
+            "stringValue": "#mambience:trees",
+            "floatValue": 0.03f
+        },
+        {
+            "condition": "TIME_NIGHT"
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "RAINING"
+        },
+        {
+            "condition": "THUNDERING"
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "end",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.6f
+        }
+    ],
+    "cooldownMin": 15,
+    "cooldownMax": 90
+}

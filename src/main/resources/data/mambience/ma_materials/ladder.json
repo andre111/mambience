@@ -1,0 +1,23 @@
+{
+    "walk": {
+        "name": "bluntwood.bluntwood_walk",
+        "pitchMin": 130,
+        "pitchMax": 140,
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
+    "wander": "bluntwood.bluntwood_wander",
+    "land": [
+        {
+            "name": "bluntwood.bluntwood_walk",
+            "pitchMin": 170,
+            "pitchMax": 180
+        },
+        {
+            "delay": 50,
+            "name": "bluntwood.bluntwood_walk",
+            "pitchMin": 170,
+            "pitchMax": 180
+        }
+    ]
+}

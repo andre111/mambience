@@ -1,0 +1,23 @@
+{
+    "walk": {
+        "name": "armor.light_walk",
+        "pitchMin": 80,
+        "pitchMax": 100
+    },
+    "jump": {
+        "name": "armor.light_walk",
+        "pitchMin": 80,
+        "pitchMax": 100
+    },
+    "run": {
+        "name": "armor.light_run",
+        "pitchMin": 100,
+        "pitchMax": 105
+    },
+    "wander": {
+        "name": "armor.light_walk",
+        "pitchMin": 80,
+        "pitchMax": 100
+    },
+    "land": "armor.light_walk"
+}

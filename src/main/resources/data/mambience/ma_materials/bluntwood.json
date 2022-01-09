@@ -1,0 +1,11 @@
+{
+    "walk": "bluntwood.bluntwood_walk",
+    "wander": "bluntwood.bluntwood_wander",
+    "land": [
+        "bluntwood.bluntwood_walk",
+        {
+            "delay": 50,
+            "name": "bluntwood.bluntwood_walk"
+        }
+    ]
+}

@@ -31,14 +31,12 @@ import me.andre111.mambience.MALogger;
 
 public final class DataLoader {
 	private static Map<String, List<String>> BIOME_GROUPS;
-	private static Map<String, List<String>> BLOCK_TAGS;
 	
 	public static void loadData(MALogger logger, File file) {
 		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
 			JsonObject dataElement = JsonParser.parseString(reader.readAllLines("\n")).getAsJsonObject();
 			
 			loadBiomeGroups(logger, dataElement.get("biomeGroups").getAsJsonArray());
-			loadBlockTags(logger, dataElement.get("tags").getAsJsonArray());
 		} catch (Exception e) {
 			logger.error("Exception loading data: "+file.getAbsolutePath()+": "+e);
 			e.printStackTrace();
@@ -60,44 +58,9 @@ public final class DataLoader {
 			BIOME_GROUPS.put(name, biomes);
 		}
 	}
-
-	private static void loadBlockTags(MALogger logger, JsonArray array) {
-		BLOCK_TAGS = new HashMap<>();
-		//TODO: load vanilla tags (how, they are per world?)
-		
-		// load custom tags
-		for(int i=0; i<array.size(); i++) {
-			JsonObject obj = array.get(i).getAsJsonObject();
-			if(!obj.get("type").getAsString().equals("BLOCKS")) continue;
-			if(obj.has("dpOnly") && obj.get("dpOnly").getAsBoolean()) continue;
-			
-			String name = "#andre111:mambience/" + obj.get("name").getAsString();
-			List<String> blocks = new ArrayList<>();
-			JsonArray blocksArray = obj.get("values").getAsJsonArray();
-			for(int j=0; j<blocksArray.size(); j++) {
-				String value = blocksArray.get(j).getAsString();
-				if(value.startsWith("#")) {
-					// replace vanilla tags with their mirrors
-					if(value.startsWith("#minecraft:")) value = "#andre111:mambience/" + value.substring("#minecraft:".length()); //TODO: remove once vanilla tags can be used
-					
-					if(!BLOCK_TAGS.containsKey(value)) throw new RuntimeException("Unknown tag "+value+" when loading tag "+name);
-					
-					blocks.addAll(BLOCK_TAGS.get(value));
-				} else {
-					blocks.add(namespaced(value));
-				}
-			}
-			
-			BLOCK_TAGS.put(name, blocks);
-		}
-	}
 	
 	public static List<String> getBiomeGroup(String name) {
 		return BIOME_GROUPS.get(name);
-	}
-	
-	public static List<String> getBlockTag(String name) {
-		return BLOCK_TAGS.get(name);
 	}
 	
 	public static String namespaced(String name) {

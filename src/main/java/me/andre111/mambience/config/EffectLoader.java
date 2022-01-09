@@ -15,37 +15,26 @@
  */
 package me.andre111.mambience.config;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.util.List;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import me.andre111.mambience.MALogger;
+import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.condition.Condition;
 import me.andre111.mambience.effect.Effect;
 import me.andre111.mambience.effect.Effects;
 
 public final class EffectLoader {
-	public static void loadEffects(MALogger logger, File file) {
-		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
-			JsonArray effectElement = JsonParser.parseString(reader.readAllLines("\n")).getAsJsonArray();
-			
-			Effects.reset();
-			for(int i=0; i<effectElement.size(); i++) {
-				Effect effect = loadEffect(logger, i, effectElement.get(i).getAsJsonObject());
-				Effects.addEffect(effect);
-			}
-		} catch (Exception e) {
-			logger.error("Exception loading effects: "+file.getAbsolutePath()+": "+e);
-			e.printStackTrace();
-		}
+	public static void reset() {
+		Effects.reset();
 	}
 	
-	private static Effect loadEffect(MALogger logger, int index, JsonObject obj) {
+	public static void loadEffect(String id, JsonObject obj) {
+		Effects.addEffect(loadEffect(MAmbience.getLogger(), obj));
+	}
+	
+	private static Effect loadEffect(MALogger logger, JsonObject obj) {
 		String type = ConfigUtil.getString(obj, "type", "");
 		String[] parameters = ConfigUtil.getStringArray(obj, "parameters", new String[] {});
 		

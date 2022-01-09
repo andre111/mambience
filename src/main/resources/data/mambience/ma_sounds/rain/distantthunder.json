@@ -1,0 +1,31 @@
+{
+    "sound": {
+        "name": "mambience:rain.distantthunder",
+        "volume": 100
+    },
+    "conditions": [
+        {
+            "condition": "THUNDERING"
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.4f
+        },
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "end",
+            "floatValue": 0.4f
+        }
+    ],
+    "cooldownMin": 15,
+    "cooldownMax": 50
+}

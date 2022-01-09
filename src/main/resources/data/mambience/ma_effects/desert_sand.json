@@ -1,0 +1,25 @@
+{
+    "type": "dust_wind",
+    "parameters": ["minecraft:sand"],
+    "block": "minecraft:sand",
+    "blockAbove": "minecraft:air",
+    "blockBelow": "",
+    "chance": 1,
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "desert",
+            "floatValue": 0.3f
+        },
+        {
+            "condition": "BLOCK",
+            "stringValue": "air",
+            "floatValue": 0.25f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "UNDERGROUND"
+        }
+    ]
+}

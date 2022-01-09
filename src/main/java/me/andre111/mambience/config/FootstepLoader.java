@@ -15,62 +15,33 @@
  */
 package me.andre111.mambience.config;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
-import me.andre111.mambience.MALogger;
 import me.andre111.mambience.footstep.FSMaterial;
-import me.andre111.mambience.sound.Sound;
 
 public final class FootstepLoader {
-	public static final Map<String, String> BLOCK_MAP = new HashMap<>();
-	public static final Map<String, String> ARMOR_MAP = new HashMap<>();
-	public static final Map<String, FSMaterial> MATERIALS = new HashMap<>();
+	public static final Map<String, List<FSMaterial>> BLOCK_MAP = new HashMap<>();
+	public static final Map<String, List<FSMaterial>> ARMOR_MAP = new HashMap<>();
 	
-	public static void loadFootsteps(MALogger logger, File file) {
-		try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(file)))) {
-			JsonObject footstepElement = JsonParser.parseString(reader.readAllLines("\n")).getAsJsonObject();
-			
-			BLOCK_MAP.clear();
-			ARMOR_MAP.clear();
-			MATERIALS.clear();
-			
-			// load block map
-			JsonObject blockMapElement = footstepElement.get("blocks").getAsJsonObject();
-			for(Map.Entry<String, JsonElement> e : blockMapElement.entrySet()) {
-				BLOCK_MAP.put(e.getKey(), e.getValue().getAsString());
-			}
-			
-			// load block map
-			JsonObject armorMapElement = footstepElement.get("armor").getAsJsonObject();
-			for(Map.Entry<String, JsonElement> e : armorMapElement.entrySet()) {
-				ARMOR_MAP.put(e.getKey(), e.getValue().getAsString());
-			}
-			
-			// load materials
-			JsonObject materialsElement = footstepElement.get("materials").getAsJsonObject();
-			for(Map.Entry<String, JsonElement> e : materialsElement.entrySet()) {
-				MATERIALS.put(e.getKey(), loadMaterial(e.getValue().getAsJsonObject()));
-			}
-		} catch (Exception e) {
-			logger.error("Exception loading footsteps: "+file.getAbsolutePath()+": "+e);
-			e.printStackTrace();
-		}
+	public static void reset() {
+		BLOCK_MAP.clear();
+		ARMOR_MAP.clear();
 	}
 	
-	private static FSMaterial loadMaterial(JsonObject object) {
-		Sound[] wanderSounds = ConfigUtil.loadSounds(object.get("wander"), Config.footsteps().getVolume());
-		Sound[] walkSounds = ConfigUtil.loadSounds(object.get("walk"), Config.footsteps().getVolume());
-		Sound[] runSounds = ConfigUtil.loadSounds(object.get("run"), Config.footsteps().getVolume());
-		Sound[] jumpSounds = ConfigUtil.loadSounds(object.get("jump"), Config.footsteps().getVolume());
-		Sound[] landSounds = ConfigUtil.loadSounds(object.get("land"), Config.footsteps().getVolume());
-		return new FSMaterial(wanderSounds, walkSounds, runSounds, jumpSounds, landSounds);
+	public static void loadFootsteps(JsonObject obj) {
+		loadToMap(BLOCK_MAP, obj.get("blocks").getAsJsonObject());
+		loadToMap(ARMOR_MAP, obj.get("armor").getAsJsonObject());
+	}
+	
+	private static void loadToMap(Map<String, List<FSMaterial>> map, JsonObject obj) {
+		for(Map.Entry<String, JsonElement> e : obj.entrySet()) {
+			map.put(e.getKey(), Arrays.stream(e.getValue().getAsString().split(",")).map(id -> MaterialLoader.getMaterial(id)).toList());
+		}
 	}
 }

@@ -1,0 +1,10 @@
+{
+    "type": "falling_leaves",
+    "parameters": ["minecraft:spruce_leaves"],
+    "block": "minecraft:spruce_leaves",
+    "blockAbove": "",
+    "blockBelow": "minecraft:air",
+    "chance": 1,
+    "conditions": [],
+    "restrictions": []
+}

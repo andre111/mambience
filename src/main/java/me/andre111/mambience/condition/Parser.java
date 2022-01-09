@@ -16,12 +16,9 @@
 package me.andre111.mambience.condition;
 
 import java.util.Collections;
-import java.util.List;
 
 import me.andre111.mambience.config.DataLoader;
 
-//TODO: Implement: TOGGLE
-//TODO: Parser: TOGGLE
 public final class Parser {
 	private static final Condition TIME_MORNING = new ConditionTime(0, 2000);
 	private static final Condition TIME_DAY = new ConditionTime(2000, 12000);
@@ -57,8 +54,7 @@ public final class Parser {
 			return new ConditionBiomes(DataLoader.getBiomeGroup(stringValue), floatValue);
 			
 		case "BLOCK":
-			List<String> blocks = stringValue.startsWith("#") ? DataLoader.getBlockTag(stringValue) : Collections.singletonList(DataLoader.namespaced(stringValue));
-			return new ConditionBlocks(blocks, floatValue);
+			return new ConditionBlocks(DataLoader.namespaced(stringValue), floatValue);
 			
 		case "HEIGHT":
 			float minHeight = Float.parseFloat(stringValue);

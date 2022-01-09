@@ -1,0 +1,25 @@
+{
+    "walk": "metalbox.metalbox_walk",
+    "run": "metalbox.metalbox_run",
+    "wander": [
+        "marble.marble_wander",
+        {
+            "name": "metalbox.metalbox_wander",
+            "probability": 0.25,
+            "volumeMin": 10,
+            "volumeMax": 50
+        }
+    ],
+    "land": [
+        "metalbox.metalbox_run",
+        {
+            "name": "metalbox.metalbox_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "metalbox.metalbox_run"
+        }
+    ]
+}

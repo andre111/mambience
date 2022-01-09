@@ -1,0 +1,6 @@
+{
+    "walk": "minecraft:block.amethyst_block.step",
+    "run": "minecraft:block.amethyst_block.step",
+    "wander": "stone.stone_wander",
+    "land": "minecraft:block.amethyst_block.fall"
+}

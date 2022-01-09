@@ -1,0 +1,11 @@
+{
+    "walk": "wood.wood_walk",
+    "wander": "dirt.dirt_wander",
+    "land": [
+        "wood.wood_walk",
+        {
+            "delay": 30,
+            "name": "wood.wood_walk"
+        }
+    ]
+}

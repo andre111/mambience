@@ -1,0 +1,5 @@
+{
+    "walk": "leaves.leaves_through",
+    "jump": "leaves.leaves_through",
+    "land": "leaves.leaves_through"
+}

@@ -1,0 +1,11 @@
+{
+    "walk": "squeakywood.squeakywood_walk",
+    "wander": "squeakywood.squeakywood_wander",
+    "land": [
+        "squeakywood.squeakywood_walk",
+        {
+            "delay": 50,
+            "name": "wood.wood_walk"
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "sound": {
+        "name": "mambience:hell.wind",
+        "volume": 50,
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "nether",
+            "floatValue": 0.6f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "TOGGLE",
+            "stringValue": "wind_disable"
+        }
+    ],
+    "cooldownMin": 60,
+    "cooldownMax": 120
+}

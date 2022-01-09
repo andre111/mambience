@@ -1,0 +1,6 @@
+{
+    "walk": "minecraft:block.moss.step",
+    "run": "minecraft:block.moss.step",
+    "wander": "grass.grass_wander",
+    "land": "minecraft:block.moss.fall"
+}

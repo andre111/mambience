@@ -1,0 +1,17 @@
+{
+    "walk": {
+        "name": "metalbar.metalbar_run",
+        "volumeMin": 20,
+        "volumeMax": 20
+    },
+    "jump": {
+        "name": "metalbar.metalbar_run",
+        "volumeMin": 20,
+        "volumeMax": 20
+    },
+    "land": {
+        "name": "metalbar.metalbar_run",
+        "volumeMin": 20,
+        "volumeMax": 20
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "walk": "quicksand.quicksand_walk",
+    "wander": "dirt.dirt_wander",
+    "land": [
+        "sand.sand_run",
+        {
+            "name": "quicksand.quicksand_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "quicksand.quicksand_walk"
+        }
+    ]
+}

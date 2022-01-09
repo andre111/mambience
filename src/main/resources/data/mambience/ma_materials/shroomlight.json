@@ -1,0 +1,31 @@
+{
+    "run": {
+        "name": "minecraft:block.shroomlight.step",
+        "volumeMin": 28,
+        "volumeMax": 32,
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "walk": {
+        "name": "minecraft:block.shroomlight.step",
+        "volumeMin": 28,
+        "volumeMax": 32
+    },
+    "wander": {
+        "name": "dirt.dirt_wander",
+        "volumeMin": 40,
+        "volumeMax": 50
+    },
+    "land": [
+        "concrete.concrete_run",
+        {
+            "name": "minecraft:block.shroomlight.step",
+            "volumeMin": 28,
+            "volumeMax": 32
+        },
+        {
+            "name": "stone.stone_run",
+            "delay": 1
+        }
+    ]
+}

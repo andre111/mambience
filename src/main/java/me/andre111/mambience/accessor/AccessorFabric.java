@@ -15,12 +15,16 @@
  */
 package me.andre111.mambience.accessor;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.UUID;
 
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
+import me.andre111.mambience.MAmbience;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -28,6 +32,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.tag.FluidTags;
+import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
@@ -177,7 +183,24 @@ public abstract class AccessorFabric extends Accessor {
 		return player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z)).getDownfall();
 	}
 	
+	// Data related methods
+	public List<String> getBlockTag(String name) {
+		try {
+			TagManager tagManager = player.getEntityWorld().getTagManager();
+			Tag<Block> tag = tagManager.getTag(Registry.BLOCK_KEY, new Identifier(name), id -> new RuntimeException("Unknown Tag: " + id.toString()));
+			List<String> blocks = new ArrayList<>();
+			for(Block block : tag.values()) {
+				blocks.add(Registry.BLOCK.getId(block).toString());
+			}
+			return blocks;
+		} catch(Exception e) {
+			MAmbience.getLogger().error("Error accessing tag: " + name + ": " + e.getMessage());
+			return List.of();
+		}
+	}
+	
 	// helper method
+	@SuppressWarnings("deprecation")
 	protected <T extends ParticleEffect> T getParticleEffect(ParticleType<T> type, String parameters) {
 		try {
 			return type.getParametersFactory().read(type, new StringReader(parameters));

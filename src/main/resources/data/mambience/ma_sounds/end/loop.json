@@ -1,0 +1,17 @@
+{
+    "sound": {
+        "name": "mambience:end.loop",
+        "volume": 80
+    },
+    "conditions": [
+        {
+            "condition": "BIOME_GROUP",
+            "stringValue": "end",
+            "floatValue": 0.6f
+        }
+    ],
+    "restrictions": [
+    ],
+    "cooldownMin": 7,
+    "cooldownMax": 7
+}

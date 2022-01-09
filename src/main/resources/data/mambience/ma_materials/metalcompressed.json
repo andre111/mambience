@@ -1,0 +1,25 @@
+{
+    "walk": {
+        "name": "metalbar.metalbar_walk",
+        "pitchMin": 80,
+        "pitchMax": 85
+    },
+    "wander": {
+        "name": "metalbar.metalbar_wander",
+        "pitchMin": 80,
+        "pitchMax": 85
+    },
+    "land": [
+        {
+            "name": "metalbar.metalbar_walk",
+            "pitchMin": 80,
+            "pitchMax": 85
+        },
+        {
+            "delay": 30,
+            "name": "metalbar.metalbar_walk",
+            "pitchMin": 80,
+            "pitchMax": 85
+        }
+    ]
+}
