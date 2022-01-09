@@ -61,11 +61,14 @@ public class AccessorFabricServer extends AccessorFabric {
 	
 
 	@Override
-	public void playGlobalFootstepSound(String sound, double x, double y, double z, float volume, float pitch) {
+	public void playGlobalSound(String sound, double x, double y, double z, float volume, float pitch) {
 		if(serverPlayer == null) return;
 		
 		for(ServerPlayerEntity other : serverPlayer.getWorld().getPlayers()) {
-			other.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.PLAYERS, new Vec3d(x, y, z), volume, pitch));
+			// check for same dimension and within audible distance
+			if(other.getEntityWorld().equals(serverPlayer.getWorld()) && other.getPos().squaredDistanceTo(serverPlayer.getPos()) < 16*16) {
+				other.networkHandler.sendPacket(new PlaySoundIdS2CPacket(new Identifier(sound), SoundCategory.PLAYERS, new Vec3d(x, y, z), volume, pitch));
+			}
 		}
 	}
 

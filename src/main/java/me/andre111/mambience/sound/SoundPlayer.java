@@ -40,7 +40,7 @@ public class SoundPlayer {
 			ScheduledSound sound = iter.next();
 			if(time - sound.startTime >= sound.delay) {
 				logger.log("Play Delayed "+sound.name);
-				if(sound.global) accessor.playGlobalFootstepSound(sound.name, sound.x, sound.y, sound.z, sound.volume, sound.pitch);
+				if(sound.global) accessor.playGlobalSound(sound.name, sound.x, sound.y, sound.z, sound.volume, sound.pitch);
 				else accessor.playSound(sound.name, sound.x, sound.y, sound.z, sound.volume, sound.pitch);
 				iter.remove();
 			}
@@ -60,7 +60,7 @@ public class SoundPlayer {
 			scheduledSounds.add(new ScheduledSound(sound.getName(), x, y, z, volume, pitch, global, sound.getDelay()));
 		} else {
 			logger.log("Play "+sound.getName());
-			if(global) accessor.playGlobalFootstepSound(sound.getName(), x, y, z, volume, pitch);
+			if(global) accessor.playGlobalSound(sound.getName(), x, y, z, volume, pitch);
 			else accessor.playSound(sound.getName(), x, y, z, volume, pitch);
 		}
 	}

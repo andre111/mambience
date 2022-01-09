@@ -78,7 +78,7 @@ public abstract class Accessor {
 	// Sound related methods
 	public abstract void playSound(String sound, float volume, float pitch);
 	public abstract void playSound(String sound, double x, double y, double z, float volume, float pitch);
-	public abstract void playGlobalFootstepSound(String sound, double x, double y, double z, float volume, float pitch);
+	public abstract void playGlobalSound(String sound, double x, double y, double z, float volume, float pitch);
 	public abstract void stopSound(String sound);
 	
 	// Particle related methods
