@@ -2,39 +2,39 @@
     "biomeGroups": [
         {
             "name": "jungle",
-            "biomes": [ "jungle", "jungle_edge", "jungle_hills", "modified_jungle", "modified_jungle_edge", "bamboo_jungle", "bamboo_jungle_hills" ]
+            "biomes": [ "jungle", "sparse_jungle", "bamboo_jungle" ]
         },
         {
             "name": "conifer",
-            "biomes": [ "snowy_taiga", "snowy_taiga_hills", "snowy_taiga_mountains", "giant_spruce_taiga", "giant_spruce_taiga_hills", "giant_tree_taiga", "giant_tree_taiga_hills", "taiga", "taiga_hills", "taiga_mountains" ]
+            "biomes": [ "old_growth_pine_taiga", "old_growth_spruce_taiga", "taiga", "snowy_taiga", "grove" ]
         },
         {
             "name": "savanna",
-            "biomes": [ "badlands", "badlands_plateau", "eroded_badlands", "modified_badlands_plateau", "modified_wooded_badlands_plateau", "savanna", "savanna_plateau", "shattered_savanna", "shattered_savanna_plateau", "wooded_badlands_plateau" ]
+            "biomes": [ "savanna", "savanna_plateau", "windswept_savanna", "badlands", "eroded_badlands", "wooded_badlands" ]
         },
         {
             "name": "desert",
-            "biomes": [ "badlands", "badlands_plateau", "desert", "desert_hills", "desert_lakes", "eroded_badlands", "modified_badlands_plateau", "modified_wooded_badlands_plateau", "savanna", "savanna_plateau", "shattered_savanna", "shattered_savanna_plateau", "wooded_badlands_plateau" ]
+            "biomes": [ "desert", "badlands", "eroded_badlands", "wooded_badlands" ]
         },
         {
             "name": "swamp",
-            "biomes": [ "swamp", "swamp_hills" ]
+            "biomes": [ "swamp" ]
         },
         {
             "name": "ocean",
-            "biomes": [ "beach", "cold_ocean", "deep_cold_ocean", "deep_frozen_ocean", "deep_lukewarm_ocean", "deep_ocean", "deep_warm_ocean", "frozen_ocean", "lukewarm_ocean", "ocean", "snowy_beach", "stone_shore", "warm_ocean" ]
+            "biomes": [ "beach", "snowy_beach", "stony_shore", "warm_ocean", "lukewarm_ocean", "deep_lukewarm_ocean", "ocean", "deep_ocean", "cold_ocean", "deep_cold_ocean", "frozen_ocean", "deep_frozen_ocean" ]
         },
         {
             "name": "nether",
-            "biomes": [ "nether_wastes", "crimson_forest", "warped_forest", "soul_sand_valley" ]
+            "biomes": [ "nether_wastes", "warped_forest", "crimson_forest", "soul_sand_valley", "basalt_deltas" ]
         },
         {
             "name": "end",
-            "biomes": [ "end_barrens", "end_highlands", "end_midlands", "small_end_islands", "the_end" ]
+            "biomes": [ "the_end", "end_highlands", "end_midlands", "small_end_islands", "end_barrens" ]
         },
         {
             "name": "cold",
-            "biomes": [ "deep_frozen_ocean", "frozen_ocean", "ice_spikes", "snowy_beach", "snowy_taiga", "snowy_taiga_hills", "snowy_taiga_mountains", "snowy_tundra", "snowy_mountains" ]
+            "biomes": [ "snowy_plains", "ice_spikes", "snowy_taiga", "grove", "snowy_slopes", "frozen_peaks", "frozen_river", "snowy_beach" ]
         }
     ]
 }
