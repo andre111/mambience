@@ -129,14 +129,14 @@ public class Footsteps {
 		// determine block / materials
 		//TODO: this might need more advanced "area" checking when walking on block edges
 		List<FSMaterial> materials = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY, footBlockZ));
-		if(materials == null || materials.isEmpty()) materials = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY-1, footBlockZ));
+		if(isEmpty(materials)) materials = FootstepLoader.BLOCK_MAP.get(accessor.getBlock(footBlockX, footBlockY-1, footBlockZ));
 		if(materials == null) return;
 
 		playSounds(event, footX, footY, footZ, materials);
 		
 		// determine armor materials
 		List<FSMaterial> armorMaterials = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(2));
-		if(armorMaterials == null || armorMaterials.isEmpty()) armorMaterials = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(1));
+		if(isEmpty(armorMaterials)) armorMaterials = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(1));
 		List<FSMaterial> feetMaterials = FootstepLoader.ARMOR_MAP.get(accessor.getArmor(0));
 		
 		if(armorMaterials != null) {
@@ -145,6 +145,10 @@ public class Footsteps {
 		if(feetMaterials != null && !feetMaterials.equals(armorMaterials)) {
 			playSounds(event, footX, footY, footZ, feetMaterials);
 		}
+	}
+	
+	private boolean isEmpty(List<FSMaterial> materials) {
+		return materials == null || materials.isEmpty() || (materials.size() == 1 && materials.get(0).getID().equals("mambience:none"));
 	}
 
 	private void playSounds(FSEvent event, double x, double y, double z, List<FSMaterial> materials) {

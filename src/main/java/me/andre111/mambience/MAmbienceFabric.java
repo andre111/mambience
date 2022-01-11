@@ -23,6 +23,7 @@ import org.apache.logging.log4j.Logger;
 import io.netty.buffer.Unpooled;
 import me.andre111.mambience.accessor.AccessorFabricClient;
 import me.andre111.mambience.accessor.AccessorFabricServer;
+import me.andre111.mambience.fabric.ClientsideDataLoader;
 import me.andre111.mambience.fabric.MAmbienceResourceReloadListener;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
@@ -43,6 +44,7 @@ import net.minecraft.util.Identifier;
 public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final Identifier CHANNEL = new Identifier("mambience", "server");
+	public static final MAmbienceResourceReloadListener RELOAD_LISTENER = new MAmbienceResourceReloadListener();
 
 	public static MinecraftServer server;
 	public static MAmbienceFabric instance;
@@ -72,7 +74,7 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	}
 
 	private void initServer() {
-		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(new MAmbienceResourceReloadListener());
+		ResourceManagerHelper.get(ResourceType.SERVER_DATA).registerReloadListener(RELOAD_LISTENER);
 		
 		// run server side processing
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
@@ -120,10 +122,11 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 			// reset server mod presence state
 			serverPresent = false;
 		});
-		ClientPlayConnectionEvents.JOIN.register((handlder, sender, client) -> {
+		ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
 			// enable client side processing (only when not on the integrated server and the server did not report mod presence)
 			if(!runClientSide && !client.isIntegratedServerRunning() && !serverPresent) {
 				MAmbience.getLogger().log("enabling client side processing");
+				ClientsideDataLoader.reloadData(handler.getRegistryManager());
 				MAmbience.addPlayer(client.player.getUuid(), new AccessorFabricClient(client.player.getUuid()));
 				runClientSide = true;
 			}

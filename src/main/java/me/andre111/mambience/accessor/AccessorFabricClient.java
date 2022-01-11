@@ -17,12 +17,16 @@ package me.andre111.mambience.accessor;
 
 import java.util.UUID;
 
+import me.andre111.mambience.fabric.ClientsideDataLoader;
+import net.minecraft.block.Block;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
@@ -70,6 +74,27 @@ public class AccessorFabricClient extends AccessorFabric {
 		ParticleEffect particle = getParticleEffect(ptype, " "+parameters);
 		if(particle != null) {
 			MinecraftClient.getInstance().world.addParticle(particle, x, y, z, velocityX, velocityY, velocityZ);
+		}
+	}
+
+	@Override
+	protected Tag<Block> getBlockTag(Identifier id) {
+		try {
+			TagManager tagManager = player.getEntityWorld().getTagManager();
+			return tagManager.getTag(Registry.BLOCK_KEY, id, id2 -> new CheapException("Unknown Tag: " + id2.toString()));
+		} catch(Exception e) {
+			// fallback to clientside tag manager (loaded from clientside data) to support tags not present on the server
+			TagManager tagManager = ClientsideDataLoader.getClientsideTagManager();
+			return tagManager.getTag(Registry.BLOCK_KEY, id, id2 -> new CheapException("Unknown Tag: " + id2.toString()));
+		}
+	}
+	
+	// avoids creating stack trace (to make accessing clientside tags cheaper)
+	private static final class CheapException extends RuntimeException {
+		private static final long serialVersionUID = -821023511581794235L;
+
+		private CheapException(String message) {
+			super(message, null, true, false);
 		}
 	}
 }

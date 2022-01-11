@@ -64,6 +64,10 @@ public final class Config {
 		return instance.footsteps;
 	}
 	
+	public static File getRoot() {
+		return configRoot;
+	}
+	
 	public static void initialize(MALogger logger, File configRoot) {
 		if(instance != null) return;
 		Config.configRoot = configRoot;

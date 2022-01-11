@@ -31,16 +31,16 @@ public final class MaterialLoader {
 	}
 	
 	public static void loadMaterial(String id, JsonObject obj) {
-		MATERIALS.put(id, loadMaterial(obj));
+		MATERIALS.put(id, loadMaterialInternal(id, obj));
 	}
 	
-	private static FSMaterial loadMaterial(JsonObject obj) {
+	private static FSMaterial loadMaterialInternal(String id, JsonObject obj) {
 		Sound[] wanderSounds = ConfigUtil.loadSounds(obj.get("wander"), Config.footsteps().getVolume());
 		Sound[] walkSounds = ConfigUtil.loadSounds(obj.get("walk"), Config.footsteps().getVolume());
 		Sound[] runSounds = ConfigUtil.loadSounds(obj.get("run"), Config.footsteps().getVolume());
 		Sound[] jumpSounds = ConfigUtil.loadSounds(obj.get("jump"), Config.footsteps().getVolume());
 		Sound[] landSounds = ConfigUtil.loadSounds(obj.get("land"), Config.footsteps().getVolume());
-		return new FSMaterial(wanderSounds, walkSounds, runSounds, jumpSounds, landSounds);
+		return new FSMaterial(id, wanderSounds, walkSounds, runSounds, jumpSounds, landSounds);
 	}
 	
 	public static FSMaterial getMaterial(String id) {

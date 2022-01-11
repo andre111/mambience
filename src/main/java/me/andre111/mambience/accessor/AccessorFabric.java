@@ -33,7 +33,6 @@ import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.tag.Tag;
-import net.minecraft.tag.TagManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
@@ -186,8 +185,7 @@ public abstract class AccessorFabric extends Accessor {
 	// Data related methods
 	public List<String> getBlockTag(String name) {
 		try {
-			TagManager tagManager = player.getEntityWorld().getTagManager();
-			Tag<Block> tag = tagManager.getTag(Registry.BLOCK_KEY, new Identifier(name), id -> new RuntimeException("Unknown Tag: " + id.toString()));
+			Tag<Block> tag = getBlockTag(new Identifier(name));
 			List<String> blocks = new ArrayList<>();
 			for(Block block : tag.values()) {
 				blocks.add(Registry.BLOCK.getId(block).toString());
@@ -198,6 +196,8 @@ public abstract class AccessorFabric extends Accessor {
 			return List.of();
 		}
 	}
+	
+	protected abstract Tag<Block> getBlockTag(Identifier id);
 	
 	// helper method
 	@SuppressWarnings("deprecation")

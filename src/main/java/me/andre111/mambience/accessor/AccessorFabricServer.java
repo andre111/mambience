@@ -18,13 +18,15 @@ package me.andre111.mambience.accessor;
 import java.util.UUID;
 
 import me.andre111.mambience.MAmbienceFabric;
-
+import net.minecraft.block.Block;
 import net.minecraft.network.packet.s2c.play.PlaySoundIdS2CPacket;
 import net.minecraft.network.packet.s2c.play.StopSoundS2CPacket;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagManager;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
@@ -89,5 +91,11 @@ public class AccessorFabricServer extends AccessorFabric {
 		if(particle != null) {
 			serverPlayer.getWorld().spawnParticles(serverPlayer, particle, false, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
 		}
+	}
+
+	@Override
+	protected Tag<Block> getBlockTag(Identifier id) {
+		TagManager tagManager = serverPlayer.getEntityWorld().getTagManager();
+		return tagManager.getTag(Registry.BLOCK_KEY, id, id2 -> new RuntimeException("Unknown Tag: " + id2.toString()));
 	}
 }

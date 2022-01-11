@@ -18,18 +18,24 @@ package me.andre111.mambience.footstep;
 import me.andre111.mambience.sound.Sound;
 
 public class FSMaterial {
+	private final String id;
 	private final Sound[] wanderSounds;
 	private final Sound[] walkSounds;
 	private final Sound[] runSounds;
 	private final Sound[] jumpSounds;
 	private final Sound[] landSounds;
 	
-	public FSMaterial(Sound[] wanderSounds, Sound[] walkSounds, Sound[] runSounds, Sound[] jumpSounds, Sound[] landSounds) {
+	public FSMaterial(String id, Sound[] wanderSounds, Sound[] walkSounds, Sound[] runSounds, Sound[] jumpSounds, Sound[] landSounds) {
+		this.id = id;
 		this.wanderSounds = wanderSounds;
 		this.walkSounds = walkSounds;
 		this.runSounds = runSounds;
 		this.jumpSounds = jumpSounds;
 		this.landSounds = landSounds;
+	}
+	
+	public String getID() {
+		return id;
 	}
 
 	public Sound[] getWanderSounds() {
