@@ -18,6 +18,8 @@ package me.andre111.mambience.fabric;
 import java.io.File;
 import java.util.concurrent.CompletableFuture;
 
+import com.google.common.collect.Lists;
+
 import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.MAmbienceFabric;
 import me.andre111.mambience.config.Config;
@@ -25,10 +27,12 @@ import net.fabricmc.fabric.impl.resource.loader.ModResourcePackCreator;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.resource.FileResourcePackProvider;
 import net.minecraft.resource.ReloadableResourceManagerImpl;
+import net.minecraft.resource.ResourcePack;
 import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.resource.ResourcePackSource;
 import net.minecraft.resource.ResourceReload;
 import net.minecraft.resource.ResourceType;
+import net.minecraft.resource.SimpleResourceReload;
 import net.minecraft.resource.VanillaDataPackProvider;
 import net.minecraft.tag.TagManager;
 import net.minecraft.tag.TagManagerLoader;
@@ -59,13 +63,26 @@ public class ClientsideDataLoader {
 		
 		// create actual resource manager
 		ReloadableResourceManagerImpl resourceManager = new ReloadableResourceManagerImpl(ResourceType.SERVER_DATA);
-		// register reload listeners
+		// create reload listeners
 		TagManagerLoader tagLoader = new TagManagerLoader(registryManager);
-		resourceManager.registerReloader(tagLoader);
-		resourceManager.registerReloader(MAmbienceFabric.RELOAD_LISTENER);
+		
 		
 		// perform reload
-		ResourceReload reload = resourceManager.reload(Util.getMainWorkerExecutor(), MinecraftClient.getInstance(), CompletableFuture.completedFuture(Unit.INSTANCE), packManager.createResourcePacks());
+		MAmbience.getLogger().log("Reloading clientside data...");
+		//IMPORTANT NOTE: 
+		// Fabric API mixes into ReloadableResourceManagerImpl.reload to add custom reload listeners
+		// But we don't want other mods listeners to be called
+		// (as that breaks stuff because of missing data)
+		// -> "solution": manually create the the ResourceReload by following the code in the original method
+		//resourceManager.registerReloader(tagLoader);
+		//resourceManager.registerReloader(MAmbienceFabric.RELOAD_LISTENER);
+		//ResourceReload reload = resourceManager.reload(Util.getMainWorkerExecutor(), MinecraftClient.getInstance(), CompletableFuture.completedFuture(Unit.INSTANCE), packManager.createResourcePacks());
+		for(ResourcePack pack : packManager.createResourcePacks()) {
+			resourceManager.addPack(pack);
+		}
+		ResourceReload reload = SimpleResourceReload.create(resourceManager, Lists.newArrayList(tagLoader, MAmbienceFabric.RELOAD_LISTENER), Util.getMainWorkerExecutor(), MinecraftClient.getInstance(), CompletableFuture.completedFuture(Unit.INSTANCE));
+		
+		// retrieve tag manager after completion
 		reload.whenComplete().thenAccept(unit -> {
 			// set clientside tagmanager
 			MAmbience.getLogger().log("Loaded clientside tag manager");
