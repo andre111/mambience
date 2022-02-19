@@ -7,9 +7,9 @@
     },
     "conditions": [
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "cold",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_cold",
+            "minPercentage": 0.6f
         },
         {
             "condition": "TIME_DAY"
@@ -19,15 +19,15 @@
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.25f
+            "blockOrTag": "air",
+            "minPercentage": 0.25f
         }
     ],
     "restrictions": [
         {
             "condition": "BLOCK",
-            "stringValue": "#mambience:trees",
-            "floatValue": 0.03f
+            "blockOrTag": "#mambience:trees",
+            "minPercentage": 0.03f
         },
         {
             "condition": "UNDERGROUND"

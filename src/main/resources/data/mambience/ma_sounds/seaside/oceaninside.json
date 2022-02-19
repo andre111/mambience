@@ -5,14 +5,14 @@
     },
     "conditions": [
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "ocean",
-            "floatValue": 0.1f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_beach_or_ocean",
+            "minPercentage": 0.1f
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.25f
+            "blockOrTag": "air",
+            "minPercentage": 0.25f
         }
     ],
     "restrictions": [
@@ -27,8 +27,8 @@
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.6f
+            "blockOrTag": "air",
+            "minPercentage": 0.6f
         }
     ],
     "cooldownMin": 9,

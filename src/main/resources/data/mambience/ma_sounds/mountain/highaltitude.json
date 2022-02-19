@@ -8,13 +8,13 @@
     "conditions": [
         {
             "condition": "HEIGHT",
-            "stringValue": "180",
-            "floatValue": 400f
+            "minHeight": 180f,
+            "maxHeight": 400f
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.4f
+            "blockOrTag": "air",
+            "minPercentage": 0.4f
         },
         {
             "condition": "EXPOSED"
@@ -28,14 +28,14 @@
             "condition": "SUBMERGED"
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "nether",
-            "floatValue": 0.4f
+            "condition": "BIOME",
+            "biomeOrTag": "#minecraft:is_nether",
+            "minPercentage": 0.4f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "end",
-            "floatValue": 0.4f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_end",
+            "minPercentage": 0.4f
         },
         {
             "condition": "TOGGLE",

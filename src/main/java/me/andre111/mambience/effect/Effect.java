@@ -24,31 +24,8 @@ import me.andre111.mambience.effect.instance.FallingLeaves;
 import me.andre111.mambience.effect.instance.Fireflies;
 import me.andre111.mambience.effect.instance.FlameJet;
 
-public class Effect {
-	private final String type;
-	private final String[] parameters;
+public final record Effect(String type, String[] parameters, String block, String blockAbove, String blockBelow, double chance, List<Condition> conditions, List<Condition> restrictions) {
 	
-	private final String block;
-	private final String blockAbove;
-	private final String blockBelow;
-	private final double chance;
-	
-	private final List<Condition> conditions;
-	private final List<Condition> restrictions;
-	
-	public Effect(String type, String[] parameters, String block, String blockAbove, String blockBelow, double chance, List<Condition> conditions, List<Condition> restrictions) {
-		this.type = type;
-		this.parameters = parameters;
-		
-		this.block = block;
-		this.blockAbove = blockAbove;
-		this.blockBelow = blockBelow;
-		this.chance = chance;
-		
-		this.conditions = conditions;
-		this.restrictions = restrictions;
-	}
-
 	public void update(MAPlayer maplayer, String block, int x, int y, int z) {
 		if(conditionsMet(maplayer, block, x, y, z)) {
 			switch(type) {

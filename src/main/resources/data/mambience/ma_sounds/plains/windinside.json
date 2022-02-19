@@ -8,8 +8,8 @@
     "conditions": [
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.25f
+            "blockOrTag": "air",
+            "minPercentage": 0.25f
         }
     ],
     "restrictions": [
@@ -24,33 +24,33 @@
         },
         {
             "condition": "BLOCK",
-            "stringValue": "#mambience:trees",
-            "floatValue": 0.06f
+            "blockOrTag": "#mambience:trees",
+            "minPercentage": 0.06f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "jungle",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#minecraft:is_jungle",
+            "minPercentage": 0.6f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "conifer",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#minecraft:is_taiga",
+            "minPercentage": 0.6f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "swamp",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_swamp",
+            "minPercentage": 0.6f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "nether",
-            "floatValue": 0.4f
+            "condition": "BIOME",
+            "biomeOrTag": "#minecraft:is_nether",
+            "minPercentage": 0.4f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "end",
-            "floatValue": 0.4f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_end",
+            "minPercentage": 0.4f
         },
         {
             "condition": "TOGGLE",

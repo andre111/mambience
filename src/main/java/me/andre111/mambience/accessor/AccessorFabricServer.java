@@ -15,21 +15,24 @@
  */
 package me.andre111.mambience.accessor;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import me.andre111.mambience.MAmbienceFabric;
-import net.minecraft.block.Block;
 import net.minecraft.network.packet.s2c.play.PlaySoundIdS2CPacket;
 import net.minecraft.network.packet.s2c.play.StopSoundS2CPacket;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.tag.Tag;
-import net.minecraft.tag.TagManager;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntryList.Named;
+import net.minecraft.util.registry.RegistryKey;
 
 public class AccessorFabricServer extends AccessorFabric {
 	//TODO: this shouldn't keep a reference to the player, at most its UUID
@@ -94,8 +97,13 @@ public class AccessorFabricServer extends AccessorFabric {
 	}
 
 	@Override
-	protected Tag<Block> getBlockTag(Identifier id) {
-		TagManager tagManager = serverPlayer.getEntityWorld().getTagManager();
-		return tagManager.getTag(Registry.BLOCK_KEY, id, id2 -> new RuntimeException("Unknown Tag: " + id2.toString()));
+	protected <T> List<Identifier> getTagEntries(RegistryKey<? extends Registry<T>> key, Identifier id) {
+		TagKey<T> tagKey = TagKey.of(key, id);
+		Optional<Named<T>> optional = serverPlayer.getServer().getRegistryManager().get(key).getEntryList(tagKey);
+		if(optional.isPresent()) {
+			return optional.get().stream().map(entry -> entry.getKey().get().getValue()).collect(Collectors.toList());
+		} else {
+			return List.of();
+		}
 	}
 }

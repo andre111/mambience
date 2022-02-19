@@ -7,14 +7,14 @@
     "chance": 1,
     "conditions": [
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "desert",
-            "floatValue": 0.3f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_desert_or_badlands",
+            "minPercentage": 0.3f
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.25f
+            "blockOrTag": "air",
+            "minPercentage": 0.25f
         }
     ],
     "restrictions": [

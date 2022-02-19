@@ -46,9 +46,7 @@ public class ConfigUtil {
 	
 	private static Condition loadCondition(MALogger logger, JsonObject obj) {
 		String name = getString(obj, "condition", "");
-		String stringValue = getString(obj, "stringValue", "");
-		float floatValue = getFloat(obj, "floatValue", 0);
-		return Parser.parse(name, stringValue, floatValue);
+		return Parser.parse(name, obj);
 	}
 	
 	public static Sound[] loadSounds(JsonElement element, float volumeMultiplier) {
@@ -65,12 +63,12 @@ public class ConfigUtil {
 			
 			String name = object.get("name").getAsString();
 			if(!name.contains(":")) name = "mambience:" + name;
-			float volumeMin = object.has("volumeMin") ? object.get("volumeMin").getAsFloat() / 100 : (object.has("volume") ? object.get("volume").getAsFloat() / 100 : 1);
-			float volumeMax = object.has("volumeMax") ? object.get("volumeMax").getAsFloat() / 100 : (object.has("volume") ? object.get("volume").getAsFloat() / 100 : 1);
-			float pitchMin = object.has("pitchMin") ? object.get("pitchMin").getAsFloat() / 100 : (object.has("pitch") ? object.get("pitch").getAsFloat() / 100 : 1);
-			float pitchMax = object.has("pitchMax") ? object.get("pitchMax").getAsFloat() / 100 : (object.has("pitch") ? object.get("pitch").getAsFloat() / 100 : 1);
-			int delay = object.has("delay") ? object.get("delay").getAsInt() : 0;
-			double probability = object.has("probability") ? object.get("probability").getAsDouble() : 1;
+			float volumeMin = getFloat(object, "volumeMin", getFloat(object, "volume", 100)) / 100;
+			float volumeMax = getFloat(object, "volumeMax", getFloat(object, "volume", 100)) / 100;
+			float pitchMin = getFloat(object, "pitchMin", getFloat(object, "pitch", 100)) / 100;
+			float pitchMax = getFloat(object, "pitchMin", getFloat(object, "pitch", 100)) / 100;
+			int delay = getInt(object, "delay", 0);
+			double probability = getDouble(object, "probability", 1);;
 			
 			volumeMin *= volumeMultiplier;
 			volumeMax *= volumeMultiplier;

@@ -104,4 +104,5 @@ public abstract class Accessor {
 	
 	// Data related methods
 	public abstract List<String> getBlockTag(String name);
+	public abstract List<String> getBiomeTag(String name);
 }

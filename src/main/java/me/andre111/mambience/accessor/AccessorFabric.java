@@ -15,16 +15,15 @@
  */
 package me.andre111.mambience.accessor;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 
 import me.andre111.mambience.MAmbience;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -32,10 +31,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.tag.FluidTags;
-import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.LightType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.dimension.DimensionType;
@@ -141,12 +140,7 @@ public abstract class AccessorFabric extends Accessor {
 
 	@Override
 	public String getBiome(int x, int y, int z) {
-		Biome biome = player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z));
-		
-		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(Registry.BIOME_KEY);
-		Identifier biomeId = registry.getId(biome);
-		
-		return (biomeId != null) ? biomeId.toString() : "";
+		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getKey().map(key -> key.getValue().toString()).orElse("");
 	}
 	
 	@Override
@@ -174,30 +168,39 @@ public abstract class AccessorFabric extends Accessor {
 
 	@Override
 	public double getTemperature(int x, int y, int z) {
-		return player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z)).getTemperature();
+		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(Registry.BIOME_KEY);
+		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getKey().map(key -> registry.get(key).getTemperature()).orElse(0f);
 	}
 
 	@Override
 	public double getHumidity(int x, int y, int z) {
-		return player.getEntityWorld().getBiomeAccess().getBiome(new BlockPos(x, y, z)).getDownfall();
+		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(Registry.BIOME_KEY);
+		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getKey().map(key -> registry.get(key).getDownfall()).orElse(0f);
 	}
 	
 	// Data related methods
+	@Override
 	public List<String> getBlockTag(String name) {
+		return getTag(Registry.BLOCK_KEY, name);
+	}
+	
+	@Override
+	public List<String> getBiomeTag(String name) {
+		return getTag(Registry.BIOME_KEY, name);
+	}
+	
+	private List<String> getTag(RegistryKey<? extends Registry<?>> key, String name) {
+		// this whole implementation is not the most efficient - but as the returned lists are cached it is acceptable
 		try {
-			Tag<Block> tag = getBlockTag(new Identifier(name));
-			List<String> blocks = new ArrayList<>();
-			for(Block block : tag.values()) {
-				blocks.add(Registry.BLOCK.getId(block).toString());
-			}
-			return blocks;
+			List<Identifier> tagEntries = getTagEntries(key, new Identifier(name));
+			return tagEntries.stream().map(id -> id.toString()).collect(Collectors.toList());
 		} catch(Exception e) {
 			MAmbience.getLogger().error("Error accessing tag: " + name + ": " + e.getMessage());
 			return List.of();
 		}
 	}
 	
-	protected abstract Tag<Block> getBlockTag(Identifier id);
+	protected abstract <T> List<Identifier> getTagEntries(RegistryKey<? extends Registry<T>> key, Identifier id);
 	
 	// helper method
 	@SuppressWarnings("deprecation")

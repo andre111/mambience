@@ -39,7 +39,6 @@ public class ConfigScreen implements ModMenuApi {
 			builder.setSavingRunnable(() -> {
 				try {
 					Config.save();
-					Config.reloadData(MAmbience.getLogger());
 				} catch(IOException e) {
 					MAmbience.getLogger().error("Exception saving/applying config: "+e);
 					e.printStackTrace();

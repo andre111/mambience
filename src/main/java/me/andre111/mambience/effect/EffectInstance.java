@@ -17,7 +17,7 @@ package me.andre111.mambience.effect;
 
 import me.andre111.mambience.MAPlayer;
 
-public class EffectInstance {
+public abstract class EffectInstance {
 	private MAPlayer player;
 	private int life;
 	

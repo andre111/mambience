@@ -5,19 +5,19 @@
     },
     "conditions": [
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "cold",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_cold",
+            "minPercentage": 0.6f
         },
         {
             "condition": "HEIGHT",
-            "stringValue": "100",
-            "floatValue": 300f
+            "minHeight": 100f,
+            "maxHeight": 300f
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.3f
+            "blockOrTag": "air",
+            "minPercentage": 0.3f
         }
     ],
     "restrictions": [
@@ -29,8 +29,8 @@
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.6f
+            "blockOrTag": "air",
+            "minPercentage": 0.6f
         },
         {
             "condition": "TOGGLE",

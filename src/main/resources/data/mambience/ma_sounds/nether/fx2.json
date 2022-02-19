@@ -7,9 +7,9 @@
     },
     "conditions": [
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "nether",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#minecraft:is_nether",
+            "minPercentage": 0.6f
         }
     ],
     "restrictions": [

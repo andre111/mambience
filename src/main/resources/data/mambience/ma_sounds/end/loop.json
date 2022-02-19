@@ -5,9 +5,9 @@
     },
     "conditions": [
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "end",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_end",
+            "minPercentage": 0.6f
         }
     ],
     "restrictions": [

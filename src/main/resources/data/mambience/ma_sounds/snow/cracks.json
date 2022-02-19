@@ -5,14 +5,14 @@
     },
     "conditions": [
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "cold",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_cold",
+            "minPercentage": 0.6f
         },
         {
             "condition": "BLOCK",
-            "stringValue": "#mambience:ice",
-            "floatValue": 0.02f
+            "blockOrTag": "#mambience:ice",
+            "minPercentage": 0.02f
         }
     ],
     "restrictions": [
@@ -24,8 +24,8 @@
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.6f
+            "blockOrTag": "air",
+            "minPercentage": 0.6f
         }
     ],
     "cooldownMin": 5,

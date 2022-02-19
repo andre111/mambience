@@ -90,6 +90,6 @@ public final class Variables {
         return false;
 	}
 	//private static boolean slowExposedCheck(Accessor accessor, int x, int y, int z) {
-	//	
+		//TODO: start from x,y,z (and x,y+1,z) and search horizontally outwards (up to ? blocks) through "open" blocks - then scan upwards for sky access from all found locations
 	//}
 }

@@ -49,45 +49,21 @@ public class SoundPlayer {
 	
 	public void playSound(Sound sound, double x, double y, double z, boolean global) {
 		// check sound probability
-		if(sound.getProbability() < 1 && Math.random() >= sound.getProbability()) return;
+		if(sound.probability() < 1 && Math.random() >= sound.probability()) return;
 		
 		// calculate volume and pitch
-		float volume = sound.getVolume();
-		float pitch = sound.getPitch();
+		float volume = sound.calculateRandomVolume();
+		float pitch = sound.calculateRandomPitch();
 		
 		// schedule if delay > 0
-		if(sound.getDelay() > 0) {
-			scheduledSounds.add(new ScheduledSound(sound.getName(), x, y, z, volume, pitch, global, sound.getDelay()));
+		if(sound.delay() > 0) {
+			scheduledSounds.add(new ScheduledSound(sound.name(), x, y, z, volume, pitch, global, sound.delay(), System.currentTimeMillis()));
 		} else {
-			logger.log("Play "+sound.getName());
-			if(global) accessor.playGlobalSound(sound.getName(), x, y, z, volume, pitch);
-			else accessor.playSound(sound.getName(), x, y, z, volume, pitch);
+			logger.log("Play "+sound.name());
+			if(global) accessor.playGlobalSound(sound.name(), x, y, z, volume, pitch);
+			else accessor.playSound(sound.name(), x, y, z, volume, pitch);
 		}
 	}
 	
-	private static final class ScheduledSound {
-		private final String name;
-		private final double x;
-		private final double y;
-		private final double z;
-		private final float volume;
-		private final float pitch;
-		private final boolean global;
-		
-		private final int delay;
-		private final long startTime;
-		
-		public ScheduledSound(String name, double x, double y, double z, float volume, float pitch, boolean global, int delay) {
-			this.name = name;
-			this.x = x;
-			this.y = y;
-			this.z = z;
-			this.volume = volume;
-			this.pitch = pitch;
-			this.global = global;
-			
-			this.delay = delay;
-			this.startTime = System.currentTimeMillis();
-		}
-	}
+	private static record ScheduledSound(String name, double x, double y, double z, float volume, float pitch, boolean global, int delay, long startTime) {}
 }

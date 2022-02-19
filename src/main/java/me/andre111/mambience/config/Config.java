@@ -94,10 +94,6 @@ public final class Config {
 				else configFile.createNewFile();
 				save();
 			}
-			
-			// export settings
-			exportSettings(configRoot, update);
-			Config.reloadData(logger);
 		} catch (Exception e) {
 			logger.error("Exception reading settings: "+e);
 			e.printStackTrace();
@@ -107,8 +103,8 @@ public final class Config {
 	public static Config load() throws IOException {
 		File configFile = new File(configRoot, "/config.json");
 		if(configFile.exists()) {
-			try(CommentSkippingReader reader = new CommentSkippingReader(new BufferedReader(new FileReader(configFile)))) {
-				return new Gson().fromJson(reader.readAllLines("\n"), Config.class);
+			try(BufferedReader reader = new BufferedReader(new FileReader(configFile))) {
+				return new Gson().fromJson(reader, Config.class);
 			}
 		}
 		return null;
@@ -119,35 +115,6 @@ public final class Config {
 		try(JsonWriter writer = new JsonWriter(new BufferedWriter(new FileWriter(configFile)))) {
 			writer.setIndent("    ");
 			new Gson().toJson(instance, Config.class, writer);
-		}
-	}
-	
-	public static void reloadData(MALogger logger) {
-		DataLoader.loadData(logger, new File(configRoot, "/settings/data.json"));
-	}
-	
-	private static void exportSettings(File folder, boolean update) {
-		exportSingleFile(folder, "/settings/data.json", update);
-	}
-	private static void exportSingleFile(File folder, String path, boolean update) {
-		File file = new File(folder, path);
-		if(!file.exists() || update) {
-			try {
-				// backup existing file or create new file
-				if(!file.getParentFile().exists()) {
-					file.getParentFile().mkdirs();
-				}
-				if(file.exists()) {
-					Files.copy(file.toPath(), new File(folder, path+"_backup").toPath(), StandardCopyOption.REPLACE_EXISTING);
-				} else {
-					file.createNewFile();
-				}
-				// export settings
-				Files.copy(Config.class.getResourceAsStream(path), file.toPath(), StandardCopyOption.REPLACE_EXISTING);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		}
 	}
 	

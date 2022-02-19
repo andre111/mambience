@@ -16,6 +16,10 @@
 package me.andre111.mambience.fabric;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import com.google.common.collect.Lists;
@@ -26,22 +30,21 @@ import me.andre111.mambience.config.Config;
 import net.fabricmc.fabric.impl.resource.loader.ModResourcePackCreator;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.resource.FileResourcePackProvider;
-import net.minecraft.resource.ReloadableResourceManagerImpl;
-import net.minecraft.resource.ResourcePack;
+import net.minecraft.resource.LifecycledResourceManagerImpl;
 import net.minecraft.resource.ResourcePackManager;
 import net.minecraft.resource.ResourcePackSource;
 import net.minecraft.resource.ResourceReload;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.resource.SimpleResourceReload;
 import net.minecraft.resource.VanillaDataPackProvider;
-import net.minecraft.tag.TagManager;
 import net.minecraft.tag.TagManagerLoader;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Unit;
 import net.minecraft.util.Util;
 import net.minecraft.util.registry.DynamicRegistryManager;
 
 public class ClientsideDataLoader {
-	private static TagManager CLIENTSIDE_TAG_MANAGER = TagManager.EMPTY;
+	private static Map<Identifier, Map<Identifier, List<Identifier>>> TAG_MAP = new HashMap<>();
 	
 	public static void reloadData(DynamicRegistryManager registryManager) {
 		// create clientside datapack dir
@@ -62,7 +65,7 @@ public class ClientsideDataLoader {
 		packManager.setEnabledProfiles(packManager.getNames());
 		
 		// create actual resource manager
-		ReloadableResourceManagerImpl resourceManager = new ReloadableResourceManagerImpl(ResourceType.SERVER_DATA);
+		LifecycledResourceManagerImpl resourceManager = new LifecycledResourceManagerImpl(ResourceType.SERVER_DATA, packManager.createResourcePacks());
 		// create reload listeners
 		TagManagerLoader tagLoader = new TagManagerLoader(registryManager);
 		
@@ -70,23 +73,18 @@ public class ClientsideDataLoader {
 		// perform reload
 		MAmbience.getLogger().log("Reloading clientside data...");
 		//IMPORTANT NOTE: 
-		// Fabric API mixes into ReloadableResourceManagerImpl.reload to add custom reload listeners
+		// Fabric API now mixes into SimpleResourceReload.start to add custom reload listeners
 		// But we don't want other mods listeners to be called
 		// (as that breaks stuff because of missing data)
-		// -> "solution": manually create the the ResourceReload by following the code in the original method
-		//resourceManager.registerReloader(tagLoader);
-		//resourceManager.registerReloader(MAmbienceFabric.RELOAD_LISTENER);
-		//ResourceReload reload = resourceManager.reload(Util.getMainWorkerExecutor(), MinecraftClient.getInstance(), CompletableFuture.completedFuture(Unit.INSTANCE), packManager.createResourcePacks());
-		for(ResourcePack pack : packManager.createResourcePacks()) {
-			resourceManager.addPack(pack);
-		}
+		// -> avoid calling start and instead directly use create (this no longer allows for profiled reloads, but that should be acceptable for now)
 		ResourceReload reload = SimpleResourceReload.create(resourceManager, Lists.newArrayList(tagLoader, MAmbienceFabric.RELOAD_LISTENER), Util.getMainWorkerExecutor(), MinecraftClient.getInstance(), CompletableFuture.completedFuture(Unit.INSTANCE));
 		
 		// retrieve tag manager after completion
 		reload.whenComplete().thenAccept(unit -> {
 			// set clientside tagmanager
 			MAmbience.getLogger().log("Loaded clientside tag manager");
-			CLIENTSIDE_TAG_MANAGER = tagLoader.getTagManager();
+			TAG_MAP.clear();
+			tagLoader.getRegistryTags().forEach(registryTags -> registerTags(registryTags));
 			
 			// close all resources
 			resourceManager.close();
@@ -101,11 +99,28 @@ public class ClientsideDataLoader {
 			// close all resources
 			resourceManager.close();
 			packManager.close();
-			return Unit.INSTANCE;
+			return null;
 		});
 	}
 	
-	public static TagManager getClientsideTagManager() {
-		return CLIENTSIDE_TAG_MANAGER;
+	private static <T> void registerTags(TagManagerLoader.RegistryTags<T> registryTags) {
+		// convert RegistryTags created by TagManagerLoader to simple maps using identifiers to decouple them from the actual registries
+		Map<Identifier, List<Identifier>> idTags = new HashMap<>();
+		for(var tag : registryTags.tags().entrySet()) {
+			List<Identifier> idList = new ArrayList<>();
+			
+			for(var entry : tag.getValue().values()) {
+				if(entry.getKey().isPresent()) {
+					idList.add(entry.getKey().get().getValue());
+				}
+			}
+
+			idTags.put(tag.getKey(), idList);
+		}
+		TAG_MAP.put(registryTags.key().getValue(), idTags);
+	}
+	
+	public static List<Identifier> getTag(Identifier registry, Identifier id) {
+		return TAG_MAP.getOrDefault(registry, Map.of()).getOrDefault(id, List.of());
 	}
 }

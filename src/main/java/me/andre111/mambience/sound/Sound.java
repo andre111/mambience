@@ -15,45 +15,16 @@
  */
 package me.andre111.mambience.sound;
 
-public class Sound {
-	private final String name;
-	private final float volumeMin;
-	private final float volumeMax;
-	private final float pitchMin;
-	private final float pitchMax;
-	
-	private final int delay;
-	private final double probability;
-	
-	public Sound(String name, float volumeMin, float volumeMax, float pitchMin,float pitchMax, int delay, double probability) {
-		this.name = name;
-		this.volumeMin = volumeMin;
-		this.volumeMax = volumeMax;
-		this.pitchMin = pitchMin;
-		this.pitchMax = pitchMax;
-		this.delay = delay;
-		this.probability = probability;
-		
+public final record Sound(String name, float volumeMin, float volumeMax, float pitchMin,float pitchMax, int delay, double probability) {
+	public Sound {
 		// TODO> perform some validation checks
 	}
-
-	public String getName() {
-		return name;
-	}
 	
-	public float getVolume() {
+	public float calculateRandomVolume() {
 		return volumeMin + (float) (Math.random() * (volumeMax - volumeMin));
 	}
 	
-	public float getPitch() {
+	public float calculateRandomPitch() {
 		return pitchMin + (float) (Math.random() * (pitchMax - pitchMin));
-	}
-
-	public int getDelay() {
-		return delay;
-	}
-
-	public double getProbability() {
-		return probability;
 	}
 }

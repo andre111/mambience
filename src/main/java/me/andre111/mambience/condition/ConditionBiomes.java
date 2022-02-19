@@ -22,21 +22,39 @@ import java.util.Map;
 import me.andre111.mambience.MAPlayer;
 
 public final class ConditionBiomes extends Condition {
-	private final List<String> biomes;
+	private final String biomeOrTag;
 	private final float minPercentage;
 	
-	public ConditionBiomes(List<String> biomes, float minPercentage) {
-		this.biomes = new ArrayList<>(biomes);
+	private List<String> cachedBiomes;
+	
+	public ConditionBiomes(String biomeOrTag, float minPercentage) {
+		if(biomeOrTag == null) throw new IllegalArgumentException("Biome / Biometag cannot be null");
+		if(minPercentage < 0 || minPercentage > 1) throw new IllegalArgumentException("Minimum percentage is outside valid range [0,1]");
+		
+		this.biomeOrTag = biomeOrTag;
 		this.minPercentage = minPercentage;
 	}
 
 	@Override
 	public boolean matches(MAPlayer player) {
+		// cache actual biome names
+		if(cachedBiomes == null) {
+			cachedBiomes = new ArrayList<>();
+			if(biomeOrTag.startsWith("#")) {
+				cachedBiomes.addAll(player.getAccessor().getBiomeTag(biomeOrTag.substring(1)));
+			} else {
+				cachedBiomes.add(biomeOrTag);
+			}
+		}
+		
+		// get data
 		Map<String, Integer> scanData = player.getScanner().getScanBiomeData();
 		
 		int count = 0;
-		for(String biome : biomes) {
-			count += scanData != null && biome != null && scanData.containsKey(biome) ? scanData.get(biome) : 0;
+		if(scanData != null) {
+			for(String biome : cachedBiomes) {
+				count += scanData.getOrDefault(biome, 0);
+			}
 		}
 		
 		float percentage = count / (float) player.getScanner().getScanBiomeCount();

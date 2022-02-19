@@ -6,16 +6,16 @@
     "conditions": [
         {
             "condition": "BLOCK",
-            "stringValue": "#mambience:trees",
-            "floatValue": 0.03f
+            "blockOrTag": "#mambience:trees",
+            "minPercentage": 0.03f
         },
         {
             "condition": "EXPOSED"
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.25f
+            "blockOrTag": "air",
+            "minPercentage": 0.25f
         }
     ],
     "restrictions": [
@@ -32,34 +32,34 @@
             "condition": "SUBMERGED"
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "ocean",
-            "floatValue": 0.1f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_beach_or_ocean",
+            "minPercentage": 0.1f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "jungle",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#minecraft:is_jungle",
+            "minPercentage": 0.6f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "cold",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_cold",
+            "minPercentage": 0.6f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "savanna",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_savanna_or_badlands",
+            "minPercentage": 0.6f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "nether",
-            "floatValue": 0.4f
+            "condition": "BIOME",
+            "biomeOrTag": "#minecraft:is_nether",
+            "minPercentage": 0.4f
         },
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "end",
-            "floatValue": 0.4f
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_end",
+            "minPercentage": 0.4f
         },
         {
             "condition": "RAINING"

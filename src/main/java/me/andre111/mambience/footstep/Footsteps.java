@@ -148,7 +148,7 @@ public class Footsteps {
 	}
 	
 	private boolean isEmpty(List<FSMaterial> materials) {
-		return materials == null || materials.isEmpty() || (materials.size() == 1 && materials.get(0).getID().equals("mambience:none"));
+		return materials == null || materials.isEmpty() || (materials.size() == 1 && materials.get(0).id().equals("mambience:none"));
 	}
 
 	private void playSounds(FSEvent event, double x, double y, double z, List<FSMaterial> materials) {
@@ -162,19 +162,19 @@ public class Footsteps {
 		Sound[] sounds = null;
 		switch(event) {
 		case WANDER:
-			sounds = material.getWanderSounds();
+			sounds = material.wanderSounds();
 			break;
 		case WALK:
-			sounds = material.getWalkSounds();
+			sounds = material.walkSounds();
 			break;
 		case RUN:
-			sounds = material.getRunSounds();
+			sounds = material.runSounds();
 			break;
 		case JUMP:
-			sounds = material.getJumpSounds();
+			sounds = material.jumpSounds();
 			break;
 		case LAND:
-			sounds = material.getLandSounds();
+			sounds = material.landSounds();
 			break;
 		default:
 			break;

@@ -6,8 +6,8 @@
     "conditions": [
         {
             "condition": "BLOCK",
-            "stringValue": "lava",
-            "floatValue": 0.03f
+            "blockOrTag": "lava",
+            "minPercentage": 0.03f
         }
     ],
     "restrictions": [

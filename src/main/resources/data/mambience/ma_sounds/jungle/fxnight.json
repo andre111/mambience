@@ -5,19 +5,19 @@
     },
     "conditions": [
         {
-            "condition": "BIOME_GROUP",
-            "stringValue": "jungle",
-            "floatValue": 0.6f
+            "condition": "BIOME",
+            "biomeOrTag": "#minecraft:is_jungle",
+            "minPercentage": 0.6f
         },
         {
             "condition": "BLOCK",
-            "stringValue": "#mambience:trees",
-            "floatValue": 0.03f
+            "blockOrTag": "#mambience:trees",
+            "minPercentage": 0.03f
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.25f
+            "blockOrTag": "air",
+            "minPercentage": 0.25f
         }
     ],
     "restrictions": [
@@ -35,8 +35,8 @@
         },
         {
             "condition": "BLOCK",
-            "stringValue": "air",
-            "floatValue": 0.6f
+            "blockOrTag": "air",
+            "minPercentage": 0.6f
         }
     ],
     "cooldownMin": 10,

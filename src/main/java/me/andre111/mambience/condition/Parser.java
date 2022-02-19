@@ -15,10 +15,11 @@
  */
 package me.andre111.mambience.condition;
 
-import java.util.Collections;
+import com.google.gson.JsonObject;
 
-import me.andre111.mambience.config.DataLoader;
+import me.andre111.mambience.config.ConfigUtil;
 
+//TODO: also adjust all Conditions to verify parameters on load / constructor, currently left: ConditionTime, ConditionHeight
 public final class Parser {
 	private static final Condition TIME_MORNING = new ConditionTime(0, 2000);
 	private static final Condition TIME_DAY = new ConditionTime(2000, 12000);
@@ -32,13 +33,10 @@ public final class Parser {
 	private static final Condition RAINING = new ConditionRaining();
 	private static final Condition THUNDERING = new ConditionThundering();
 	
-	public static Condition parse(String name, String stringValue, float floatValue) {
+	public static Condition parse(String name, JsonObject obj) {
 		switch(name) {
 		case "TIME":
-			String[] timeSplit = stringValue.split("\\.\\.");
-			int minTime = Integer.parseInt(timeSplit[0]);
-			int maxTime = Integer.parseInt(timeSplit[timeSplit.length > 1 ? 1 : 0]);
-			return new ConditionTime(minTime, maxTime);
+			return new ConditionTime(ConfigUtil.getInt(obj, "minTime", 0), ConfigUtil.getInt(obj, "maxTime", 0));
 		case "TIME_MORNING":
 			return TIME_MORNING;
 		case "TIME_DAY":
@@ -49,17 +47,13 @@ public final class Parser {
 			return TIME_NIGHT;
 			
 		case "BIOME":
-			return new ConditionBiomes(Collections.singletonList(DataLoader.namespaced(stringValue)), floatValue);
-		case "BIOME_GROUP":
-			return new ConditionBiomes(DataLoader.getBiomeGroup(stringValue), floatValue);
+			return new ConditionBiomes(namespaced(ConfigUtil.getString(obj, "biomeOrTag", null)), ConfigUtil.getFloat(obj, "minPercentage", 0.001f));
 			
 		case "BLOCK":
-			return new ConditionBlocks(DataLoader.namespaced(stringValue), floatValue);
+			return new ConditionBlocks(namespaced(ConfigUtil.getString(obj, "blockOrTag", null)), ConfigUtil.getFloat(obj, "minPercentage", 0.001f));
 			
 		case "HEIGHT":
-			float minHeight = Float.parseFloat(stringValue);
-			float maxHeight = floatValue;
-			return new ConditionHeight(minHeight, maxHeight);
+			return new ConditionHeight(ConfigUtil.getFloat(obj, "minHeight", 0), ConfigUtil.getFloat(obj, "maxHeight", 0));
 		case "EXPOSED":
 			return EXPOSED;
 		case "SUBMERGED":
@@ -73,5 +67,9 @@ public final class Parser {
 			return THUNDERING;
 		}
 		return null;
+	}
+	
+	private static String namespaced(String name) {
+		return name.contains(":") ? name : "minecraft:" + name;
 	}
 }
