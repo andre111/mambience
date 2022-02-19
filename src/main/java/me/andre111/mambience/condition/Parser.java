@@ -33,6 +33,8 @@ public final class Parser {
 	private static final Condition RAINING = new ConditionRaining();
 	private static final Condition THUNDERING = new ConditionThundering();
 	
+	private static final Condition DISABLE_WIND = new ConditionDisableWind();
+	
 	public static Condition parse(String name, JsonObject obj) {
 		switch(name) {
 		case "TIME":
@@ -65,6 +67,9 @@ public final class Parser {
 			return RAINING;
 		case "THUNDERING":
 			return THUNDERING;
+			
+		case "DISABLE_WIND":
+			return DISABLE_WIND;
 		}
 		return null;
 	}

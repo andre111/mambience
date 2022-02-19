@@ -20,6 +20,8 @@
     "mambience.config.ambient.note": "This system plays ambient sounds based on the Blocks and Biomes surrounding the player. For sound definition see the included datapack.",
     "mambience.config.ambient.stop": "Stop sounds when restricted",
     "mambience.config.ambient.stop.tooltip": "Disabled by default because of abrupt nature",
+    "mambience.config.ambient.disable_wind": "Disable wind sounds",
+    "mambience.config.ambient.disable_wind.tooltip": "Disables all events that use the DISABLE_WIND restriction",
     
     "mambience.config.effects": "Visual Effects",
     "mambience.config.effects.note": "This system uses particles to create block based visual effects. (e.g. Fireflies, Lavajets and more). For effect definition see the included datapack.",

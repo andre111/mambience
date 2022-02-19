@@ -36,8 +36,7 @@
             "condition": "SUBMERGED"
         },
         {
-            "condition": "TOGGLE",
-            "stringValue": "wind_disable"
+            "condition": "DISABLE_WIND"
         }
     ],
     "cooldownMin": 15,

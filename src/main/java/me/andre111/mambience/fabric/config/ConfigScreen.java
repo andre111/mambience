@@ -77,6 +77,13 @@ public class ConfigScreen implements ModMenuApi {
 						.setDefaultValue(Config.AmbientEventsConfig.DEFAULT_STOP_SOUNDS)
 						.setSaveConsumer(b -> { Config.ambientEvents().setStopSounds(b); })
 						.build());
+
+				ambientEventsCat.addEntry(entryBuilder
+						.startBooleanToggle(new TranslatableText("mambience.config.ambient.disable_wind"), Config.ambientEvents().isDisableWind())
+						.setTooltip(new TranslatableText("mambience.config.ambient.disable_wind.tooltip"))
+						.setDefaultValue(Config.AmbientEventsConfig.DEFAULT_DISABLE_WIND)
+						.setSaveConsumer(b -> { Config.ambientEvents().setDisableWind(b); })
+						.build());
 			}
 			
 			ConfigCategory effectsCat = builder.getOrCreateCategory(new TranslatableText("mambience.config.effects"));

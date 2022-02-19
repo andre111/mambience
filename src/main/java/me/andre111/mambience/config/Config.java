@@ -158,10 +158,12 @@ public final class Config {
 		public static final boolean DEFAULT_ENABLED = true;
 		public static final float DEFAULT_VOLUME = 0.4f;
 		public static final boolean DEFAULT_STOP_SOUNDS = false;
+		public static final boolean DEFAULT_DISABLE_WIND = false;
 		
 		private boolean enabled = DEFAULT_ENABLED;
 		private float volume = DEFAULT_VOLUME;
 		private boolean stopSounds = DEFAULT_STOP_SOUNDS;
+		private boolean disableWind = DEFAULT_DISABLE_WIND;
 		
 		public boolean isEnabled() {
 			return enabled;
@@ -180,6 +182,12 @@ public final class Config {
 		}
 		public void setStopSounds(boolean stopSounds) {
 			this.stopSounds = stopSounds;
+		}
+		public boolean isDisableWind() {
+			return disableWind;
+		}
+		public void setDisableWind(boolean disableWind) {
+			this.disableWind = disableWind;
 		}
 	}
 	public static class EffectsConfig {

@@ -31,9 +31,6 @@ public class ConfigUtil {
 	public static List<Condition> loadConditions(MALogger logger, JsonArray array) {
 		List<Condition> conditions = new ArrayList<>();
 		for(int i=0; i<array.size(); i++) {
-			//TODO: remove: ignore toggles
-			if(array.get(i).getAsJsonObject().get("condition").getAsString().equals("TOGGLE")) continue;
-			
 			Condition condition = loadCondition(logger, array.get(i).getAsJsonObject());
 			if(condition != null) {
 				conditions.add(condition);

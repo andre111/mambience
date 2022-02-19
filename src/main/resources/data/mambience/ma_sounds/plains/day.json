@@ -56,8 +56,7 @@
             "minPercentage": 0.6f
         },
         {
-            "condition": "TOGGLE",
-            "stringValue": "wind_disable"
+            "condition": "DISABLE_WIND"
         }
     ],
     "cooldownMin": 8,

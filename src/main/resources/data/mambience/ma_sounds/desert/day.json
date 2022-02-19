@@ -33,6 +33,9 @@
             "condition": "BLOCK",
             "blockOrTag": "air",
             "minPercentage": 0.6f
+        },
+        {
+            "condition": "DISABLE_WIND"
         }
     ],
     "cooldownMin": 6,

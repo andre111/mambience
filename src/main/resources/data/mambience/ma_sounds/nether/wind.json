@@ -14,8 +14,7 @@
     ],
     "restrictions": [
         {
-            "condition": "TOGGLE",
-            "stringValue": "wind_disable"
+            "condition": "DISABLE_WIND"
         }
     ],
     "cooldownMin": 60,
