@@ -6,8 +6,13 @@
         "pitchMin": 85,
         "pitchMax": 115
     },
-    "trigger": "EQUIP_ITEM_MAINHAND",
-    "conditions": [],
+    "trigger": "TICK",
+    "conditions": [
+        {
+            "condition": "VARIABLE_CHANGED",
+            "variable": "itemMainHand"
+        }
+    ],
     "restrictions": [
         {
             "condition": "HELD_ITEM",

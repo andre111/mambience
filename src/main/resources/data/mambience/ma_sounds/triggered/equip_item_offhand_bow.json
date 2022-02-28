@@ -3,8 +3,12 @@
         "name": "mambience:equip.bow",
         "volume": 60
     },
-    "trigger": "EQUIP_ITEM_OFFHAND",
+    "trigger": "TICK",
     "conditions": [
+        {
+            "condition": "VARIABLE_CHANGED",
+            "variable": "itemOffHand"
+        },
         {
             "condition": "HELD_ITEM",
             "itemOrTag": "#mambience:is_bow",

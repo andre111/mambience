@@ -15,11 +15,25 @@
  */
 package me.andre111.mambience.condition;
 
+import java.util.Objects;
+
 import me.andre111.mambience.MAPlayer;
 
-public final class ConditionExposed extends Condition {
+public class ConditionVariableChanged extends Condition {
+	private final String variable;
+	
+	public ConditionVariableChanged(String variable) {
+		if(variable == null || variable.isBlank()) throw new IllegalArgumentException("Variable cannot be null/blank");
+		
+		this.variable = variable;
+	}
+
 	@Override
 	public boolean matches(MAPlayer player) {
-		return player.getVariables().isExposed();
+		Object value = player.getVariables().get(variable);
+		Object previousValue = player.getVariables().getPrevious(variable);
+		
+		return !Objects.equals(value, previousValue);
 	}
+
 }

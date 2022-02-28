@@ -69,9 +69,8 @@ public class MAScheduler {
 		clearPlayers = true;
 	}
 	
-	public void runSyncTick() {
+	public void runTick() {
 		long startTime = System.currentTimeMillis();
-		long variableTime = startTime;
 		timer++;
 		
 		// clear or add players
@@ -96,16 +95,13 @@ public class MAScheduler {
 				continue;
 			}
 			
-			// trigger events (variables holds values from last tick -> can check for changes here)
-			if(!maplayer.getAccessor().getHeldItem(true).equals(maplayer.getVariables().getItemMainHand())) {
-				triggerEvents(maplayer, "EQUIP_ITEM_MAINHAND");
-			}
-			if(!maplayer.getAccessor().getHeldItem(false).equals(maplayer.getVariables().getItemOffHand())) {
-				triggerEvents(maplayer, "EQUIP_ITEM_OFFHAND");
-			}
-			
 			// update variables
 			maplayer.getVariables().update();
+			
+			// update events
+			if(Config.ambientEvents().isEnabled()) {
+				triggerEvents(maplayer, "TICK");
+			}
 			
 			// update footsteps
 			if(Config.footsteps().isEnabled()) {
@@ -125,7 +121,7 @@ public class MAScheduler {
 			// update "last tick" values
 			maplayer.getAccessor().updateLastPosition();
 		}
-		variableTime = System.currentTimeMillis();
+		long playerTime = System.currentTimeMillis();
 		
 		// update scanners 
 		int refreshed = 0;
@@ -146,22 +142,18 @@ public class MAScheduler {
 		long endTime = System.currentTimeMillis();
 		if(timer % 20 == 0) {
 			logger.log("Refreshing "+refreshed+"/"+players.size()+" Player(s) last tick took "+(endTime-startTime)+"ms!");
-			logger.log("\tPlayers: "+(variableTime-startTime)+"ms      Scanners: "+(scannerTime-variableTime)+"ms      Effects: "+(endTime-scannerTime)+"ms!");
+			logger.log("\tPlayers (Vars+TICK+Footsteps+Soundplayer): "+(playerTime-startTime)+"ms      Scanners: "+(scannerTime-playerTime)+"ms      Effects: "+(endTime-scannerTime)+"ms!");
+			
+			runSecond();
 		}
 	}
 	
-	public void runAsyncSecond() {
+	private void runSecond() {
 		long startTime = System.currentTimeMillis();
 		
-		// create "unmodified" list of players
-		List<MAPlayer> toUpdate;
-		synchronized(newPlayers) {
-			toUpdate = new ArrayList<>(players);
-		}
-
-		// update soundscapes
+		// update events
 		if(Config.ambientEvents().isEnabled()) {
-			for(MAPlayer maplayer : toUpdate) {
+			for(MAPlayer maplayer : players) {
 				triggerEvents(maplayer, "SECOND");
 			}
 		}
@@ -169,13 +161,13 @@ public class MAScheduler {
 		
 		// update effects
 		if(Config.effects().isEnabled()) {
-			for(MAPlayer maplayer : toUpdate) {
+			for(MAPlayer maplayer : players) {
 				Effects.update(maplayer);
 			}
 		}
 		long endTime = System.currentTimeMillis();
 		
-		logger.log("Soundscape update took "+(soundTime-startTime)+"ms - Effect update took "+(endTime-soundTime)+"ms!");
+		logger.log("SECOND took "+(soundTime-startTime)+"ms - Effect update took "+(endTime-soundTime)+"ms!");
 	}
 	
 	public void triggerEvents(MAPlayer maplayer, String trigger) {

@@ -6,8 +6,13 @@
         "pitchMin": 85,
         "pitchMax": 115
     },
-    "trigger": "EQUIP_ITEM_OFFHAND",
-    "conditions": [],
+    "trigger": "TICK",
+    "conditions": [
+        {
+            "condition": "VARIABLE_CHANGED",
+            "variable": "itemOffHand"
+        }
+    ],
     "restrictions": [
         {
             "condition": "HELD_ITEM",

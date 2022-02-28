@@ -5,8 +5,12 @@
         "pitchMin": 90,
         "pitchMax": 110
     },
-    "trigger": "EQUIP_ITEM_MAINHAND",
+    "trigger": "TICK",
     "conditions": [
+        {
+            "condition": "VARIABLE_CHANGED",
+            "variable": "itemMainHand"
+        },
         {
             "condition": "HELD_ITEM",
             "itemOrTag": "#mambience:is_sword",

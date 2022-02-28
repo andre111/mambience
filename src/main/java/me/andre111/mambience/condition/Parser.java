@@ -19,26 +19,25 @@ import com.google.gson.JsonObject;
 
 import me.andre111.mambience.config.ConfigUtil;
 
-//TODO: also adjust all Conditions to verify parameters on load / constructor, currently left: ConditionTime, ConditionHeight
 public final class Parser {
-	private static final Condition TIME_MORNING = new ConditionTime(0, 2000);
-	private static final Condition TIME_DAY = new ConditionTime(2000, 12000);
-	private static final Condition TIME_EVENING = new ConditionTime(12000, 14000);
-	private static final Condition TIME_NIGHT = new ConditionTime(14000, 24000);
+	private static final Condition TIME_MORNING = new ConditionVariable("time", false, 0, 2000);
+	private static final Condition TIME_DAY = new ConditionVariable("time", false, 2000, 12000);
+	private static final Condition TIME_EVENING = new ConditionVariable("time", false, 12000, 14000);
+	private static final Condition TIME_NIGHT = new ConditionVariable("time", false, 14000, 24000);
 	
-	private static final Condition EXPOSED = new ConditionExposed();
-	private static final Condition SUBMERGED = new ConditionSubmerged();
-	private static final Condition UNDERGROUND = new ConditionUnderground();
+	private static final Condition EXPOSED = new ConditionVariable("exposed", false);
+	private static final Condition SUBMERGED = new ConditionVariable("submerged", false);
+	private static final Condition UNDERGROUND = new ConditionVariable("underground", false);
 
-	private static final Condition RAINING = new ConditionRaining();
-	private static final Condition THUNDERING = new ConditionThundering();
+	private static final Condition RAINING = new ConditionVariable("raining", false);
+	private static final Condition THUNDERING = new ConditionVariable("thundering", false);
 	
 	private static final Condition DISABLE_WIND = new ConditionDisableWind();
 	
 	public static Condition parse(String name, JsonObject obj) {
 		switch(name) {
 		case "TIME":
-			return new ConditionTime(ConfigUtil.getInt(obj, "minTime", 0), ConfigUtil.getInt(obj, "maxTime", 0));
+			return new ConditionVariable("time", false, ConfigUtil.getInt(obj, "minTime", 0), ConfigUtil.getInt(obj, "maxTime", 0));
 		case "TIME_MORNING":
 			return TIME_MORNING;
 		case "TIME_DAY":
@@ -58,7 +57,7 @@ public final class Parser {
 			return new ConditionHeldItem(namespaced(ConfigUtil.getString(obj, "itemOrTag", null)), ConfigUtil.getBoolean(obj, "mainHand", true));
 			
 		case "HEIGHT":
-			return new ConditionHeight(ConfigUtil.getFloat(obj, "minHeight", 0), ConfigUtil.getFloat(obj, "maxHeight", 0));
+			return new ConditionVariable("y", false, ConfigUtil.getInt(obj, "minHeight", 0), ConfigUtil.getInt(obj, "maxHeight", 0));
 		case "EXPOSED":
 			return EXPOSED;
 		case "SUBMERGED":
@@ -70,6 +69,11 @@ public final class Parser {
 			return RAINING;
 		case "THUNDERING":
 			return THUNDERING;
+			
+		case "VARIABLE":
+			return new ConditionVariable(ConfigUtil.getString(obj, "variable", ""), ConfigUtil.getBoolean(obj, "previous", false), ConfigUtil.getDouble(obj, "minValue", 0), ConfigUtil.getDouble(obj, "maxValue", 0), ConfigUtil.getString(obj, "stringValue", ""));
+		case "VARIABLE_CHANGED":
+			return new ConditionVariableChanged(ConfigUtil.getString(obj, "variable", ""));
 			
 		case "DISABLE_WIND":
 			return DISABLE_WIND;

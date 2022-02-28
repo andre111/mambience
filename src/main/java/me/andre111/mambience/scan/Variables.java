@@ -15,77 +15,67 @@
  */
 package me.andre111.mambience.scan;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import me.andre111.mambience.accessor.Accessor;
 
 public final class Variables {
-	private Accessor accessor;
+	private final Accessor accessor;
 	
-	private int x;
-	private int y;
-	private int z;
-	
-	private boolean exposed;
-	private boolean submerged;
-	
-	private long time;
-	private boolean raining;
-	private boolean thundering;
-	
-	private String itemMainHand;
-	private String itemOffHand;
+	private final Map<String, Object> values = new HashMap<>();
+	private final Map<String, Object> previousValues = new HashMap<>();
 	
 	public Variables(Accessor a) {
 		accessor = a;
 	}
 	
 	public void update() {
-		x = (int) accessor.getX();
-		y = (int) accessor.getY();
-		z = (int) accessor.getZ();
+		put("x", accessor.getX());
+		put("y", accessor.getY());
+		put("z", accessor.getZ());
 		
-		exposed = fastExposedCheck(accessor, x, y, z);
+		put("health", accessor.getHealth());
+		put("foodLevel", accessor.getFoodLevel());
+		
+		put("sneaking", accessor.isSneaking());
+		put("jumping", accessor.isJumping());
+		put("onGround", accessor.isOnGround());
+		
+		boolean exposed = fastExposedCheck(accessor);
 		//TODO: Slower more accurate exposed check
-		//if(exposed) exposed = slowExposedCheck(accessor, x, y, z);
+		//if(exposed) exposed = slowExposedCheck(accessor);
+		put("exposed", exposed);
+		put("underground", !exposed && accessor.getY() < 56);
+		put("submerged", accessor.isSubmerged());
 		
-		submerged = accessor.isSubmerged();
+		put("time", accessor.getDayTime());
+		put("raining", accessor.isRaining());
+		put("thundering", accessor.isThundering());
+		put("temperature", accessor.getTemperature((int) accessor.getX(), (int) accessor.getY(), (int) accessor.getZ()));
+		put("humidity", accessor.getHumidity((int) accessor.getX(), (int) accessor.getY(), (int) accessor.getZ()));
 		
-		time = accessor.getDayTime();
-		raining = accessor.isRaining();
-		thundering = accessor.isThundering();
+		put("itemMainHand", accessor.getHeldItem(true));
+		put("itemOffHand", accessor.getHeldItem(false));
+	}
+	
+	public Object get(String key) {
+		return values.get(key);
+	}
+	
+	public Object getPrevious(String key) {
+		return previousValues.get(key);
+	}
+	
+	private void put(String key, Object value) {
+		previousValues.put(key, values.put(key, value));
+	}
+	
+	private static boolean fastExposedCheck(Accessor accessor) {
+		int x = (int) accessor.getX();
+		int y = (int) accessor.getY();
+		int z = (int) accessor.getZ();
 		
-		itemMainHand = accessor.getHeldItem(true);
-		itemOffHand = accessor.getHeldItem(false);
-	}
-	
-	public int getHeight() {
-		return y;
-	}
-	
-	public boolean isExposed() {
-		return exposed;
-	}
-	public boolean isSubmerged() {
-		return submerged;
-	}
-	
-	public long getTime() {
-		return time;
-	}
-	public boolean isRaining() {
-		return raining;
-	}
-	public boolean isThundering() {
-		return thundering;
-	}
-	
-	public String getItemMainHand() {
-		return itemMainHand;
-	}
-	public String getItemOffHand() {
-		return itemOffHand;
-	}
-	
-	private static boolean fastExposedCheck(Accessor accessor, int x, int y, int z) {
 		int mx = x + 1;
         int my = y + 1;
         int mz = z + 1;
@@ -102,7 +92,7 @@ public final class Variables {
         }
         return false;
 	}
-	//private static boolean slowExposedCheck(Accessor accessor, int x, int y, int z) {
+	//private static boolean slowExposedCheck(Accessor accessor) {
 		//TODO: start from x,y,z (and x,y+1,z) and search horizontally outwards (up to ? blocks) through "open" blocks - then scan upwards for sky access from all found locations
 	//}
 }

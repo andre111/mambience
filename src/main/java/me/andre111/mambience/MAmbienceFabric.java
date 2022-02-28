@@ -56,7 +56,6 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	public static MinecraftServer server;
 	public static MAmbienceFabric instance;
 
-	private int ticker;
 	private long lastTick;
 
 	public boolean runClientSide;
@@ -181,11 +180,6 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 		lastTick = System.currentTimeMillis();
 
 		// update
-		MAmbience.getScheduler().runSyncTick();
-		ticker++;
-		if(ticker == 20) {
-			ticker = 0;
-			MAmbience.getScheduler().runAsyncSecond(); //TODO: make this async
-		}
+		MAmbience.getScheduler().runTick();
 	}
 }
