@@ -1,6 +1,10 @@
 {
     "replace": false,
     "values": [
-        "minecraft:swamp"
+        "minecraft:swamp",
+        {
+            "id": "terralith:orchid_swamp",
+            "required": false
+        }
     ]
 }

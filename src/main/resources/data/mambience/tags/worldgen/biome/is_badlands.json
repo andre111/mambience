@@ -1,22 +1,21 @@
 {
     "replace": false,
     "values": [
-        "#minecraft:is_beach", 
-        "#minecraft:is_ocean",
+        "#minecraft:is_badlands",
         {
-            "id": "terralith:basalt_cliffs",
+            "id": "terralith:bryce_canyon",
             "required": false
         },
         {
-            "id": "terralith:granite_cliffs",
+            "id": "terralith:painted_mountains",
             "required": false
         },
         {
-            "id": "terralith:gravel_beach",
+            "id": "terralith:warped_mesa",
             "required": false
         },
         {
-            "id": "terralith:white_cliffs",
+            "id": "terralith:white_mesa",
             "required": false
         }
     ]
