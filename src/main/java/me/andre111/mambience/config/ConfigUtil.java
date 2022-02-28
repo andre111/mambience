@@ -99,6 +99,9 @@ public class ConfigUtil {
 	public static int getInt(JsonObject obj, String memberName, int defaultValue) {
 		return obj.has(memberName) ? obj.get(memberName).getAsInt() : defaultValue;
 	}
+	public static boolean getBoolean(JsonObject obj, String memberName, boolean defaultValue) {
+		return obj.has(memberName) ? obj.get(memberName).getAsBoolean() : defaultValue;
+	}
 	
 	public static String[] getStringArray(JsonObject obj, String memberName, String[] defaultValue) {
 		if(obj.has(memberName) && obj.get(memberName).isJsonArray()) {

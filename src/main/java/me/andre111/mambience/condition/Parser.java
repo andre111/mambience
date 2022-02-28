@@ -54,6 +54,9 @@ public final class Parser {
 		case "BLOCK":
 			return new ConditionBlocks(namespaced(ConfigUtil.getString(obj, "blockOrTag", null)), ConfigUtil.getFloat(obj, "minPercentage", 0.001f));
 			
+		case "HELD_ITEM":
+			return new ConditionHeldItem(namespaced(ConfigUtil.getString(obj, "itemOrTag", null)), ConfigUtil.getBoolean(obj, "mainHand", true));
+			
 		case "HEIGHT":
 			return new ConditionHeight(ConfigUtil.getFloat(obj, "minHeight", 0), ConfigUtil.getFloat(obj, "maxHeight", 0));
 		case "EXPOSED":

@@ -74,6 +74,7 @@ public abstract class Accessor {
 	public abstract boolean isOnGround();
 	
 	public abstract String getArmor(int index);
+	public abstract String getHeldItem(boolean mainHand);
 	
 	// Sound related methods
 	public abstract void playSound(String sound, float volume, float pitch);
@@ -105,4 +106,5 @@ public abstract class Accessor {
 	// Data related methods
 	public abstract List<String> getBlockTag(String name);
 	public abstract List<String> getBiomeTag(String name);
+	public abstract List<String> getItemTag(String name);
 }

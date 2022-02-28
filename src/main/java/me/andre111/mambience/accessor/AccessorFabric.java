@@ -109,6 +109,15 @@ public abstract class AccessorFabric extends Accessor {
 		Item item = itemstack.getItem();
 		return item != null ? Registry.ITEM.getId(item).toString() : "";
 	}
+	
+	@Override
+	public String getHeldItem(boolean mainHand) {
+		ItemStack itemstack = mainHand ? player.getMainHandStack() : player.getOffHandStack();
+
+		// get item identifier
+		Item item = itemstack.getItem();
+		return item != null ? Registry.ITEM.getId(item).toString() : "";
+	}
 
 	// World related methods
 	@Override
@@ -187,6 +196,11 @@ public abstract class AccessorFabric extends Accessor {
 	@Override
 	public List<String> getBiomeTag(String name) {
 		return getTag(Registry.BIOME_KEY, name);
+	}
+	
+	@Override
+	public List<String> getItemTag(String name) {
+		return getTag(Registry.ITEM_KEY, name);
 	}
 	
 	private List<String> getTag(RegistryKey<? extends Registry<?>> key, String name) {
