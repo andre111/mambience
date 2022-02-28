@@ -3537,5 +3537,28 @@
 		"sounds": [
 			"mambience:equip/tool"
 		]
+	},
+	"attack.hit.sword": {
+		"category": "player",
+		"sounds": [
+			"mambience:attack/hit/sword0",
+			"mambience:attack/hit/sword1",
+			"mambience:attack/hit/sword2",
+			"mambience:attack/hit/sword3"
+		]
+	},
+	"attack.swing.sword": {
+		"category": "player",
+		"sounds": [
+			"mambience:attack/swing/sword0",
+			"mambience:attack/swing/sword1",
+			"mambience:attack/swing/sword2",
+			"mambience:attack/swing/sword3",
+			"mambience:attack/swing/sword4",
+			"mambience:attack/swing/sword5",
+			"mambience:attack/swing/sword6",
+			"mambience:attack/swing/sword7",
+			"mambience:attack/swing/sword8"
+		]
 	}
 }

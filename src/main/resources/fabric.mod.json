@@ -27,6 +27,9 @@
       "me.andre111.mambience.fabric.config.ConfigScreen"
     ]
   },
+  "mixins": [
+    "mambience.mixins.json"
+  ],
 
   "depends": {
     "cloth-config2": ">=6.0.0",

@@ -58,6 +58,13 @@ public class MAScheduler {
 		}
 	}
 	
+	public MAPlayer getPlayer(UUID player) {
+		for(MAPlayer maplayer : players) {
+			if(maplayer.getPlayerUUID().equals(player)) return maplayer;
+		}
+		return null;
+	}
+	
 	public void clearPlayers() {
 		clearPlayers = true;
 	}
@@ -175,5 +182,10 @@ public class MAScheduler {
 		for(AmbientEvent event : EventLoader.getEvents(trigger)) {
 			event.update(maplayer);
 		}
+	}
+	
+	public void triggerEvents(UUID player, String trigger) {
+		MAPlayer maplayer = getPlayer(player);
+		if(maplayer != null) triggerEvents(maplayer, trigger);
 	}
 }

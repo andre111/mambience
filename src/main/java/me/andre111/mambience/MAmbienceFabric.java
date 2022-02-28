@@ -31,15 +31,22 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
+import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
+import net.fabricmc.fabric.api.event.player.UseItemCallback;
 import net.fabricmc.fabric.api.networking.v1.S2CPlayChannelEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.TypedActionResult;
 
 public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger();
@@ -52,7 +59,7 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	private int ticker;
 	private long lastTick;
 
-	private boolean runClientSide;
+	public boolean runClientSide;
 	private boolean serverPresent;
 
 	@Override
@@ -69,8 +76,31 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 
 	// note: call from both initialize methods, because fabric creates two separate instances
 	private void initCommon() {
+		if(instance != null) return;
 		instance = this;
+		
 		MAmbience.init(new MALogger(LOGGER::info, LOGGER::error), new File("./config/mambience"));
+		
+		// use FabricAPI events to trigger (only exception is ATTACK_SWING which required a custom mixin)
+		//TODO: add phase to guarantee execution before default listeners (that could cancel the event - but should sounds be played then?)
+		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
+			if(world.isClient && !runClientSide) return ActionResult.PASS;
+			
+			MAmbience.getScheduler().triggerEvents(player.getUuid(), "ATTACK_BLOCK");
+			return ActionResult.PASS;
+		});
+		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+			if(world.isClient && !runClientSide) return ActionResult.PASS;
+			
+			MAmbience.getScheduler().triggerEvents(player.getUuid(), "ATTACK_HIT");
+			return ActionResult.PASS;
+		});
+		UseItemCallback.EVENT.register((player, world, hand) -> {
+			if(world.isClient && !runClientSide) return TypedActionResult.pass(ItemStack.EMPTY);
+
+			MAmbience.getScheduler().triggerEvents(player.getUuid(), hand == Hand.MAIN_HAND ? "USE_ITEM_MAINHAND" : "USE_ITEM_OFFHAND");
+			return TypedActionResult.pass(ItemStack.EMPTY);
+		});
 	}
 
 	private void initServer() {
@@ -123,8 +153,8 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 			serverPresent = false;
 		});
 		ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> {
-			// enable client side processing (only when not on the integrated server and the server did not report mod presence)
-			if(!runClientSide && !client.isIntegratedServerRunning() && !serverPresent) {
+			// enable client side processing (only when the server did not report mod presence)
+			if(!runClientSide && !serverPresent) {
 				MAmbience.getLogger().log("enabling client side processing");
 				ClientsideDataLoader.reloadData(handler.getRegistryManager());
 				MAmbience.addPlayer(client.player.getUuid(), new AccessorFabricClient(client.player.getUuid()));
