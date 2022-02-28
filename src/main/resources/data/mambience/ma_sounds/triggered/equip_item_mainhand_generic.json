@@ -1,0 +1,30 @@
+{
+    "sound": {
+        "name": "mambience:equip.generic",
+        "volume": 30
+    },
+    "trigger": "EQUIP_ITEM_MAINHAND",
+    "conditions": [],
+    "restrictions": [
+        {
+            "condition": "HELD_ITEM",
+            "itemOrTag": "#mambience:is_sword",
+            "mainHand": true
+        },
+        {
+            "condition": "HELD_ITEM",
+            "itemOrTag": "#mambience:is_tool",
+            "mainHand": true
+        },
+        {
+            "condition": "HELD_ITEM",
+            "itemOrTag": "#mambience:is_bow",
+            "mainHand": true
+        },
+        {
+            "condition": "SUBMERGED"
+        }
+    ],
+    "cooldownMin": 0,
+    "cooldownMax": 0
+}

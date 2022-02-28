@@ -3513,5 +3513,29 @@
 			"mambience:footsteps/wood/wood_walk8",
 			"mambience:footsteps/wood/wood_walk9"
 		]
+	},
+	"equip.bow": {
+		"category": "player",
+		"sounds": [
+			"mambience:equip/bow"
+		]
+	},
+	"equip.generic": {
+		"category": "player",
+		"sounds": [
+			"mambience:equip/generic"
+		]
+	},
+	"equip.sword": {
+		"category": "player",
+		"sounds": [
+			"mambience:equip/sword"
+		]
+	},
+	"equip.tool": {
+		"category": "player",
+		"sounds": [
+			"mambience:equip/tool"
+		]
 	}
 }

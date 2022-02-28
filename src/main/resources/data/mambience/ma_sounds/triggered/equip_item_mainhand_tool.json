@@ -1,0 +1,23 @@
+{
+    "sound": {
+        "name": "mambience:equip.tool",
+        "volume": 50,
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "trigger": "EQUIP_ITEM_MAINHAND",
+    "conditions": [
+        {
+            "condition": "HELD_ITEM",
+            "itemOrTag": "#mambience:is_tool",
+            "mainHand": true
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "SUBMERGED"
+        }
+    ],
+    "cooldownMin": 0,
+    "cooldownMax": 0
+}

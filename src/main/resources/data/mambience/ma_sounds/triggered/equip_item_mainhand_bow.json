@@ -1,0 +1,21 @@
+{
+    "sound": {
+        "name": "mambience:equip.bow",
+        "volume": 60
+    },
+    "trigger": "EQUIP_ITEM_MAINHAND",
+    "conditions": [
+        {
+            "condition": "HELD_ITEM",
+            "itemOrTag": "#mambience:is_bow",
+            "mainHand": true
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "SUBMERGED"
+        }
+    ],
+    "cooldownMin": 0,
+    "cooldownMax": 0
+}

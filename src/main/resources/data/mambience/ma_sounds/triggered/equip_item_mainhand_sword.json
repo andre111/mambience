@@ -1,0 +1,23 @@
+{
+    "sound": {
+        "name": "mambience:equip.sword",
+        "volume": 60,
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "trigger": "EQUIP_ITEM_MAINHAND",
+    "conditions": [
+        {
+            "condition": "HELD_ITEM",
+            "itemOrTag": "#mambience:is_sword",
+            "mainHand": true
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "SUBMERGED"
+        }
+    ],
+    "cooldownMin": 0,
+    "cooldownMax": 0
+}
