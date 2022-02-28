@@ -69,19 +69,16 @@ public final class MAPlayer {
 	}
 	
 	public int getCooldown(String key) {
-		if(!cooldowns.containsKey(key)) return 0;
-		
-		return cooldowns.get(key);
+		return cooldowns.getOrDefault(key, 0);
 	}
 	public void setCooldown(String key, int value) {
-		if(value<0) value = 0;
-		
-		cooldowns.put(key, value);
+		if(value<=0) cooldowns.remove(key);
+		else cooldowns.put(key, value);
 	}
 	public int updateCooldown(String key) {
-		if(!cooldowns.containsKey(key)) return 0;
+		int value = cooldowns.getOrDefault(key, 0)-1;
+		if(value < 0) return 0;
 		
-		int value = cooldowns.get(key)-1;
 		cooldowns.put(key, value);
 		return value;
 	}
