@@ -31,6 +31,9 @@ public final class Variables {
 	private boolean raining;
 	private boolean thundering;
 	
+	private String itemMainHand;
+	private String itemOffHand;
+	
 	public Variables(Accessor a) {
 		accessor = a;
 	}
@@ -49,6 +52,9 @@ public final class Variables {
 		time = accessor.getDayTime();
 		raining = accessor.isRaining();
 		thundering = accessor.isThundering();
+		
+		itemMainHand = accessor.getHeldItem(true);
+		itemOffHand = accessor.getHeldItem(false);
 	}
 	
 	public int getHeight() {
@@ -70,6 +76,13 @@ public final class Variables {
 	}
 	public boolean isThundering() {
 		return thundering;
+	}
+	
+	public String getItemMainHand() {
+		return itemMainHand;
+	}
+	public String getItemOffHand() {
+		return itemOffHand;
 	}
 	
 	private static boolean fastExposedCheck(Accessor accessor, int x, int y, int z) {

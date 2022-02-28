@@ -89,6 +89,14 @@ public class MAScheduler {
 				continue;
 			}
 			
+			// trigger events (variables holds values from last tick -> can check for changes here)
+			if(!maplayer.getAccessor().getHeldItem(true).equals(maplayer.getVariables().getItemMainHand())) {
+				triggerEvents(maplayer, "EQUIP_ITEM_MAINHAND");
+			}
+			if(!maplayer.getAccessor().getHeldItem(false).equals(maplayer.getVariables().getItemOffHand())) {
+				triggerEvents(maplayer, "EQUIP_ITEM_OFFHAND");
+			}
+			
 			// update variables
 			maplayer.getVariables().update();
 			
