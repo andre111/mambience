@@ -1,7 +1,10 @@
 {
     "sound": {
         "name": "mambience:equip.generic",
-        "volume": 30
+        "volumeMin": 20,
+        "volumeMax": 35,
+        "pitchMin": 85,
+        "pitchMax": 115
     },
     "trigger": "EQUIP_ITEM_OFFHAND",
     "conditions": [],
