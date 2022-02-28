@@ -151,11 +151,11 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 		lastTick = System.currentTimeMillis();
 
 		// update
-		MAmbience.getScheduler().runSyncUpdate();
+		MAmbience.getScheduler().runSyncTick();
 		ticker++;
 		if(ticker == 20) {
 			ticker = 0;
-			MAmbience.getScheduler().runAsyncUpdate(); //TODO: make this async
+			MAmbience.getScheduler().runAsyncSecond(); //TODO: make this async
 		}
 	}
 }

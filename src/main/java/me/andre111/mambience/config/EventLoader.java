@@ -15,12 +15,15 @@
  */
 package me.andre111.mambience.config;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.google.gson.JsonObject;
 
+import io.netty.util.internal.shaded.org.jctools.queues.MessagePassingQueue.Consumer;
 import me.andre111.mambience.MALogger;
 import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.ambient.AmbientEvent;
@@ -28,14 +31,28 @@ import me.andre111.mambience.condition.Condition;
 import me.andre111.mambience.sound.Sound;
 
 public final class EventLoader {
-	public static final Set<AmbientEvent> EVENTS = new HashSet<>();
+	private static final Map<String, Set<AmbientEvent>> EVENTS = new HashMap<>();
+	
+	public static Set<AmbientEvent> getEvents(String trigger) {
+		return EVENTS.getOrDefault(trigger, Set.of());
+	}
+	
+	public static void forAllEvents(Consumer<AmbientEvent> consumer) {
+		for(Set<AmbientEvent> set : EVENTS.values()) {
+			for(AmbientEvent event : set) {
+				consumer.accept(event);
+			}
+		}
+	}
 	
 	public static void reset() {
 		EVENTS.clear();
 	}
 	
 	public static void loadEvent(String id, JsonObject obj) {
-		EVENTS.add(loadEvent(MAmbience.getLogger(), id, obj));
+		String trigger = ConfigUtil.getString(obj, "trigger", "SECOND");
+		
+		EVENTS.computeIfAbsent(trigger, k -> new HashSet<>()).add(loadEvent(MAmbience.getLogger(), id, obj));
 	}
 	
 	private static AmbientEvent loadEvent(MALogger logger, String id, JsonObject obj) {

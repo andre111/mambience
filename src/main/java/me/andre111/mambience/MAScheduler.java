@@ -51,9 +51,7 @@ public class MAScheduler {
 		MAPlayer maplayer = new MAPlayer(player, accessor, logger);
 
 		// initialize all events(-> cooldowns), so the sounds do not play all at once the first time
-		for(AmbientEvent event : EventLoader.EVENTS) {
-			event.init(maplayer);
-		}
+		EventLoader.forAllEvents(event -> event.init(maplayer));
 		
 		synchronized(newPlayers) {
 			newPlayers.add(maplayer);
@@ -64,7 +62,7 @@ public class MAScheduler {
 		clearPlayers = true;
 	}
 	
-	public void runSyncUpdate() {
+	public void runSyncTick() {
 		long startTime = System.currentTimeMillis();
 		long variableTime = startTime;
 		timer++;
@@ -137,7 +135,7 @@ public class MAScheduler {
 		}
 	}
 	
-	public void runAsyncUpdate() {
+	public void runAsyncSecond() {
 		long startTime = System.currentTimeMillis();
 		
 		// create "unmodified" list of players
@@ -149,9 +147,7 @@ public class MAScheduler {
 		// update soundscapes
 		if(Config.ambientEvents().isEnabled()) {
 			for(MAPlayer maplayer : toUpdate) {
-				for(AmbientEvent event : EventLoader.EVENTS) {
-					event.update(maplayer);
-				}
+				triggerEvents(maplayer, "SECOND");
 			}
 		}
 		long soundTime = System.currentTimeMillis();
@@ -165,5 +161,11 @@ public class MAScheduler {
 		long endTime = System.currentTimeMillis();
 		
 		logger.log("Soundscape update took "+(soundTime-startTime)+"ms - Effect update took "+(endTime-soundTime)+"ms!");
+	}
+	
+	public void triggerEvents(MAPlayer maplayer, String trigger) {
+		for(AmbientEvent event : EventLoader.getEvents(trigger)) {
+			event.update(maplayer);
+		}
 	}
 }
