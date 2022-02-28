@@ -63,7 +63,7 @@ public class ConfigUtil {
 			float volumeMin = getFloat(object, "volumeMin", getFloat(object, "volume", 100)) / 100;
 			float volumeMax = getFloat(object, "volumeMax", getFloat(object, "volume", 100)) / 100;
 			float pitchMin = getFloat(object, "pitchMin", getFloat(object, "pitch", 100)) / 100;
-			float pitchMax = getFloat(object, "pitchMin", getFloat(object, "pitch", 100)) / 100;
+			float pitchMax = getFloat(object, "pitchMax", getFloat(object, "pitch", 100)) / 100;
 			int delay = getInt(object, "delay", 0);
 			double probability = getDouble(object, "probability", 1);;
 			
