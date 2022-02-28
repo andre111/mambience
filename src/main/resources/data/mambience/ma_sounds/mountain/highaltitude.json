@@ -29,7 +29,7 @@
         },
         {
             "condition": "BIOME",
-            "biomeOrTag": "#minecraft:is_nether",
+            "biomeOrTag": "#mambience:is_nether",
             "minPercentage": 0.4f
         },
         {

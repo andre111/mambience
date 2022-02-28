@@ -30,12 +30,12 @@
         },
         {
             "condition": "BIOME",
-            "biomeOrTag": "#minecraft:is_jungle",
+            "biomeOrTag": "#mambience:is_jungle",
             "minPercentage": 0.6f
         },
         {
             "condition": "BIOME",
-            "biomeOrTag": "#minecraft:is_taiga",
+            "biomeOrTag": "#mambience:is_taiga",
             "minPercentage": 0.6f
         },
         {
@@ -45,7 +45,7 @@
         },
         {
             "condition": "BIOME",
-            "biomeOrTag": "#minecraft:is_nether",
+            "biomeOrTag": "#mambience:is_nether",
             "minPercentage": 0.4f
         },
         {
