@@ -203,7 +203,7 @@ public abstract class AccessorFabric extends Accessor {
 		return getTag(Registry.ITEM_KEY, name);
 	}
 	
-	private List<String> getTag(RegistryKey<? extends Registry<?>> key, String name) {
+	private <T> List<String> getTag(RegistryKey<? extends Registry<T>> key, String name) {
 		// this whole implementation is not the most efficient - but as the returned lists are cached it is acceptable
 		try {
 			List<Identifier> tagEntries = getTagEntries(key, new Identifier(name));
