@@ -11,8 +11,8 @@
         },
         {
             "condition": "HEIGHT",
-            "minHeight": 100f,
-            "maxHeight": 300f
+            "minHeight": 100,
+            "maxHeight": 300
         },
         {
             "condition": "BLOCK",

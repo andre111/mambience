@@ -6,8 +6,8 @@
     "conditions": [
         {
             "condition": "HEIGHT",
-            "minHeight": 110f,
-            "maxHeight": 400f
+            "minHeight": 110,
+            "maxHeight": 400
         },
         {
             "condition": "BLOCK",
