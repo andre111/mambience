@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.config;
+package me.andre111.mambience.data.loader;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.JsonObject;
 
+import me.andre111.mambience.config.Config;
+import me.andre111.mambience.config.ConfigUtil;
 import me.andre111.mambience.footstep.FSMaterial;
 import me.andre111.mambience.sound.Sound;
 

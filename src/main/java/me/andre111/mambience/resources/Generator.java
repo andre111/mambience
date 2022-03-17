@@ -35,11 +35,15 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public final class Generator {
-	protected static void generate(String dir) {
+	public static void generate(String dir) {
+		generate(dir, "./");
+	}
+	
+	public static void generate(String dir, String targetPath) {
 		try {
 			Map<String, String> env = new HashMap<>();
 			env.put("create", "true");
-			Path path = Paths.get("./Mambience-"+getVersion()+"-"+dir+".zip");
+			Path path = getFilePath(dir, targetPath);
 			Files.deleteIfExists(path);
 			URI uri = URI.create("jar:" + path.toUri());
 
@@ -60,9 +64,15 @@ public final class Generator {
 		}
 	}
 	
-	private static String getVersion() throws IOException {
+	public static Path getFilePath(String dir, String targetPath) {
+		return Paths.get(targetPath + "Mambience-"+getVersion()+"-"+dir+".zip");
+	}
+	
+	private static String getVersion() {
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(Generator.class.getResourceAsStream("/version.txt"), "UTF-8"))) {
 			return reader.readLine();
+		} catch(IOException e) {
+			return "unkown";
 		}
 	}
 

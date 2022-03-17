@@ -85,19 +85,19 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 		AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
 			if(world.isClient && !runClientSide) return ActionResult.PASS;
 			
-			MAmbience.getScheduler().triggerEvents(player.getUuid(), "ATTACK_BLOCK");
+			MAmbience.getScheduler().triggerEvents(player.getUuid(), MATrigger.ATTACK_BLOCK);
 			return ActionResult.PASS;
 		});
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
 			if(world.isClient && !runClientSide) return ActionResult.PASS;
 			
-			MAmbience.getScheduler().triggerEvents(player.getUuid(), "ATTACK_HIT");
+			MAmbience.getScheduler().triggerEvents(player.getUuid(), MATrigger.ATTACK_HIT);
 			return ActionResult.PASS;
 		});
 		UseItemCallback.EVENT.register((player, world, hand) -> {
 			if(world.isClient && !runClientSide) return TypedActionResult.pass(ItemStack.EMPTY);
 
-			MAmbience.getScheduler().triggerEvents(player.getUuid(), hand == Hand.MAIN_HAND ? "USE_ITEM_MAINHAND" : "USE_ITEM_OFFHAND");
+			MAmbience.getScheduler().triggerEvents(player.getUuid(), hand == Hand.MAIN_HAND ? MATrigger.USE_ITEM_MAINHAND : MATrigger.USE_ITEM_OFFHAND);
 			return TypedActionResult.pass(ItemStack.EMPTY);
 		});
 	}

@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import me.andre111.mambience.MAmbience;
-import me.andre111.mambience.config.FootstepLoader;
+import me.andre111.mambience.data.loader.FootstepLoader;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.registry.Registry;
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.config;
+package me.andre111.mambience.data.loader;
 
 import java.util.Arrays;
 import java.util.HashMap;

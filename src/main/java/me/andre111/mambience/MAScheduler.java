@@ -27,7 +27,7 @@ import java.util.UUID;
 import me.andre111.mambience.accessor.Accessor;
 import me.andre111.mambience.ambient.AmbientEvent;
 import me.andre111.mambience.config.Config;
-import me.andre111.mambience.config.EventLoader;
+import me.andre111.mambience.data.loader.EventLoader;
 import me.andre111.mambience.effect.Effects;
 import me.andre111.mambience.scan.BlockScanner;
 
@@ -100,7 +100,7 @@ public class MAScheduler {
 			
 			// update events
 			if(Config.ambientEvents().isEnabled()) {
-				triggerEvents(maplayer, "TICK");
+				triggerEvents(maplayer, MATrigger.TICK);
 			}
 			
 			// update footsteps
@@ -154,7 +154,7 @@ public class MAScheduler {
 		// update events
 		if(Config.ambientEvents().isEnabled()) {
 			for(MAPlayer maplayer : players) {
-				triggerEvents(maplayer, "SECOND");
+				triggerEvents(maplayer, MATrigger.SECOND);
 			}
 		}
 		long soundTime = System.currentTimeMillis();

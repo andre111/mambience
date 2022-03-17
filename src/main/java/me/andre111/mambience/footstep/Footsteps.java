@@ -19,7 +19,7 @@ import java.util.List;
 
 import me.andre111.mambience.MAPlayer;
 import me.andre111.mambience.accessor.Accessor;
-import me.andre111.mambience.config.FootstepLoader;
+import me.andre111.mambience.data.loader.FootstepLoader;
 import me.andre111.mambience.sound.Sound;
 
 public class Footsteps {	

@@ -17,6 +17,11 @@ repositories {
     maven {
     	url "https://maven.terraformersmc.com/releases"
     }
+    maven {
+        name "spigot-repo"
+        url "https://hub.spigotmc.org/nexus/content/groups/public"
+    }
+    mavenLocal()
 }
 
 dependencies {
@@ -37,6 +42,9 @@ dependencies {
 	include("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_version}"){
         exclude(group: "net.fabricmc.fabric-api")
     }
+    
+    // Spigot stuff:
+    implementation "org.spigotmc:spigot-api:${project.spigot_version}"
 }
 
 processResources {
@@ -68,6 +76,7 @@ tasks.withType(JavaCompile) {
     options.release = 17
 }
 
+// create "special" versions and extract resource and data packs
 task noAssetsJar(type: Zip, dependsOn: remapJar) {
 	from zipTree(remapJar.outputs.files[0])
 	destinationDir = file("build/libs/")

@@ -1,0 +1,9 @@
+name: MAmbience
+main: me.andre111.mambience.MAmbienceBukkit
+version: ${version}
+website: https://andre-schweiger.de
+author: andre111
+description: Adding ambient sounds to Minecraft
+
+api-version: 1.18
+load: STARTUP

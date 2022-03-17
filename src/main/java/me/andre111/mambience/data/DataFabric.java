@@ -13,22 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.fabric;
+package me.andre111.mambience.data;
 
-import me.andre111.mambience.data.DataLocatorFabric;
-import me.andre111.mambience.data.loader.DataLoader;
-import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
-import net.minecraft.resource.ResourceManager;
-import net.minecraft.util.Identifier;
+import java.io.InputStream;
 
-public class MAmbienceResourceReloadListener implements SimpleSynchronousResourceReloadListener {
-	@Override
-	public Identifier getFabricId() {
-		return new Identifier("mambience", "maeffects");
+import net.minecraft.resource.Resource;
+
+public class DataFabric implements Data {
+	private final Resource resource;
+	
+	public DataFabric(Resource resource) {
+		this.resource = resource;
 	}
 
 	@Override
-	public void reload(ResourceManager manager) {
-		DataLoader.reload(new DataLocatorFabric(manager));
+	public InputStream openInputStream() {
+		return resource.getInputStream();
 	}
 }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package me.andre111.mambience.config;
+package me.andre111.mambience.data.loader;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -28,6 +28,8 @@ import me.andre111.mambience.MALogger;
 import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.ambient.AmbientEvent;
 import me.andre111.mambience.condition.Condition;
+import me.andre111.mambience.config.Config;
+import me.andre111.mambience.config.ConfigUtil;
 import me.andre111.mambience.sound.Sound;
 
 public final class EventLoader {

@@ -21,6 +21,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import me.andre111.mambience.MATrigger;
 import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.MAmbienceFabric;
 import net.minecraft.entity.Entity;
@@ -44,7 +45,7 @@ public abstract class MixinLivingEntity extends Entity {
 		if(!this.handSwinging && hand == Hand.MAIN_HAND && (Object) this instanceof PlayerEntity) {
 			if(this.world.isClient && !MAmbienceFabric.instance.runClientSide) return;
 			
-			MAmbience.getScheduler().triggerEvents(this.getUuid(), "ATTACK_SWING");
+			MAmbience.getScheduler().triggerEvents(this.getUuid(), MATrigger.ATTACK_SWING);
 		}
 	}
 }
