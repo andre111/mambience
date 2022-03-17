@@ -1,4 +1,5 @@
 cave.cave
+cave.drip
 cave.lava
 cave.vent
 cave.wind

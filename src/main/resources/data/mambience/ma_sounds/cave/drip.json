@@ -1,0 +1,35 @@
+{
+    "sound": {
+        "name": "mambience:cave.drip",
+        "volume": 90,
+        "pitchMin": 90,
+        "pitchMax": 110
+    },
+    "conditions": [
+        {
+            "condition": "UNDERGROUND"
+        },
+        {
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_dripstone",
+            "minPercentage": 0.5f
+        }
+    ],
+    "restrictions": [
+        {
+            "condition": "SUBMERGED"
+        },
+        {
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_nether",
+            "minPercentage": 0.4f
+        },
+        {
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_end",
+            "minPercentage": 0.4f
+        }
+    ],
+    "cooldownMin": 5,
+    "cooldownMax": 30
+}

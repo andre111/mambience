@@ -21,7 +21,6 @@ repositories {
         name "spigot-repo"
         url "https://hub.spigotmc.org/nexus/content/groups/public"
     }
-    mavenLocal()
 }
 
 dependencies {
