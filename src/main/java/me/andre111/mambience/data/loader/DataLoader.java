@@ -29,7 +29,6 @@ import com.google.gson.JsonParser;
 import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.data.Data;
 import me.andre111.mambience.data.DataLocator;
-import me.andre111.mambience.fabric.FootstepBlockMapGenerator;
 
 public class DataLoader {
 	public static void reload(DataLocator locator) {
@@ -43,9 +42,6 @@ public class DataLoader {
 		loadEntries(locator, "ma_sounds", EventLoader::loadEvent);
 		loadEntries(locator, "ma_effects", EffectLoader::loadEffect);
 		loadReplaceable(locator, "mambience:ma_footsteps.json", FootstepLoader::reset, FootstepLoader::loadFootsteps);
-		
-		// notify for missing material entries
-		FootstepBlockMapGenerator.scanForMissingBlockMapEntries();
 	}
 	
 	private static void loadEntries(DataLocator locator, String startingPath, BiConsumer<String, JsonObject> callback) {

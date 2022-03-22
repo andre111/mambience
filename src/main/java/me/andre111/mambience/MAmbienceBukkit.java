@@ -15,6 +15,7 @@
  */
 package me.andre111.mambience;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -33,6 +34,8 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.andre111.mambience.accessor.AccessorBukkit;
+import me.andre111.mambience.data.fallback.FallbackDatapackDataLocator;
+import me.andre111.mambience.data.loader.DataLoader;
 import me.andre111.mambience.resources.Generator;
 
 //TODO: Missing important implementation parts:
@@ -49,18 +52,24 @@ public class MAmbienceBukkit extends JavaPlugin implements Listener {
 		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "mambience:server");
 		
 		// extract datapack into folder for server to load it
-		String targetPath = "./world/datapacks/";
-		if(!Files.exists(Generator.getFilePath("data", targetPath))) {
+		String datapackPath = "./"+Bukkit.getWorlds().get(0).getName()+"/datapacks/";
+		if(!Files.exists(Generator.getFilePath("data", datapackPath))) {
 			try {
 				MAmbience.getLogger().log("Extracting datapack to default world, if this location has been changed please move the generated datapack accordingly!");
 				MAmbience.getLogger().log("Please ensure that only one mambience datapack exists if you previously ran an older version of MAmbience.");
-				Files.createDirectories(Paths.get(targetPath));
-				Generator.generate("data", targetPath);
+				Files.createDirectories(Paths.get(datapackPath));
+				Generator.generate("data", datapackPath);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		
+		// load data using fallback implementation
+		//TODO: whenever (if ever) the bukkit api provides access to datapacks switch to using that because of more features
+		FallbackDatapackDataLocator locator = new FallbackDatapackDataLocator(new File(datapackPath));
+		DataLoader.reload(locator);
+		locator.close();
     }
     
     @EventHandler

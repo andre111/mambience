@@ -30,5 +30,8 @@ public class MAmbienceResourceReloadListener implements SimpleSynchronousResourc
 	@Override
 	public void reload(ResourceManager manager) {
 		DataLoader.reload(new DataLocatorFabric(manager));
+		
+		// notify for missing material entries
+		FootstepBlockMapGenerator.scanForMissingBlockMapEntries();
 	}
 }

@@ -20,6 +20,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
+/**
+ * Defines an interface for locating and accessing data based definitions.
+ * This interface closely resembles the vanilla datapack mechanisms.
+ * Implementations SHOULD simply map this to the corresponding vanilla code whenever possible.
+ * 
+ * @author André Schweiger
+ */
 public interface DataLocator {
 	public Collection<String> findData(String startingPath, Predicate<String> pathPredicate);
 	
