@@ -27,6 +27,7 @@ import me.andre111.mambience.sound.Sound;
 
 public final class MaterialLoader {
 	private static final Map<String, FSMaterial> MATERIALS = new HashMap<>();
+	private static final FSMaterial NONE = new FSMaterial("mambience:none", new Sound[] {}, new Sound[] {}, new Sound[] {}, new Sound[] {}, new Sound[] {});
 	
 	public static void reset() {
 		MATERIALS.clear();
@@ -51,7 +52,7 @@ public final class MaterialLoader {
 		if(MATERIALS.containsKey(id)) {
 			return MATERIALS.get(id);
 		} else {
-			return MATERIALS.get("mambience:none");
+			return NONE;
 		}
 	}
 }

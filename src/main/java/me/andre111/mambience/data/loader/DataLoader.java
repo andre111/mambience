@@ -55,7 +55,7 @@ public class DataLoader {
 			try(BufferedReader reader = new BufferedReader(new InputStreamReader(locator.getData(id).openInputStream()))) {
 				JsonElement element = JsonParser.parseReader(reader);
 				if(element instanceof JsonObject object) {
-					String actualID = id.substring(0, id.length()-5);
+					String actualID = id.substring(0, id.length()-5).replace(startingPath+"/", "");
 					
 					MAmbience.getLogger().log("Loading " + actualID + " - " + id);
 					

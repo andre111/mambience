@@ -15,6 +15,7 @@
  */
 package me.andre111.mambience.data;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import net.minecraft.resource.Resource;
@@ -27,7 +28,7 @@ public class DataFabric implements Data {
 	}
 
 	@Override
-	public InputStream openInputStream() {
+	public InputStream openInputStream() throws IOException {
 		return resource.getInputStream();
 	}
 }

@@ -23,6 +23,11 @@
             "condition": "BIOME",
             "biomeOrTag": "#mambience:is_end",
             "minPercentage": 0.4f
+        },
+        {
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_silent",
+            "minPercentage": 0.4f
         }
     ],
     "cooldownMin": 10,

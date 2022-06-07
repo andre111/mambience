@@ -49,17 +49,17 @@ public class AccessorFabricClient extends AccessorFabric {
 	// Sound related methods
 	@Override
 	public void playSound(String sound, float volume, float pitch) {
-		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, (float)player.getX(), (float)player.getY(), (float)player.getZ(), false));
+		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, (float)player.getX(), (float)player.getY(), (float)player.getZ(), false));
 	}
 	
 	@Override
 	public void playSound(String sound, double x, double y, double z, float volume, float pitch) {
-		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false));
+		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.AMBIENT, volume, pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false));
 	}
 
 	@Override
 	public void playGlobalSound(String sound, double x, double y, double z, float volume, float pitch) {
-		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.PLAYERS, volume, pitch, false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false));
+		MinecraftClient.getInstance().getSoundManager().play(new PositionedSoundInstance(new Identifier(sound), SoundCategory.PLAYERS, volume, pitch, SoundInstance.createRandom(), false, 0, SoundInstance.AttenuationType.LINEAR, x, y, z, false));
 	}
 
 	@Override

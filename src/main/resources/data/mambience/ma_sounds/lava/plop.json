@@ -13,6 +13,11 @@
     "restrictions": [
         {
             "condition": "SUBMERGED"
+        },
+        {
+            "condition": "BIOME",
+            "biomeOrTag": "#mambience:is_silent",
+            "minPercentage": 0.4f
         }
     ],
     "cooldownMin": 10,

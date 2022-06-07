@@ -33,12 +33,13 @@ public class DataLocatorFabric implements DataLocator {
 
 	@Override
 	public Collection<String> findData(String startingPath, Predicate<String> pathPredicate) {
-		return manager.findResources(startingPath, pathPredicate).stream().map(id -> id.toString()).collect(Collectors.toList());
+		Predicate<Identifier> idPredicate = id -> pathPredicate.test(id.getPath());
+		return manager.findResources(startingPath, idPredicate).keySet().stream().map(id -> id.toString()).collect(Collectors.toList());
 	}
 
 	@Override
 	public Data getData(String id) throws IOException {
-		return new DataFabric(manager.getResource(new Identifier(id)));
+		return new DataFabric(manager.getResource(new Identifier(id)).get());
 	}
 
 	@Override

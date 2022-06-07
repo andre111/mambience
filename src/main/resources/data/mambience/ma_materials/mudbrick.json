@@ -1,0 +1,31 @@
+{
+    "walk": [
+        "minecraft:block.mud_bricks.step",
+        {
+            "name": "mud.mud_walk",
+            "volume": 0.2
+        }
+    ],
+    "wander": [
+        {
+            "name": "mud.mud_wander",
+            "volume": 0.2
+        }
+    ],
+    "land": [
+        "minecraft:block.mud_bricks.fall",
+        {
+            "delay": 50,
+            "name": "minecraft:block.mud_bricks.fall"
+        },
+        {
+            "name": "mud.mud_walk",
+            "volume": 0.2
+        },
+        {
+            "delay": 50,
+            "name": "mud.mud_walk",
+            "volume": 0.2
+        }
+    ]
+}

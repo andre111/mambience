@@ -88,7 +88,6 @@ public class ClientsideDataLoader {
 			
 			// close all resources
 			resourceManager.close();
-			packManager.close();
 		});
 		
 		// notify of exceptions
@@ -98,7 +97,6 @@ public class ClientsideDataLoader {
 
 			// close all resources
 			resourceManager.close();
-			packManager.close();
 			return null;
 		});
 	}
@@ -109,7 +107,7 @@ public class ClientsideDataLoader {
 		for(var tag : registryTags.tags().entrySet()) {
 			List<Identifier> idList = new ArrayList<>();
 			
-			for(var entry : tag.getValue().values()) {
+			for(var entry : tag.getValue()) {
 				if(entry.getKey().isPresent()) {
 					idList.add(entry.getKey().get().getValue());
 				}

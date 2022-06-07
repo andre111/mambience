@@ -39,7 +39,6 @@ import me.andre111.mambience.data.loader.DataLoader;
 import me.andre111.mambience.resources.Generator;
 
 //TODO: Missing important implementation parts:
-// data loading! (somewhat abstracted system exists but needs bukkit implementation - will see if I find the time the contribute the required api)
 // biome tags are currently not supported by spigot - but the existing code should work once that changes
 public class MAmbienceBukkit extends JavaPlugin implements Listener {
 	@Override

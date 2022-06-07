@@ -73,6 +73,16 @@ public class FootstepBlockMapGenerator {
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.CHAIN, "metalbar");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.NETHER_GOLD_ORE, "netherrack");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.GILDED_BLACKSTONE, "stone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MANGROVE_ROOTS, "straw,log");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MUDDY_MANGROVE_ROOTS, "straw,log,mud");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MUD, "mud");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MUD_BRICKS, "mudbrick");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_CATALYST, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_SENSOR, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_SHRIEKER, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_VEIN, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.FROGLIGHT, "organic,glowstone");
 	}
 	
 	public static void scanForMissingBlockMapEntries() {
