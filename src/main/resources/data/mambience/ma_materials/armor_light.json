@@ -2,22 +2,34 @@
     "walk": {
         "name": "armor.light_walk",
         "pitchMin": 80,
-        "pitchMax": 100
+        "pitchMax": 100,
+        "volumeMin": 50,
+        "volumeMax": 50
     },
     "jump": {
         "name": "armor.light_walk",
         "pitchMin": 80,
-        "pitchMax": 100
+        "pitchMax": 100,
+        "volumeMin": 50,
+        "volumeMax": 50
     },
     "run": {
         "name": "armor.light_run",
         "pitchMin": 100,
-        "pitchMax": 105
+        "pitchMax": 105,
+        "volumeMin": 50,
+        "volumeMax": 50
     },
     "wander": {
         "name": "armor.light_walk",
         "pitchMin": 80,
-        "pitchMax": 100
+        "pitchMax": 100,
+        "volumeMin": 50,
+        "volumeMax": 50
     },
-    "land": "armor.light_walk"
+    "land": {
+        "name": "armor.light_walk",
+        "volumeMin": 50,
+        "volumeMax": 50
+    }
 }

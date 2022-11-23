@@ -1,10 +1,30 @@
 {
-    "walk": "armor.medium_foot",
-    "jump": "armor.medium_foot",
-    "run": "armor.medium_foot",
-    "wander": "armor.medium_foot",
+    "walk": {
+        "name": "armor.medium_foot",
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
+    "jump": {
+        "name": "armor.medium_foot",
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
+    "run": {
+        "name": "armor.medium_foot",
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
+    "wander": {
+        "name": "armor.medium_foot",
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
     "land": [
-        "armor.medium_foot",
+        {
+            "name": "armor.medium_foot",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
         {
             "name": "armor.medium_foot",
             "volumeMin": 50,
@@ -12,7 +32,9 @@
         },
         {
             "delay": 50,
-            "name": "armor.medium_foot"
+            "name": "armor.medium_foot",
+            "volumeMin": 50,
+            "volumeMax": 50
         }
     ]
 }

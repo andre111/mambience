@@ -1,10 +1,30 @@
 {
-    "walk": "armor.crystal_walk",
-    "run": "armor.crystal_run",
-    "wander": "armor.crystal_walk",
-    "jump": "armor.crystal_walk",
+    "walk": {
+        "name": "armor.crystal_walk",
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
+    "run": {
+        "name": "armor.crystal_run",
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
+    "wander": {
+        "name": "armor.crystal_walk",
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
+    "jump": {
+        "name": "armor.crystal_walk",
+        "volumeMin": 50,
+        "volumeMax": 50
+    },
     "land": [
-        "armor.crystal_walk",
+        {
+            "name": "armor.crystal_walk",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
         {
             "name": "armor.crystal_walk",
             "volumeMin": 50,
@@ -12,7 +32,9 @@
         },
         {
             "delay": 50,
-            "name": "armor.crystal_run"
+            "name": "armor.crystal_run",
+            "volumeMin": 50,
+            "volumeMax": 50
         }
     ]
 }
