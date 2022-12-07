@@ -15,7 +15,7 @@
  */
 package me.andre111.mambience.sound;
 
-public final record Sound(String name, float volumeMin, float volumeMax, float pitchMin,float pitchMax, int delay, double probability) {
+public final record Sound(String name, float volumeMin, float volumeMax, float pitchMin, float pitchMax, int delay, double probability) {
 	public Sound {
 		// TODO> perform some validation checks
 	}

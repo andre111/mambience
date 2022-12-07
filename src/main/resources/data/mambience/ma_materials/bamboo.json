@@ -1,0 +1,21 @@
+{
+    "run": {
+        "name": "minecraft:block.bamboo_wood.step"
+    },
+    "walk": {
+        "name": "minecraft:block.bamboo_wood.step"
+    },
+    "wander": "dirt.dirt_wander",
+    "land": [
+        "wood.wood_walk",
+        {
+            "name": "minecraft:block.bamboo_wood.fall",
+            "volumeMin": 50,
+            "volumeMax": 50
+        },
+        {
+            "delay": 50,
+            "name": "minecraft:block.bamboo_wood.fall"
+        }
+    ]
+}

@@ -30,11 +30,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
-import net.minecraft.tag.FluidTags;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.FluidTags;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.LightType;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.dimension.DimensionType;
@@ -107,7 +109,7 @@ public abstract class AccessorFabric extends Accessor {
 		
 		// get item identifier
 		Item item = itemstack.getItem();
-		return item != null ? Registry.ITEM.getId(item).toString() : "";
+		return item != null ? Registries.ITEM.getId(item).toString() : "";
 	}
 	
 	@Override
@@ -116,7 +118,7 @@ public abstract class AccessorFabric extends Accessor {
 
 		// get item identifier
 		Item item = itemstack.getItem();
-		return item != null ? Registry.ITEM.getId(item).toString() : "";
+		return item != null ? Registries.ITEM.getId(item).toString() : "";
 	}
 
 	// World related methods
@@ -144,7 +146,7 @@ public abstract class AccessorFabric extends Accessor {
 	public String getBlock(int x, int y, int z) {
 		BlockState block = player.getEntityWorld().getBlockState(new BlockPos(x, y, z));
 		
-		return block != null ? Registry.BLOCK.getId(block.getBlock()).toString() : "";
+		return block != null ? Registries.BLOCK.getId(block.getBlock()).toString() : "";
 	}
 
 	@Override
@@ -154,7 +156,7 @@ public abstract class AccessorFabric extends Accessor {
 	
 	@Override
 	public String getDimension() {
-		Registry<DimensionType> registry = player.getEntityWorld().getRegistryManager().get(Registry.DIMENSION_TYPE_KEY);
+		Registry<DimensionType> registry = player.getEntityWorld().getRegistryManager().get(RegistryKeys.DIMENSION_TYPE);
 		Identifier dimensionId = registry.getId(player.getEntityWorld().getDimension());
 		
 		return (dimensionId != null) ? dimensionId.toString() : "";
@@ -177,30 +179,30 @@ public abstract class AccessorFabric extends Accessor {
 
 	@Override
 	public double getTemperature(int x, int y, int z) {
-		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(Registry.BIOME_KEY);
+		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(RegistryKeys.BIOME);
 		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getKey().map(key -> registry.get(key).getTemperature()).orElse(0f);
 	}
 
 	@Override
 	public double getHumidity(int x, int y, int z) {
-		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(Registry.BIOME_KEY);
+		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(RegistryKeys.BIOME);
 		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getKey().map(key -> registry.get(key).getDownfall()).orElse(0f);
 	}
 	
 	// Data related methods
 	@Override
 	public List<String> getBlockTag(String name) {
-		return getTag(Registry.BLOCK_KEY, name);
+		return getTag(RegistryKeys.BLOCK, name);
 	}
 	
 	@Override
 	public List<String> getBiomeTag(String name) {
-		return getTag(Registry.BIOME_KEY, name);
+		return getTag(RegistryKeys.BIOME, name);
 	}
 	
 	@Override
 	public List<String> getItemTag(String name) {
-		return getTag(Registry.ITEM_KEY, name);
+		return getTag(RegistryKeys.ITEM, name);
 	}
 	
 	private <T> List<String> getTag(RegistryKey<? extends Registry<T>> key, String name) {

@@ -26,12 +26,13 @@ import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.entry.RegistryEntryList.Named;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryKey;
-import net.minecraft.util.registry.RegistryEntryList.Named;
 
 public class AccessorFabricClient extends AccessorFabric {
 	public AccessorFabricClient(UUID playerUUID) {
@@ -73,7 +74,7 @@ public class AccessorFabricClient extends AccessorFabric {
 	public void addParticle(String type, String parameters, double x, double y, double z, double velocityX, double velocityY, double velocityZ) {
 		if(MinecraftClient.getInstance().world == null) return;
 		
-		ParticleType<?> ptype = Registry.PARTICLE_TYPE.get(new Identifier(type));
+		ParticleType<?> ptype = Registries.PARTICLE_TYPE.get(new Identifier(type));
 		ParticleEffect particle = getParticleEffect(ptype, " "+parameters);
 		if(particle != null) {
 			MinecraftClient.getInstance().world.addParticle(particle, x, y, z, velocityX, velocityY, velocityZ);

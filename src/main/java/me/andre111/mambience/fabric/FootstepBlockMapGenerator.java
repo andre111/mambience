@@ -20,8 +20,8 @@ import java.util.Map;
 
 import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.data.loader.FootstepLoader;
+import net.minecraft.registry.Registries;
 import net.minecraft.sound.BlockSoundGroup;
-import net.minecraft.util.registry.Registry;
 
 public class FootstepBlockMapGenerator {
 	private static final Map<BlockSoundGroup, String> DEFAULT_SOUND_MAP = new HashMap<>();
@@ -36,6 +36,7 @@ public class FootstepBlockMapGenerator {
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.WOOL, "rug");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SAND, "sand");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SNOW, "snow");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.POWDER_SNOW, "snow");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.LADDER, "ladder");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.ANVIL, "metalcompressed,hardmetal");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SLIME, "mud");
@@ -73,21 +74,56 @@ public class FootstepBlockMapGenerator {
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.CHAIN, "metalbar");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.NETHER_GOLD_ORE, "netherrack");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.GILDED_BLACKSTONE, "stone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.CANDLE, "");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.AMETHYST_BLOCK, "amethyst");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.AMETHYST_CLUSTER, "amethyst");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SMALL_AMETHYST_BUD, "amethyst");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MEDIUM_AMETHYST_BUD, "amethyst");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.LARGE_AMETHYST_BUD, "amethyst");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.TUFF, "stone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.CALCITE, "stone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.DRIPSTONE_BLOCK, "stone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.POINTED_DRIPSTONE, "stone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.COPPER, "hardmetal");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.CAVE_VINES, "grass,organic");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SPORE_BLOSSOM, "brush_straw_transition,organic");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.AZALEA, "leaves");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.FLOWERING_AZALEA, "leaves");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MOSS_CARPET, "moss");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MOSS_BLOCK, "moss");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.BIG_DRIPLEAF, "grass,organic");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SMALL_DRIPLEAF, "grass,organic");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.ROOTED_DIRT, "dirt,log");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.HANGING_ROOTS, "");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.AZALEA_LEAVES, "leaves");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_SENSOR, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_CATALYST, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_VEIN, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_SHRIEKER, "sculk");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.GLOW_LICHEN, "");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.DEEPSLATE, "deepslate");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.DEEPSLATE_BRICKS, "deepslate,brickstone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.DEEPSLATE_TILES, "deepslate,brickstone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.POLISHED_DEEPSLATE, "deepslate");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.FROGLIGHT, "organic,glowstone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.FROGSPAWN, "");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MANGROVE_ROOTS, "straw,log");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MUDDY_MANGROVE_ROOTS, "straw,log,mud");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MUD, "mud");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.MUD_BRICKS, "mudbrick");
-		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK, "sculk");
-		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_CATALYST, "sculk");
-		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_SENSOR, "sculk");
-		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_SHRIEKER, "sculk");
-		DEFAULT_SOUND_MAP.put(BlockSoundGroup.SCULK_VEIN, "sculk");
-		DEFAULT_SOUND_MAP.put(BlockSoundGroup.FROGLIGHT, "organic,glowstone");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.PACKED_MUD, "dirt");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.HANGING_SIGN, "log");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.NETHER_WOOD_HANGING_SIGN, "log");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.BAMBOO_WOOD_HANGING_SIGN, "bamboo");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.BAMBOO_WOOD, "bamboo");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.NETHER_WOOD, "log");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.CHISELED_BOOKSHELF, "planks");
 	}
 	
 	public static void scanForMissingBlockMapEntries() {
-		Registry.BLOCK.forEach(block -> {
-			String id = Registry.BLOCK.getId(block).toString();
+		Registries.BLOCK.forEach(block -> {
+			String id = Registries.BLOCK.getId(block).toString();
 			if(!FootstepLoader.BLOCK_MAP.containsKey(id)) {
 				String type = DEFAULT_SOUND_MAP.get(block.getSoundGroup(block.getDefaultState()));
 				MAmbience.getLogger().log("\""+id+"\" is missing a footstep type entry - suggested: \""+type+"\"");

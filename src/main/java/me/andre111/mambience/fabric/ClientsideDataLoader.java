@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
+import java.util.function.UnaryOperator;
 
 import com.google.common.collect.Lists;
 
@@ -29,6 +30,8 @@ import me.andre111.mambience.MAmbienceFabric;
 import me.andre111.mambience.config.Config;
 import net.fabricmc.fabric.impl.resource.loader.ModResourcePackCreator;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.tag.TagManagerLoader;
 import net.minecraft.resource.FileResourcePackProvider;
 import net.minecraft.resource.LifecycledResourceManagerImpl;
 import net.minecraft.resource.ResourcePackManager;
@@ -37,11 +40,12 @@ import net.minecraft.resource.ResourceReload;
 import net.minecraft.resource.ResourceType;
 import net.minecraft.resource.SimpleResourceReload;
 import net.minecraft.resource.VanillaDataPackProvider;
-import net.minecraft.tag.TagManagerLoader;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Unit;
 import net.minecraft.util.Util;
-import net.minecraft.util.registry.DynamicRegistryManager;
 
 public class ClientsideDataLoader {
 	private static Map<Identifier, Map<Identifier, List<Identifier>>> TAG_MAP = new HashMap<>();
@@ -54,10 +58,10 @@ public class ClientsideDataLoader {
 		}
 		
 		// create manager to scan for datapacks (including mod builtins + cientsideDatapacksDir)
-		ResourcePackManager packManager = new ResourcePackManager(ResourceType.SERVER_DATA,
+		ResourcePackManager packManager = new ResourcePackManager(
 				new VanillaDataPackProvider(),
 				new ModResourcePackCreator(ResourceType.SERVER_DATA), 
-				new FileResourcePackProvider(clientsideDatapacksDir, ResourcePackSource.nameAndSource("pack.source.mambience.clientside"))
+				new FileResourcePackProvider(clientsideDatapacksDir.toPath(), ResourceType.SERVER_DATA, ResourcePackSource.create(ClientsideDataLoader.getSourceTextSupplier("pack.source.mambience.clientside"), true))
 		);
 		
 		// scan for and enable all packs
@@ -121,4 +125,10 @@ public class ClientsideDataLoader {
 	public static List<Identifier> getTag(Identifier registry, Identifier id) {
 		return TAG_MAP.getOrDefault(registry, Map.of()).getOrDefault(id, List.of());
 	}
+	
+	// copy from ResourcePackSource
+	private static UnaryOperator<Text> getSourceTextSupplier(String translationKey) {
+        MutableText text = Text.translatable(translationKey);
+        return name -> Text.translatable("pack.nameAndSource", name, text).formatted(Formatting.GRAY);
+    }
 }
