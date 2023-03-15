@@ -22,12 +22,14 @@ import me.andre111.mambience.accessor.Accessor;
 
 public final class Variables {
 	private final Accessor accessor;
+	private final BlockScanner scanner;
 	
 	private final Map<String, Object> values = new HashMap<>();
 	private final Map<String, Object> previousValues = new HashMap<>();
 	
-	public Variables(Accessor a) {
+	public Variables(Accessor a, BlockScanner s) {
 		accessor = a;
+		scanner = s;
 	}
 	
 	public void update() {
@@ -52,11 +54,13 @@ public final class Variables {
 		put("time", accessor.getDayTime());
 		put("raining", accessor.isRaining());
 		put("thundering", accessor.isThundering());
-		put("temperature", accessor.getTemperature((int) accessor.getX(), (int) accessor.getY(), (int) accessor.getZ()));
-		put("humidity", accessor.getHumidity((int) accessor.getX(), (int) accessor.getY(), (int) accessor.getZ()));
 		
 		put("itemMainHand", accessor.getHeldItem(true));
 		put("itemOffHand", accessor.getHeldItem(false));
+		
+		put("temperature", scanner.getAverageTemperature());
+		put("avgLight", scanner.getAverageLight());
+		put("avgSkyLight", scanner.getAverageSkyLight());
 	}
 	
 	public Object get(String key) {

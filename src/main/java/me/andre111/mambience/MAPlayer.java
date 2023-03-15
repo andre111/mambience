@@ -39,7 +39,7 @@ public final class MAPlayer {
 		this.playerUUID = playerUUID;
 		this.accessor = accessor;
 		this.scanner = new BlockScanner(accessor, Config.scanner().getSizeX(), Config.scanner().getSizeY(), Config.scanner().getSizeZ());
-		this.variables = new Variables(accessor);
+		this.variables = new Variables(accessor, scanner);
 		this.footsteps = new Footsteps(this);
 		this.soundPlayer = new SoundPlayer(accessor, logger);
 		this.logger = logger;

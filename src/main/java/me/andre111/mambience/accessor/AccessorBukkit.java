@@ -213,11 +213,6 @@ public class AccessorBukkit extends Accessor {
 		return player.getWorld().getTemperature(x, y, z);
 	}
 
-	@Override
-	public double getHumidity(int x, int y, int z) {
-		return player.getWorld().getHumidity(x, y, z);
-	}
-
 	// Data related methods
 	@Override
 	public List<String> getBlockTag(String name) {

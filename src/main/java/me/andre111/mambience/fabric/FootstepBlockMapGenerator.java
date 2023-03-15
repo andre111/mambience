@@ -119,6 +119,7 @@ public class FootstepBlockMapGenerator {
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.BAMBOO_WOOD, "bamboo");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.NETHER_WOOD, "log");
 		DEFAULT_SOUND_MAP.put(BlockSoundGroup.CHISELED_BOOKSHELF, "planks");
+		DEFAULT_SOUND_MAP.put(BlockSoundGroup.CHERRY_WOOD, "planks");
 	}
 	
 	public static void scanForMissingBlockMapEntries() {

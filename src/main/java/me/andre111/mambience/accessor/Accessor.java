@@ -101,7 +101,6 @@ public abstract class Accessor {
 	public abstract int getSkyLight(int x, int y, int z);
 
 	public abstract double getTemperature(int x, int y, int z);
-	public abstract double getHumidity(int x, int y, int z);
 	
 	// Data related methods
 	public abstract List<String> getBlockTag(String name);

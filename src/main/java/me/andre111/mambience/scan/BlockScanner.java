@@ -31,7 +31,6 @@ public final class BlockScanner {
 	private double averageSkyLight;
 	private double averageLight;
 	private double averageTemperature;
-	private double averageHumidity;
 	private long lastScan;
 	
 	public BlockScanner(Accessor a, int xs, int ys, int zs) {
@@ -82,7 +81,6 @@ public final class BlockScanner {
 				biomeCount.put(id, biomeCount.containsKey(id) ? biomeCount.get(id)+1 : 1);
 
 				averageTemperature += accessor.getTemperature(startX+xx, playerY, startZ+zz);
-				averageHumidity += accessor.getHumidity(startX+xx, playerY, startZ+zz);
 			}
 		}
 
@@ -90,7 +88,6 @@ public final class BlockScanner {
 		averageLight /= getScanBlockCount();
 
 		averageTemperature /= getScanBiomeCount();
-		averageHumidity  /= getScanBiomeCount();
 	}
 	
 	public void resetScanData() {
@@ -99,7 +96,6 @@ public final class BlockScanner {
 		averageSkyLight = 0;
 		averageLight = 0;
 		averageTemperature = 0;
-		averageHumidity = 0;
 	}
 	
 	public int getxSize() {
@@ -141,9 +137,6 @@ public final class BlockScanner {
 	}
 	public double getAverageTemperature() {
 		return averageTemperature;
-	}
-	public double getAverageHumidity() {
-		return averageHumidity;
 	}
 
 	public long getLastScan() {

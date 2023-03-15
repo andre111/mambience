@@ -182,12 +182,6 @@ public abstract class AccessorFabric extends Accessor {
 		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(RegistryKeys.BIOME);
 		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getKey().map(key -> registry.get(key).getTemperature()).orElse(0f);
 	}
-
-	@Override
-	public double getHumidity(int x, int y, int z) {
-		Registry<Biome> registry = player.getEntityWorld().getRegistryManager().get(RegistryKeys.BIOME);
-		return player.getEntityWorld().getBiome(new BlockPos(x, y, z)).getKey().map(key -> registry.get(key).getDownfall()).orElse(0f);
-	}
 	
 	// Data related methods
 	@Override
