@@ -72,7 +72,7 @@ public class AccessorFabricServer extends AccessorFabric {
 		if(serverPlayer == null) return;
 		
 		long seed = serverPlayer.getRandom().nextLong();
-		for(ServerPlayerEntity other : serverPlayer.getWorld().getPlayers()) {
+		for(ServerPlayerEntity other : serverPlayer.getServerWorld().getPlayers()) {
 			// check for same dimension and within audible distance
 			if(other.getEntityWorld().equals(serverPlayer.getWorld()) && other.getPos().squaredDistanceTo(serverPlayer.getPos()) < 16*16) {
 				other.networkHandler.sendPacket(new PlaySoundS2CPacket(RegistryEntry.of(SoundEvent.of(new Identifier(sound))), SoundCategory.PLAYERS, x, y, z, volume, pitch, seed));
@@ -95,7 +95,7 @@ public class AccessorFabricServer extends AccessorFabric {
 		ParticleType<?> ptype = Registries.PARTICLE_TYPE.get(new Identifier(type));
 		ParticleEffect particle = getParticleEffect(ptype, " "+parameters);
 		if(particle != null) {
-			serverPlayer.getWorld().spawnParticles(serverPlayer, particle, false, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
+			serverPlayer.getServerWorld().spawnParticles(serverPlayer, particle, false, x, y, z, 0, velocityX, velocityY, velocityZ, 1);
 		}
 	}
 

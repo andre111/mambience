@@ -127,7 +127,7 @@ public class FootstepBlockMapGenerator {
 			String id = Registries.BLOCK.getId(block).toString();
 			if(!FootstepLoader.BLOCK_MAP.containsKey(id)) {
 				String type = DEFAULT_SOUND_MAP.get(block.getSoundGroup(block.getDefaultState()));
-				MAmbience.getLogger().log("\""+id+"\" is missing a footstep type entry - suggested: \""+type+"\"");
+				MAmbience.getLogger().error("\""+id+"\" is missing a footstep type entry - suggested: \""+type+"\"");
 			}
 		});
 	}

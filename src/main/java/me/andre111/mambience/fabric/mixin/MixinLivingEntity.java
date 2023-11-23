@@ -40,10 +40,11 @@ public abstract class MixinLivingEntity extends Entity {
 		super(type, world);
 	}
 
+	@SuppressWarnings("resource")
 	@Inject(at = @At(value = "HEAD"), method = "swingHand(Lnet/minecraft/util/Hand;Z)V", cancellable = true)
 	public void swingHand(Hand hand, boolean fromServerPlayer, CallbackInfo ci) {
 		if(!this.handSwinging && hand == Hand.MAIN_HAND && (Object) this instanceof PlayerEntity) {
-			if(this.world.isClient && !MAmbienceFabric.instance.runClientSide) return;
+			if(this.getWorld().isClient && !MAmbienceFabric.instance.runClientSide) return;
 			
 			MAmbience.getScheduler().triggerEvents(this.getUuid(), MATrigger.ATTACK_SWING);
 		}

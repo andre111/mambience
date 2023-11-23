@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.1-SNAPSHOT'
+	id 'fabric-loom' version '1.4-SNAPSHOT'
 	id 'org.cadixdev.licenser' version '0.6.1'
 }
 
@@ -76,14 +76,14 @@ tasks.withType(JavaCompile) {
 }
 
 // create "special" versions and extract resource and data packs
-task noAssetsJar(type: Zip, dependsOn: remapJar) {
+/*task noAssetsJar(type: Zip, dependsOn: remapJar) {
 	from zipTree(remapJar.outputs.files[0])
 	destinationDir = file("build/libs/")
 	archiveName = "${archivesBaseName}-${version}-noAssets.jar"
 	
 	exclude "assets/**"
 }
-build.dependsOn noAssetsJar
+build.dependsOn noAssetsJar*/
 
 task createResourcePack(type: JavaExec, dependsOn: remapJar) {
 	classpath = remapJar.outputs.files

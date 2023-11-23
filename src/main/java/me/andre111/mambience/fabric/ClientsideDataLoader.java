@@ -46,11 +46,12 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Unit;
 import net.minecraft.util.Util;
+import net.minecraft.util.path.SymlinkFinder;
 
 public class ClientsideDataLoader {
 	private static Map<Identifier, Map<Identifier, List<Identifier>>> TAG_MAP = new HashMap<>();
 	
-	public static void reloadData(DynamicRegistryManager registryManager) {
+	public static void reloadData(DynamicRegistryManager registryManager, SymlinkFinder symlinkFinder) {
 		// create clientside datapack dir
 		File clientsideDatapacksDir = new File(Config.getRoot(), "clientside_datapacks"+File.separator);
 		if(!clientsideDatapacksDir.exists()) {
@@ -59,9 +60,9 @@ public class ClientsideDataLoader {
 		
 		// create manager to scan for datapacks (including mod builtins + cientsideDatapacksDir)
 		ResourcePackManager packManager = new ResourcePackManager(
-				new VanillaDataPackProvider(),
+				new VanillaDataPackProvider(symlinkFinder),
 				new ModResourcePackCreator(ResourceType.SERVER_DATA), 
-				new FileResourcePackProvider(clientsideDatapacksDir.toPath(), ResourceType.SERVER_DATA, ResourcePackSource.create(ClientsideDataLoader.getSourceTextSupplier("pack.source.mambience.clientside"), true))
+				new FileResourcePackProvider(clientsideDatapacksDir.toPath(), ResourceType.SERVER_DATA, ResourcePackSource.create(ClientsideDataLoader.getSourceTextSupplier("pack.source.mambience.clientside"), true), symlinkFinder)
 		);
 		
 		// scan for and enable all packs

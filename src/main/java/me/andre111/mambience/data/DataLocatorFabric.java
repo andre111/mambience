@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 import net.minecraft.resource.ResourceManager;
 import net.minecraft.util.Identifier;
@@ -34,7 +33,7 @@ public class DataLocatorFabric implements DataLocator {
 	@Override
 	public Collection<String> findData(String startingPath, Predicate<String> pathPredicate) {
 		Predicate<Identifier> idPredicate = id -> pathPredicate.test(id.getPath());
-		return manager.findResources(startingPath, idPredicate).keySet().stream().map(id -> id.toString()).collect(Collectors.toList());
+		return manager.findResources(startingPath, idPredicate).keySet().stream().map(id -> id.toString()).toList();
 	}
 
 	@Override
@@ -43,7 +42,7 @@ public class DataLocatorFabric implements DataLocator {
 	}
 
 	@Override
-	public List<Data> getAllData(String id) throws IOException {
-		return manager.getAllResources(new Identifier(id)).stream().map(DataFabric::new).collect(Collectors.toList());
+	public List<DataFabric> getAllData(String id) throws IOException {
+		return manager.getAllResources(new Identifier(id)).stream().map(DataFabric::new).toList();
 	}
 }

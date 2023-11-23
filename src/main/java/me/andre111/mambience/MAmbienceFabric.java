@@ -107,12 +107,16 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 		
 		// run server side processing
 		ServerTickEvents.END_SERVER_TICK.register(server -> {
+			if(!server.isDedicated()) return;
+			
 			MAmbienceFabric.server = server;
 			tick();
 		});
 
 		// Client Connect event
 		ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+			if(!server.isDedicated()) return;
+			
 			ServerPlayerEntity player = handler.getPlayer();
 
 			// register player
@@ -121,6 +125,8 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 		
 		// client registered channel -> mod is present on client side
 		S2CPlayChannelEvents.REGISTER.register((handler, sender, server, channels) -> {
+			if(!server.isDedicated()) return;
+			
 			// -> send notify payload of server side presence (mambience:server channel with "enabled" message)
 			if(channels.contains(CHANNEL)) {
 				PacketByteBuf buf = new PacketByteBuf(Unpooled.buffer());
@@ -155,15 +161,17 @@ public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 			// enable client side processing (only when the server did not report mod presence)
 			if(!runClientSide && !serverPresent) {
 				MAmbience.getLogger().log("enabling client side processing");
-				ClientsideDataLoader.reloadData(handler.getRegistryManager());
+				ClientsideDataLoader.reloadData(handler.getRegistryManager(), client.getSymlinkFinder());
 				MAmbience.addPlayer(client.player.getUuid(), new AccessorFabricClient(client.player.getUuid()));
 				runClientSide = true;
 			}
 		});
 		// this also automatically causes the fabric API to register the channel at the server thus notifying it of client side mod presence
 		ClientPlayNetworking.registerGlobalReceiver(CHANNEL, (client, handler, buf, responseSender) -> {
+			if(client.isIntegratedServerRunning()) return;
+			
 			// server has mod presence -> disable client side processing
-			MAmbience.getLogger().log("server reported MAmbience present: disabled client side processing");
+			MAmbience.getLogger().log("Server reported MAmbience present: disabled client side processing");
 			serverPresent = true;
 			if(runClientSide) {
 				MAmbience.getScheduler().clearPlayers();

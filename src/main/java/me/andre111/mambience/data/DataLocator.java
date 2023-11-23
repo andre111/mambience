@@ -31,5 +31,5 @@ public interface DataLocator {
 	public Collection<String> findData(String startingPath, Predicate<String> pathPredicate);
 	
 	public Data getData(String id) throws IOException;
-	public List<Data> getAllData(String id) throws IOException;
+	public List<? extends Data> getAllData(String id) throws IOException;
 }
