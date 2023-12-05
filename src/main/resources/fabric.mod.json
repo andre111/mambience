@@ -10,8 +10,8 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/mambience",
-    "issues": "https://bitbucket.org/andre111/mambience/issues",
-    "sources": "https://bitbucket.org/andre111/mambience/src"
+    "issues": "https://github.com/andre111/mambience/issues",
+    "sources": "https://github.com/andre111/mambience"
   },
   "icon": "pack.png",
 
@@ -32,10 +32,10 @@
   ],
 
   "depends": {
-    "cloth-config2": ">=10.0.0",
-    "fabricloader": ">=0.14.17",
-    "fabric-api": ">=0.75-3",
-    "minecraft": ">=1.20.3-beta.1"
+    "cloth-config2": ">=12.0.111",
+    "fabricloader": ">=0.15.0",
+    "fabric-api": ">=0.91.1",
+    "minecraft": "1.20.3"
   },
   "suggests": {
     "modmenu": "*"
