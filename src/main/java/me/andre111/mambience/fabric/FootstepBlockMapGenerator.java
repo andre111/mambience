@@ -20,6 +20,7 @@ import java.util.Map;
 
 import me.andre111.mambience.MAmbience;
 import me.andre111.mambience.data.loader.FootstepLoader;
+import me.andre111.mambience.config.Config;
 import net.minecraft.registry.Registries;
 import net.minecraft.sound.BlockSoundGroup;
 
@@ -128,6 +129,9 @@ public class FootstepBlockMapGenerator {
 			if(!FootstepLoader.BLOCK_MAP.containsKey(id)) {
 				String type = DEFAULT_SOUND_MAP.get(block.getSoundGroup(block.getDefaultState()));
 				MAmbience.getLogger().error("\""+id+"\" is missing a footstep type entry - suggested: \""+type+"\"");
+				if (Config.footsteps().isApplyingSuggested() && type != null) {
+					FootstepLoader.addBlock(id, type);
+				}
 			}
 		});
 	}

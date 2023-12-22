@@ -41,8 +41,8 @@ public abstract class MixinLivingEntity extends Entity {
 	}
 
 	@SuppressWarnings("resource")
-	@Inject(at = @At(value = "HEAD"), method = "swingHand(Lnet/minecraft/util/Hand;Z)V", cancellable = true)
-	public void swingHand(Hand hand, boolean fromServerPlayer, CallbackInfo ci) {
+	@Inject(at = @At(value = "HEAD"), method = "method_23667", require = 0)
+	private void swingHand(Hand hand, boolean fromServerPlayer, CallbackInfo ci) {
 		if(!this.handSwinging && hand == Hand.MAIN_HAND && (Object) this instanceof PlayerEntity) {
 			if(this.getWorld().isClient && !MAmbienceFabric.instance.runClientSide) return;
 			

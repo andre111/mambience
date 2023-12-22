@@ -44,4 +44,8 @@ public final class FootstepLoader {
 			map.put(e.getKey(), Arrays.stream(e.getValue().getAsString().split(",")).map(id -> MaterialLoader.getMaterial(id)).toList());
 		}
 	}
+
+	public static void addBlock(String block, String type) {
+		BLOCK_MAP.put(block, Arrays.stream(type.split(",")).map(id -> MaterialLoader.getMaterial(id)).toList());
+	}
 }

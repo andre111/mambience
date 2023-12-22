@@ -3,7 +3,8 @@
     
     "mambience.config.enable": "Enabled",
     "mambience.config.volume": "Volume Multiplier",
-    
+    "mambience.config.apply_suggested": "Apply Suggested Sounds",
+
     "mambience.config.sizex": "Size X",
     "mambience.config.sizex.tooltip": "Area centered around the player",
     "mambience.config.sizey": "Size Y",
