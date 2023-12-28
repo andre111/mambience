@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### v5.3.2+1.20.4
+ - Fix refmap related crash on startup
+
 ### v5.3.1+1.20.4
  - Update to 1.20.4
 
