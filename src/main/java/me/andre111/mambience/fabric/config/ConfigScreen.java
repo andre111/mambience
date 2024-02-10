@@ -133,6 +133,11 @@ public class ConfigScreen implements ModMenuApi {
 						.startIntSlider(Text.translatable("mambience.config.volume"), (int) (Config.footsteps().getVolume()*100), 0, 100)
 						.setDefaultValue((int) (Config.FootstepConfig.DEFAULT_VOLUME*100))
 						.setSaveConsumer(i -> { Config.footsteps().setVolume(i/100.0f); })
+						.build())
+				.addEntry(entryBuilder
+						.startBooleanToggle(Text.translatable("mambience.config.apply_suggested"), Config.footsteps().isApplyingSuggested())
+						.setDefaultValue(Config.FootstepConfig.DEFAULT_APPLY_SUGGESTIONS)
+						.setSaveConsumer(Config.footsteps()::setApplySuggested)
 						.build());
 			
 			// Scanner

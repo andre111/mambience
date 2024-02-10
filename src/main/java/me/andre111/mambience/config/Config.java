@@ -237,10 +237,13 @@ public final class Config {
 	public static class FootstepConfig {
 		public static final boolean DEFAULT_ENABLED = true;
 		public static final float DEFAULT_VOLUME = 0.3f;
-		
+
+		public static final boolean DEFAULT_APPLY_SUGGESTIONS = true;
+
 		private boolean enabled = DEFAULT_ENABLED;
 		private float volume = DEFAULT_VOLUME;
-		
+		private boolean applySuggestedSounds = DEFAULT_APPLY_SUGGESTIONS;
+
 		public boolean isEnabled() {
 			return enabled;
 		}
@@ -252,6 +255,13 @@ public final class Config {
 		}
 		public void setVolume(float volume) {
 			this.volume = volume;
+		}
+
+		public boolean isApplyingSuggested() {
+			return applySuggestedSounds;
+		}
+		public void setApplySuggested(boolean enabled) {
+			this.applySuggestedSounds = enabled;
 		}
 	}
 }
