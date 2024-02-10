@@ -10,6 +10,5 @@
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "refmap": "mambience-refmap.json"
+  }
 }
