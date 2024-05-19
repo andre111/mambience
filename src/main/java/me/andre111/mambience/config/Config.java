@@ -126,7 +126,7 @@ public final class Config {
 		public static final int DEFAULT_ENTITY_SIZE_X = 33;
 		public static final int DEFAULT_ENTITY_SIZE_Y = 17;
 		public static final int DEFAULT_ENTITY_SIZE_Z = 33;
-		
+
 		private int sizeX = DEFAULT_SIZE_X;
 		private int sizeY = DEFAULT_SIZE_Y;
 		private int sizeZ = DEFAULT_SIZE_X;
@@ -134,7 +134,7 @@ public final class Config {
 		private int entitySizeX = DEFAULT_ENTITY_SIZE_X;
 		private int entitySizeY = DEFAULT_ENTITY_SIZE_Y;
 		private int entitySizeZ = DEFAULT_ENTITY_SIZE_Z;
-		
+
 		public int getSizeX() {
 			return sizeX;
 		}
@@ -186,7 +186,7 @@ public final class Config {
 		public static final boolean DEFAULT_TRIGGER_ATTACK_SOUNDS = true;
 		public static final boolean DEFAULT_TRIGGER_USE_SOUNDS = true;
 		public static final boolean DEFAULT_TRIGGER_HELD_ITEM_SOUNDS = true;
-		
+
 		private boolean enabled = DEFAULT_ENABLED;
 		private float volume = DEFAULT_VOLUME;
 		private boolean stopSounds = DEFAULT_STOP_SOUNDS;
@@ -194,7 +194,7 @@ public final class Config {
 		private boolean triggerAttackSounds = DEFAULT_TRIGGER_ATTACK_SOUNDS;
 		private boolean triggerUseSounds = DEFAULT_TRIGGER_USE_SOUNDS;
 		private boolean triggerHeldItemSounds = DEFAULT_TRIGGER_HELD_ITEM_SOUNDS;
-		
+
 		public boolean isEnabled() {
 			return enabled;
 		}
@@ -286,11 +286,13 @@ public final class Config {
 		public static final boolean DEFAULT_FOOTSTEPS_ENABLED = true;
 		public static final boolean DEFAULT_ARMOR_ENABLED = true;
 		public static final float DEFAULT_VOLUME = 0.3f;
-		
+		public static final boolean DEFAULT_APPLY_SUGGESTIONS = true;
+
 		private boolean footstepsEnabled = DEFAULT_FOOTSTEPS_ENABLED;
 		private boolean armorEnabled = DEFAULT_FOOTSTEPS_ENABLED;
 		private float volume = DEFAULT_VOLUME;
-		
+		private boolean applySuggestedSounds = DEFAULT_APPLY_SUGGESTIONS;
+
 		public boolean footstepsEnabled() {
 			return footstepsEnabled;
 		}
@@ -308,6 +310,13 @@ public final class Config {
 		}
 		public void setVolume(float volume) {
 			this.volume = volume;
+		}
+
+		public boolean applySuggested() {
+			return applySuggestedSounds;
+		}
+		public void setApplySuggested(boolean enabled) {
+			this.applySuggestedSounds = enabled;
 		}
 	}
 }

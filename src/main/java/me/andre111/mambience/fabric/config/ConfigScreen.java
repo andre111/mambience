@@ -153,6 +153,11 @@ public class ConfigScreen implements ModMenuApi {
 						.startIntSlider(Text.translatable("mambience.config.volume"), (int) (Config.movement().getVolume()*100), 0, 100)
 						.setDefaultValue((int) (Config.MovementConfig.DEFAULT_VOLUME*100))
 						.setSaveConsumer(i -> { Config.movement().setVolume(i/100.0f); })
+						.build())
+				.addEntry(entryBuilder
+						.startBooleanToggle(Text.translatable("mambience.config.apply_suggested"), Config.movement().applySuggested())
+						.setDefaultValue(Config.MovementConfig.DEFAULT_APPLY_SUGGESTIONS)
+						.setSaveConsumer(Config.movement()::setApplySuggested)
 						.build());
 			
 			// Scanner
@@ -214,7 +219,7 @@ public class ConfigScreen implements ModMenuApi {
 						.setMax(65)
 						.setSaveConsumer(Config.scanner()::setEntitySizeZ)
 						.build());
-			
+
 			return builder.build();
 		};
 	}
