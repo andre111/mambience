@@ -17,7 +17,6 @@ package me.andre111.mambience.accessor;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 public abstract class Accessor {
 	protected UUID playerUUID;
@@ -103,7 +102,7 @@ public abstract class Accessor {
 
 	public abstract double getTemperature(int x, int y, int z);
 	
-	public abstract Stream<String> getEntities(double x, double y, double z, double xSize, double ySize, double zSize);
+	public abstract List<String> getEntities(double x, double y, double z, double xSize, double ySize, double zSize);
 	
 	// Data related methods
 	public abstract List<String> getBlockTag(String name);

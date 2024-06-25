@@ -19,7 +19,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.mojang.brigadier.StringReader;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
@@ -189,9 +188,9 @@ public abstract class AccessorFabric extends Accessor {
 	}
 
 	@Override
-	public Stream<String> getEntities(double x, double y, double z, double xSize, double ySize, double zSize) {
+	public List<String> getEntities(double x, double y, double z, double xSize, double ySize, double zSize) {
 		List<Entity> entities = player.getEntityWorld().getOtherEntities(player, new Box(x-xSize/2.0, y-ySize/2.0, z-zSize/2.0, x+xSize/2, y+ySize/2, z+zSize/2));
-		return entities.stream().map(entity -> EntityType.getId(entity.getType()).toString());
+		return entities.stream().map(entity -> EntityType.getId(entity.getType()).toString()).toList();
 	}
 	
 	// Data related methods

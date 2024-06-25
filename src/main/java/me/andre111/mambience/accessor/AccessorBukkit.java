@@ -19,7 +19,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -218,9 +217,9 @@ public class AccessorBukkit extends Accessor {
 	}
 
 	@Override
-	public Stream<String> getEntities(double x, double y, double z, double xSize, double ySize, double zSize) {
+	public List<String> getEntities(double x, double y, double z, double xSize, double ySize, double zSize) {
 		Collection<Entity> entities = player.getWorld().getNearbyEntities(new Location(player.getWorld(), x, y, z), xSize/2.0, ySize/2.0, zSize/2.0);
-		return entities.stream().map(entity -> entity.getType().getKey().toString());
+		return entities.stream().map(entity -> entity.getType().getKey().toString()).toList();
 	}
 
 	// Data related methods
