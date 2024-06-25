@@ -38,11 +38,11 @@ public class DataLocatorFabric implements DataLocator {
 
 	@Override
 	public Data getData(String id) throws IOException {
-		return new DataFabric(manager.getResource(new Identifier(id)).get());
+		return new DataFabric(manager.getResource(Identifier.of(id)).get());
 	}
 
 	@Override
 	public List<DataFabric> getAllData(String id) throws IOException {
-		return manager.getAllResources(new Identifier(id)).stream().map(DataFabric::new).toList();
+		return manager.getAllResources(Identifier.of(id)).stream().map(DataFabric::new).toList();
 	}
 }

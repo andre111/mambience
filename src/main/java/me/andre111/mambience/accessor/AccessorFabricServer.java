@@ -54,14 +54,14 @@ public class AccessorFabricServer extends AccessorFabric {
 	public void playSound(String sound, float volume, float pitch) {
 		if(serverPlayer == null) return;
 		
-		serverPlayer.networkHandler.sendPacket(new PlaySoundS2CPacket(RegistryEntry.of(SoundEvent.of(new Identifier(sound))), SoundCategory.AMBIENT, player.getX(), player.getY(), player.getZ(), volume, pitch, serverPlayer.getRandom().nextLong()));
+		serverPlayer.networkHandler.sendPacket(new PlaySoundS2CPacket(RegistryEntry.of(SoundEvent.of(Identifier.of(sound))), SoundCategory.AMBIENT, player.getX(), player.getY(), player.getZ(), volume, pitch, serverPlayer.getRandom().nextLong()));
 	}
 
 	@Override
 	public void playSound(String sound, double x, double y, double z, float volume, float pitch) {
 		if(serverPlayer == null) return;
 		
-		serverPlayer.networkHandler.sendPacket(new PlaySoundS2CPacket(RegistryEntry.of(SoundEvent.of(new Identifier(sound))), SoundCategory.AMBIENT, x, y, z, volume, pitch, serverPlayer.getRandom().nextLong()));
+		serverPlayer.networkHandler.sendPacket(new PlaySoundS2CPacket(RegistryEntry.of(SoundEvent.of(Identifier.of(sound))), SoundCategory.AMBIENT, x, y, z, volume, pitch, serverPlayer.getRandom().nextLong()));
 	}
 	
 
@@ -73,7 +73,7 @@ public class AccessorFabricServer extends AccessorFabric {
 		for(ServerPlayerEntity other : serverPlayer.getServerWorld().getPlayers()) {
 			// check for same dimension and within audible distance
 			if(other.getEntityWorld().equals(serverPlayer.getWorld()) && other.getPos().squaredDistanceTo(serverPlayer.getPos()) < 16*16) {
-				other.networkHandler.sendPacket(new PlaySoundS2CPacket(RegistryEntry.of(SoundEvent.of(new Identifier(sound))), SoundCategory.PLAYERS, x, y, z, volume, pitch, seed));
+				other.networkHandler.sendPacket(new PlaySoundS2CPacket(RegistryEntry.of(SoundEvent.of(Identifier.of(sound))), SoundCategory.PLAYERS, x, y, z, volume, pitch, seed));
 			}
 		}
 	}
@@ -82,7 +82,7 @@ public class AccessorFabricServer extends AccessorFabric {
 	public void stopSound(String sound) {
 		if(serverPlayer == null) return;
 		
-		serverPlayer.networkHandler.sendPacket(new StopSoundS2CPacket(new Identifier(sound), SoundCategory.AMBIENT));
+		serverPlayer.networkHandler.sendPacket(new StopSoundS2CPacket(Identifier.of(sound), SoundCategory.AMBIENT));
 	}
 
 	// Particle related methods

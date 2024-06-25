@@ -53,7 +53,7 @@ import net.minecraft.util.TypedActionResult;
 
 public class MAmbienceFabric implements ModInitializer, ClientModInitializer {
 	public static final Logger LOGGER = LogManager.getLogger();
-	public static final Identifier CHANNEL = new Identifier("mambience", "server");
+	public static final Identifier CHANNEL = Identifier.of("mambience", "server");
 	public static final MAmbienceResourceReloadListener RELOAD_LISTENER = new MAmbienceResourceReloadListener();
 	
 	public static record CPMAmbiance(boolean enabled) implements CustomPayload {

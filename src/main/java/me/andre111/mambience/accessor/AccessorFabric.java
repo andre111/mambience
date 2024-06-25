@@ -218,7 +218,7 @@ public abstract class AccessorFabric extends Accessor {
 	private <T> List<String> getTag(RegistryKey<? extends Registry<T>> key, String name) {
 		// this whole implementation is not the most efficient - but as the returned lists are cached it is acceptable
 		try {
-			List<Identifier> tagEntries = getTagEntries(key, new Identifier(name));
+			List<Identifier> tagEntries = getTagEntries(key, Identifier.of(name));
 			return tagEntries.stream().map(id -> id.toString()).collect(Collectors.toList());
 		} catch(Exception e) {
 			MAmbience.getLogger().error("Error accessing tag: " + name + ": " + e.getMessage());

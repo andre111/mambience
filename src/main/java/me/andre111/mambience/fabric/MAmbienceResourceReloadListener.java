@@ -24,7 +24,7 @@ import net.minecraft.util.Identifier;
 public class MAmbienceResourceReloadListener implements SimpleSynchronousResourceReloadListener {
 	@Override
 	public Identifier getFabricId() {
-		return new Identifier("mambience", "maeffects");
+		return Identifier.of("mambience", "maeffects");
 	}
 
 	@Override
